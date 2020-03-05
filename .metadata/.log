@@ -154,3 +154,6 @@ Caused by: java.io.EOFException: SSL peer shut down incorrectly
 
 !ENTRY org.eclipse.jst.server.tomcat.core 4 0 2020-03-05 13:44:45.362
 !MESSAGE Several ports (8005, 9999) required by Tomcat v8.5 Server at localhost are already in use. The server may already be running in another process, or a system process may be using the port. To start this server you will need to stop the other process or change the port number(s).
+
+!ENTRY org.eclipse.jst.server.tomcat.core 4 0 2020-03-05 14:00:30.322
+!MESSAGE Several ports (8005, 9999) required by Tomcat v8.5 Server at localhost are already in use. The server may already be running in another process, or a system process may be using the port. To start this server you will need to stop the other process or change the port number(s).
