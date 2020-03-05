@@ -38,5 +38,4 @@
 0:0:0:0:0:0:0:1 - - [05/Mar/2020:13:57:11 +0530] "GET /vehicleServiceAndFuelStationManagement/ HTTP/1.1" 304 -
 127.0.0.1 - - [05/Mar/2020:14:00:47 +0530] "GET / HTTP/1.1" 200 783
 0:0:0:0:0:0:0:1 - - [05/Mar/2020:14:00:48 +0530] "GET /vehicleServiceAndFuelStationManagement/index.html HTTP/1.1" 200 248
-127.0.0.1 - - [05/Mar/2020:14:26:18 +0530] "GET / HTTP/1.1" 200 783
-0:0:0:0:0:0:0:1 - - [05/Mar/2020:14:26:42 +0530] "GET /vehicleServiceAndFuelStationManagement/NewFile.jsp HTTP/1.1" 404 763
+
