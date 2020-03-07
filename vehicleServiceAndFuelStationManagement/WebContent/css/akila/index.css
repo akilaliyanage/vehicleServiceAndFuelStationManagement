@@ -11,6 +11,8 @@ body {
   width: 100%;
   height: 100vh;
   overflow-y: hidden;
+  z-index: 0;
+  position: absolute;
 }
 
 .back-slide .slide {
@@ -21,6 +23,14 @@ body {
 .back-slide .slide img {
   width: 100%;
   height: auto;
+}
+
+.back-slide .login-back {
+  width: 200px;
+  height: 500px;
+  background-color: white;
+  position: relative;
+  z-index: 1;
 }
 
 .fade {

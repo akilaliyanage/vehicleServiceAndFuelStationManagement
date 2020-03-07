@@ -9,6 +9,8 @@ body{
     width: 100%;
     height: 100vh;
     overflow-y: hidden;
+    z-index: 0;
+    position: absolute;
 
     .slide{
         width: 100%;
@@ -18,6 +20,14 @@ body{
             width:100%;
             height: auto;
         }
+    }
+
+    .login-back{
+        width: 200px;
+        height: 500px;
+        background-color: white;
+        position: relative;
+        z-index: 1;
     }
 }
 .fade{
@@ -29,3 +39,5 @@ body{
     from{opacity: 0.4;}
     to{opacity: 1;}
 }
+
+
