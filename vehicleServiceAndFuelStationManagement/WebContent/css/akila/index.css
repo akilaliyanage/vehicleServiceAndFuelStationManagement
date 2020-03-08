@@ -26,6 +26,7 @@ body {
           flex-direction: column;
   font-family: "Montserrat", sans-serif;
   height: 100vh;
+  background-image: url("back()");
 }
 
 h1 {
@@ -274,5 +275,18 @@ button:focus {
 .back-container.right-panel-active .left-panel {
   -webkit-transform: translateX(0);
           transform: translateX(0);
+}
+
+.back {
+  width: 100%;
+  position: absolute;
+  z-index: -5;
+  overflow: hidden;
+}
+
+.back img {
+  width: 100%;
+  height: auto;
+  overflow: hidden;
 }
 /*# sourceMappingURL=index.css.map */
