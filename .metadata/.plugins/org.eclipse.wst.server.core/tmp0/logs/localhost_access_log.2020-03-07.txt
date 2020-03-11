@@ -1,0 +1,4 @@
+127.0.0.1 - - [07/Mar/2020:17:50:11 +0530] "GET / HTTP/1.1" 200 783
+0:0:0:0:0:0:0:1 - - [07/Mar/2020:17:50:13 +0530] "GET /vehicleServiceAndFuelStationManagement/index.jsp HTTP/1.1" 200 133
+0:0:0:0:0:0:0:1 - - [07/Mar/2020:17:50:14 +0530] "GET /favicon.ico HTTP/1.1" 404 720
+0:0:0:0:0:0:0:1 - - [07/Mar/2020:17:50:44 +0530] "GET /vehicleServiceAndFuelStationManagement/index.jsp HTTP/1.1" 200 159
