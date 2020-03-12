@@ -1,0 +1,11 @@
+127.0.0.1 - - [08/Mar/2020:13:51:17 +0530] "GET / HTTP/1.1" 200 783
+127.0.0.1 - - [08/Mar/2020:13:52:27 +0530] "GET / HTTP/1.1" 200 783
+0:0:0:0:0:0:0:1 - - [08/Mar/2020:13:52:57 +0530] "GET /vehicleServiceAndFuelStationManagement/index.html HTTP/1.1" 200 3816
+0:0:0:0:0:0:0:1 - - [08/Mar/2020:13:52:57 +0530] "GET /vehicleServiceAndFuelStationManagement/css/akila/index.css HTTP/1.1" 200 7082
+0:0:0:0:0:0:0:1 - - [08/Mar/2020:13:52:57 +0530] "GET /vehicleServiceAndFuelStationManagement/img/akila/agustin-segura-eDXRq-2LfNM-unsplash.jpg HTTP/1.1" 200 1227138
+0:0:0:0:0:0:0:1 - - [08/Mar/2020:13:52:57 +0530] "GET /vehicleServiceAndFuelStationManagement/img/akila/alex-holyoake-Sc42XrdQlSc-unsplash.jpg HTTP/1.1" 200 1885245
+0:0:0:0:0:0:0:1 - - [08/Mar/2020:13:52:57 +0530] "GET /vehicleServiceAndFuelStationManagement/js/akila/index.js HTTP/1.1" 200 796
+0:0:0:0:0:0:0:1 - - [08/Mar/2020:13:52:57 +0530] "GET /vehicleServiceAndFuelStationManagement/img/akila/alex-holyoake-zsRFoL7Cjvg-unsplash.jpg HTTP/1.1" 200 1756523
+0:0:0:0:0:0:0:1 - - [08/Mar/2020:13:52:57 +0530] "GET /vehicleServiceAndFuelStationManagement/img/akila/jonathan-gallegos-Up4VB9_T9BA-unsplash.jpg HTTP/1.1" 200 3140468
+0:0:0:0:0:0:0:1 - - [08/Mar/2020:13:52:57 +0530] "GET /vehicleServiceAndFuelStationManagement/css/akila/back() HTTP/1.1" 404 776
+0:0:0:0:0:0:0:1 - - [08/Mar/2020:13:53:08 +0530] "GET /vehicleServiceAndFuelStationManagement/img/akila/Reddy%20Roadster%20(1).png HTTP/1.1" 200 10247

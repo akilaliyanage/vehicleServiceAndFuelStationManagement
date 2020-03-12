@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<launchConfiguration type="com.genuitec.eclipse.code.debug.chrome.codeMixLaunchConfigurationType">
+    <stringAttribute key="launchJsonContent" value="{&#10;  &quot;name&quot;: &quot;Launch index.html&quot;,&#10;  &quot;type&quot;: &quot;chrome&quot;,&#10;  &quot;request&quot;: &quot;launch&quot;,&#10;  &quot;port&quot;: 9267,&#10;  &quot;webRoot&quot;: &quot;${workspaceFolder}&quot;&#10;}"/>
+    <stringAttribute key="launchJsonContents" value="// Use IntelliSense to learn about possible attributes.&#10;// Hover to view descriptions of existing attributes.&#10;// For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387&#10;{&#10;  &quot;version&quot;: &quot;0.2.0&quot;,&#10;  &quot;configurations&quot;: [&#10;    {&#10;      &quot;name&quot;: &quot;Launch index.html&quot;,&#10;      &quot;type&quot;: &quot;chrome&quot;,&#10;      &quot;request&quot;: &quot;launch&quot;,&#10;      &quot;port&quot;: 9267,&#10;      &quot;webRoot&quot;: &quot;${workspaceFolder}&quot;&#10;    }&#10;  ]&#10;}"/>
+    <stringAttribute key="launchJsonPath" value="D:\Documents\2nd 1st sem\OOP\project\vehicleServiceAndFuelStationManagement\.vscode\launch.json"/>
+    <stringAttribute key="name" value="Launch index.html"/>
+</launchConfiguration>

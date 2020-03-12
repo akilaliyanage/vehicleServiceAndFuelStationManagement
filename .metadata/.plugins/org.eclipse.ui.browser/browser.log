@@ -1,0 +1,8 @@
+
+Mar 08, 2020 13:52:34.04 NEW SESSION
+Mar 08, 2020 13:52:34.04 [23520:6648:0308/135234.027:ERROR:external_registry_loader_win.cc(159)] File C:\Program Files (x86)\EagleGet\addon\eagleget_newtab.crx for key Software\Google\Chrome\Extensions\hdkdmoacnkphoadmfidlhfdobieblphn does not exist or is not readable.
+Mar 08, 2020 13:52:34.09 [23520:6648:0308/135234.091:ERROR:data_pack.cc(120)] Could not open pak file for writing: The requested operation cannot be performed on a file with a user-mapped section open. (0x4C8)
+Mar 08, 2020 13:52:56.50 [1760:11940:0308/135256.508:ERROR:external_registry_loader_win.cc(159)] File C:\Program Files (x86)\EagleGet\addon\eagleget_newtab.crx for key Software\Google\Chrome\Extensions\hdkdmoacnkphoadmfidlhfdobieblphn does not exist or is not readable.
+Mar 08, 2020 13:52:56.55 [1760:21888:0308/135256.551:ERROR:data_pack.cc(120)] Could not open pak file for writing: The requested operation cannot be performed on a file with a user-mapped section open. (0x4C8)
+Mar 08, 2020 13:53:35.98 [20928:14340:0308/135335.988:ERROR:external_registry_loader_win.cc(159)] File C:\Program Files (x86)\EagleGet\addon\eagleget_newtab.crx for key Software\Google\Chrome\Extensions\hdkdmoacnkphoadmfidlhfdobieblphn does not exist or is not readable.
+Mar 08, 2020 13:53:36.02 [20928:13544:0308/135336.025:ERROR:data_pack.cc(120)] Could not open pak file for writing: The requested operation cannot be performed on a file with a user-mapped section open. (0x4C8)

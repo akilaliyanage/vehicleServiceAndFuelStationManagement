@@ -1,0 +1,7 @@
+127.0.0.1 - - [12/Mar/2020:12:35:50 +0530] "GET / HTTP/1.1" 200 783
+0:0:0:0:0:0:0:1 - - [12/Mar/2020:12:36:28 +0530] "GET /project HTTP/1.1" 404 716
+0:0:0:0:0:0:0:1 - - [12/Mar/2020:12:36:28 +0530] "GET /favicon.ico HTTP/1.1" 404 720
+0:0:0:0:0:0:0:1 - - [12/Mar/2020:12:36:35 +0530] "GET / HTTP/1.1" 200 783
+0:0:0:0:0:0:0:1 - - [12/Mar/2020:12:36:42 +0530] "GET /vehicleServiceAndFuelStationManagement/WebContent/index.html HTTP/1.1" 404 777
+0:0:0:0:0:0:0:1 - - [12/Mar/2020:12:37:25 +0530] "GET /vehicleServiceAndFuelStationManagement/WEB-INF/index.html HTTP/1.1" 404 682
+0:0:0:0:0:0:0:1 - - [12/Mar/2020:12:38:03 +0530] "GET /vehicleServiceAndFuelStationManagement/WEB-INF/index.html HTTP/1.1" 404 682
