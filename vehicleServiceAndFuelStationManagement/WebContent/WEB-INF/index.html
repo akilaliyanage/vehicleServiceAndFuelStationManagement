@@ -1,0 +1,128 @@
+<!--<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%> -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Welcome</title>
+    <link
+      rel="shortcut icon"
+      href="img/akila/Reddy Roadster (1).png"
+      type="image/x-icon"
+    />
+
+    <!--akila's css-->
+    <link rel="stylesheet" href="../css/akila/index.css" />
+    <!--end of akila's css-->
+  </head>
+  <body>
+    <div class="back">
+      <div class="slide fade">
+        <img src="../img/akila/agustin-segura-eDXRq-2LfNM-unsplash.jpg" alt="" />
+      </div>
+      <div class="slide fade">
+        <img src="../img/akila/alex-holyoake-Sc42XrdQlSc-unsplash.jpg" alt="" />
+      </div>
+      <div class="slide fade">
+        <img src="../img/akila/alex-holyoake-zsRFoL7Cjvg-unsplash.jpg" alt="" />
+      </div>
+      <div class="slide fade">
+        <img
+          src="../img/akila/jonathan-gallegos-Up4VB9_T9BA-unsplash.jpg"
+          alt=""
+        />
+      </div>
+    </div>
+    <div>
+      <div class="back-container" id="back-container">
+        <div class="form-container sign-up">
+          <form action="" onsubmit="check()">
+            <h1>Create Account</h1>
+            <div class="social-links">
+              <a href=""><i class="fab fa-facebook"></i></a>
+              <a href=""><i class="fab fa-twitter-square"></i></a>
+              <a href=""><i class="fab fa-linkedin"></i></a>
+            </div>
+            <span>Or, just enter your Email/Username and password</span>
+            <input
+              type="text"
+              name="username"
+              class="username"
+              id="username"
+              placeholder="Username"
+            />
+            <input
+              type="text"
+              name="email"
+              class="email"
+              placeholder="Email"
+              id="emailNew"
+            />
+            <input
+              type="password"
+              name="pass"
+              id="passNew"
+              placeholder="Password"
+            />
+            <button type="submit">Sign Up</button>
+          </form>
+        </div>
+        <div class="form-container sign-in">
+          <form action="" onsubmit="login()">
+            <h1>Sign In</h1>
+            <div class="social-links">
+              <a href=""><i class="fab fa-facebook"></i></a>
+              <a href=""><i class="fab fa-twitter-square"></i></a>
+              <a href=""><i class="fab fa-linkedin"></i></a>
+            </div>
+            <span>Or, just use your account</span>
+            <input
+              type="text"
+              name="email"
+              class="email"
+              placeholder="Email or Username"
+              id="loginUser"
+            />
+            <input
+              type="password"
+              name="pass"
+              placeholder="Password"
+              id="loginPass"
+            />
+            <button type="submit">Sign In</button>
+          </form>
+        </div>
+        <div class="overlay-container">
+          <div class="overlay">
+            <div class="overlay-panel left-panel">
+              <h1>welcome to CarCare managemnt system.</h1>
+              <p>
+                Please enter your account credentials to log in to the system.
+              </p>
+              <button id="signIn" class="ghost">Sign In</button>
+            </div>
+
+            <div class="overlay-panel right-panel">
+              <h1>Drive your car with Care.</h1>
+              <p>Sign up and feel the control!!</p>
+              <button id="signUp" class="ghost">Sign Up</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!--akila's js-->
+    <script src="../js/akila/index.js"></script>
+    <!--end of akila's js-->
+
+    <!--font awsome cdn-->
+    <script
+      src="https://kit.fontawesome.com/61a479e883.js"
+      crossorigin="anonymous"
+    ></script>
+    <!--end of the font awsone cdn-->
+  </body>
+</html>
