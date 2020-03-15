@@ -242,6 +242,76 @@
           </div>
         </div>
 
+        <div class="alert alert-secondary requests sales" role="alert">
+          <i class="fas fa-balance-scale-right"></i><span> &nbsp;&nbsp;&nbsp;</span> Sales Dashboard         
+          <div class="filter">
+            <select id="day">
+              <option value="volvo">Today</option>
+              <option value="volvo">Yesterday</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col sales-dashboard">
+
+            <div class="card shadow bg-success">
+              <div class="card-body">
+                <h5 class="card-title pop"><i class="fas fa-user"></i>&nbsp;&nbsp;Total Customers</h5>
+                <h6 class="card-subtitle mb-2 card-text pop">100</h6>
+              </div>
+            </div>
+
+            <div class="card shadow bg-warning">
+              <div class="card-body">
+                <h5 class="card-title pop"><i class="fas fa-dollar-sign"></i>&nbsp;&nbsp;Gross Profit</h5>
+                <h6 class="card-subtitle mb-2 card-text pop">$4500</h6>
+              </div>
+            </div>
+
+            <div class="card shadow bg-secondary">
+              <div class="card-body">
+                <h5 class="card-title pop"><i class="fas fa-exchange-alt"></i>&nbsp;&nbsp;Total Requests</h5>
+                <h6 class="card-subtitle mb-2 card-text pop">1456</h6>
+              </div>
+            </div>
+
+           
+
+          </div>
+        </div>
+
+        <div class="row graph">
+
+          <div class="col col-lg-6 shadow">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title">Customers</h5>
+                <canvas id="user"></canvas>
+              </div>
+            </div>
+          </div>
+
+          <div class="col col-lg-6 shadow">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title">Gross Profit</h5>
+                <canvas id="income"></canvas>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="alert alert-success requests sales" role="alert">
+          <i class="fab fa-paypal"></i><span> &nbsp;&nbsp;&nbsp;</span> Payments        
+          <!-- <div class="filter">
+            <select id="day">
+              <option value="volvo">Today</option>
+              <option value="volvo">Yesterday</option>
+            </select>
+          </div> -->
+        </div>
+
       </div>
       <!--end of the middle part-->
     </div>
@@ -272,5 +342,48 @@
  <!--chart.js-->
  <script src="https://cdn.jsdelivr.net/npm/chart.js@2/dist/Chart.min.js"></script>
  <!--end of the chart.js-->
+
+ <!--charts-->
+ <script>
+   let user = document.getElementById('user').getContext('2d');
+
+   let lineOne = new Chart(user,{
+     type : 'line',
+     data : {
+       labels :['Sunday','Monday','Tuesday','Wednsday','Thursday','Friday','Saturday'],
+       datasets:[{
+         label : 'Count',
+         data : [10,30,1,30,50,70,90],
+         backgroundColor : ['#fa163f'],
+         borderColor : '#FFFF',
+         borderWidth : '3px'
+       }]
+     },
+     options : {},
+
+   });
+
+   let imcome = document.getElementById('income').getContext('2d');
+
+   let pieOne = new Chart(income,{
+     type: 'doughnut',
+     data : {
+       labels :['Sunday','Monday','Tuesday','Wednsday','Thursday','Friday','Saturday'],
+       datasets:[{
+         label : 'Count',
+         data : [10,30,1,30,50,70,90],
+         backgroundColor : ['#fa163f','#f0134d','#40bfc1','#1b262c','#52de97','#3e206d','#12cad6'],
+         //borderColor : '#FFFF',
+         borderWidth : '3px',
+         
+       }]
+     },
+     options : {
+      cutoutPercentage : 50,
+     },
+
+   });
+ </script>
+ <!--end of the charts-->
 </body>
 </html>
