@@ -1,0 +1,37 @@
+html{
+    scroll-behavior: smooth;
+}
+body{
+    margin: 0;
+    padding: 0;
+}
+.navbar{
+    
+    .profile{
+        width: 60px;
+        border-radius: 100px;
+        border: 2px solid #1b262c;
+    }
+
+    li{
+        display: flex;
+    justify-content: center;
+    align-items: center;
+    }
+    .icons{
+        width: 40px;
+        margin-left: 15px;
+
+    }
+    .search{
+        border-radius: 20px;
+    }
+    .search-btn{
+        border-radius: 20px;
+        //background-color: red;
+    }
+    .shadow{
+        box-shadow: 0 0 10px #ccc;
+        border: none;
+    }
+}
