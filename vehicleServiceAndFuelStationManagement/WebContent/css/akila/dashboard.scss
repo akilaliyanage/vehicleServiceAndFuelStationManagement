@@ -116,13 +116,24 @@ body{
         display: inline-block;
         border: none;
     }
+    .btn-group{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+
+        @include tab{
+            display: none;
+        }
+
+    }
 }
 .requests{
     border: none;
     width: 100%;
     border-radius: 0px;
     margin: 0;
-    border-bottom-left-radius: 10px;
+   // border-bottom-left-radius: 10px;
 
     @include tab{
         width: 100%;
@@ -133,8 +144,31 @@ body{
     margin: 0;
 }
 .middle{
+    padding: 0;
     @include tab{
         width: 100%;
         max-width: 100%;
     }
+}
+.tab{
+    display: none;
+    margin: 0;
+
+    @include tab{
+        // position: relative;
+        display: block;
+        // width: 100%;
+        // display: flex;
+        // align-items: center;
+        // justify-content: center;
+        // flex-direction: column;
+    }
+
+    .btn{
+        @include tab{
+            width: 100%;
+            margin: 0;
+        }
+    }
+
 }
