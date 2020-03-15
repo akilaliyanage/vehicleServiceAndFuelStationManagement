@@ -133,7 +133,28 @@ body{
     width: 100%;
     border-radius: 0px;
     margin: 0;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    //justify-content: left;
+    //text-align: left;
    // border-bottom-left-radius: 10px;
+
+    .filter{
+        float: right;
+    }
+    #day{
+        margin-left: 700px;
+        position: relative;
+        float: right;
+        //margin-left: auto;
+        border: none;
+        background-color: #142850;
+        color:whitesmoke;
+        padding: 5px;
+        border-radius: 5px;
+        outline: none;
+    }
 
     @include tab{
         width: 100%;

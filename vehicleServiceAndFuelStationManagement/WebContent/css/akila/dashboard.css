@@ -178,6 +178,32 @@ body {
   width: 100%;
   border-radius: 0px;
   margin: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.requests .filter {
+  float: right;
+}
+
+.requests #day {
+  margin-left: 700px;
+  position: relative;
+  float: right;
+  border: none;
+  background-color: #142850;
+  color: whitesmoke;
+  padding: 5px;
+  border-radius: 5px;
+  outline: none;
 }
 
 @media (max-width: 970px) {
