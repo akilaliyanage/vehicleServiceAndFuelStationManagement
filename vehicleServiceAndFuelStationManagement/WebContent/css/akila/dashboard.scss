@@ -4,6 +4,7 @@ html{
 body{
     margin: 0;
     padding: 0;
+    overflow-x: hidden;
 }
 .navbar{
     
@@ -33,5 +34,41 @@ body{
     .shadow{
         box-shadow: 0 0 10px #ccc;
         border: none;
+        border-radius: 20px;
+    }
+    .line-height{
+        line-height: 30px;
+    }
+}
+.breadcrumb{
+    //background-color: transparent;
+    font-size: 15px;
+}
+.sidebar{
+    //background-color: red;
+    width: 250px;
+    font-weight: bolder;
+    color: #0f4c81;
+    border-right: 1px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    //margin-top: 30px;
+   // padding: 0 10px;
+
+    .btn{
+        width: 100%;
+        margin-left: 30px;
+        border-radius: 0px;
+        background-color: transparent;
+        border: none;
+        // transform: scale(1);
+        // transition: all 0.01s ease-in-out;
+        text-align: left;
+    }
+    .btn:hover{
+        transform: scale(1.1);
+        transition: all 0.1s ease-in-out;
     }
 }

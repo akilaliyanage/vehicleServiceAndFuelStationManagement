@@ -26,7 +26,7 @@
           <a class="nav-link" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <img src="img/akila/profile_user.jpg" class="profile" alt="">
           </a>
-          <div class="dropdown-menu shadow" aria-labelledby="navbarDropdown">
+          <div class="dropdown-menu shadow line-height" aria-labelledby="navbarDropdown">
             <h4 class="dropdown-header"><i class="fas fa-user-shield"></i> <strong>M.L.Akila Liyanage - <span>ADMINISTRATOR</span></strong></h4>
             <div class="dropdown-divider"></div>
             <a class="dropdown-item" href="#"><i class="far fa-envelope-open"></i>  Incomming Mail</a>
@@ -42,11 +42,38 @@
           <a class="nav-link" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <img src="img/akila/message-1767998.png" class="icons" alt=""><span class="badge badge-danger">1</span>
           </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item active" href="#">Action</a>
-            <a class="dropdown-item" href="#">Another action</a>
+          <div class="dropdown-menu shadow" aria-labelledby="navbarDropdown">
+            <h4 class="dropdown-header">Latest Notifications</h4>
+            <a class="dropdown-item" href="#">
+              <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                <strong>Test user 1</strong> This is a test notification
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+            </a>
+
             <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="#">Something else here</a>
+
+            <h4 class="dropdown-header"> Older Notifications</h4>
+
+            <a class="dropdown-item" href="#">
+              <div class="alert alert-success alert-dismissible fade show" role="alert">
+                <strong>Test user 1</strong> This is a test notification
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+            </a>
+            <a class="dropdown-item" href="#">
+              <div class="alert alert-success alert-dismissible fade show" role="alert">
+                <strong>Test user 1</strong> This is a test notification
+                  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+            </a>
+           
           </div>
         </li>
 
@@ -77,6 +104,49 @@
     </button>
   </div>
   <!-- end of the welcome alert-->
+
+  <!--breadcrumb-->
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="#">Login</a></li>
+      <li class="breadcrumb-item active" aria-current="page">Admin</li>
+    </ol>
+  </nav>
+  <!--end of the breadcrumb-->
+
+  <!--body part-->
+
+    <div class="row row row-cols-2">
+      <!--sidebar-->
+      <div class="col-2 sidebar">
+        <p><i>SERVICES</i></p>
+
+        <h6 class="dropdown-header">Vehicle Service Center</h6>
+
+        <a href="" class="btn btn-light"><i class="fas fa-flag-checkered"></i> Pending Requests</a>
+        <a href="" class="btn btn-light"><i class="fas fa-file-word"></i> Reports</a>
+        <a href="" class="btn btn-light"><i class="fas fa-reply"></i> User Feedback</a>
+        <a href="" class="btn btn-light"><i class="fas fa-box"></i> Packages</a>
+        <a href="" class="btn btn-light"><i class="fas fa-receipt"></i> Bill</a>
+
+        <h6 class="dropdown-header">Fuel Station</h6>
+
+        <a href="" class="btn btn-light"><i class="fas fa-briefcase"></i> Employees</a>
+        <a href="" class="btn btn-light"><i class="fas fa-parachute-box"></i> Suppliers</a>
+        <a href="" class="btn btn-light"><i class="fas fa-thermometer-quarter"></i> Status</a>
+
+
+      </div>
+      <!--end of the side bar-->
+
+      <!--middle part-->
+      <div class="col-10">
+
+      </div>
+      <!--end of the middle part-->
+    </div>
+
+  <!--end of the body part-->
 
 
 

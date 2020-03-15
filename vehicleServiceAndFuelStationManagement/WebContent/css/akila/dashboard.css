@@ -5,6 +5,7 @@ html {
 body {
   margin: 0;
   padding: 0;
+  overflow-x: hidden;
 }
 
 .navbar .profile {
@@ -42,5 +43,50 @@ body {
   -webkit-box-shadow: 0 0 10px #ccc;
           box-shadow: 0 0 10px #ccc;
   border: none;
+  border-radius: 20px;
+}
+
+.navbar .line-height {
+  line-height: 30px;
+}
+
+.breadcrumb {
+  font-size: 15px;
+}
+
+.sidebar {
+  width: 250px;
+  font-weight: bolder;
+  color: #0f4c81;
+  border-right: 1px solid black;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.sidebar .btn {
+  width: 100%;
+  margin-left: 30px;
+  border-radius: 0px;
+  background-color: transparent;
+  border: none;
+  text-align: left;
+}
+
+.sidebar .btn:hover {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+  -webkit-transition: all 0.1s ease-in-out;
+  transition: all 0.1s ease-in-out;
 }
 /*# sourceMappingURL=dashboard.css.map */
