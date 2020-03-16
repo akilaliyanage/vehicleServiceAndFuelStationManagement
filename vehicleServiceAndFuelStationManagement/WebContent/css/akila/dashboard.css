@@ -1,5 +1,7 @@
 html {
   scroll-behavior: smooth;
+  margin: 0;
+  padding: 0;
 }
 
 ::-webkit-scrollbar {
@@ -14,6 +16,10 @@ body {
   padding: 0;
   overflow-x: hidden;
   background-color: #f1f1f6;
+}
+
+.navbar {
+  border-bottom: #8e8e8e solid 1px;
 }
 
 .navbar .profile {
@@ -63,6 +69,37 @@ body {
   margin: 0;
 }
 
+.style-3 {
+  font-family: "Oswald", sans-serif;
+  border-bottom: 2px solid black;
+}
+
+#container {
+  margin: 0 auto;
+  max-width: 520px;
+  text-align: center;
+}
+
+#container h1 {
+  font-size: 20px;
+  font-weight: normal;
+  text-transform: uppercase;
+  margin: 0.3125em 0;
+  position: relative;
+  display: inline-block;
+  padding: 0 10px;
+}
+
+.style-3:before {
+  content: "";
+  border-bottom: 2px solid black;
+}
+
+.style-3:after {
+  content: "";
+  border-bottom: 1px solid red;
+}
+
 .sidebar {
   width: 250px;
   font-weight: bolder;
@@ -78,12 +115,11 @@ body {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  -webkit-box-shadow: 29px 1px 33px -22px rgba(0, 0, 0, 0.75);
-          box-shadow: 29px 1px 33px -22px rgba(0, 0, 0, 0.75);
   background-color: transparent;
   padding-top: 50px;
   line-height: 40px;
   margin: 0;
+  border-right: #8e8e8e solid 1px;
 }
 
 .sidebar a {
@@ -130,6 +166,7 @@ body {
   overflow-x: scroll;
   overflow-y: hidden;
   margin: 10px;
+  width: 100%;
 }
 
 @media (max-width: 970px) {
@@ -181,7 +218,7 @@ body {
 
 .requests {
   border: none;
-  width: auto;
+  width: 100%;
   border-radius: 0px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -269,7 +306,7 @@ body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  margin: 10px;
+  width: 100%;
 }
 
 .sales-dashboard .card {
@@ -313,17 +350,82 @@ body {
 }
 
 .graph {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  justify-items: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   width: 100%;
 }
 
 .graph .col {
   width: 100%;
+  margin: 0;
 }
 
 .graph .card {
+  width: 100%;
   border: none;
-  margin: 10px 10px;
+  margin: 10px 15px;
   -webkit-box-shadow: 10px 10px 30px 0px rgba(0, 0, 0, 0.75);
           box-shadow: 10px 10px 30px 0px rgba(0, 0, 0, 0.75);
+}
+
+.sales-main .card {
+  width: 100%;
+  margin: 10px;
+  border: none;
+}
+
+.sales-main .col {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.sales-main .col .card-body {
+  padding: 20;
+  margin: 0;
+}
+
+.sales-main .col .card-body table {
+  position: relative;
+  border-collapse: collapse;
+  width: 98%;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  display: flexbox;
+}
+
+.sales-main .col .card-body table th, .sales-main .col .card-body table td {
+  padding: 8px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+.sales-main .col .card-body table td img {
+  width: 60px;
+  border-radius: 100px;
+}
+
+.sales-main .col .card-body table td h5 {
+  font-weight: bold;
+  font-size: 15px;
+}
+
+.sales-main .col .card-body tr:hover {
+  background-color: #f5f5f5;
 }
 /*# sourceMappingURL=dashboard.css.map */

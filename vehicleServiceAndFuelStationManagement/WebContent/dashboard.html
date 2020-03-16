@@ -190,7 +190,7 @@
     <!--welcome alert-->
     <div
       class="alert alert-warning alert-dismissible fade show welcome"
-      role="alert"
+      role="alert" style="border-bottom: #8e8e8e solid 1px;;"
     >
       <strong>WELCOME ONBOARD!</strong> Welcome to the
       <strong>CarCare</strong> admin panel. Feel free to scroll up and down.
@@ -206,7 +206,7 @@
     <!-- end of the welcome alert-->
 
     <!--breadcrumb-->
-    <nav aria-label="breadcrumb">
+    <nav aria-label="breadcrumb" style="border-bottom: #8e8e8e solid 1px;;">
       <ol class="breadcrumb">
         <li class="breadcrumb-item"><a href="#">Login</a></li>
         <li class="breadcrumb-item active" aria-current="page">Admin</li>
@@ -219,7 +219,7 @@
     <div class="row row row-cols-2">
       <!--sidebar-->
       <div class="col-2 sidebar">
-        <p><i>SERVICES</i></p>
+        <div id="container"><h1 class="style-3">ADMIN PANEL</h1></div>
 
         <h6 class="dropdown-header">Vehicle Service Center</h6>
 
@@ -254,7 +254,7 @@
       <!--end of the side bar-->
 
       <!--middle part-->
-      <div class="col-10 middle">
+      <div class="col-7 middle" style="border-right: #8e8e8e solid 1px;;">
         <div class="alert alert-primary requests" role="alert">
           <i class="fas fa-flag-checkered"></i
           ><span> &nbsp;&nbsp;&nbsp;</span> Pending Requests by The Customers &nbsp;&nbsp;&nbsp;
@@ -266,8 +266,8 @@
           </div>
         </div>
 
-        <div class="row wrapper" style="overflow-x: auto;height: auto; width: auto; position: relative;">
-          <div class="col pending" style="overflow-x: scroll; height: auto; width: 200px;">
+        <div class="row" style="margin: 0;overflow-x: hidden;">
+          <div class="col pending" style="margin: 0;padding: 0;">
             <div class="card shadow" style="width: 18rem;">
               <img src="img/akila/12.jpg" class="card-img-top" alt="..." />
               <div class="card-body">
@@ -457,7 +457,7 @@
         </div>
 
         <div class="row graph">
-          <div class="col col-lg-6 col-md-6 col-sm-12 ">
+          <div class="col col-lg-6 col-md-6 col-sm-12">
             <div class="card">
               <div class="card-body">
                 <h5 class="card-title">Customers</h5>
@@ -494,8 +494,39 @@
             </select>
           </div> -->
         </div>
+
+        <div class="row sales-main">
+          <div class="col col-lg-12 col-md-12 col-sm-12">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title">This Week top Sales</h5>
+                <table>
+                  <tr>
+                    <th>CUSTOMER</th>
+                    <th>SERVICE</th>
+                    <th>STATUS</th>
+                    <th>TOTAL</th>
+                  </tr>
+                  <tr>
+                    <td><img src="img/akila/profile_user.jpg" alt=""> <br>
+                      <br>
+                      <h5>M.L.Akila Liyanage</h5>
+                    </td>
+                   <td><h5>Service</h5></td>
+                   <td>akila</td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+
       </div>
       <!--end of the middle part-->
+
+      <div class="col-3">
+
+      </div>
     </div>
 
     <!--end of the body part-->
@@ -612,7 +643,14 @@
           scales: {
         xAxes: false,
         yAxes: false,
-    }
+    },
+    legend: {
+                display: true,
+                position: 'right',
+                labels: {
+                    fontColor: 'rgb(255, 99, 132)'
+                }
+            }
         }
       });
 
