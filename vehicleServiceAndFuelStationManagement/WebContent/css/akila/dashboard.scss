@@ -139,23 +139,24 @@ body{
 }
 .requests{
     border: none;
-    width: 100%;
+    width: auto;
     border-radius: 0px;
-    margin: 0;
+    //margin: 0;
     display: flex;
     flex-direction: row;
     align-items: center;
-    flex-grow: 1 1;
-    flex: 1 1;
+    //flex-grow: 1 1;
+    //flex: 1 1;
     //justify-content: left;
     //text-align: left;
    // border-bottom-left-radius: 10px;
 
     .filter{
-        float: right;
+        //float: right;
+        overflow: auto;
     }
     #day{
-        margin-left: 700px;
+        //margin-left: 700px;
         position: relative;
         float: right;
         //margin-left: auto;
@@ -200,6 +201,8 @@ body{
         @include tab{
             width: 100%;
             margin: 0;
+            margin: 5px 0px;
+            //padding: 10px;
         }
     }
 
@@ -273,9 +276,24 @@ body{
     // justify-items: center;
     // align-items: center;
     //padding: 10px;
-    margin: 10px;
+    //margin: 10px 0px;
+    //padding: 10px 0px;
+    width: 100%;
+    //margin: 10px 10px;
+
+    .col{
+        //display: flex;
+        //justify-content: center;
+        //align-items: center;
+        width: 100%;
+    }
 
     .card{
+        // display: flex;
+        // justify-content: center;
+        // align-items: center;
         border: none;
+        margin: 10px 10px;
+        box-shadow: 10px 10px 30px 0px rgba(0,0,0,0.75);
     }
 }

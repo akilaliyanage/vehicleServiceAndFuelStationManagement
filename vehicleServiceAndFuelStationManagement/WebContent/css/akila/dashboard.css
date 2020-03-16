@@ -181,9 +181,8 @@ body {
 
 .requests {
   border: none;
-  width: 100%;
+  width: auto;
   border-radius: 0px;
-  margin: 0;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -194,19 +193,13 @@ body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  -webkit-box-flex: 1 1;
-      -ms-flex-positive: 1 1;
-          flex-grow: 1 1;
-  -ms-flex: 1 1;
-      flex: 1 1;
 }
 
 .requests .filter {
-  float: right;
+  overflow: auto;
 }
 
 .requests #day {
-  margin-left: 700px;
   position: relative;
   float: right;
   border: none;
@@ -254,6 +247,7 @@ body {
   .tab .btn {
     width: 100%;
     margin: 0;
+    margin: 5px 0px;
   }
 }
 
@@ -319,10 +313,17 @@ body {
 }
 
 .graph {
-  margin: 10px;
+  width: 100%;
+}
+
+.graph .col {
+  width: 100%;
 }
 
 .graph .card {
   border: none;
+  margin: 10px 10px;
+  -webkit-box-shadow: 10px 10px 30px 0px rgba(0, 0, 0, 0.75);
+          box-shadow: 10px 10px 30px 0px rgba(0, 0, 0, 0.75);
 }
 /*# sourceMappingURL=dashboard.css.map */
