@@ -428,4 +428,13 @@ body {
 .sales-main .col .card-body tr:hover {
   background-color: #f5f5f5;
 }
+
+.sales-main i {
+  margin-left: 15px;
+}
+
+.sales-main .status {
+  text-align: center;
+  font-size: 30px;
+}
 /*# sourceMappingURL=dashboard.css.map */
