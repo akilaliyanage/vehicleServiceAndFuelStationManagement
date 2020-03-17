@@ -168,41 +168,22 @@ body {
   overflow-y: hidden;
   margin: 10px;
   width: 100%;
-}
-
-@media (max-width: 970px) {
-  .pending {
-    width: 100%;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
-  }
+  height: 500px;
+  margin-left: 10px;
 }
 
 .pending .card {
-  margin: 10px;
   display: inline-block;
   border: none;
   width: 18rem;
+  max-width: 18rem;
+  min-width: 18rem;
+  margin-left: 10px;
 }
 
 @media (max-width: 970px) {
   .pending .card {
-    width: 100%;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: row;
-            flex-direction: row;
-  }
-  .pending .card img {
-    width: 50%;
+    height: auto;
   }
 }
 
@@ -542,6 +523,8 @@ body {
           transform: scale(1.1);
   -webkit-transition: all 0.1s ease-in-out;
   transition: all 0.1s ease-in-out;
+  -webkit-box-shadow: 10px 10px 22px 0px rgba(0, 0, 0, 0.75);
+          box-shadow: 10px 10px 22px 0px rgba(0, 0, 0, 0.75);
 }
 
 .timeline::after {
@@ -556,7 +539,7 @@ body {
 }
 
 .act-img {
-  width: 60px;
+  width: 40px;
   border-radius: 100px;
 }
 
@@ -574,5 +557,68 @@ body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+}
+
+.act-head {
+  font-size: 20px;
+}
+
+.report-main table {
+  border-collapse: collapse;
+  width: 100%;
+  overflow-y: scroll;
+  height: 100px;
+}
+
+.report-main th, .report-main td {
+  padding: 8px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+.report-main tr:hover {
+  background-color: #f5f5f5;
+}
+
+.report-main .card {
+  border: none;
+  margin: 10px;
+}
+
+.report-main .card .card-body {
+  height: 300px;
+  overflow-y: scroll;
+}
+
+.scrollbar {
+  margin-left: 30px;
+  float: left;
+  height: 300px;
+  width: 65px;
+  background: white;
+  overflow-y: scroll;
+  margin-bottom: 25px;
+}
+
+.force-overflow {
+  min-height: 450px;
+}
+
+#style-1::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+  background-color: #F5F5F5;
+}
+
+#style-1::-webkit-scrollbar {
+  width: 5px;
+  background-color: #F5F5F5;
+}
+
+#style-1::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  background-color: #8e2a2a;
 }
 /*# sourceMappingURL=dashboard.css.map */

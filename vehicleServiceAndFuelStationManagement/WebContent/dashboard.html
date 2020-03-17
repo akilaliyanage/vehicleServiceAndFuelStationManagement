@@ -268,6 +268,43 @@
 
         <div class="row" style="margin: 0;overflow-x: hidden;">
           <div class="col pending" style="margin: 0;padding: 0;">
+            <div class="card shadow force-overflow" >
+              <img src="img/akila/12.jpg" class="card-img-top" alt="..." />
+              <div class="card-body">
+                <h5 class="card-title">Service Request</h5>
+                <p class="card-text">
+                  Some quick example text to build on the card title and make up
+                  the bulk of the card's content.
+                </p>
+
+                <div
+                  class="btn-group btn-group-sm"
+                  role="group"
+                  aria-label="Basic example"
+                >
+                  <button
+                    type="button"
+                    class="btn btn-success"
+                  >
+                    Approve
+                  </button>
+
+                  <button type="button" class="btn btn-secondary">
+                    Waitlist
+                  </button>
+                  <button type="button" class="btn btn-danger">Decline</button>
+                </div>
+
+                <div class="tab">
+                  <button type="button" class="btn btn-success">Success</button>
+                  <button type="button" class="btn btn-secondary">
+                    Secondary
+                  </button>
+                  <button type="button" class="btn btn-danger">Danger</button>
+                </div>
+              </div>
+            </div>
+
             <div class="card shadow" >
               <img src="img/akila/12.jpg" class="card-img-top" alt="..." />
               <div class="card-body">
@@ -304,6 +341,7 @@
                 </div>
               </div>
             </div>
+
 
             <div class="card shadow" >
               <img src="img/akila/big.jpg" class="card-img-top" alt="..." />
@@ -526,8 +564,8 @@
 
         <div class="row sales-main">
           <div class="col col-lg-12 col-md-12 col-sm-12">
-            <div class="card">
-              <div class="card-body">
+            <div class="card scrollbar" id="style-1" style="overflow-y: scroll; height: 500px;">
+              <div class="card-body force-overflow">
                 <h5 class="card-title">This Week top Sales</h5>
                 <button type="button" class="btn btn-success">See all</button>
                 <table>
@@ -572,7 +610,96 @@
               </div>
             </div>
           </div>
+
+
         </div>
+
+        <!--reports section-->
+        <div class="alert alert-warning requests sales" role="alert">
+          <i class="fas fa-file-word"></i><span> &nbsp;&nbsp;&nbsp;</span> Reports
+          <!-- <div class="filter">
+            <select id="day">
+              <option value="volvo">Today</option>
+              <option value="volvo">Yesterday</option>
+            </select>
+          </div> -->
+        </div>
+
+        <div class="row  report-main">
+          <div class="col col-lg-12 col-md-12 col-sm-12">
+            <div class="card scrollbar" id="style-1" style="width: auto;">
+              <div class="card-body force-overflow">
+                <h5 class="card-title">Employee Details</h5>
+                <table>
+                  <tr>
+                    <th>Name of the Employee</th>
+                    <th>Services</th>
+                    <th>Worked Hours</th>
+                    <th>OT Hours</th>
+                    <th>Totals calc. Salary</th>
+                    <th>Export Data</th>
+                  </tr>
+                  <tr>
+                    <td>Peter</td>
+                    <td>Service</td>
+                    <td>100</td>
+                    <td>20</td>
+                    <td>$100</td>
+                    <td>
+                      <div class="dropdown">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          Dropdown button
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                          <a class="dropdown-item" href="#">Action</a>
+                          <a class="dropdown-item" href="#">Another action</a>
+                          <a class="dropdown-item" href="#">Something else here</a>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Peter</td>
+                    <td>Service</td>
+                    <td>100</td>
+                    <td>20</td>
+                    <td>$100</td>
+                    <td>
+                      <div class="dropdown">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          Dropdown button
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                          <a class="dropdown-item" href="#">Action</a>
+                          <a class="dropdown-item" href="#">Another action</a>
+                          <a class="dropdown-item" href="#">Something else here</a>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Lois</td>
+                    <td>Griffin</td>
+                    <td>$150</td>
+                  </tr>
+                  <tr>
+                    <td>Joe</td>
+                    <td>Swanson</td>
+                    <td>$300</td>
+                  </tr>
+                  <tr>
+                    <td>Cleveland</td>
+                    <td>Brown</td>
+                    <td>$250</td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--end of the reports section-->
+
+
 
       </div>
       <!--end of the middle part-->
@@ -594,28 +721,46 @@
             <div class="timeline">
               <div class="container right">
 
-                <div class="content">
-                  <h2>TODAY</h2>
-                  <h6 class="dropdown-header"><span>10</span> MINS ago</h6>  
+                <div class="content" style="overflow-y:scroll">
 
-                  <div class="dropdown-divider"></div>
+                  <h2 class="act-head">TODAY</h2>
+                  <div>
+                    <h6 class="dropdown-header"><span>10</span> MINS ago</h6>  
 
-                  <div class="act-user">
-                    <img src="img/akila/profile_user.jpg" class="act-img" alt="">
-                    &nbsp;
-                    &nbsp;
-                    <p>M.L.Akila Liyanage</p>
+                    <div class="dropdown-divider"></div>
+  
+                    <div class="act-user">
+                      <img src="img/akila/profile_user.jpg" class="act-img" alt="">
+                      &nbsp;
+                      &nbsp;
+                      <p>M.L.Akila Liyanage</p>
+                    </div>
                   </div>
 
-                  <h6 class="dropdown-header"><span>1</span> HOUR ago</h6>  
+                  <div>
+                    <h6 class="dropdown-header"><span>1</span> HOUR ago</h6>  
 
-                  <div class="dropdown-divider"></div>
+                    <div class="dropdown-divider"></div>
+  
+                    <div class="act-user">
+                      <img src="img/akila/big.jpg" class="act-img" alt="">
+                      &nbsp;
+                      &nbsp;
+                      <p>Sandamali Geethika</p>
+                    </div>
+                  </div>
 
-                  <div class="act-user">
-                    <img src="img/akila/big.jpg" class="act-img" alt="">
-                    &nbsp;
-                    &nbsp;
-                    <p>Sandamali Geethika</p>
+                  <div>
+                    <h6 class="dropdown-header"><span>1</span> HOUR ago</h6>  
+
+                    <div class="dropdown-divider"></div>
+  
+                    <div class="act-user">
+                      <img src="img/akila/big.jpg" class="act-img" alt="">
+                      &nbsp;
+                      &nbsp;
+                      <p>Sandamali Geethika</p>
+                    </div>
                   </div>
                   
                 </div>
@@ -623,7 +768,9 @@
             
               <div class="container right">
                 <div class="content">
-                  <h2>TODAY</h2>
+                  <h2 class="act-head">YESTERDAY</h2>
+
+                 <div>
                   <h6 class="dropdown-header"><span>10</span> MINS ago</h6>  
 
                   <div class="dropdown-divider"></div>
@@ -634,7 +781,9 @@
                     &nbsp;
                     <p>Mahen thammita</p>
                   </div>
+                 </div>
 
+                 <div>
                   <h6 class="dropdown-header"><span>1</span> HOUR ago</h6>  
 
                   <div class="dropdown-divider"></div>
@@ -644,14 +793,15 @@
                     &nbsp;
                     &nbsp;
                     <p>M.L.Akila Liyanage</p>
-                  </div>
+                  </div> 
+                 </div>
                   
                 </div>
               </div>
 
               <div class="container right">
                 <div class="content">
-                  <h2>TODAY</h2>
+                  <h2 class="act-head">DATE</h2>
                   <h6 class="dropdown-header"><span>10</span> MINS ago</h6>  
 
                   <div class="dropdown-divider"></div>
