@@ -268,7 +268,7 @@
 
         <div class="row" style="margin: 0;overflow-x: hidden;">
           <div class="col pending" style="margin: 0;padding: 0;">
-            <div class="card shadow" style="width: 18rem;">
+            <div class="card shadow" >
               <img src="img/akila/12.jpg" class="card-img-top" alt="..." />
               <div class="card-body">
                 <h5 class="card-title">Service Request</h5>
@@ -305,7 +305,7 @@
               </div>
             </div>
 
-            <div class="card shadow" style="width: 18rem;">
+            <div class="card shadow" >
               <img src="img/akila/big.jpg" class="card-img-top" alt="..." />
               <div class="card-body">
                 <h5 class="card-title">Service Request</h5>
@@ -342,7 +342,7 @@
               </div>
             </div>
 
-            <div class="card shadow" style="width: 18rem;">
+            <div class="card shadow">
               <img
                 src="img/akila/LinkedIn-Profile-Professional-Picture-Sample-Bernie-Borges.png"
                 class="card-img-top"
@@ -377,7 +377,7 @@
               </div>
             </div>
 
-            <div class="card shadow" style="width: 18rem;">
+            <div class="card shadow">
               <img
                 src="img/akila/profile_user.jpg"
                 class="card-img-top"
@@ -461,6 +461,17 @@
             <div class="card">
               <div class="card-body">
                 <h5 class="card-title">Customers</h5>
+                <div class="dropdown">
+                  <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Catagory
+                  </a>
+                
+                  <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                    <a class="dropdown-item" href="#">Weekly</a>
+                    <a class="dropdown-item" href="#">Monthly</a>
+                    <a class="dropdown-item" href="#">Quarterly</a>
+                  </div>
+                </div>
                 <canvas id="user"></canvas>
               </div>
             </div>
@@ -470,7 +481,20 @@
             <div class="card">
               <div class="card-body">
                 <h5 class="card-title">Gross Profit</h5>
-                <canvas id="income"></canvas>
+
+                <div class="dropdown">
+                  <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Catagory
+                  </a>
+                
+                  <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                    <a class="dropdown-item" href="#">Weekly</a>
+                    <a class="dropdown-item" href="#">Monthly</a>
+                    <a class="dropdown-item" href="#">Quarterly</a>
+                  </div>
+                </div>
+
+                <canvas id="income" style="margin: 10px;"></canvas>
               </div>
             </div>
           </div>
@@ -479,6 +503,11 @@
             <div class="card">
               <div class="card-body">
                 <h5 class="card-title">Total Requests</h5>
+                <div class="btn-group" role="group" aria-label="Basic example">
+                  <button type="button" class="btn btn-success">This Week</button>
+                  <button type="button" class="btn btn-warning">Last Week</button>
+                  <button type="button" class="btn btn-secondary">Last Month</button>
+                </div>
                 <canvas id="req"></canvas>
               </div>
             </div>
@@ -500,6 +529,7 @@
             <div class="card">
               <div class="card-body">
                 <h5 class="card-title">This Week top Sales</h5>
+                <button type="button" class="btn btn-success">See all</button>
                 <table>
                   <tr>
                     <th>CUSTOMER</th>
@@ -524,6 +554,16 @@
                     </td>
                    <td><h5>Service Request</h5></td>
                    <td><i class="fas fa-exclamation-triangle status" style="color: #ffcc00;"></i></td>
+                   <td><h5>$4500</h5></td>
+                  </tr>
+
+                  <tr>
+                    <td><img src="img/akila/profile_user.jpg" alt=""> <br>
+                      <br>
+                      <h5>M.L.Akila Liyanage</h5>
+                    </td>
+                   <td><h5>Service Request</h5></td>
+                   <td><i class="fas fa-times status" style="color: red;"></i></td>
                    <td><h5>$4500</h5></td>
                   </tr>
 

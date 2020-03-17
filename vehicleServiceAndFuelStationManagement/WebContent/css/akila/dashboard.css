@@ -175,16 +175,10 @@ body {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    -webkit-box-orient: horizontal;
+    -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
-        -ms-flex-direction: row;
-            flex-direction: row;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
+        -ms-flex-direction: column;
+            flex-direction: column;
   }
 }
 
@@ -192,6 +186,23 @@ body {
   margin: 10px;
   display: inline-block;
   border: none;
+  width: 18rem;
+}
+
+@media (max-width: 970px) {
+  .pending .card {
+    width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+  }
+  .pending .card img {
+    width: 50%;
+  }
 }
 
 .pending .btn-group {
