@@ -537,6 +537,13 @@ body {
   width: 240px;
 }
 
+.timeline .content:hover {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+  -webkit-transition: all 0.1s ease-in-out;
+  transition: all 0.1s ease-in-out;
+}
+
 .timeline::after {
   content: '';
   position: absolute;
@@ -546,5 +553,26 @@ body {
   bottom: 0;
   left: 10%;
   margin-left: -3px;
+}
+
+.act-img {
+  width: 60px;
+  border-radius: 100px;
+}
+
+.act-user {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 /*# sourceMappingURL=dashboard.css.map */

@@ -536,6 +536,10 @@ body{
         border-radius: 6px;
         width: 240px;
       }
+      .content:hover{
+          transform: scale(1.1);
+          transition: all 0.1s ease-in-out;
+      }
 
 }
   .timeline::after {
@@ -548,4 +552,15 @@ body{
     left: 10%;
     margin-left: -3px;
 }
+.act-img{
+    width: 60px;
+    border-radius: 100px;
+}
+.act-user{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
   
