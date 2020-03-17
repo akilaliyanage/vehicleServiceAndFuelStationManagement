@@ -1,0 +1,4 @@
+#Tomcat publish data
+#Tue Mar 17 19:50:41 IST 2020
+org.eclipse.jst.jee.server\:testApp=D\:\\work\\apache-tomcat-8.5.51\\wtpwebapps\\testApp
+org.eclipse.jst.jee.server\:vehicleServiceAndFuelStationManagement=D\:\\work\\apache-tomcat-8.5.51\\wtpwebapps\\vehicleServiceAndFuelStationManagement
