@@ -1,4 +1,5 @@
 
+<<<<<<< HEAD
 Mar 14, 2020 23:39:45.62 NEW SESSION
 Mar 14, 2020 23:39:45.62 [12400:12436:0314/233945.626:ERROR:socket_stream.cc(218)] Closing stream with result -2
 Mar 15, 2020 24:14:57.52 [12400:12436:0315/001457.526:ERROR:connection_factory_impl.cc(420)] Failed to connect to MCS endpoint with error -7
@@ -8,3 +9,12 @@ Mar 15, 2020 22:30:14.73 NEW SESSION
 Mar 15, 2020 22:30:14.73 [3656:10816:0315/223014.728:ERROR:socket_stream.cc(218)] Closing stream with result -2
 Mar 15, 2020 22:43:47.84 [3656:10816:0315/224347.846:ERROR:connection_factory_impl.cc(420)] Failed to connect to MCS endpoint with error -105
 Mar 15, 2020 22:43:49.60 [3656:10816:0315/224349.608:ERROR:connection_factory_impl.cc(420)] Failed to connect to MCS endpoint with error -106
+=======
+Mar 08, 2020 13:52:34.04 NEW SESSION
+Mar 08, 2020 13:52:34.04 [23520:6648:0308/135234.027:ERROR:external_registry_loader_win.cc(159)] File C:\Program Files (x86)\EagleGet\addon\eagleget_newtab.crx for key Software\Google\Chrome\Extensions\hdkdmoacnkphoadmfidlhfdobieblphn does not exist or is not readable.
+Mar 08, 2020 13:52:34.09 [23520:6648:0308/135234.091:ERROR:data_pack.cc(120)] Could not open pak file for writing: The requested operation cannot be performed on a file with a user-mapped section open. (0x4C8)
+Mar 08, 2020 13:52:56.50 [1760:11940:0308/135256.508:ERROR:external_registry_loader_win.cc(159)] File C:\Program Files (x86)\EagleGet\addon\eagleget_newtab.crx for key Software\Google\Chrome\Extensions\hdkdmoacnkphoadmfidlhfdobieblphn does not exist or is not readable.
+Mar 08, 2020 13:52:56.55 [1760:21888:0308/135256.551:ERROR:data_pack.cc(120)] Could not open pak file for writing: The requested operation cannot be performed on a file with a user-mapped section open. (0x4C8)
+Mar 08, 2020 13:53:35.98 [20928:14340:0308/135335.988:ERROR:external_registry_loader_win.cc(159)] File C:\Program Files (x86)\EagleGet\addon\eagleget_newtab.crx for key Software\Google\Chrome\Extensions\hdkdmoacnkphoadmfidlhfdobieblphn does not exist or is not readable.
+Mar 08, 2020 13:53:36.02 [20928:13544:0308/135336.025:ERROR:data_pack.cc(120)] Could not open pak file for writing: The requested operation cannot be performed on a file with a user-mapped section open. (0x4C8)
+>>>>>>> 7306b1edcc8ed3f6a1670740fa6e8769dfcc62a8

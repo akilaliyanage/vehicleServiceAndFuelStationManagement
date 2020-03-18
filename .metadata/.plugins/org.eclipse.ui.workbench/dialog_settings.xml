@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
+<<<<<<< HEAD
 	<section name="WorkbenchPreferenceDialogSettings">
 		<item value="530" key="DIALOG_X_ORIGIN"/>
 		<item value="100" key="DIALOG_Y_ORIGIN"/>
@@ -16,6 +17,8 @@
 		<list key="textArray">
 		</list>
 	</section>
+=======
+>>>>>>> 7306b1edcc8ed3f6a1670740fa6e8769dfcc62a8
 	<section name="ImportExportAction">
 	</section>
 </section>
