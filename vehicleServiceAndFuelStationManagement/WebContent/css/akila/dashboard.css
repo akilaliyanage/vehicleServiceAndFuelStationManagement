@@ -567,13 +567,20 @@ body {
   border-collapse: collapse;
   width: 100%;
   overflow-y: scroll;
-  height: 100px;
+  height: 400px;
 }
 
 .report-main th, .report-main td {
   padding: 8px;
   text-align: left;
   border-bottom: 1px solid #ddd;
+  padding: 20px;
+}
+
+@media (max-width: 970px) {
+  .report-main th, .report-main td {
+    padding: 0;
+  }
 }
 
 .report-main tr:hover {
@@ -586,7 +593,7 @@ body {
 }
 
 .report-main .card .card-body {
-  height: 300px;
+  height: 400px;
   overflow-y: scroll;
 }
 
@@ -620,5 +627,23 @@ body {
   border-radius: 10px;
   -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
   background-color: #8e2a2a;
+}
+
+.status {
+  margin: auto;
+}
+
+.status .card {
+  border: none;
+}
+
+.status .chartWrapper {
+  position: relative;
+  overflow-x: scroll;
+}
+
+.status .chartAreaWrapper {
+  width: 800px;
+  overflow-x: scroll;
 }
 /*# sourceMappingURL=dashboard.css.map */
