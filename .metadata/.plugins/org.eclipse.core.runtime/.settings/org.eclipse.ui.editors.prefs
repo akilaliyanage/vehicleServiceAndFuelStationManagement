@@ -1,5 +1,8 @@
+<<<<<<< HEAD
+=======
 AbstractTextEditor.Color.Background.SystemDefault=false
 AbstractTextEditor.Color.SelectionBackground.SystemDefault=false
 AbstractTextEditor.Color.SelectionForeground.SystemDefault=false
+>>>>>>> 7306b1edcc8ed3f6a1670740fa6e8769dfcc62a8
 eclipse.preferences.version=1
 overviewRuler_migration=migrated_3.1

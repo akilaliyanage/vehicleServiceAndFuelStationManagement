@@ -26,6 +26,10 @@ body {
           flex-direction: column;
   font-family: "Montserrat", sans-serif;
   height: 100vh;
+<<<<<<< HEAD
+  background-image: url("back()");
+=======
+>>>>>>> 7306b1edcc8ed3f6a1670740fa6e8769dfcc62a8
 }
 
 h1 {

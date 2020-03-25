@@ -1,3 +1,5 @@
+<<<<<<< HEAD
+=======
 $desktop : 1020px;
 $phone : 840px;
 
@@ -13,6 +15,7 @@ $phone : 840px;
   }
 }
 
+>>>>>>> 7306b1edcc8ed3f6a1670740fa6e8769dfcc62a8
 html {
   scroll-behavior: smooth;
 }
@@ -29,7 +32,11 @@ body {
   flex-direction: column;
   font-family: "Montserrat", sans-serif;
   height: 100vh;
+<<<<<<< HEAD
+  background-image: url('back()');
+=======
   //background-image: url('back()');
+>>>>>>> 7306b1edcc8ed3f6a1670740fa6e8769dfcc62a8
 }
 h1 {
   font-weight: bold;
@@ -154,10 +161,13 @@ button:focus {
   width: 200%;
   transform: translateX(0);
   transition: transform 0.6 ease-in-out;
+<<<<<<< HEAD
+=======
 
   // @include phone{
   //   display: none;
   // }
+>>>>>>> 7306b1edcc8ed3f6a1670740fa6e8769dfcc62a8
 }
 .overlay-panel {
   position: absolute;
@@ -207,10 +217,13 @@ button:focus {
   z-index: -5;
   overflow-y: hidden;
 
+<<<<<<< HEAD
+=======
   // @include tab{
   //   display: none;
   // }
 
+>>>>>>> 7306b1edcc8ed3f6a1670740fa6e8769dfcc62a8
     img{
       width: 100%;
       height: auto;

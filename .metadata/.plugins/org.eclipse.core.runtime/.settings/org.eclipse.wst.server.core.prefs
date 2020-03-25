@@ -1,3 +1,7 @@
 eclipse.preferences.version=1
 module-start-timeout=300000
-runtimes=<?xml version\="1.0" encoding\="UTF-8" standalone\="no"?>\r\n<runtimes>\r\n  <runtime id\="Apache Tomcat v8.5" location\="D\:/apache-tomcat-8.5.51" name\="Apache Tomcat v8.5" runtime-type-id\="org.eclipse.jst.server.tomcat.runtime.85" timestamp\="0"/>\r\n</runtimes>\r\n
+<<<<<<< HEAD
+runtimes=<?xml version\="1.0" encoding\="UTF-8" standalone\="no"?>\r\n<runtimes>\r\n  <runtime id\="Apache Tomcat v8.5" location\="D\:/apache-tomcat-8.5.51" name\="Apache Tomcat v8.5" runtime-type-id\="org.eclipse.jst.server.tomcat.runtime.85" timestamp\="0"/>\r\n  <runtime id\="Apache Tomcat v8.5 (2)" location\="D\:/work/apache-tomcat-8.5.51" name\="Apache Tomcat v8.5 (2)" runtime-type-id\="org.eclipse.jst.server.tomcat.runtime.85" timestamp\="0"/>\r\n</runtimes>\r\n
+=======
+runtimes=<?xml version\="1.0" encoding\="UTF-8" standalone\="no"?>\r\n<runtimes>\r\n  <runtime id\="Apache Tomcat v8.5" location\="D\:/apache-tomcat-8.5.51" name\="Apache Tomcat v8.5" runtime-type-id\="org.eclipse.jst.server.tomcat.runtime.85" timestamp\="0"/>\r\n  <runtime id\="Apache Tomcat v8.5 (2)" location\="C\:/Program Files (x86)/apache-tomcat-8.5.51" name\="Apache Tomcat v8.5 (2)" runtime-type-id\="org.eclipse.jst.server.tomcat.runtime.85" timestamp\="0"/>\r\n  <runtime id\="Apache Tomcat v8.5 (3)" location\="D\:/work/apache-tomcat-8.5.51" name\="Apache Tomcat v8.5 (3)" runtime-type-id\="org.eclipse.jst.server.tomcat.runtime.85" timestamp\="0"/>\r\n  <runtime id\="Apache Tomcat v8.5 (4)" location\="D\:/work/apache-tomcat-8.5.51" name\="Apache Tomcat v8.5 (4)" runtime-type-id\="org.eclipse.jst.server.tomcat.runtime.85" timestamp\="0"/>\r\n</runtimes>\r\n
+>>>>>>> mahen

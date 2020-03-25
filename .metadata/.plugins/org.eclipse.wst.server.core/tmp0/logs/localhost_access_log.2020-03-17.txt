@@ -1,0 +1,16 @@
+127.0.0.1 - - [17/Mar/2020:20:45:39 +0530] "GET / HTTP/1.1" 404 709
+127.0.0.1 - - [17/Mar/2020:20:47:44 +0530] "GET / HTTP/1.1" 404 709
+0:0:0:0:0:0:0:1 - - [17/Mar/2020:20:47:45 +0530] "GET /testApp/ HTTP/1.1" 200 477
+0:0:0:0:0:0:0:1 - - [17/Mar/2020:20:48:06 +0530] "GET /vehicleServiceAndFuelStationManagement/css/akila/back() HTTP/1.1" 404 776
+0:0:0:0:0:0:0:1 - - [17/Mar/2020:20:48:16 +0530] "GET /vehicleServiceAndFuelStationManagement/?email=dhmmpthammita%40gmail.com&pass= HTTP/1.1" 200 5365
+0:0:0:0:0:0:0:1 - - [17/Mar/2020:20:48:22 +0530] "GET /vehicleServiceAndFuelStationManagement/?email=&pass=&pass= HTTP/1.1" 200 5365
+0:0:0:0:0:0:0:1 - - [17/Mar/2020:20:48:46 +0530] "GET /vehicleServiceAndFuelStationManagement/dashboard.html HTTP/1.1" 200 36224
+0:0:0:0:0:0:0:1 - - [17/Mar/2020:20:48:46 +0530] "GET /vehicleServiceAndFuelStationManagement/css/akila/dashboard.css HTTP/1.1" 200 11960
+0:0:0:0:0:0:0:1 - - [17/Mar/2020:20:48:46 +0530] "GET /vehicleServiceAndFuelStationManagement/img/akila/profile_user.jpg HTTP/1.1" 404 786
+0:0:0:0:0:0:0:1 - - [17/Mar/2020:20:48:46 +0530] "GET /vehicleServiceAndFuelStationManagement/img/akila/message-1767998.png HTTP/1.1" 404 789
+0:0:0:0:0:0:0:1 - - [17/Mar/2020:20:48:46 +0530] "GET /vehicleServiceAndFuelStationManagement/js/akila/dashboard.js HTTP/1.1" 404 781
+0:0:0:0:0:0:0:1 - - [17/Mar/2020:20:48:46 +0530] "GET /vehicleServiceAndFuelStationManagement/img/akila/setting-1820017.png HTTP/1.1" 404 789
+0:0:0:0:0:0:0:1 - - [17/Mar/2020:20:48:46 +0530] "GET /vehicleServiceAndFuelStationManagement/img/akila/12.jpg HTTP/1.1" 200 25604
+0:0:0:0:0:0:0:1 - - [17/Mar/2020:20:48:46 +0530] "GET /vehicleServiceAndFuelStationManagement/img/akila/big.jpg HTTP/1.1" 200 92363
+0:0:0:0:0:0:0:1 - - [17/Mar/2020:20:48:46 +0530] "GET /vehicleServiceAndFuelStationManagement/img/akila/LinkedIn-Profile-Professional-Picture-Sample-Bernie-Borges.png HTTP/1.1" 200 576252
+0:0:0:0:0:0:0:1 - - [17/Mar/2020:20:48:46 +0530] "GET /vehicleServiceAndFuelStationManagement/js/akila/dashboard.js HTTP/1.1" 404 781

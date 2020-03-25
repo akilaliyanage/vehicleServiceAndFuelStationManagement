@@ -1,5 +1,13 @@
 PROBLEMS_FILTERS_MIGRATE=true
 eclipse.preferences.version=1
+<<<<<<< HEAD
+<<<<<<< HEAD
+platformState=1582033549062
+=======
 platformState=1582033549238
+>>>>>>> 7306b1edcc8ed3f6a1670740fa6e8769dfcc62a8
+=======
+platformState=1576940606053
+>>>>>>> mahen
 quickStart=false
 tipsAndTricks=true

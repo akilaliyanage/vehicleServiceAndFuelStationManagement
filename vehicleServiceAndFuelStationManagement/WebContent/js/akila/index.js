@@ -8,7 +8,10 @@ sighInButton.addEventListener('click',() => container.classList.remove('right-pa
 
 var slideIndex = 0;
 slideShow();
+<<<<<<< HEAD
+=======
 // check();
+>>>>>>> 7306b1edcc8ed3f6a1670740fa6e8769dfcc62a8
 
 function slideShow() {
   var i;
@@ -24,6 +27,8 @@ function slideShow() {
   slides[slideIndex-1].style.display = "block";  
   setTimeout(slideShow, 5000); // Change image every 2 seconds
 }
+<<<<<<< HEAD
+=======
 
 function check(){
   // alert("akila");
@@ -45,3 +50,4 @@ function login(){
     window.location("dashboard.html");
   }
 }
+>>>>>>> 7306b1edcc8ed3f6a1670740fa6e8769dfcc62a8

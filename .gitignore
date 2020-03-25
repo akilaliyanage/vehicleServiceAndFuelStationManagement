@@ -1,3 +1,7 @@
+<<<<<<< HEAD
 # Don't track content of these folders
 Servers/
 
+=======
+/.metadata/
+>>>>>>> mahen
