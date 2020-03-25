@@ -38,7 +38,7 @@
 }
 
 .category .fas {
-    color: #02c966;
+    color: #00ab09;
 }
 
 .progress{
@@ -71,7 +71,8 @@
     
 }
 #cate_sel{
-    background-color:#dbdbdb;
+    /*background-color:#dbdbdb;*/
+    background-color: white;
     height: 450px;
     display: none;
 }
@@ -90,6 +91,10 @@
 }
 .Vehi_Details{
     display: none;
+    background-image: url(../../img/Mahen/Jeep_Many_537805_1920x1080.jpg);
+    margin: 80px;
+    border-radius: 5px;
+    
 }
 .Vehi_Details .card-header{
     background-color: #fa4a2a;
@@ -97,6 +102,7 @@
 }
 
 .Vehi_Details img{
+
     height: 40px;
     width: 40px;
 }
@@ -105,26 +111,35 @@
 }
 
 .jombo_sec_3{
-    background-color: #5c76ed;
-    /*background-image: url(../../img/Mahen/car-wallpaper-1.jpg);*/
+    /*background-color: #5c76ed;*/
+    position: relative;
+    background-color: inherit;
     background-size: cover;
     overflow: hidden;   
+    background: rgba(255, 255, 255, .6);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, .5);
 }
 .jombo_sec_3 .btn{
     position: relative;
     width: 200px;
-    left: 480px;
+    left: 380px;
     top: 30px;
 }
 .jombo_sec_3 strong {
     position: relative;
     font-size: 35px;
 }
+
+/*.jombo_sec_3 h4 {
+    color: #ffc107;
+}*/
+    
+
 .table_head_class{
     font-size: 16px;
     height: 60px;
     width: 150px;
-    background-color: chartreuse;
+    background-color: #cccccc;
     border-style: solid;
     border-radius: 5px;
     border-width: 0.5px;
@@ -137,7 +152,7 @@
     
 }
 .Available_times button{
-    background-color: lightblue;
+    background-color: #39b8f7;
     width: 150px;
     height: 55px;
     border-color: black;
@@ -171,6 +186,7 @@
 /*------------------------------------------Section 4 CSS---------------------------------------------------*/
 .invoice{
     display: none;
+    margin: 60px;
 }
 .Invoice_header{
     height: 170px;
@@ -191,7 +207,7 @@
     margin: 20px;
 }*/
 .status_Display_Area .card{
-   background-color:#ff5983;
+   background-color:white;
    height: 280px;
    border-radius: 10px; 
 
