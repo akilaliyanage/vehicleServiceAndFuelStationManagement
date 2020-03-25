@@ -1,0 +1,228 @@
+.open-days .card-header{
+    background-color: #b5b3b0;
+}
+
+.open-days .card{
+     background-color: #e6e3da;
+}
+
+.card{
+    background-color: #f1f1f6;
+    border: none
+}
+
+.open-days-table tr{
+    padding-left: 1000px;
+    border-bottom-style: dashed;
+}
+
+.our_services img{
+    border-radius: 5px;
+    width: 90px;
+    height: 90px;
+}
+
+.our_services .media{
+    border-radius: 10px;
+}
+
+#ro1_section1 {
+    position: relative;
+    transition: top 3s;
+    display: block;
+    z-index: 1;
+}
+
+.pgbar{
+    border-radius: 8px;
+}
+
+.category .fas {
+    color: #00ab09;
+}
+
+.progress{
+    height: 5px;
+     background-color: gray;
+     
+}
+
+.pack_select .card{
+    height: 500px;
+    background-color: mediumturquoise;
+    border-radius: 30px;
+    margin: 0px;
+    border-bottom-right-radius: 0%;
+}
+
+.pack_select button {
+    align-content: center;
+    width: 280px;
+    
+}
+
+.pack_select img{
+    height: 200px;
+    border-top-right-radius: 30px;
+}
+/*------------------------------------------------------------------------------------------------------*/
+.mah{
+    display: none;
+    
+}
+#cate_sel{
+    /*background-color:#dbdbdb;*/
+    background-color: white;
+    height: 450px;
+    display: none;
+}
+
+#land_M_1  {
+     visibility: hidden;
+}
+#land_M_2 {
+     visibility: hidden;
+}
+#land_M_3 {
+     visibility: hidden;
+}
+#land_M_4 {
+     visibility: hidden;
+}
+.Vehi_Details{
+    display: none;
+    background-image: url(../../img/Mahen/Jeep_Many_537805_1920x1080.jpg);
+    margin: 80px;
+    border-radius: 5px;
+    
+}
+.Vehi_Details .card-header{
+    background-color: #fa4a2a;
+    height: 80px;
+}
+
+.Vehi_Details img{
+
+    height: 40px;
+    width: 40px;
+}
+.Vehi_Details .form-control{
+    height: 60px;    
+}
+
+.jombo_sec_3{
+    /*background-color: #5c76ed;*/
+    position: relative;
+    background-color: inherit;
+    background-size: cover;
+    overflow: hidden;   
+    background: rgba(255, 255, 255, .6);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, .5);
+}
+.jombo_sec_3 .btn{
+    position: relative;
+    width: 200px;
+    left: 380px;
+    top: 30px;
+}
+.jombo_sec_3 strong {
+    position: relative;
+    font-size: 35px;
+}
+
+/*.jombo_sec_3 h4 {
+    color: #ffc107;
+}*/
+    
+
+.table_head_class{
+    font-size: 16px;
+    height: 60px;
+    width: 150px;
+    background-color: #cccccc;
+    border-style: solid;
+    border-radius: 5px;
+    border-width: 0.5px;
+    
+    
+}
+.table_head_class p{
+    margin: 0;
+    padding: 0%;
+    
+}
+.Available_times button{
+    background-color: #39b8f7;
+    width: 150px;
+    height: 55px;
+    border-color: black;
+    border-radius: 5px;
+    border-width: 0.5px;
+}
+.Available_times button:hover {
+    background-color: #26f077;
+}
+.Available_times .weekend {
+    background-color: lightpink;
+}
+.Available_times .weekend:hover {
+    background-color: lightpink;
+    cursor: no-drop;
+}
+.Nxt_wk_button{
+    font-size: 30px;
+}
+
+
+.fa-arrow-circle-right:hover{
+    color: #26f077;
+}
+.fa-arrow-circle-left:hover {
+    color: #26f077;
+}
+.Jumbo2{
+    display: none;
+}
+/*------------------------------------------Section 4 CSS---------------------------------------------------*/
+.invoice{
+    display: none;
+    margin: 60px;
+}
+.Invoice_header{
+    height: 170px;
+    background-color: #ff4561;
+}
+/*.status_Display_Area img{
+    width: 180px;
+    height: 100px;
+}
+
+/*.status_Display_Area div {
+    position: relative;
+    width: 10px;
+    height: 300px;
+    justify-self: center;
+    left: 60px;
+    background-color: lime;
+    margin: 20px;
+}*/
+.status_Display_Area .card{
+   background-color:white;
+   height: 280px;
+   border-radius: 10px; 
+
+}
+.status_Display_Area img{
+    height: 105px;
+}
+
+#Vehicle_details_Demo{
+    display: none;
+}
+
+#Time_dimo{
+    display: none;
+}
+#bill_demo {
+    display: none;
+}

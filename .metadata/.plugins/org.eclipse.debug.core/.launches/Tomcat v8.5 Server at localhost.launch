@@ -8,6 +8,10 @@
 <booleanAttribute key="org.eclipse.jdt.launching.DEFAULT_CLASSPATH" value="false"/>
 <stringAttribute key="org.eclipse.jdt.launching.JRE_CONTAINER" value="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/jre1.8.0_231"/>
 <stringAttribute key="org.eclipse.jdt.launching.PROGRAM_ARGUMENTS" value="start"/>
+<<<<<<< HEAD
 <stringAttribute key="org.eclipse.jdt.launching.VM_ARGUMENTS" value="-Dcatalina.base=&quot;D:\Educational\Sliit\2020\1st sem\Information technology\Object Oriented Programming\project\vehicleServiceAndFuelStationManagement-master\.metadata\.plugins\org.eclipse.wst.server.core\tmp0&quot; -Dcatalina.home=&quot;D:\work\apache-tomcat-8.5.51&quot; -Dwtp.deploy=&quot;D:\Educational\Sliit\2020\1st sem\Information technology\Object Oriented Programming\project\vehicleServiceAndFuelStationManagement-master\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps&quot; -Djava.endorsed.dirs=&quot;D:\work\apache-tomcat-8.5.51\endorsed&quot;"/>
+=======
+<stringAttribute key="org.eclipse.jdt.launching.VM_ARGUMENTS" value="-Dcatalina.base=&quot;D:\work\apache-tomcat-8.5.51&quot; -Dcatalina.home=&quot;D:\work\apache-tomcat-8.5.51&quot; -Dwtp.deploy=&quot;D:\work\apache-tomcat-8.5.51\wtpwebapps&quot; -Djava.endorsed.dirs=&quot;D:\work\apache-tomcat-8.5.51\endorsed&quot;"/>
+>>>>>>> mahen
 <stringAttribute key="server-id" value="Tomcat v8.5 Server at localhost"/>
 </launchConfiguration>

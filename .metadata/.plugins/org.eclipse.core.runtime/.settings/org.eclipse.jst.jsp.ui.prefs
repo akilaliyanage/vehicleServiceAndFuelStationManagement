@@ -1,5 +1,6 @@
 <<<<<<< HEAD
 eclipse.preferences.version=1
+<<<<<<< HEAD
 newFileTemplateName=New JSP File (html 5)
 =======
 SCRIPT_AREA_BORDER=\#D8D8D8 | null | null | null | null | null
@@ -15,3 +16,6 @@ tagAttributeValue=\#FFC600 | null | null | null | null | null
 tagBorder=\#FFFFFF | null | null | null | null | null
 tagName=\#03a8d8 | null | true | false | false | false
 >>>>>>> 7306b1edcc8ed3f6a1670740fa6e8769dfcc62a8
+=======
+newFileTemplateName=New JavaServer Faces (JSF) Page (html)
+>>>>>>> mahen

@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> mahen
 	<section name="ClasspathContainerSelectionPage">
 		<item value="7" key="index"/>
 	</section>
@@ -14,8 +17,11 @@
 	</section>
 	<section name="completion_proposal_size">
 	</section>
+<<<<<<< HEAD
 	<section name="JavaElementSearchActions">
 =======
+=======
+>>>>>>> mahen
 	<section name="JavaElementSearchActions">
 	</section>
 	<section name="completion_proposal_size">

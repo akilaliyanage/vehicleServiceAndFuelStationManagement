@@ -1,8 +1,18 @@
 INDEX VERSION 1.4+D:\Educational\Sliit\2020\1st sem\Information technology\Object Oriented Programming\project\vehicleServiceAndFuelStationManagement-master\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
+<<<<<<< HEAD
 108568439.index
 1438032409.index
 3777612224.index
 3335465466.index
 1945637336.index
 2911502913.index
+=======
+3777612224.index
+415548033.index
+108568439.index
+3335465466.index
+1438032409.index
+2911502913.index
+1945637336.index
+>>>>>>> mahen
 1770338411.index
