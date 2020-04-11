@@ -1,5 +1,4 @@
 codemix.settings.migration=true
-codemix.show.control.panel.tip=shown
 contextual.actions.preferences.migrated=true
 deletedObsoleteMarkers=true
 displaySyntaxColorInfo=false
