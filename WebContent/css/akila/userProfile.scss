@@ -1,0 +1,103 @@
+html{
+    scroll-behavior: smooth;
+}
+body{
+    margin: 0;
+    padding: 0;
+    background-color: #0779e4;
+}
+.main-back{
+    margin: 50px 100px;
+    border: none;
+    border-radius: 10px; 
+    overflow: hidden ;
+    
+
+    .navbar{
+
+
+        border-bottom: #8e8e8e solid 1px;;
+        //margin-top: 10px;
+        background-color: transparent;
+    
+        
+        .profile{
+            width: 60px;
+            border-radius: 100px;
+            border: 2px solid #1b262c;
+        }
+    
+        li{
+            display: flex;
+        justify-content: center;
+        align-items: center;
+        }
+        .icons{
+            width: 40px;
+            margin-left: 15px;
+    
+        }
+        .search{
+            border-radius: 20px;
+        }
+        .search-btn{
+            border-radius: 20px;
+            //background-color: red;
+        }
+        .shadow{
+            box-shadow: 0 0 3px rgb(0, 0, 0);
+            border: none;
+            border-radius: 20px;
+        }
+        .line-height{
+            line-height: 30px;
+        }
+    }
+
+    .left{
+        height: auto;
+        padding: 0;
+        margin: 0;
+        //background-color: red;
+        //border-right: 1px black solid;
+
+       
+
+        .proimage{
+            padding: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            img{
+                width: 300px;
+            }
+        }
+
+        form{
+            width: 300px;
+            outline: none;
+        }
+    }
+
+    .right{
+        height: auto;
+        //background-color: blue;
+        padding: 0px 40px;
+
+        .bill-table{
+            padding: 10px;
+            margin-right: 10px;
+            
+        }
+       
+    }
+}
+.alert{
+    position: relative;
+    border: none;
+    border-radius: 0;
+    text-align: center;
+    width: 100%;
+}
+
+
