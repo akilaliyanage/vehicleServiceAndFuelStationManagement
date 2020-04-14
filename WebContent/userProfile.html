@@ -62,84 +62,181 @@
               </div>
 
             <div class="col-lg-4 col-md-4 col-sm-4 .d-none .d-sm-block left">
-                <div class="proimage">
-                    <img src="img/akila/profile_user.jpg" alt="">
+
+                
+              <!-- Card Regular -->
+              <div class="card card-cascade">
+              
+                <!-- Card image -->
+                <div class="view view-cascade overlay">
+                  <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Others/men.jpg" alt="Card image cap">
+                  <a>
+                    <div class="mask rgba-white-slight"></div>
+                  </a>
+                </div>
+              
+                <!-- Card content -->
+                <div class="card-body card-body-cascade text-center">
+              
+                  <!-- Title -->
+                  <h4 class="card-title"><strong>Billy Coleman</strong></h4>
+                  <!-- Subtitle -->
+                  <h6 class="font-weight-bold indigo-text py-2">Customer</h6>
+                  <!-- Text -->
+                  <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus, ex, recusandae.
+                    Facere modi sunt, quod quibusdam.
+                  </p>
+              
+                  <!-- Facebook -->
+                  <a type="button" class="btn-floating btn-small btn-fb"><i class="fab fa-facebook-f"></i></a>
+                  <!-- Twitter -->
+                  <a type="button" class="btn-floating btn-small btn-tw"><i class="fab fa-twitter"></i></a>
+                  <!-- Google + -->
+                  <a type="button" class="btn-floating btn-small btn-dribbble"><i class="fab fa-dribbble"></i></a>
+              
+                </div>
+              
+                <!-- Card footer -->
+                <div class="card-footer text-muted text-center">
+                <div class="alert alert-primary" role="alert">
+                  <!-- Button trigger modal -->
+                  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#fullHeightModalRight">
+                    Update Profile
+                  </button>
+                </div>
                 </div>
 
+                <!-- Default form contact -->
+                <form class="text-center border border-light p-5" action="" style="width: 100%;">
+                
+                  <p class="h4 mb-4">Send a feedback</p>
+                
+                  <!-- Name -->
+                  <input type="text" id="defaultContactFormName" class="form-control mb-4" placeholder="Name">
+                
+                  <!-- Email -->
+                  <input type="email" id="defaultContactFormEmail" class="form-control mb-4" placeholder="E-mail">
+                
+                  <!-- Subject -->
+                  <label>Reason</label>
+                  <select class="browser-default custom-select mb-4">
+                    <option value="" disabled>Choose option</option>
+                    <option value="1" selected>Feedback</option>
+                    <option value="2">Report a bug</option>
+                    <option value="3">Feature request</option>
+                    <option value="4">Feature request</option>
+                  </select>
+                
+                  <!-- Message -->
+                  <div class="form-group">
+                    <textarea class="form-control rounded-0" id="exampleFormControlTextarea2" rows="3" placeholder="Message"></textarea>
+                  </div>
+                
+                 
+                  <button class="btn btn-info btn-block" type="submit">Send</button>
+                
+                </form>
+                <!-- Default form contact -->
+              
+              </div>
+
+
+              
+              
+
                 <div class="details">
-                    <div class="alert alert-primary" role="alert">
-                       Profile
-                      </div>
 
-                      <div class="container-contact100">
-                        <div class="wrap-contact100">
-                          <form class="contact100-form validate-form">                    
-                            <div class="wrap-input100 validate-input" data-validate="Name is required">
-                              <span class="label-input100">Your Name</span>
-                              <input class="input100" type="text" name="name" placeholder="Enter your name">
-                              <span class="focus-input100"></span>
+                      <!-- Full Height Modal Right -->
+                      <div class="modal fade right" id="fullHeightModalRight" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+                        aria-hidden="true">
+                      
+                        <!-- Add class .modal-full-height and then add class .modal-right (or other classes from list above) to set a position to the modal -->
+                        <div class="modal-dialog modal-full-height modal-right" role="document">
+                      
+                      
+                          <div class="modal-content" style="margin: 0; padding: 0;">
+                            <div class="modal-header">
+                              <h4 class="modal-title " id="myModalLabel">Add/Update Details</h4>
+                              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                              </button>
                             </div>
-                    
-                            <div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
-                              <span class="label-input100">Email</span>
-                              <input class="input100" type="text" name="email" placeholder="Enter your email addess">
-                              <span class="focus-input100"></span>
-                            </div>
+                            <div class="modal-body">
 
-                            <div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
-                              <span class="label-input100">Phone Number</span>
-                              <input class="input100" type="text" name="email" placeholder="Enter your Phone Number">
-                              <span class="focus-input100"></span>
-                            </div>
-
-                            <div class="wrap-input100 validate-input" data-validate="Valid email is required: ex@abc.xyz">
-                              <span class="label-input100">Profile photo</span>
-                              <div class="input-group">
-                                <div class="input-group-prepend">
-                                  <span class="input-group-text" id="inputGroupFileAddon01">Image</span>
+                              <div class="container-contact100" style="padding: 0; margin: 0;">
+                                <div class="wrap-contact100" style="padding: 0; margin-right: 0px;">
+                                  <form class="contact100-form validate-form" style="width: 350px;">
+                                    <div class="wrap-input100 validate-input" data-validate="Name is required">
+                                      <span class="label-input100">Your Name</span>
+                                      <input class="input100" type="text" name="name" placeholder="Enter your name">
+                                      <span class="focus-input100"></span>
+                                    </div>
+                              
+                                    <div class="wrap-input100 validate-input" data-validate="Valid email is required: ex@abc.xyz">
+                                      <span class="label-input100">Email</span>
+                                      <input class="input100" type="text" name="email" placeholder="Enter your email addess">
+                                      <span class="focus-input100"></span>
+                                    </div>
+                              
+                                    <div class="wrap-input100 validate-input" data-validate="phone number is required">
+                                      <span class="label-input100">Phone Number</span>
+                                      <input class="input100" type="text" name="name" placeholder="Enter your phone number">
+                                      <span class="focus-input100"></span>
+                                    </div>
+                              
+                                    <div class="wrap-input100 validate-input" data-validate="Valid email is required: ex@abc.xyz">
+                                      <span class="label-input100">Profile photo</span>
+                                      <div class="input-group">
+                                        <div class="input-group-prepend">
+                                          <span class="input-group-text" id="inputGroupFileAddon01">Image</span>
+                                        </div>
+                                        <div class="custom-file">
+                                          <input type="file" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01">
+                                          <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+                                        </div>
+                                      </div>
+                              
+                                    </div>
+                              
+                              
+                              
+                                    <div class="wrap-input100 input100-select">
+                                      <span class="label-input100">Gender</span>
+                                      <div>
+                                        <select class="selection-2" name="budget">
+                                          <option>Select Gender</option>
+                                          <option>Male</option>
+                                          <option>Female</option>
+                                        </select>
+                                      </div>
+                                      <span class="focus-input100"></span>
+                                    </div>
+                              
+                                    <div class="wrap-input100 validate-input" data-validate="Message is required">
+                                      <span class="label-input100">Profile Description</span>
+                                      <textarea class="input100" name="message" placeholder="Enter your profile description here..."></textarea>
+                                      <span class="focus-input100"></span>
+                                    </div>
+                              
+                                    <div class="container-contact100-form-btn">
+                                      <div class="wrap-contact100-form-btn">
+                                        <div class="contact100-form-bgbtn"></div>
+                                        <button class="contact100-form-btn">
+                                          <span>
+                                            Submit
+                                            <i class="fa fa-long-arrow-right m-l-7" aria-hidden="true"></i>
+                                          </span>
+                                        </button>
+                                      </div>
+                                    </div>
+                                  </form>
                                 </div>
-                                <div class="custom-file">
-                                  <input type="file" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01">
-                                  <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
-                                </div>
-                              </div>
-                             
-                            </div>
-
-                           
-                                       
-                            <div class="wrap-input100 input100-select">
-                              <span class="label-input100">Gender</span>
-                              <div>
-                                <select class="selection-2" name="budget">
-                                  <option>Select Gender</option>
-                                  <option>Male</option>
-                                  <option>Female</option>
-                                </select>
-                              </div>
-                              <span class="focus-input100"></span>
-                            </div>
-                    
-                            <div class="wrap-input100 validate-input" data-validate = "Message is required">
-                              <span class="label-input100">Profile Description</span>
-                              <textarea class="input100" name="message" placeholder="Enter your profile description here..."></textarea>
-                              <span class="focus-input100"></span>
-                            </div>
-                    
-                            <div class="container-contact100-form-btn">
-                              <div class="wrap-contact100-form-btn">
-                                <div class="contact100-form-bgbtn"></div>
-                                <button class="contact100-form-btn">
-                                  <span>
-                                    Submit
-                                    <i class="fa fa-long-arrow-right m-l-7" aria-hidden="true"></i>
-                                  </span>
-                                </button>
                               </div>
                             </div>
-                          </form>
+                          </div>
                         </div>
                       </div>
+                      <!-- Full Height Modal Right -->
 
                       <div id="dropDownSelect1"></div>
                 </div>
