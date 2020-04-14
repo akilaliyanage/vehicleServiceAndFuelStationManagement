@@ -1,0 +1,110 @@
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #0779e4;
+}
+
+.main-back {
+  margin: 50px 100px;
+  border: none;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.main-back .navbar {
+  border-bottom: #8e8e8e solid 1px;
+  background-color: transparent;
+}
+
+.main-back .navbar .profile {
+  width: 60px;
+  border-radius: 100px;
+  border: 2px solid #1b262c;
+}
+
+.main-back .navbar li {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.main-back .navbar .icons {
+  width: 40px;
+  margin-left: 15px;
+}
+
+.main-back .navbar .search {
+  border-radius: 20px;
+}
+
+.main-back .navbar .search-btn {
+  border-radius: 20px;
+}
+
+.main-back .navbar .shadow {
+  -webkit-box-shadow: 0 0 3px black;
+          box-shadow: 0 0 3px black;
+  border: none;
+  border-radius: 20px;
+}
+
+.main-back .navbar .line-height {
+  line-height: 30px;
+}
+
+.main-back .left {
+  height: auto;
+  padding: 0;
+  margin: 0;
+}
+
+.main-back .left .proimage {
+  padding: 50px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.main-back .left .proimage img {
+  width: 300px;
+}
+
+.main-back .left form {
+  width: 300px;
+  outline: none;
+}
+
+.main-back .right {
+  height: auto;
+  padding: 0px 40px;
+}
+
+.main-back .right .bill-table {
+  padding: 10px;
+  margin-right: 10px;
+}
+
+.alert {
+  position: relative;
+  border: none;
+  border-radius: 0;
+  text-align: center;
+  width: 100%;
+}
+/*# sourceMappingURL=userProfile.css.map */

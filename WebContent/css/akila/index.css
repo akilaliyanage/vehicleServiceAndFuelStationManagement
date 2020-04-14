@@ -4,7 +4,7 @@ html {
 
 * {
   -webkit-box-sizing: border-box;
-  box-sizing: border-box;
+          box-sizing: border-box;
 }
 
 body {
@@ -15,15 +15,15 @@ body {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-  -ms-flex-direction: column;
-  flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
   font-family: "Montserrat", sans-serif;
   height: 100vh;
 }
@@ -56,7 +56,7 @@ a {
   background-color: white;
   border-radius: 10px;
   -webkit-box-shadow: 0 14px 28px black, 0 10px 10px rgba(0, 0, 0, 0.22);
-  box-shadow: 0 14px 28px black, 0 10px 10px rgba(0, 0, 0, 0.22);
+          box-shadow: 0 14px 28px black, 0 10px 10px rgba(0, 0, 0, 0.22);
   position: relative;
   overflow: hidden;
   width: 768px;
@@ -75,16 +75,16 @@ a {
   display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-  -ms-flex-direction: column;
-  flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
   padding: 0 40px;
   height: 100%;
   -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
   text-align: center;
 }
 
@@ -99,11 +99,11 @@ a {
   display: -ms-inline-flexbox;
   display: inline-flex;
   -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
   margin: 0 5px;
   height: 40px;
   width: 40px;
@@ -139,7 +139,7 @@ button .ghost {
 
 button:active {
   -webkit-transform: scale(0.95);
-  transform: scale(0.95);
+          transform: scale(0.95);
 }
 
 button:focus {
@@ -183,13 +183,7 @@ button:focus {
 
 .overlay {
   background: #ff416c;
-  background: -webkit-gradient(
-    linear,
-    left top,
-    left bottom,
-    color-stop(5%, #cc0066),
-    to(#ff0000)
-  );
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(5%, #cc0066), to(#ff0000));
   background: linear-gradient(to bottom, #cc0066 5%, #ff0000 100%);
   color: white;
   position: relative;
@@ -197,7 +191,7 @@ button:focus {
   height: 100%;
   width: 200%;
   -webkit-transform: translateX(0);
-  transform: translateX(0);
+          transform: translateX(0);
   -webkit-transition: -webkit-transform 0.6 ease-in-out;
   transition: -webkit-transform 0.6 ease-in-out;
   transition: transform 0.6 ease-in-out;
@@ -212,20 +206,20 @@ button:focus {
   display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-  -ms-flex-direction: column;
-  flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
   -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
   padding: 0 40px;
   height: 100%;
   width: 50%;
   text-align: center;
   -webkit-transform: translateX(0);
-  transform: translateX(0);
+          transform: translateX(0);
   -webkit-transition: -webkit-transform 0.6 ease-in-out;
   transition: -webkit-transform 0.6 ease-in-out;
   transition: transform 0.6 ease-in-out;
@@ -235,17 +229,17 @@ button:focus {
 .right-panel {
   right: 0;
   -webkit-transform: translateX(0);
-  transform: translateX(0);
+          transform: translateX(0);
 }
 
 .left-panel {
   -webkit-transform: translateX(-20%);
-  transform: translateX(-20%);
+          transform: translateX(-20%);
 }
 
 .back-container.right-panel-active .sign-in {
   -webkit-transform: translateX(100%);
-  transform: translateX(100%);
+          transform: translateX(100%);
   -webkit-transition: -webkit-transform 1s ease-in-out;
   transition: -webkit-transform 1s ease-in-out;
   transition: transform 1s ease-in-out;
@@ -254,7 +248,7 @@ button:focus {
 
 .back-container.back-container.right-panel-active .overlay-container {
   -webkit-transform: translateX(-100%);
-  transform: translateX(-100%);
+          transform: translateX(-100%);
   -webkit-transition: -webkit-transform 1s ease-in-out;
   transition: -webkit-transform 1s ease-in-out;
   transition: transform 1s ease-in-out;
@@ -263,7 +257,7 @@ button:focus {
 
 .back-container.back-container.right-panel-active .sign-up {
   -webkit-transform: translateX(100%);
-  transform: translateX(100%);
+          transform: translateX(100%);
   -webkit-transition: -webkit-transform 1s ease-in-out;
   transition: -webkit-transform 1s ease-in-out;
   transition: transform 1s ease-in-out;
@@ -274,12 +268,12 @@ button:focus {
 
 .back-container.right-panel-active .overlay {
   -webkit-transform: translateX(50%);
-  transform: translateX(50%);
+          transform: translateX(50%);
 }
 
 .back-container.right-panel-active .left-panel {
   -webkit-transform: translateX(0);
-  transform: translateX(0);
+          transform: translateX(0);
 }
 
 .back {
@@ -298,9 +292,9 @@ button:focus {
 
 .back .fade {
   -webkit-animation-name: fade;
-  animation-name: fade;
+          animation-name: fade;
   -webkit-animation-duration: 2s;
-  animation-duration: 2s;
+          animation-duration: 2s;
 }
 
 @-webkit-keyframes fade {

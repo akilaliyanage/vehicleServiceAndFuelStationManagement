@@ -22,7 +22,7 @@ function slideShow() {
     }    
   
   slides[slideIndex-1].style.display = "block";  
-  setTimeout(slideShow, 5000); // Change image every 2 seconds
+  setTimeout(slideShow, 2000); // Change image every 2 seconds
 }
 
 function check(){
