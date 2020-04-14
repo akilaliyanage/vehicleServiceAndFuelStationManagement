@@ -59,23 +59,23 @@
             <span>Or, just enter your Email/Username and password</span>
             <input
               type="text"
-              name="username"
+              name="signusername"
               class="username"
               id="username"
               placeholder="Username"
             />
             <input
               type="text"
-              name="email"
+              name="signemail"
               class="email"
               placeholder="Email"
             />
-            <input type="password" name="pass" id="pass" placeholder="Password"/>
+            <input type="password" name="signpass" id="pass" placeholder="Password"/>
             <button>Sign Up</button>
           </form>
         </div>
         <div class="form-container sign-in">
-          <form action="">
+          <form action="" method="post">
               id="emailNew"
             />
             <input
@@ -88,7 +88,7 @@
           </form>
         </div>
         <div class="form-container sign-in">
-          <form action="" onsubmit="login()">
+          <form action="LoginServlet" onsubmit="login()" method="post">
             <h1>Sign In</h1>
             <div class="social-links">
               <a href=""><i class="fab fa-facebook"></i></a>
@@ -98,9 +98,16 @@
             <span>Or, just use your account</span>
             <input
               type="text"
-              name="email"
+              name="loginemail"
               class="email"
               placeholder="Email or Username"
+            />
+            
+            <input
+              type="password"
+              name="loginpassword"
+              class="email"
+              placeholder="Enter your password"
             />
       
             <button type="submit">Sign In</button>
