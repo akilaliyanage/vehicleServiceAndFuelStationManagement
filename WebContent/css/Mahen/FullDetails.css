@@ -1,0 +1,31 @@
+@charset "ISO-8859-1";
+
+.FullReq_1stText{
+	font-size: 20px;	
+	line-height: 10px;
+	 font-weight: bold;
+	 font-style: italic;
+	 
+}
+
+.All_request_left{
+	
+	border-style: solid;
+	border-left: 0px;
+	border-right: 0px;
+	border-bottom: 0px;
+	border-color: #4285F4;
+	background-color: white;
+	border-radius: 5px;
+}
+
+.bdge1{
+	position: relative;
+	left: 120px;
+	
+	
+}
+.left_text{
+	position: relative;
+	top: 5px;
+}
