@@ -1,7 +1,5 @@
-<<<<<<< HEAD
-=======
-$desktop : 1020px;
-$phone : 840px;
+$desktop: 1020px;
+$phone: 840px;
 
 @mixin tab {
   @media (max-width : #{$desktop}) {
@@ -10,12 +8,11 @@ $phone : 840px;
 }
 
 @mixin phone {
-  @media(max-width: #{$phone}){
+  @media (max-width: #{$phone}) {
     @content;
   }
 }
 
->>>>>>> 7306b1edcc8ed3f6a1670740fa6e8769dfcc62a8
 html {
   scroll-behavior: smooth;
 }
@@ -32,11 +29,7 @@ body {
   flex-direction: column;
   font-family: "Montserrat", sans-serif;
   height: 100vh;
-<<<<<<< HEAD
-  background-image: url('back()');
-=======
   //background-image: url('back()');
->>>>>>> 7306b1edcc8ed3f6a1670740fa6e8769dfcc62a8
 }
 h1 {
   font-weight: bold;
@@ -161,13 +154,12 @@ button:focus {
   width: 200%;
   transform: translateX(0);
   transition: transform 0.6 ease-in-out;
-<<<<<<< HEAD
-=======
+
 
   // @include phone{
   //   display: none;
   // }
->>>>>>> 7306b1edcc8ed3f6a1670740fa6e8769dfcc62a8
+
 }
 .overlay-panel {
   position: absolute;
@@ -210,34 +202,36 @@ button:focus {
 .back-container.right-panel-active .left-panel {
   transform: translateX(0);
 }
-.back{
+.back {
   width: 100%;
   height: 100vh;
   position: absolute;
   z-index: -5;
   overflow-y: hidden;
 
-<<<<<<< HEAD
-=======
+
   // @include tab{
   //   display: none;
   // }
 
->>>>>>> 7306b1edcc8ed3f6a1670740fa6e8769dfcc62a8
-    img{
-      width: 100%;
-      height: auto;
-      overflow-y: hidden;
-    }
-    .fade{
-      animation-name: fade;
-      animation-duration: 2s;
-    }
+  img {
+    width: 100%;
+    height: auto;
+    overflow-y: hidden;
+  }
+  .fade {
+    animation-name: fade;
+    animation-duration: 2s;
+  }
 
-    @keyframes fade{
-      from{opacity: 0.5;}
-      to{opacity: 1;}
+  @keyframes fade {
+    from {
+      opacity: 0.5;
     }
+    to {
+      opacity: 1;
+    }
+  }
 }
 
 
