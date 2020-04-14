@@ -1,0 +1,154 @@
+@charset "ISO-8859-1";
+
+.new_req_action strong{
+	color : #ff6b42;
+	
+	}
+	
+.new_req_action .my-4{
+	position: relative;
+	top: -8px;
+	
+	}
+	
+.new_req_action .jumbotron{
+	background-color: #42cdff;
+}
+	
+.new_req_action .btn{
+	width: 150px;
+	
+	}
+		
+.Act_new_req .jumbotron{
+	
+	
+	border-radius: 100px;
+
+	
+}
+
+.Act_new_req img{
+	
+	margin-left: 30px;
+	width: 150px;
+	height: 150px;
+	border-radius: 100%;
+}
+
+
+
+/*------------------------------------All request page CSS----------------------------------------*/
+
+
+.advance_search_area{
+	width: 100% ;
+	background-color: white;
+	display: block;
+}
+
+
+.dataTables_wrapper .dataTables_paginate .paginate_button:hover {
+  background: none;
+  color: black!important;
+  border-radius: 4px;
+  border: 1px solid #828282;
+}
+ 
+.dataTables_wrapper .dataTables_paginate .paginate_button:active {
+  background: none;
+  color: black!important;
+} 
+
+#All_req_table thead th:first-child {
+    border-left: none;
+    border-top-left-radius: 20px;
+    -webkit-border-top-left-radius: 20px;
+    -moz-border-radius-topleft: 20px;
+    
+}
+
+#All_req_table thead th:last-child {
+    border-right: none;
+    border-top-right-radius: 20px;
+    -webkit-border-top-right-radius: 20px;
+    -moz-border-radius-topleft: 20px;
+    
+}
+
+#All_req_table thead th{
+	
+	padding: 20px;
+	background-color: 	#5bc0de;
+}
+
+.All_req_table_container{
+	border-radius: 10px;
+	display: flex;
+}
+
+#All_req_table{
+	border-radius: 10px;
+	background: #ccfffc;
+	border-bottom: none;
+	
+}
+
+
+#All_req_table tr:hover{
+	background-color: #e3fffd;
+	
+}
+
+
+.serch_in{
+	border-top: none;
+	border-right: none;
+	border-left: none;
+	margin-top: 30px;
+	background-color: inherit;
+	overflow: hidden;
+	width: 220px;
+	font-size: 14px;
+	border-bottom-color:#428bca;
+	color:	#428bca;
+	font-weight: bold;
+	
+}
+
+.serch_in:focus{
+	outline: none;
+}
+
+.serch_in::placeholder{
+	color:	#428bca;
+	font-weight: bold;
+}
+
+
+.Sel_val{
+	border-color: 	#428bca;
+	border-bottom-width: 2px;
+	margin-bottom: 30px;
+	color:	#428bca;
+	font-weight: bold;
+}
+
+.serch_in:hover{
+	opacity: 0.5;
+}
+
+
+.Sel_val option{
+   
+   background-color: white;
+   border: none;
+}
+
+#picker{
+	position: relative;
+	top: 2px;
+}
+
+
+	
