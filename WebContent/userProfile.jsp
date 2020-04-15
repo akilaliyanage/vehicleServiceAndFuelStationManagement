@@ -7,15 +7,16 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <!-- end of the bootsrtap -->
     <!--userprofile css-->
-    <link rel="stylesheet" href="../WebContent/css/akila/userProfile.css">
-    <link rel="stylesheet" href="../WebContent/css/akila/main.css">
-    <link rel="stylesheet" href="../WebContent/css/akila/util.css">
-    <link rel="stylesheet" href="../WebContent/css/akila/vendor/animate/animate.css">
-    <link rel="stylesheet" href="../WebContent/css/akila/vendor/animsition/css/animsition.min.css">
-    <link rel="stylesheet" href="../WebContent/css/akila/vendor/css-hamburgers/hamburgers.min.css">
-    <link rel="stylesheet" href="../WebContent/css/akila/vendor/perfect-scrollbar/perfect-scrollbar.css">
-    <link rel="stylesheet" href="../WebContent/css/akila/vendor/select2/select2.min.css">
-    <link rel="stylesheet" href="../WebContent/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/akila/userProfile.css">
+    <link rel="stylesheet" href="css/akila/main.css">
+    <link rel="stylesheet" href="css/akila/dashboard.css">
+    <link rel="stylesheet" href="css/akila/util.css">
+    <link rel="stylesheet" href="css/akila/vendor/animate/animate.css">
+    <link rel="stylesheet" href="css/akila/vendor/animsition/css/animsition.min.css">
+    <link rel="stylesheet" href="css/akila/vendor/css-hamburgers/hamburgers.min.css">
+    <link rel="stylesheet" href="css/akila/vendor/perfect-scrollbar/perfect-scrollbar.css">
+    <link rel="stylesheet" href="css/akila/vendor/select2/select2.min.css">
+    <link rel="stylesheet" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
       <!-- Font Awesome -->
@@ -327,6 +328,12 @@
           </div>
          
     </div>
+    
+    <jsp:include page="/WEB-INF/views/akila/footer.jsp"></jsp:include>
+    
+
+    
+    	
 
 
     <!--bootstrap-->
