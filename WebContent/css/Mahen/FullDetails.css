@@ -29,3 +29,36 @@
 	position: relative;
 	top: 5px;
 }
+
+.tab_button{
+	background-color: #33b5e5;
+	color: white;
+	border-style: groove;
+	border-top: none;
+	border-left: none;
+	border-right: none;
+	border-bottom: none;
+	width: 280px;
+	border-radius: 0px;
+}
+
+.ver_car_img{
+	position: relative;
+	left: 15px;
+	top: -24px;
+	height:inherit;
+	opacity: 0.9;
+}
+.tab3_Left_text {
+	line-height: 5px;
+}
+.Blue_text{
+	color: #4285F4;
+	font-weight: bold;
+	font-style: italic;
+}
+#cust_feedback_img{
+	height: 664px;
+	opacity: 1;
+}
+
