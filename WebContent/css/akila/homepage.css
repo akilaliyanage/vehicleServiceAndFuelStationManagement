@@ -1,0 +1,146 @@
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  padding: 0;
+  margin: 0em;
+}
+
+.section-1 {
+  background-image: url("../../img/akila/dark.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-blend-mode: color-dodge;
+  background-attachment: fixed;
+  width: 100%;
+  height: 100vh;
+  overflow-x: hidden;
+}
+
+.section-1 .right {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.section-1 .right .card {
+  width: 500px;
+  padding: 20px;
+}
+
+.section-1 .right .card h4 {
+  font-weight: 60px;
+}
+
+.section-1 .right .card select {
+  margin-top: 10px;
+  border: none;
+  border-radius: 0px;
+  border-bottom: 1px grey solid;
+}
+
+.section-1 .right .card button {
+  margin-top: 20px;
+}
+
+.section-1 .left {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.section-1 .left h1 {
+  margin-top: 60px;
+  color: white;
+  font-weight: bolder;
+  font-size: 60px;
+  margin-left: 60px;
+}
+
+.section-1 .left p {
+  color: white;
+  font-weight: bolder;
+  margin-left: 60px;
+}
+
+.section-2 {
+  width: 100%;
+  height: 100vh;
+  overflow-x: hidden;
+}
+
+.section-2 .sec2-left {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.section-2 .sec2-right {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.section-2 .sec2-right p {
+  padding: 30px;
+}
+
+.section-3 {
+  overflow-x: hidden;
+}
+
+.section-3 h1 {
+  text-align: center;
+}
+
+.section-3 .flex {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  overflow-x: scroll;
+}
+
+.section-3 .flex .card {
+  width: 300px;
+  margin-left: 50px;
+}
+/*# sourceMappingURL=homepage.css.map */
