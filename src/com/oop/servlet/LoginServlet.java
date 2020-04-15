@@ -54,6 +54,12 @@ public class LoginServlet extends HttpServlet {
 				sHttpSession.setAttribute("username", loginUsernameString);
 				request.getRequestDispatcher("dashboard.jsp");
 			}
+			else if(Pattern.matches("[US]{2}[0-9]{3}", loginUsernameString)) {
+				
+				HttpSession sHttpSession = request.getSession();
+				sHttpSession.setAttribute("username", loginUsernameString);
+				request.getRequestDispatcher("homepage.jsp");
+			}
 			
 		}
 		else {
