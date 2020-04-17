@@ -1,3 +1,6 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1" errorPage="error.jsp"%> 
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -31,7 +34,7 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent-555">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item active">
-                        <a class="nav-link" href="homepage.html">Home
+                        <a class="nav-link" href="homepage.jsp">Home
                             <span class="sr-only">(current)</span>
                         </a>
                     </li>
@@ -49,7 +52,7 @@
                 </ul>
                 <ul class="navbar-nav ml-auto nav-flex-icons">
                     <li class="nav-item avatar">
-                        <a class="nav-link p-0" href="#">
+                        <a class="nav-link p-0" href="userProfile.jsp">
                             <img src="https://mdbootstrap.com/img/Photos/Avatars/avatar-5.jpg" class="rounded-circle z-depth-0"
                                 alt="avatar image" height="35">
                         </a>
