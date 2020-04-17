@@ -116,9 +116,9 @@
 					<td>
 					
 						
-						<button type="button" class="btn btn-secondary" data-toggle="tooltip" data-placement="top" title="Edit">
+						<a href="newReq.jsp" class="btn btn-secondary" data-toggle="tooltip" data-placement="top" title="Edit">
 							<i class="fas fa-edit"></i>
-						</button>
+						</a>
 					
 						<button type="button" class="btn btn-danger" data-toggle="tooltip" data-placement="top" title="Tooltip on top">
 							<i class="far fa-trash-alt"></i>

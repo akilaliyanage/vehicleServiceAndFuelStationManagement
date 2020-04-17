@@ -33,6 +33,7 @@ body {
 .section-1 .right .card {
   width: 500px;
   padding: 20px;
+  margin-top: 100px;
 }
 
 .section-1 .right .card h4 {
@@ -80,6 +81,7 @@ body {
   width: 100%;
   height: 100vh;
   overflow-x: hidden;
+  background-color: white;
 }
 
 .section-2 .sec2-left {
@@ -116,6 +118,7 @@ body {
 
 .section-3 {
   overflow-x: hidden;
+  background-color: white;
 }
 
 .section-3 h1 {
@@ -142,5 +145,10 @@ body {
 .section-3 .flex .card {
   width: 300px;
   margin-left: 50px;
+}
+
+.section-4 {
+  background-color: white;
+  padding: 20px;
 }
 /*# sourceMappingURL=homepage.css.map */
