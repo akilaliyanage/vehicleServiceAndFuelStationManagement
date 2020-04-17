@@ -15,6 +15,7 @@
 
     <!--akila's css-->
     <link rel="stylesheet" href="css/akila/index.css" />
+    <link rel="stylesheet" href="css/akila/dashboard.css">
     <!--end of akila's css-->
     
     <!-- bootstrap -->
@@ -145,6 +146,9 @@
         </div>
       </div>
     </div>
+
+
+   
 
     <!--akila's js-->
     <script src="js/akila/index.js"></script>

@@ -324,8 +324,72 @@
                 <!--Table-->
               </div>
 
+             
+
             </div>
-          </div>
+          </div> 
+
+          <div class="row requests" id="section-4">
+            <div class="col-lg-12">
+
+              <!--my requests-->
+              <div class="requests">
+                <div class="alert alert-success" role="alert">
+                  My Requests
+                </div>
+              </div>
+
+              <!--request table-->
+
+            <div class="table-responsive text-nowrap scroll">
+            
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Service Type</th>
+                    <th scope="col">Sheduled Date</th>
+                    <th scope="col">Location</th>
+                    <th scope="col">Vehicle Number</th>
+                    <th scope="col">Status</th>
+                    <th scope="col">More Details</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">1</th>
+                    <td>Vehicle Wash</td>
+                    <td>2020-4-20</td>
+                    <td>Malabe</td>
+                    <td>SG GH 6558</td>
+                    <td><span class="badge badge-danger">Rejected</span></td>
+                    <td><a href="RequestDetailsFrontend.html" class="btn btn-dark">Full Details</a></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">1</th>
+                    <td>Vehicle Wash</td>
+                    <td>2020-4-20</td>
+                    <td>Malabe</td>
+                    <td>SG GH 6558</td>
+                    <td><span class="badge badge-success">Approved</span></td>
+                    <td><a href="RequestDetailsFrontend.html" class="btn btn-dark">Full Details</a></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">1</th>
+                    <td>Vehicle Wash</td>
+                    <td>2020-4-20</td>
+                    <td>Malabe</td>
+                    <td>SG GH 6558</td>
+                    <td><span class="badge badge-warning">Pending</span></td>
+                    <td><a href="RequestDetailsFrontend.html" class="btn btn-dark">Full Details</a></td>
+                  </tr>
+                </tbody>
+              </table>
+            
+            </div>
+
+            </div>
+          </div>     
          
     </div>
     
@@ -351,6 +415,15 @@
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.16.0/js/mdb.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+  <!--custom js-->
+  <script src="js/akila/userProfile.js"></script>
+    <!--request table-->
+    <script>
+     $(document).ready(function () {
+        $('#dtBasicExample').DataTable();
+        $('.dataTables_length').addClass('bs-select');
+      });
+    </script>
 
     <!--line chart-->
       <script>
