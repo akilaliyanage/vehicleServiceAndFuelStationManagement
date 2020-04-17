@@ -102,7 +102,7 @@
                                 <h3 class="text-right col-5">10:00 Am</h3>
                             </div>
 
-                            <a class="btn btn-purple btn-md ml-0" role="button" disabled>Start now<i
+                            <a class="btn btn-purple btn-md ml-0" role="button" disabled> Accepted <i
                                     class="fa fa-gem ml-2"></i></a>
 
                         </div>
@@ -157,13 +157,17 @@
                         </div>
 
                         <button type="button" class="btn btn-lg btn-block btn-primary ml-0" data-toggle="modal"
-                            data-target="#Edit_requestModel">Edit
-                            Request</button>
-                        <button type="button" class="btn btn-lg btn-block btn-warning ml-0" data-toggle="modal">Contact
-                            Us</button>
-                        <button type="button" class="btn btn-lg btn-block btn-success ml-0" data-toggle="modal">Feedback</button>
-                        <button type="button" class="btn btn-lg btn-block btn-danger ml-0" data-toggle="modal">Delete
-                            Request</button>
+                            data-target="#Edit_requestModel">EditRequest
+                        </button>
+                        <button type="button" class="btn btn-lg btn-block btn-warning ml-0" data-toggle="modal" 
+                            data-target="#ContactUsModal">Contact Us
+                        </button>
+                        <button type="button" class="btn btn-lg btn-block btn-success ml-0"data-toggle="modal"
+                            data-target="#FeedbackModal">Feedback
+                        </button>
+                        <button type="button" class="btn btn-lg btn-block btn-danger ml-0" data-toggle="modal"
+                            data-target="#ConfirmDelete">Delete Request
+                        </button>
 
                     </div>
                     <!-- Grid column -->
@@ -176,16 +180,16 @@
                             <h6 class="h6 pb-1"><i class="fas fa-desktop pr-1"></i> Customer</h6>
                         </a>
 
-                        <h3 style="color: #4285F4;"> <i class="fas fa-car-side"></i>More Details</h3>
+                        <h3 style="color: #4285F4;"> <i class="fas fa-car-side"></i> More Details</h3>
                         <hr style="border-width: 5px; border-color: #0d47a1;">
 
                         <div class="row">
                             <div class="col-6 border-right" style="line-height: 0px;">
 
-                                <p class="ml-4"> <i class="fas fa-car"></i> <strong> Customer name : </strong> </p>
+                                <p class="ml-4"> <i class="fas fa-user-alt"></i> <strong> Customer name : </strong> </p>
                                 <p class="text-right"> Stacy V. Pearson</p>
 
-                                <p class="ml-4"> <i class="fab fa-bootstrap"></i> <strong> Package : </strong> </p>
+                                <p class="ml-4"> <i class="fas fa-box"></i> <strong> Package : </strong> </p>
                                 <p class="text-right >">Wash Car</p>
 
                             </div>
@@ -196,7 +200,7 @@
                             </div>
                         </div>
 
-                        <h3 style="color: #4285F4;"> <i class="fas fa-car-side"></i> Vehicle details</h3>
+                        <h3 style="color: #4285F4;"> <i class="fas fa-car-side" ></i> Vehicle details</h3>
                         <hr style="border-width: 5px; border-color: #0d47a1;">
 
                         <div class="row">
@@ -247,7 +251,7 @@
                                 </p>
                                 <p class="text-right"> Pending </p>
                             </div>
-                            <a href=""><strong> Click here to view bill</strong></a>
+                            <a href="" class="ml-4 mb-4 mb-2"><strong> Click here to view bill</strong></a>
                         </div>
 
                         <h4 class="h4 mb-4">Company Remarks</h4>
@@ -266,14 +270,14 @@
                 <!-- Grid row -->
 
             </div>
-            <!-- News jumbotron -->
+            <!-- End of jumbotron -->
 
 
             <!--Stat of Edit Request Model -->
             <div class="modal fade" id="Edit_requestModel" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
                 aria-hidden="true">
 
-                <!-- Change class .modal-sm to change the size of the modal -->
+                
                 <div class="modal-dialog modal-lg " role="document">
 
 
@@ -293,8 +297,8 @@
 
                                   </div>
                                 <div class="col-5 mt-4 pt-4">
-                                    <h4 class="ml-4"> <i class="fab fa-bootstrap"></i> <strong> Request No : </strong> </h4>
-                                    <h4 class="ml-4"> <i class="fas fa-car"></i> <strong> Customer name : </strong> </h4>
+                                    <h4 class="ml-4"> <i class="fas fa-envelope-open-text"></i> <strong> Request No : </strong> </h4>
+                                    <h4 class="ml-4"> <i class="fas fa-user-alt"></i> <strong> Customer name : </strong> </h4>
                                     
                                 </div>
                                 <div class="col-3 mt-4 pt-4">
@@ -307,14 +311,14 @@
                             
 
                             <form>
-                                <h3> Vehecle Details</h3>
+                                <h3  style="color: orange;font-weight: bold;"> Vehicle Details</h3>
 
                                 <div class="row">
                                     <div class="col-6">
                                         <div class="md-form ml-4 mr-4">
-                                            <i class="fa fa-user prefix grey-text"></i>
+                                            <i class="fas fa-car prefix grey-text"></i>
                                             <input type="text" id="materialFormCardNameEx" class="form-control"
-                                                value="aaaaaa">
+                                                value="">
                                             <label for="materialFormCardNameEx" class="font-weight-light">Vehical
                                                 Number</label>
                                         </div>
@@ -328,8 +332,8 @@
                                         </div>
                                     </div>
                                     <div class="form-group col-md-3 ml-4">
-                                        <label for="inputState">Brand</label>
-                                        <select id="inputState" class="form-control">
+                                        <label for="inputState"><i class="fab fa-bootstrap grey-text fa-2x"></i> Brand</label>
+                                        <select id="inputState" class="form-control ml-3">
                                             <option selected>Choose...</option>
                                             <option value="1">One</option>
                                             <option value="2">Two</option>
@@ -338,8 +342,8 @@
                                     </div>
                                         
                                     <div class="form-group col-md-3 ml-4">
-                                        <label for="inputState">Model</label>
-                                        <select id="inputState" class="form-control">
+                                        <label for="inputState"> <i class="fab fa-medium-m grey-text fa-2x"></i> Model</label>
+                                        <select id="inputState" class="form-control ml-3">
                                             <option selected>Choose...</option>
                                             <option value="1">One</option>
                                             <option value="2">Two</option>
@@ -348,8 +352,8 @@
                                     </div>
 
                                     <div class="form-group col-md-3 ml-4">
-                                        <label for="inputState">Transmission</label>
-                                        <select id="inputState" class="form-control">
+                                        <label for="inputState"> <i class="fas fa-cogs grey-text fa-2x"></i> Transmission</label>
+                                        <select id="inputState" class="form-control ml-3">
                                             <option selected>Choose...</option>
                                             <option value="1">One</option>
                                             <option value="2">Two</option>
@@ -358,8 +362,37 @@
                                     </div>
 
                                     <div class="form-group col-md-3 ml-4">
-                                        <label for="inputState">fuel type</label>
-                                        <select id="inputState" class="form-control">
+                                        <label for="inputState"> <i class="fas fa-gas-pump grey-text fa-2x"></i> fuel type</label>
+                                        <select id="inputState" class="form-control ml-3">
+                                            <option selected>Choose...</option>
+                                            <option value="1">One</option>
+                                            <option value="2">Two</option>
+                                            <option value="3">Three</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <h3 style="color: orange; font-weight: bold;"> Date & Time</h3>
+                                <div class="row">
+                                    
+                                    <div class="md-form col-5 ml-4 mr-4">
+                                        <i class="far fa-calendar-alt fa-2x grey-text"></i>
+                                        <input placeholder="Selected date" type="date" id="date-picker" class="form-control">
+                                        
+                                    </div>
+                                    <div class="md-form col-5 ml-4 mr-4">
+                                        <i class="far fa-clock fa-2x grey-text"></i>
+                                        <input placeholder="Selected date" type="time" id="date-picker" class="form-control">
+                                        
+                                    </div>
+                                </div>
+
+                                <h3 style="color: orange; font-weight: bold;"> Payment Options</h3>
+                                <div class="row">
+                                    
+                                    <div class="form-group col-md-6 ml-4">
+                                        <label for="inputState"> <i class="fab fa-cc-amazon-pay grey-text fa-2x"></i> Your Payment Option</label>
+                                        <select id="inputState" class="form-control ml-3">
                                             <option selected>Choose...</option>
                                             <option value="1">One</option>
                                             <option value="2">Two</option>
@@ -383,7 +416,160 @@
            <!--End of Edit Request Model -->
 
 
+        <!--Start of modal Confirm Delete-->
+        <div class="modal fade" id="ConfirmDelete" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog modal-sm modal-notify modal-danger" role="document">
+                <!--Content-->
+                <div class="modal-content text-center">
+                    <!--Header-->
+                    <div class="modal-header d-flex justify-content-center">
+                        <p class="heading">Are you sure?</p>
+                    </div>
+        
+                    <!--Body-->
+                    <div class="modal-body">
+        
+                        <i class="fas fa-times fa-4x animated rotateIn"></i>
+        
+                    </div>
+        
+                    <!--Footer-->
+                    <div class="modal-footer flex-center">
+                        <a href="" class="btn  btn-outline-danger">Yes</a>
+                        <a type="button" class="btn  btn-danger waves-effect" data-dismiss="modal">No</a>
+                    </div>
+                </div>
+                <!--/.Content-->
+            </div>
+        </div>
+        <!--End of modal Confirm Delete-->
 
+
+        <!-- Start of contact US -->
+        <div class="modal fade" id="ContactUsModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog modal-notify modal-warning" role="document">
+                <!--Content-->
+                <div class="modal-content">
+                    <!--Header-->
+                    <div class="modal-header text-center">
+                        <h4 class="modal-title white-text w-100 font-weight-bold py-2">Contact us</h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true" class="white-text">&times;</span>
+                        </button>
+                    </div>
+        
+                    <!--Body-->
+                    <form class="text-center border border-light p-5" action="#!">
+                    
+                        <!-- Name -->
+                        <input type="text" id="defaultContactFormName" class="form-control mb-4" placeholder="Name">
+                    
+                        <!-- Email -->
+                        <input type="email" id="defaultContactFormEmail" class="form-control mb-4" placeholder="E-mail">
+                    
+                        <!-- Subject -->
+                        <label>Subject</label>
+                        <select class="browser-default custom-select mb-4">
+                            <option value="" disabled>Choose option</option>
+                            <option value="1">Report a bug</option>
+                            <option value="2">Feature request</option>
+                            <option value="3">Feature request</option>
+                            <option value="4" >Other</option>
+                        </select>
+                    
+                        <!-- Message -->
+                        <div class="form-group">
+                            <textarea class="form-control rounded-0" id="exampleFormControlTextarea2" rows="3"
+                                placeholder="Message"></textarea>
+                        </div>
+                    
+                        <!-- Copy -->
+                        <div class="custom-control custom-checkbox mb-4">
+                            <input type="checkbox" class="custom-control-input" id="defaultContactFormCopy">
+                            <label class="custom-control-label" for="defaultContactFormCopy">Send me a copy of this message</label>
+                        </div>
+                    
+                    </form>
+        
+                    <!--Footer-->
+                    <div class="modal-footer justify-content-center">
+                        <a type="button" class="btn btn-outline-warning waves-effect">Send <i
+                                class="fas fa-paper-plane-o ml-1"></i></a>
+                    </div>
+                </div>
+                <!--/.Content-->
+            </div>
+        </div>
+        <!-- End of contact US modal -->
+
+        <!--Start of feedback Modal-->
+        <div class="modal fade" id="FeedbackModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog modal-notify modal-success" role="document">
+                <!--Content-->
+                <div class="modal-content text-center">
+                    <!--Header-->
+                    <div class="modal-header d-flex justify-content-center">
+                        <p class="heading">Feedback</p>
+                    </div>
+        
+                    <!--Body-->
+                    <div class="modal-body">
+                        <h4 class="text-center mb-4">We would like your feedback to improve our services</h4>
+                        <h5 class="text-center">What would your openion of our service ? </h5>
+                        <div class="row d-flex justify-content-center text-center">
+                            <div class="col-2">
+                                <a onclick="setRating(1)"><i class="far fa-tired fa-3x"></i></a>
+                                <p>Very Poor</p>
+                            </div>
+                            <div class="col-2">
+                                <a onclick="setRating(2)"><i class="far fa-frown fa-3x"></i></a>
+                                <p>Poor</p>
+                            </div>
+                            <div class="col-2">
+                                <a onclick="setRating(3)"><i class="far fa-meh fa-3x"></i></a>
+                                <p>Fair</p>
+                            </div>
+                            <div class="col-2">
+                                <a onclick="setRating(4)"><i class="far fa-smile fa-3x"></i></a>
+                                <p>Good</p>
+                            </div>
+                            <div class="col-2">
+                                <a onclick="setRating(5)"><i class="far fa-laugh fa-3x"></i></a>
+                                <p>Very Good</p>
+                            </div>
+                        </div>
+                        <hr class="my-4">
+
+                        <label>Please select your feedback category below</label>
+                        <select class="browser-default custom-select mb-4">
+                            <option value="" disabled>Choose option</option>
+                            <option value="1">Suggestion</option>
+                            <option value="2">Something is nor quite right</option>
+                            <option value="3">Compliment</option>
+                            <option value="4">Other</option>
+                        </select>
+                        <hr class="my-2">
+                        <!-- Message -->
+                        <label>Please leave your feedback below</label>
+                        <div class="form-group">
+                            <textarea class="form-control rounded-0" id="exampleFormControlTextarea2" rows="3" placeholder="Message"></textarea>
+                        </div>
+        
+                    </div>
+        
+                    <!--Footer-->
+                    <div class="modal-footer flex-center">
+                        <a href="https://mdbootstrap.com/products/jquery-ui-kit/" class="btn btn-success">Yes</a>
+                        <a type="button" class="btn btn-outline-success waves-effect" data-dismiss="modal">No</a>
+                    </div>
+                </div>
+                <!--/.Content-->
+            </div>
+        </div>
+        <!--End of feedback Modal-->
 
 
 
@@ -649,7 +835,7 @@
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.16.0/js/mdb.min.js">
     </script>
     <!--Mahen js-->
-    <script src="js/Mahen/SendRequest.js"></script>
+    <script src="js/Mahen/RequestDetailsFrontend.js"></script>
     <!--end of the Mahen js-->
 </body>
 
