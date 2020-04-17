@@ -166,33 +166,33 @@
 
                               <div class="container-contact100" style="padding: 0; margin: 0;">
                                 <div class="wrap-contact100" style="padding: 0; margin-right: 0px;">
-                                  <form class="contact100-form validate-form" style="width: 350px;">
+                                  <form class="contact100-form validate-form" style="width: 350px;" method="post" action="UpdateUserServlet">
                                     <div class="wrap-input100 validate-input" data-validate="Name is required">
                                       <span class="label-input100">Your Name</span>
-                                      <input class="input100" type="text" name="name" placeholder="Enter your name">
+                                      <input class="input100" type="text" name="updateName" placeholder="Enter your name">
                                       <span class="focus-input100"></span>
                                     </div>
                               
                                     <div class="wrap-input100 validate-input" data-validate="Valid email is required: ex@abc.xyz">
                                       <span class="label-input100">Email</span>
-                                      <input class="input100" type="text" name="email" placeholder="Enter your email addess">
+                                      <input class="input100" type="text" name="updateEmail" placeholder="Enter your email addess">
                                       <span class="focus-input100"></span>
                                     </div>
                               
                                     <div class="wrap-input100 validate-input" data-validate="phone number is required">
                                       <span class="label-input100">Phone Number</span>
-                                      <input class="input100" type="text" name="name" placeholder="Enter your phone number">
+                                      <input class="input100" type="text" name="updatePhone" placeholder="Enter your phone number">
                                       <span class="focus-input100"></span>
                                     </div>
                               
-                                    <div class="wrap-input100 validate-input" data-validate="Valid email is required: ex@abc.xyz">
+                                    <div class="wrap-input100 validate-input">
                                       <span class="label-input100">Profile photo</span>
                                       <div class="input-group">
                                         <div class="input-group-prepend">
                                           <span class="input-group-text" id="inputGroupFileAddon01">Image</span>
                                         </div>
                                         <div class="custom-file">
-                                          <input type="file" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01">
+                                          <input type="file" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01" name="updatePhoto">
                                           <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
                                         </div>
                                       </div>
@@ -204,10 +204,10 @@
                                     <div class="wrap-input100 input100-select">
                                       <span class="label-input100">Gender</span>
                                       <div>
-                                        <select class="selection-2" name="budget">
+                                        <select class="selection-2" name="updateGender">
                                           <option>Select Gender</option>
-                                          <option>Male</option>
-                                          <option>Female</option>
+                                          <option value="male">Male</option>
+                                          <option value="female">Female</option>
                                         </select>
                                       </div>
                                       <span class="focus-input100"></span>
@@ -215,14 +215,14 @@
                               
                                     <div class="wrap-input100 validate-input" data-validate="Message is required">
                                       <span class="label-input100">Profile Description</span>
-                                      <textarea class="input100" name="message" placeholder="Enter your profile description here..."></textarea>
+                                      <textarea class="input100" name="updateMassege" placeholder="Enter your profile description here..."></textarea>
                                       <span class="focus-input100"></span>
                                     </div>
                               
                                     <div class="container-contact100-form-btn">
                                       <div class="wrap-contact100-form-btn">
                                         <div class="contact100-form-bgbtn"></div>
-                                        <button class="contact100-form-btn">
+                                        <button class="contact100-form-btn" type="submit">
                                           <span>
                                             Submit
                                             <i class="fa fa-long-arrow-right m-l-7" aria-hidden="true"></i>

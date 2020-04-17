@@ -14,7 +14,7 @@ import com.oop.model.NewUserModel;
 /**
  * Servlet implementation class NewUserServlet
  */
-@WebServlet(asyncSupported = true, urlPatterns = { "/NewUserServlet" })
+@WebServlet(urlPatterns = { "/NewUserServlet" })
 public class NewUserServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        

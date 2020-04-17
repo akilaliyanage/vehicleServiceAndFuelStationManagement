@@ -32,6 +32,8 @@ public class NewUserDAO {
 			
 			status = pStatement.executeUpdate();
 			
+			connection.close();
+			
 			
 		} catch (Exception e) {
 			// TODO: handle exception
