@@ -14,7 +14,7 @@ import com.oop.model.NewUserModel;
 /**
  * Servlet implementation class NewUserServlet
  */
-@WebServlet(urlPatterns = { "/NewUserServlet" })
+//@WebServlet(urlPatterns = { "/NewUserServlet" })
 public class NewUserServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -57,6 +57,8 @@ public class NewUserServlet extends HttpServlet {
 		} catch (Exception e) {
 			// TODO: handle exception
 			System.out.println(e);
+			request.setAttribute("err", e);
+			request.getRequestDispatcher("error.jsp").forward(request, response);
 		}
 	}
 

@@ -61,7 +61,6 @@
     <div>
       <div class="back-container" id="back-container">
         <div class="form-container sign-up">
-          <form action="">
           <form action="NewUserServlet" onsubmit="check()" method="post">
             <h1>Create Account</h1>
             <div class="social-links">

@@ -15,7 +15,7 @@ import java.util.regex.*;
 /**
  * Servlet implementation class LoginServlet
  */
-@WebServlet(description = "This controler is used to controll the user login of the system", urlPatterns = { "/LoginServlet" })
+//@WebServlet(description = "This controler is used to controll the user login of the system", urlPatterns = { "/LoginServlet" })
 public class LoginServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        

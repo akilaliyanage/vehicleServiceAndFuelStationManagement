@@ -9,8 +9,8 @@ package com.oop.database;
  */
 public interface DatabaseInfo {
 
-	String databaseUsernameString = "";
-	String databasePasswordString = "";
-	String databaseUrlString = "";
+	String databaseUsernameString = "root";
+	String databasePasswordString = "root";
+	String databaseUrlString = "jdbc:mysql://localhost:3306/login";
 	
 }

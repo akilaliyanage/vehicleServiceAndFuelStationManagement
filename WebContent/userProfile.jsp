@@ -166,7 +166,7 @@
 
                               <div class="container-contact100" style="padding: 0; margin: 0;">
                                 <div class="wrap-contact100" style="padding: 0; margin-right: 0px;">
-                                  <form class="contact100-form validate-form" style="width: 350px;" method="post" action="UpdateUserServlet">
+                                  <form class="contact100-form validate-form" style="width: 350px;" action="UpdateUserServlet" method="post">
                                     <div class="wrap-input100 validate-input" data-validate="Name is required">
                                       <span class="label-input100">Your Name</span>
                                       <input class="input100" type="text" name="updateName" placeholder="Enter your name">

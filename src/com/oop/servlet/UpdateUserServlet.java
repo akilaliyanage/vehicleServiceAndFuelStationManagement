@@ -13,7 +13,7 @@ import com.oop.model.UpdateUserModel;
 /**
  * Servlet implementation class UpdateUserServlet
  */
-@WebServlet("/UpdateUserServlet")
+//@WebServlet(value = "/UpdateUserServlet")
 public class UpdateUserServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        

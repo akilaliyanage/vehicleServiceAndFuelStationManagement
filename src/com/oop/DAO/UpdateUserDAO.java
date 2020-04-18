@@ -24,12 +24,12 @@ public class UpdateUserDAO {
 		try {
 			
 			connection = DatabaseConnection.getConnection();
-			pStatement = connection.prepareStatement("insert into user(name,email,phone,gender,description) values (?,?,?,?,?)");
+			pStatement = connection.prepareStatement("insert into login(username,email,phone,gender) values (?,?,?,?)");
 			pStatement.setString(1, user.getNameString());
 			pStatement.setString(2, user.getEmailString());
 			pStatement.setString(3, user.getPhoneString());
 			pStatement.setString(4, user.getGenderString());
-			pStatement.setString(5, user.getDescriptionString());
+			//pStatement.setString(5, user.getDescriptionString());
 
 			status = pStatement.executeUpdate();
 			
@@ -37,6 +37,7 @@ public class UpdateUserDAO {
 			
 		} catch (Exception e) {
 			// TODO: handle exception
+			System.out.println(e);
 		}
 		
 		return status;
