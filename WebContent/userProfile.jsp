@@ -1,3 +1,6 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1" errorPage="error.jsp"%> 
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -30,6 +33,7 @@
     <title>Document</title>
 </head>
 <body>
+
 
     <div class="card main-back">
 

@@ -24,6 +24,13 @@ pageEncoding="ISO-8859-1" isErrorPage="true"%>
       href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.16.0/css/mdb.min.css"
       rel="stylesheet"
     />
+    
+     <link
+      rel="shortcut icon"
+      href="img/akila/err.png"
+      type="image/x-icon"
+    />
+    
     <!-- custom css -->
     <link rel="stylesheet" href="css/akila/error.css" />
     <link rel="stylesheet" href="css/akila/homepage.css" />
@@ -96,10 +103,23 @@ pageEncoding="ISO-8859-1" isErrorPage="true"%>
           class="badge badge-success text-wrap"
           style="width: auto; font-size: 20px;"
         >
-          STATUS CODE : <%out.println(statusCode + " - HTTP code returned");%> <br>        
+          STATUS CODE : <%out.println(statusCode + " - HTTP code returned");%> <br>  <br>
+          EXCEPTION TYPE : <%=exception.getClass() %> <br> <br>
+           MESSAGE : <%=exception.getMessage()%>   
         </div>
 			
-        <%}%> 
+        <%} else {%>
+        
+        <div class="badge badge-success text-wrap" style="width: auto; font-size: 20px;">
+          SERVLET NAME : <%out.println(servletName);%> <br>
+          REQUEST URI : <%out.println(throwable.getClass()); %> 
+          EXCEPTION : <%out.println(throwable.getClass().getName());%>   
+          MESSAGE : <%throwable.getMessage();%>
+        </div>
+        
+        <%} %> 
+        
+        
       </div>
     </div>
 
