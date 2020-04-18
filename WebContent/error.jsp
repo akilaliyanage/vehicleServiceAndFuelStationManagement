@@ -103,9 +103,7 @@ pageEncoding="ISO-8859-1" isErrorPage="true"%>
           class="badge badge-success text-wrap"
           style="width: auto; font-size: 20px;"
         >
-          STATUS CODE : <%out.println(statusCode + " - HTTP code returned");%> <br>  <br>
-          EXCEPTION TYPE : <%=exception.getClass() %> <br> <br>
-           MESSAGE : <%=exception.getMessage()%>   
+          STATUS CODE : <%out.println(statusCode + " - HTTP code returned");%>
         </div>
 			
         <%} else {%>
@@ -118,6 +116,15 @@ pageEncoding="ISO-8859-1" isErrorPage="true"%>
         </div>
         
         <%} %> 
+        
+        
+        <div
+          class="badge badge-success text-wrap"
+          style="width: auto; font-size: 20px;"
+        >
+         EXCEPTION TYPE : <%=exception%> <br> <br>
+        </div>
+        
         
         
       </div>

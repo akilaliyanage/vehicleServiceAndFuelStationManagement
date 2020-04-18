@@ -23,6 +23,7 @@
     <title>HomePage</title>
 </head>
 <body>
+
     <div class="section-1" id="section-1">
         <!--Navbar -->
         <nav class="mb-1 navbar navbar-expand-lg navbar-dark transparent lighten-1" style="box-shadow: none;font-weight: bolder; border: none;">
