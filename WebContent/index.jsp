@@ -61,7 +61,7 @@
     <div>
       <div class="back-container" id="back-container">
         <div class="form-container sign-up">
-          <form action="NewUserServlet" onsubmit="check()" method="post">
+          <form action="NewUserServlet" onsubmit="check()" method="get">
             <h1>Create Account</h1>
             <div class="social-links">
               <a href=""><i class="fab fa-facebook"></i></a>
@@ -88,8 +88,7 @@
         </div>
         <div class="form-container sign-in">
           <form action="" method="post">
-              id="emailNew"
-            />
+              
             <input
               type="password"
               name="pass"

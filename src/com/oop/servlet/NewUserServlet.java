@@ -1,6 +1,8 @@
 package com.oop.servlet;
 
 import java.io.IOException;
+
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -56,10 +58,11 @@ public class NewUserServlet extends HttpServlet {
 			
 		} catch (Exception e) {
 			// TODO: handle exception
-			System.out.println(e);
-			request.setAttribute("err", e);
-			request.getRequestDispatcher("error.jsp").forward(request, response);
+			
+			
+			
 		}
 	}
+
 
 }
