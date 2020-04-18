@@ -29,5 +29,5 @@ Pull requests are welcome. For major changes, please open an issue first to disc
 Please make sure to update the tests as appropriate.
 
 ## Screen Shots
-![Image description](link-to-image)
+![Image description](https://mysliit-my.sharepoint.com/personal/it19120812_my_sliit_lk/_layouts/15/Lightbox.aspx?url=https%3A%2F%2Fmysliit%2Dmy%2Esharepoint%2Ecom%2Fpersonal%2Fit19120812%5Fmy%5Fsliit%5Flk%2FDocuments%2FOOP%2FscreenShots%2Fss1%2EPNG)
 
