@@ -29,5 +29,5 @@ Pull requests are welcome. For major changes, please open an issue first to disc
 Please make sure to update the tests as appropriate.
 
 ## Screen Shots
-![Image description](https://mysliit-my.sharepoint.com/personal/it19120812_my_sliit_lk/Documents/OOP/screenShots/ss1.PNG)
+![Image description](https://drive.google.com/file/d/1aPfixPO9qp-nhDq4T7hroIeXbzK1vD_Q/view?usp=sharing)
 
