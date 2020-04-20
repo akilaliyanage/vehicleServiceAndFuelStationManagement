@@ -1,6 +1,7 @@
 package com.oop.DAO;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 
@@ -9,37 +10,33 @@ import com.oop.model.LoginModel;
 
 public class LoginDao {
 	
+	static Connection connection;
+	static PreparedStatement pStatement;
+	
 	//getData() method to fetch and save data from the database to the LoginModel object
 	
 	public LoginModel getData(String unameString, String passString) {
 		
 		LoginModel loginModel = new LoginModel();
 		
-		Connection connection;
-		String query = "SELECT * FROM login.login";
+		
 		
 		try {
 			
+
 			connection = DatabaseConnection.getConnection();
-//			pStatement = connection.prepareStatement("select * from user where username=? and password=?");
-//			pStatement.setString(1, unameString);
-//			pStatement.setString(2, passString);
-//			
-//			Resultset resultset = (Resultset) pStatement.executeQuery();
-//			
-//			while (((ResultSet) resultset).next()) {
-//				
-//				
-//			}
-			
+			pStatement = connection.prepareStatement("SELECT username,userPassword,regNo FROM vehicleserviceandfuelstationmanagement.user where userName = ? and userPassword = ? and regNo like 'REG%'");
+			pStatement.setString(1, unameString);
+			pStatement.setString(2, passString);
 			Statement st = connection.createStatement();
 			
-			ResultSet resultSet =  st.executeQuery(query);
+			ResultSet resultSet =  pStatement.executeQuery();
 			
 			while (resultSet.next()) {
 				
-				loginModel.setUsernameString(resultSet.getString("username"));
-				loginModel.setPassworString(resultSet.getString("password"));
+				loginModel.setUsernameString(resultSet.getString("userName"));
+				loginModel.setPassworString(resultSet.getString("userPassword"));
+				loginModel.setRegNoString(resultSet.getString("regNo"));
 				
 			}
 			

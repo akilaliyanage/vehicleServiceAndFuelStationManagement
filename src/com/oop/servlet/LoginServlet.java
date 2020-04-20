@@ -1,6 +1,8 @@
 package com.oop.servlet;
 
 import java.io.IOException;
+
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -48,19 +50,9 @@ public class LoginServlet extends HttpServlet {
 		
 		if(isSubmitString.equals("signin") && loginModel.getUsernameString() != null && loginModel.getPassworString() != null) {
 			
-			if(Pattern.matches("[AD]{2}[0-9]{3}", loginUsernameString)) {
-				
 				HttpSession sHttpSession = request.getSession();
-				sHttpSession.setAttribute("username", loginUsernameString);
-				request.getRequestDispatcher("dashboard.jsp");
-			}
-			else if(Pattern.matches("[US]{2}[0-9]{3}", loginUsernameString)) {
-				
-				HttpSession sHttpSession = request.getSession();
-				sHttpSession.setAttribute("username", loginUsernameString);
-				request.getRequestDispatcher("homepage.jsp");
-			}
-			
+				sHttpSession.setAttribute("regno", loginModel.getRegNoString());
+				response.sendRedirect("homepage.jsp");			
 		}
 		else {
 			request.setAttribute("error", "Invalid username or password");

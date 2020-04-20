@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1" errorPage="error.jsp"%> 
+    
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -24,8 +26,8 @@
   </head>
   <body>
   
-  	<div class="alert alert-warning alert-dismissible fade show" role="alert">
-  <strong>WELCOME TO CarCare SYSTEMS!!!</strong> Log in if you are already a registered customer of JZT create a account below
+  	<div class="alert alert-warning alert-dismissible fade show" role="alert" style="text-align: center;">
+  <strong>WELCOME TO CarCare SYSTEMS!!!</strong> Log in if you are already a registered customer of JZT create a account below <br> <span style="text-align: center; font-weight: bolder;color: red;font-size: 20px"><c:out value="${error}"></c:out></span>
   <button type="button" class="close" data-dismiss="alert" aria-label="Close">
     <span aria-hidden="true">&times;</span>
   </button>

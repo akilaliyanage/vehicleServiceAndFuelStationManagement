@@ -79,6 +79,24 @@
 		<url-pattern>/ErrorHandler</url-pattern>
 	</servlet-mapping>
 	
+	<servlet>
+		<servlet-name>UpdateDashboardServlet</servlet-name>
+		<servlet-class>com.oop.servlet.UpdateDashboardServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>UpdateDashboardServlet</servlet-name>
+		<url-pattern>/UpdateDashboardServlet</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>LogoutServlet</servlet-name>
+		<servlet-class>com.oop.servlet.LogoutServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>LogoutServlet</servlet-name>
+		<url-pattern>/LogoutServlet</url-pattern>
+	</servlet-mapping>
+	
 
 	
 	

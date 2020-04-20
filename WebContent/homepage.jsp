@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1" errorPage="error.jsp"%> 
+    
+    
 
 <!DOCTYPE html>
 <html lang="en">
@@ -23,6 +25,14 @@
     <title>HomePage</title>
 </head>
 <body>
+	    <% 
+	
+		String unameString = session.getAttribute("regno").toString();
+		if(session.getAttribute("regno") == null){
+			response.sendRedirect("index.jsp");
+		}
+	%>
+	
 
     <div class="section-1" id="section-1">
         <!--Navbar -->
@@ -45,7 +55,9 @@
                         <a class="nav-link" href="userProfile.jsp">Make payment</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Log out</a>
+                        <form action="LogoutServlet">
+                        	<button class="nav-link" type="submit" style="background: transparent;border: none;">Log out <%out.println(unameString);%></button>
+                        </form>
                     </li>
                     <!-- Dropdown -->
                    

@@ -6,9 +6,22 @@ public class LoginModel {
 	
 	private String usernameString;
 	private String passworString;
+	private String regNoString;
 	
 	//creating setters and getters for the variables
 	
+	/**
+	 * @return the regNoString
+	 */
+	public String getRegNoString() {
+		return regNoString;
+	}
+	/**
+	 * @param regNoString the regNoString to set
+	 */
+	public void setRegNoString(String regNoString) {
+		this.regNoString = regNoString;
+	}
 	/**
 	 * @return the usernameString
 	 */

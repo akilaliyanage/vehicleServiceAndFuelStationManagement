@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1" errorPage="error.jsp"%> 
+    
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -22,6 +24,7 @@
     <title>Admin</title>
   </head>
   <body>
+  
     <nav class="navbar menu sticky-top navbar-expand-lg navbar-light bg-light" id="mynav">
       <button
         class="navbar-toggler"
