@@ -5,9 +5,22 @@ public class NewUserModel {
 	private String usernameString;
 	private String emailString;
 	private String passwordString;
+	private String userregNoString;
 	
 	
 	
+	/**
+	 * @return the userregNoString
+	 */
+	public String getUserregNoString() {
+		return userregNoString;
+	}
+	/**
+	 * @param userregNoString the userregNoString to set
+	 */
+	public void setUserregNoString(String userregNoString) {
+		this.userregNoString = userregNoString;
+	}
 	/**
 	 * @return the usernameString
 	 */

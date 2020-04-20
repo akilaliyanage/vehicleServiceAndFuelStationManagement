@@ -25,10 +25,11 @@ public class NewUserDAO {
 		try {
 			
 			connection = DatabaseConnection.getConnection();
-			pStatement = connection.prepareStatement("insert into user(username, email, password) values(?,?)");
-			pStatement.setString(1, newUser.getUsernameString());
-			pStatement.setString(2, newUser.getEmailString());
+			pStatement = connection.prepareStatement("insert into vehicleserviceandfuelstationmanagement.User(regNo,userName,userPassword,userEmail) values(?,?,?,?)");
+			pStatement.setString(1, newUser.getUserregNoString());
+			pStatement.setString(2, newUser.getUsernameString());
 			pStatement.setString(3, newUser.getPasswordString());
+			pStatement.setString(4, newUser.getEmailString());
 			
 			status = pStatement.executeUpdate();
 			

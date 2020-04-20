@@ -56,7 +56,7 @@
                     </li>
                     <li class="nav-item">
                         <form action="LogoutServlet">
-                        	<button class="nav-link" type="submit" style="background: transparent;border: none;">Log out <%out.println(unameString);%></button>
+                        	<button class="nav-link" type="submit" style="background: transparent;border: none;font-weight: bolder;">Log out</button>
                         </form>
                     </li>
                     <!-- Dropdown -->

@@ -12,6 +12,7 @@ import javax.servlet.http.HttpSession;
 
 import com.oop.DAO.NewUserDAO;
 import com.oop.model.NewUserModel;
+import com.oop.model.RandomString;
 
 /**
  * Servlet implementation class NewUserServlet
@@ -32,34 +33,39 @@ public class NewUserServlet extends HttpServlet {
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
+	@SuppressWarnings({ "static-access", "unused" })
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		String newUsernameString = request.getParameter("signusername");
 		String newUsweEailString = request.getParameter("signemail");
 		String newUserPasswordString = request.getParameter("signpass");
+		String newUserRegNoString;
 		int status;
 		
 		NewUserModel newUserModelObject = new NewUserModel();
 		NewUserDAO newUserDAOObject = new NewUserDAO();
+		RandomString randonString = new RandomString();
 		
 		try {
 			
 			newUserModelObject.setUsernameString(newUsernameString);
 			newUserModelObject.setEmailString(newUsweEailString);
 			newUserModelObject.setPasswordString(newUserPasswordString);
+			newUserRegNoString = "REG" + randonString.getAlphaNumericString();
+			newUserModelObject.setUserregNoString(newUserRegNoString);
 			
 			status = newUserDAOObject.insertdata(newUserModelObject);
 			
 			if(status == 1) {
 				HttpSession session = request.getSession();
-				session.setAttribute("username", newUsernameString);
-				request.getRequestDispatcher("homepage.jsp");
+				session.setAttribute("regno", newUserModelObject.getUserregNoString());
+				response.sendRedirect("homepage.jsp");
 			}
 			
 		} catch (Exception e) {
 			// TODO: handle exception
 			
-			
+			System.out.println(e);
 			
 		}
 	}

@@ -63,7 +63,7 @@
     <div>
       <div class="back-container" id="back-container">
         <div class="form-container sign-up">
-          <form action="NewUserServlet" onsubmit="check()" method="get">
+          <form action="NewUserServlet" onsubmit="check()" method="post">
             <h1>Create Account</h1>
             <div class="social-links">
               <a href=""><i class="fab fa-facebook"></i></a>
