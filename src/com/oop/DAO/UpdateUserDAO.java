@@ -30,12 +30,15 @@ public class UpdateUserDAO {
 
 			connection = DatabaseConnection.getConnection();
 			pStatement = connection.prepareStatement(
-					"update User set userfullName = ?,userPhone = ?,gender=?,UserDescription = ? where regNo = ?");
+					"update User set userfullName = ?,userPhone = ?,gender=?,UserDescription = ?,userEmail = ?,userName = ?,userPassword = ? where regNo = ?");
 			pStatement.setString(1, user.getNameString());
 			pStatement.setString(2, user.getPhoneString());
 			pStatement.setString(3, user.getGenderString());
 			pStatement.setString(4, user.getDescriptionString());
-			pStatement.setString(5, user.getUserIdString());
+			pStatement.setString(5, user.getEmailString());
+			pStatement.setString(6, user.getUsernameString());
+			pStatement.setString(7, user.getPassworString());
+			pStatement.setString(8, user.getUserIdString());
 
 			status = pStatement.executeUpdate();
 			

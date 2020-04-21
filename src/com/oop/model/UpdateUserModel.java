@@ -16,6 +16,48 @@ public class UpdateUserModel {
 	private String genderString;
 	private String descriptionString;
 	private String userIdString;
+	private String emailString;
+	private String usernameString;
+	private String passworString;
+	
+	
+	
+	/**
+	 * @return the emailString
+	 */
+	public String getEmailString() {
+		return emailString;
+	}
+	/**
+	 * @param emailString the emailString to set
+	 */
+	public void setEmailString(String emailString) {
+		this.emailString = emailString;
+	}
+	/**
+	 * @return the usernameString
+	 */
+	public String getUsernameString() {
+		return usernameString;
+	}
+	/**
+	 * @param usernameString the usernameString to set
+	 */
+	public void setUsernameString(String usernameString) {
+		this.usernameString = usernameString;
+	}
+	/**
+	 * @return the passworString
+	 */
+	public String getPassworString() {
+		return passworString;
+	}
+	/**
+	 * @param passworString the passworString to set
+	 */
+	public void setPassworString(String passworString) {
+		this.passworString = passworString;
+	}
 	/**
 	 * @return the userIdString
 	 */

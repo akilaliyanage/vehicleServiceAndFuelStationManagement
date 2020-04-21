@@ -58,6 +58,12 @@
         
           <!-- Navbar brand -->
           <a class="navbar-brand" href="#">User Profile</a>
+          
+           <li class="nav-item">
+                        <form action="LogoutServlet">
+                        	<button class="nav-link navbar-brand" type="submit" style="background: transparent;border: none;font-weight: bolder;">Log out</button>
+                        </form>
+                    </li>
         
           <!-- Collapsible content -->
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -237,7 +243,25 @@
                                       </div>
                                       <span class="focus-input100"></span>
                                     </div>
-                              
+                                    
+                                   <div class="wrap-input100 validate-input" data-validate="email is required">
+                                      <span class="label-input100">Your Emil Address</span>
+                                      <input class="input100" type="email" name="updateEmail" placeholder="Enter your email">
+                                      <span class="focus-input100"></span>
+                                    </div>
+                                    
+                                     <div class="wrap-input100 validate-input" data-validate="Username is required">
+                                      <span class="label-input100">Enter your new username</span>
+                                      <input class="input100" type="text" name="updateUsername" placeholder="Enter your user name" required="required">
+                                      <span class="focus-input100"></span>
+                                    </div>
+                                    
+                                     <div class="wrap-input100 validate-input" data-validate="password is required">
+                                      <span class="label-input100">Your new password</span>
+                                      <input class="input100" type="password" name="updatePassword" placeholder="Enter your password" required="required">
+                                      <span class="focus-input100"></span>
+                                    </div>
+                                  
                                     <div class="wrap-input100 validate-input" data-validate="Message is required">
                                       <span class="label-input100">Profile Description</span>
                                       <textarea class="input100" name="updateMassege" placeholder="Enter your profile description here..."></textarea>
