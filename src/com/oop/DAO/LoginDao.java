@@ -15,6 +15,7 @@ public class LoginDao {
 	
 	//getData() method to fetch and save data from the database to the LoginModel object
 	
+	@SuppressWarnings("unused")
 	public LoginModel getData(String unameString, String passString) {
 		
 		LoginModel loginModel = new LoginModel();

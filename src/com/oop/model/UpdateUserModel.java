@@ -3,6 +3,8 @@
  */
 package com.oop.model;
 
+import java.io.InputStream;
+
 /**
  * @author mlaki
  *
@@ -10,10 +12,22 @@ package com.oop.model;
 public class UpdateUserModel {
 	
 	private String nameString;
-	private String emailString;
 	private String phoneString;
 	private String genderString;
 	private String descriptionString;
+	private String userIdString;
+	/**
+	 * @return the userIdString
+	 */
+	public String getUserIdString() {
+		return userIdString;
+	}
+	/**
+	 * @param userIdString the userIdString to set
+	 */
+	public void setUserIdString(String userIdString) {
+		this.userIdString = userIdString;
+	}
 	/**
 	 * @return the nameString
 	 */
@@ -25,18 +39,6 @@ public class UpdateUserModel {
 	 */
 	public void setNameString(String nameString) {
 		this.nameString = nameString;
-	}
-	/**
-	 * @return the emailString
-	 */
-	public String getEmailString() {
-		return emailString;
-	}
-	/**
-	 * @param emailString the emailString to set
-	 */
-	public void setEmailString(String emailString) {
-		this.emailString = emailString;
 	}
 	/**
 	 * @return the phoneString
@@ -76,9 +78,11 @@ public class UpdateUserModel {
 	}
 	@Override
 	public String toString() {
-		return "UpdateUserModel [nameString=" + nameString + ", emailString=" + emailString + ", phoneString="
-				+ phoneString + ", genderString=" + genderString + ", descriptionString=" + descriptionString + "]";
+		return "UpdateUserModel [nameString=" + nameString + ", phoneString=" + phoneString + ", genderString="
+				+ genderString + ", descriptionString=" + descriptionString + "]";
 	}
+	
+	
 	
 	
 
