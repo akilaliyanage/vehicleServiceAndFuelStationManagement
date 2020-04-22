@@ -106,6 +106,15 @@
 		<url-pattern>/UpdateUserDashboard</url-pattern>
 	</servlet-mapping>
 	
+	<servlet>
+		<servlet-name>UploadPhotoServlet</servlet-name>
+		<servlet-class>com.oop.servlet.UploadPhotoServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>UploadPhotoServlet</servlet-name>
+		<url-pattern>/UploadPhotoServlet</url-pattern>
+	</servlet-mapping>
+	
 
 	
 	

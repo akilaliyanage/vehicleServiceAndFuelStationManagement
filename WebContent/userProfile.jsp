@@ -154,6 +154,20 @@
                   </button>
                 </div>
                 </div>
+                
+                 <div class="card-footer text-muted text-center">
+                <div class="alert alert-primary" role="alert">
+                  <!-- Button trigger modal -->
+                  <form action="UploadPhotoServlet" method="post" enctype="multipart/form-data">
+                  	<input type="file" name="file"/>
+                  	<button type="submit" class="btn btn-primary" data-toggle="modal" data-target="#fullHeightModalRight">
+                    Upload Profile Photo
+                  </button>
+                  </form>
+                </div>
+                </div>
+                
+                
 
                 <!-- Default form contact -->
                 <form class="text-center border border-light p-5" action="" style="width: 100%;">
@@ -215,7 +229,7 @@
                               <div class="container-contact100" style="padding: 0; margin: 0;">
                                 <div class="wrap-contact100" style="padding: 0; margin-right: 0px;">
                                 
-                                  <form class="contact100-form validate-form" style="width: 350px;" action="UpdateUserServlet" method="post">
+                                  <form class="contact100-form validate-form" style="width: 350px;" action="UpdateUserServlet" method="post" enctype="multipart/form-data">
                                   
                                     <div class="wrap-input100 validate-input" data-validate="Name is required">
                                       <span class="label-input100">Your Name</span>
@@ -261,6 +275,7 @@
                                       <input class="input100" type="password" name="updatePassword" placeholder="Enter your password" required="required">
                                       <span class="focus-input100"></span>
                                     </div>
+                                    
                                   
                                     <div class="wrap-input100 validate-input" data-validate="Message is required">
                                       <span class="label-input100">Profile Description</span>
