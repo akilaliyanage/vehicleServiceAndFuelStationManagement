@@ -1,5 +1,7 @@
+<%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1" errorPage="error.jsp"%> 
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -34,6 +36,21 @@
 </head>
 <body>
 
+			<!-- checks the session variable value -->
+			  <% 
+			
+				String unameString = session.getAttribute("regno").toString();
+				if(session.getAttribute("regno") == null){
+					response.sendRedirect("index.jsp");
+				}
+				
+				//gets the user details arrayList
+				
+			 ArrayList<String> details =(ArrayList)request.getAttribute("userDetails");
+				
+			%>
+			<!-- end checks the session variable value -->
+		
 
     <div class="card main-back">
 
@@ -65,6 +82,10 @@
                   <span aria-hidden="true">&times;</span>
                 </button>
               </div>
+              
+                           
+              
+              
 
             <div class="col-lg-4 col-md-4 col-sm-4 .d-none .d-sm-block left">
 
@@ -84,12 +105,11 @@
                 <div class="card-body card-body-cascade text-center">
               
                   <!-- Title -->
-                  <h4 class="card-title"><strong>Billy Coleman</strong></h4>
+                  <h4 class="card-title"><strong><%out.println(details.get(4)); %></strong></h4>
                   <!-- Subtitle -->
                   <h6 class="font-weight-bold indigo-text py-2">Customer</h6>
                   <!-- Text -->
-                  <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus, ex, recusandae.
-                    Facere modi sunt, quod quibusdam.
+                  <p class="card-text"> <%out.println(details.get(6)); %>
                   </p>
               
                   <!-- Facebook -->
@@ -98,6 +118,24 @@
                   <a type="button" class="btn-floating btn-small btn-tw"><i class="fab fa-twitter"></i></a>
                   <!-- Google + -->
                   <a type="button" class="btn-floating btn-small btn-dribbble"><i class="fab fa-dribbble"></i></a>
+                  
+                  
+                  <ul class="list-group list-group-flush">
+					  <li class="list-group-item">
+					  	<div class="alert alert-success" role="alert">
+  								Register Number : <%out.println(details.get(0)); %> <br>
+  								<hr>
+  								User Name : <%out.println(details.get(1)); %> <br>
+  								<hr>
+  								Phone Number : <%out.println(details.get(2)); %> <br>
+  								<hr>
+  								Email : <%out.println(details.get(3)); %> <br>
+  								<hr>
+  								Gender : <%out.println(details.get(5)); %>
+						</div>
+					  </li>
+					  					  
+				</ul>
               
                 </div>
               
@@ -170,40 +208,23 @@
 
                               <div class="container-contact100" style="padding: 0; margin: 0;">
                                 <div class="wrap-contact100" style="padding: 0; margin-right: 0px;">
+                                
                                   <form class="contact100-form validate-form" style="width: 350px;" action="UpdateUserServlet" method="post">
+                                  
                                     <div class="wrap-input100 validate-input" data-validate="Name is required">
                                       <span class="label-input100">Your Name</span>
                                       <input class="input100" type="text" name="updateName" placeholder="Enter your name">
                                       <span class="focus-input100"></span>
                                     </div>
                               
-                                    <div class="wrap-input100 validate-input" data-validate="Valid email is required: ex@abc.xyz">
-                                      <span class="label-input100">Email</span>
-                                      <input class="input100" type="text" name="updateEmail" placeholder="Enter your email addess">
-                                      <span class="focus-input100"></span>
-                                    </div>
-                              
+                                                             
                                     <div class="wrap-input100 validate-input" data-validate="phone number is required">
                                       <span class="label-input100">Phone Number</span>
                                       <input class="input100" type="text" name="updatePhone" placeholder="Enter your phone number">
                                       <span class="focus-input100"></span>
                                     </div>
                               
-                                    <div class="wrap-input100 validate-input">
-                                      <span class="label-input100">Profile photo</span>
-                                      <div class="input-group">
-                                        <div class="input-group-prepend">
-                                          <span class="input-group-text" id="inputGroupFileAddon01">Image</span>
-                                        </div>
-                                        <div class="custom-file">
-                                          <input type="file" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01" name="updatePhoto">
-                                          <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
-                                        </div>
-                                      </div>
-                              
-                                    </div>
-                              
-                              
+                                                         
                               
                                     <div class="wrap-input100 input100-select">
                                       <span class="label-input100">Gender</span>

@@ -49,7 +49,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="userProfile.jsp">My profile</a>
+                        <a class="nav-link" href="UpdateUserDashboard">My profile</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="userProfile.jsp">Make payment</a>

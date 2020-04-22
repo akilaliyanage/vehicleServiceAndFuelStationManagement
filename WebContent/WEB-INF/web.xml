@@ -97,6 +97,15 @@
 		<url-pattern>/LogoutServlet</url-pattern>
 	</servlet-mapping>
 	
+	<servlet>
+		<servlet-name>UpdateUserDashboard</servlet-name>
+		<servlet-class>com.oop.servlet.UpdateUserDashboard</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>UpdateUserDashboard</servlet-name>
+		<url-pattern>/UpdateUserDashboard</url-pattern>
+	</servlet-mapping>
+	
 
 	
 	

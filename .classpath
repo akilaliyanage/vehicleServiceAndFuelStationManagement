@@ -21,5 +21,11 @@
 	<classpathentry kind="lib" path="C:/Users/mlaki/OneDrive - Sri Lanka Institute of Information Technology/OOP/vehicleServiceAndFuelStationManagement/WebContent/WEB-INF/lib/junit-4.13.jar"/>
 	<classpathentry kind="lib" path="C:/Users/mlaki/OneDrive - Sri Lanka Institute of Information Technology/OOP/vehicleServiceAndFuelStationManagement/WebContent/WEB-INF/lib/servlet-api.jar"/>
 	<classpathentry kind="lib" path="C:/Users/mlaki/OneDrive - Sri Lanka Institute of Information Technology/OOP/vehicleServiceAndFuelStationManagement/WebContent/WEB-INF/lib/mysql-connector-java-8.0.19.jar"/>
+	<classpathentry kind="lib" path="C:/Users/mlaki/OneDrive - Sri Lanka Institute of Information Technology/OOP/vehicleServiceAndFuelStationManagement/WebContent/WEB-INF/lib/commons-fileupload-1.4.jar">
+		<attributes>
+			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/commons-io-2.6.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>
