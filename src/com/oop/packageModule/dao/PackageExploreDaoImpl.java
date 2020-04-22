@@ -127,7 +127,7 @@ public class PackageExploreDaoImpl implements PackageExploreDao {
 	@Override
 	public List<ServicePackage> getAllServicePackagesS() {
 		Connection connection = DatabaseConnection.getConnection();
-		String sql = "select * from packageS";
+		String sql = "SELECT * FROM `package`";
 		List<ServicePackage> servicePackages = new ArrayList<>();
 
 		try {

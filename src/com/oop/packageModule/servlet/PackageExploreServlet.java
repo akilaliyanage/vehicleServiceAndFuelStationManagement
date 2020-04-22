@@ -1,6 +1,8 @@
 package com.oop.packageModule.servlet;
 
 import java.io.IOException;
+import java.util.List;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -37,6 +39,7 @@ public class PackageExploreServlet extends HttpServlet {
 			throws ServletException, IOException {
 		String id = request.getParameter("id");
 		ServicePackage servicePackage = packageExploreService.getServicePackageById(id);
+		List<ServicePackage> packages =  packageExploreService.getAllServicePackagesS(); 
 		JSONObject object=new JSONObject();
 		object.put("name","simerpreet");
 		object.put("mark1",new Integer(100));
@@ -47,6 +50,7 @@ public class PackageExploreServlet extends HttpServlet {
 		String output=object.toString();
 		request.setAttribute("servicePackage",servicePackage);
 		request.setAttribute("output",output);
+		request.setAttribute("myList",packages);
 		request.setAttribute("jsonResponse", servicePackage.toString());
 		// request.setAttribute("message", JSONSerializer.toJSON(customers).toString());
 		request.getRequestDispatcher("sandamali/packages.jsp").forward(request, response);

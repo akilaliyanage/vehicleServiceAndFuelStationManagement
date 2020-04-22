@@ -4,11 +4,12 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html lang="en">
 <head>
-<title>Bootstrap Example</title>
+<title>Service Packages</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="css/sandamali/bootstrap.min.css">
 <link rel="stylesheet" href="css/sandamali/packages-page.css">
+<link rel="stylesheet" href="css/sandamali/swiper.min.css">
 <link rel="stylesheet"
 	href="https://fonts.googleapis.com/css?family=Lobster">
 <script src="js/sandamali/jquery.min.js"></script>
@@ -24,7 +25,7 @@ body {
 <body data-spy="scroll" data-target=".navbar" data-offset="50">
 
 	<nav class="navbar navbar-expand-lg bg-dark navbar-dark fixed-top">
-	<a class="navbar-brand" href="homepage.jsp">Home</a>
+	<a class="navbar-brand" href="HomePageRedirectServlet">Home</a>
 	<button class="navbar-toggler" type="button" data-toggle="collapse"
 		data-target="#navbarSupportedContent"
 		aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -121,42 +122,76 @@ body {
 	<div id="section3" class="container-fluid bg-secondary"
 		style="padding-top: 60px; padding-bottom: 60px">
 		<h1>About Our Packages</h1>
-		<p>Try to scroll this section and look at the navigation bar while
-			scrolling! Try to scroll this section and look at the navigation bar
-			while scrolling!</p>
-		<p>Try to scroll this section and look at the navigation bar while
-			scrolling! Try to scroll this section and look at the navigation bar
-			while scrolling!</p>
-		<h1>a</h1>
-		<h1>a</h1>
-		<h1>a</h1>
-		<h1>a</h1>
-		<h1>a</h1>
-		<h1>a</h1>
-		<h1>a</h1>
-		<h1>a</h1>
+		<div class="container">
+			<div class="swiper-container">
+				<div class="swiper-wrapper">
+
+					<c:forEach items="${myList}" var="ServicePackage">
+
+						<div class="swiper-slide slide-color">
+							<div class="card" style="width: 300px;">
+
+								<!-- Card image -->
+								<div class="view overlay">
+									<img class="card-img-top"
+										src="https://mdbootstrap.com/img/Mockups/Lightbox/Thumbnail/img%20(67).jpg"
+										alt="Card image cap"> <a href="#!">
+										<div class="mask rgba-white-slight"></div>
+									</a>
+								</div>
+
+								<!-- Card content -->
+								<div class="card-body">
+
+									<!-- Title -->
+									<h4 class="card-title">${ServicePackage.packId}</h4>
+									<!-- Text -->
+									<p class="card-text">Package Details :</p>
+									<ul>
+										<li>${ServicePackage.packName}</li>
+										<li>Price LKR : ${ServicePackage.price}0</li>
+									</ul>
+									<!-- Button -->
+									<a href="PackageExplore?id=${ServicePackage.packId}"
+										class="btn btn-primary">SCHEDULE</a>
+
+								</div>
+
+							</div>
+						</div>
+
+					</c:forEach>
+
+				</div>
+				<!-- Add Pagination -->
+				<div class="swiper-pagination"></div>
+			</div>
+
+		</div>
+
+
 	</div>
 
 	<div id="section4" class="container-fluid bg-info"
 		style="padding-top: 60px; padding-bottom: 60px">
-		<h1>Section 4 Submenu 1</h1>
-		<p>Try to scroll this section and look at the navigation bar while
-			scrolling! Try to scroll this section and look at the navigation bar
-			while scrolling!</p>
-		<p>Try to scroll this section and look at the navigation bar while
-			scrolling! Try to scroll this section and look at the navigation bar
-			while scrolling!</p>
-		<h1>a</h1>
-		<h1>a</h1>
-		<h1>a</h1>
-		<h1>a</h1>
-		<h1>a</h1>
-		<h1>a</h1>
-		<h1>a</h1>
+		<h1>Explore More Our Packages</h1>
+		
+
 	</div>
 
 
 	<script src="js/sandamali/packages.js"></script>
-
+	<script src="js/sandamali/swiper.min.js"></script>
+	<script>
+		var swiper = new Swiper('.swiper-container', {
+			slidesPerView : 3,
+			spaceBetween : 30,
+			freeMode : true,
+			pagination : {
+				el : '.swiper-pagination',
+				clickable : true,
+			},
+		});
+	</script>
 </body>
 </html>

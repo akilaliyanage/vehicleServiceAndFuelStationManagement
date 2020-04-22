@@ -52,7 +52,7 @@ public class LoginServlet extends HttpServlet {
 			
 				HttpSession sHttpSession = request.getSession();
 				sHttpSession.setAttribute("regno", loginModel.getRegNoString());
-				response.sendRedirect("homepage.jsp");			
+				response.sendRedirect("HomePageRedirectServlet");			
 		}
 		else {
 			request.setAttribute("error", "Invalid username or password");

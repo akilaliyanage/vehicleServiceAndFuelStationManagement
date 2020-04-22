@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1" errorPage="error.jsp"%> 
     
@@ -21,6 +22,8 @@
     <!--akila css-->
     <link rel="stylesheet" href="css/akila/homepage.css">
     <link rel="stylesheet" href="css/akila/dashboard.css">
+    <link rel="stylesheet" href="css/sandamali/swiper.min.css">
+    <link rel="stylesheet" href="css/sandamali/packages-page.css">
 
     <title>HomePage</title>
 </head>
@@ -121,148 +124,63 @@
         </div>
     </div>
 
-    <div class="section-3" id="section-3">
-       <div class="row">
-           <div class="col" style="padding: 30px;">
-                <h1>Packages Available</h1>
-           </div>
-       </div>
-        <div class="row ">
-            <div class="col-lg-12 flex">
-               
-                <!-- Card -->
-                <div class="card" style="width: 300px;">
-                
-                    <!-- Card image -->
-                    <div class="view overlay">
-                        <img class="card-img-top" src="https://mdbootstrap.com/img/Mockups/Lightbox/Thumbnail/img%20(67).jpg"
-                            alt="Card image cap">
-                        <a href="#!">
-                            <div class="mask rgba-white-slight"></div>
-                        </a>
-                    </div>
-                
-                    <!-- Card content -->
-                    <div class="card-body">
-                
-                        <!-- Title -->
-                        <h4 class="card-title">Package #1</h4>
-                        <!-- Text -->
-                        <p class="card-text">Package Details :</p>
-                        <ul>
-                            <li>test</li>
-                            <li>test</li>
-                        </ul>
-                        <!-- Button -->
-                        <a href="PackageExplore?id=pck001" class="btn btn-primary">SCHEDULE</a>
-                
-                    </div>
-                
-                </div>
-                <!-- Card -->
+	<div class="section-3" id="section-3">
+		<div class="row">
+			<div class="col" style="padding: 30px;">
+				<h1>Packages Available</h1>
+			</div>
+		</div>
 
-                <!-- Card -->
-                <div class="card" style="width: 300px;">
-                
-                    <!-- Card image -->
-                    <div class="view overlay">
-                        <img class="card-img-top" src="https://mdbootstrap.com/img/Mockups/Lightbox/Thumbnail/img%20(67).jpg"
-                            alt="Card image cap">
-                        <a href="#!">
-                            <div class="mask rgba-white-slight"></div>
-                        </a>
-                    </div>
-                
-                    <!-- Card content -->
-                    <div class="card-body">
-                
-                        <!-- Title -->
-                        <h4 class="card-title">Package #2</h4>
-                        <!-- Text -->
-                        <p class="card-text">Package Details :</p>
-                        <ul>
-                            <li>test</li>
-                            <li>test</li>
-                        </ul>
-                        <!-- Button -->
-                        <a href="PackageExplore?id=pck002" class="btn btn-primary">SCHEDULE</a>
-                
-                    </div>
-                
-                </div>
-                <!-- Card -->
+		<div class="container">
+			<div class="swiper-container">
+				<div class="swiper-wrapper">
 
-                <!-- Card -->
-                <div class="card" style="width: 300px;">
-                
-                    <!-- Card image -->
-                    <div class="view overlay">
-                        <img class="card-img-top" src="https://mdbootstrap.com/img/Mockups/Lightbox/Thumbnail/img%20(67).jpg"
-                            alt="Card image cap">
-                        <a href="#!">
-                            <div class="mask rgba-white-slight"></div>
-                        </a>
-                    </div>
-                
-                    <!-- Card content -->
-                    <div class="card-body">
-                
-                        <!-- Title -->
-                        <h4 class="card-title">Package #3</h4>
-                        <!-- Text -->
-                        <p class="card-text">Package Details :</p>
-                        <ul>
-                            <li>test</li>
-                            <li>test</li>
-                        </ul>
-                        <!-- Button -->
-                        <a href="PackageExplore?id=3" class="btn btn-primary">SCHEDULE</a>
-                
-                    </div>
-                
-                </div>
-                <!-- Card -->
+					<c:forEach items="${packageList}" var="ServicePackage">
 
-                <!-- Card -->
-                <div class="card" style="width: 300px;">
-                
-                    <!-- Card image -->
-                    <div class="view overlay">
-                        <img class="card-img-top" src="https://mdbootstrap.com/img/Mockups/Lightbox/Thumbnail/img%20(67).jpg"
-                            alt="Card image cap">
-                        <a href="#!">
-                            <div class="mask rgba-white-slight"></div>
-                        </a>
-                    </div>
-                
-                    <!-- Card content -->
-                    <div class="card-body">
-                
-                        <!-- Title -->
-                        <h4 class="card-title">Package #4</h4>
-                        <!-- Text -->
-                        <p class="card-text">Package Details :</p>
-                        <ul>
-                            <li>test</li>
-                            <li>test</li>
-                        </ul>
-                        <!-- Button -->
-                        <a href="PackageExplore?id=4" class="btn btn-primary">SCHEDULE</a>
-                
-                    </div>
-                
-                </div>
-                <!-- Card -->
+						<div class="swiper-slide slide-color">
+							<div class="card" style="width: 300px;">
 
+								<!-- Card image -->
+								<div class="view overlay">
+									<img class="card-img-top"
+										src="https://mdbootstrap.com/img/Mockups/Lightbox/Thumbnail/img%20(67).jpg"
+										alt="Card image cap"> <a href="#!">
+										<div class="mask rgba-white-slight"></div>
+									</a>
+								</div>
 
-               
-            </div>
+								<!-- Card content -->
+								<div class="card-body">
 
-            
-        </div>
-    </div>
+									<!-- Title -->
+									<h4 class="card-title">${ServicePackage.packId}</h4>
+									<!-- Text -->
+									<p class="card-text">Package Details :</p>
+									<ul>
+										<li>${ServicePackage.packName}</li>
+										<li>Price LKR : ${ServicePackage.price}0</li>
+									</ul>
+									<!-- Button -->
+									<a href="PackageExplore?id=${ServicePackage.packId}"
+										class="btn btn-primary">SCHEDULE</a>
 
-    <div class="section-3 section-4" id="section-3">
+								</div>
+
+							</div>
+						</div>
+
+					</c:forEach>
+
+				</div>
+				<!-- Add Pagination -->
+				<div class="swiper-pagination"></div>
+			</div>
+
+		</div>
+
+	</div>
+
+	<div class="section-3 section-4" id="section-3">
         <div class="row">
             <div class="col" style="padding: 30px;">
                 <h1>Our Services</h1>
@@ -375,5 +293,18 @@
         src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/js/bootstrap.min.js"></script>
     <!-- MDB core JavaScript -->
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.16.0/js/mdb.min.js"></script>
+	<script src="js/sandamali/packages.js"></script>
+	<script src="js/sandamali/swiper.min.js"></script>
+	<script>
+		var swiper = new Swiper('.swiper-container', {
+			slidesPerView : 3,
+			spaceBetween : 30,
+			freeMode : true,
+			pagination : {
+				el : '.swiper-pagination',
+				clickable : true,
+			},
+		});
+	</script>
 </body>
 </html>
