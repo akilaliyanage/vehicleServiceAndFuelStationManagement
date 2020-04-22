@@ -47,7 +47,7 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent-555">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item active">
-                        <a class="nav-link" href="homepage.jsp">Home
+                        <a class="nav-link" href="HomePageRedirectServlet">Home
                             <span class="sr-only">(current)</span>
                         </a>
                     </li>
