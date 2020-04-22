@@ -57,6 +57,9 @@ public class UpdateUserServlet extends HttpServlet {
 		String phoneString = request.getParameter("updatePhone");
 		String genderString = request.getParameter("updateGender");
 		String massegeString = request.getParameter("updateMassege");
+		String usernameString = request.getParameter("updateUsername");
+		String passwordString = request.getParameter("updatePassword");
+		String emailString = request.getParameter("updateEmail");
 		
 		HttpSession session = request.getSession();
 		String userIdString = (String) session.getAttribute("regno");
@@ -77,6 +80,9 @@ public class UpdateUserServlet extends HttpServlet {
 			updateModel.setGenderString(genderString);
 			updateModel.setDescriptionString(massegeString);
 			updateModel.setUserIdString(userIdString);
+			updateModel.setEmailString(emailString);
+			updateModel.setUsernameString(usernameString);
+			updateModel.setPassworString(passwordString);
 
 			status = updatedao.updateUser(updateModel);
 		
