@@ -154,7 +154,7 @@
                             <li>test</li>
                         </ul>
                         <!-- Button -->
-                        <a href="#section-1" class="btn btn-primary">SCHEDULE</a>
+                        <a href="PackageExplore?id=pck001" class="btn btn-primary">SCHEDULE</a>
                 
                     </div>
                 
@@ -177,7 +177,7 @@
                     <div class="card-body">
                 
                         <!-- Title -->
-                        <h4 class="card-title">Package #1</h4>
+                        <h4 class="card-title">Package #2</h4>
                         <!-- Text -->
                         <p class="card-text">Package Details :</p>
                         <ul>
@@ -185,7 +185,7 @@
                             <li>test</li>
                         </ul>
                         <!-- Button -->
-                        <a href="#section-1" class="btn btn-primary">SCHEDULE</a>
+                        <a href="PackageExplore?id=pck002" class="btn btn-primary">SCHEDULE</a>
                 
                     </div>
                 
@@ -208,7 +208,7 @@
                     <div class="card-body">
                 
                         <!-- Title -->
-                        <h4 class="card-title">Package #1</h4>
+                        <h4 class="card-title">Package #3</h4>
                         <!-- Text -->
                         <p class="card-text">Package Details :</p>
                         <ul>
@@ -216,7 +216,7 @@
                             <li>test</li>
                         </ul>
                         <!-- Button -->
-                        <a href="#section-1" class="btn btn-primary">SCHEDULE</a>
+                        <a href="PackageExplore?id=3" class="btn btn-primary">SCHEDULE</a>
                 
                     </div>
                 
@@ -239,7 +239,7 @@
                     <div class="card-body">
                 
                         <!-- Title -->
-                        <h4 class="card-title">Package #1</h4>
+                        <h4 class="card-title">Package #4</h4>
                         <!-- Text -->
                         <p class="card-text">Package Details :</p>
                         <ul>
@@ -247,7 +247,7 @@
                             <li>test</li>
                         </ul>
                         <!-- Button -->
-                        <a href="#section-1" class="btn btn-primary">SCHEDULE</a>
+                        <a href="PackageExplore?id=4" class="btn btn-primary">SCHEDULE</a>
                 
                     </div>
                 
