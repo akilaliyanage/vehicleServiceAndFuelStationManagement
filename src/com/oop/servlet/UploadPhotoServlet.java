@@ -46,22 +46,16 @@ public class UploadPhotoServlet extends HttpServlet {
 		
 		HttpSession session = request.getSession();
 		String regno = (String) session.getAttribute("regno");
+		String url = getServletContext().getRealPath("")+"img\\userImages\\";
 		ServletFileUpload sf = new ServletFileUpload(new DiskFileItemFactory());
-		 String cwd =  System.getProperty("user.dir");
 		int status;
+		
 		try {
+			
 			List<FileItem> image = sf.parseRequest(request);
 			
 			for(FileItem item : image) {
 				
-
-				ServletContext serpath = request.getServletContext();
-				ServletContext context = request.getServletContext();
-			    String appPath = context.getRealPath("");
-			    //String path = System.getProperty("user.dir") + "\\userImages";
-			    String url = "C:\\Users\\mlaki\\OneDrive - Sri Lanka Institute of Information Technology\\OOP\\vehicleServiceAndFuelStationManagement\\WebContent\\img\\userImages\\";
-			    
-			    
 			    File file = new File(url + File.separator + item.getName()); 
 			    
 			    if(file.delete()) 
@@ -82,6 +76,7 @@ public class UploadPhotoServlet extends HttpServlet {
 				response.sendRedirect("UpdateUserDashboard");
 				
 				System.out.println("file uploded");
+				System.out.println(url);
 				
 			}
 		} catch (Exception e) {

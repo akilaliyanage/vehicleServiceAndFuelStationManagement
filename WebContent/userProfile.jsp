@@ -59,6 +59,12 @@
           <!-- Navbar brand -->
           <a class="navbar-brand" href="#">User Profile</a>
           
+           <li class="nav-item active">
+                        <a class="nav-link" href="HomePageRedirectServlet">Home
+                            <span class="sr-only">(current)</span>
+                        </a>
+                    </li>
+          
            <li class="nav-item">
                         <form action="LogoutServlet">
                         	<button class="nav-link navbar-brand" type="submit" style="background: transparent;border: none;font-weight: bolder;">Log out</button>
@@ -101,7 +107,7 @@
               
                 <!-- Card image -->
                 <div class="view view-cascade overlay" style="height: 500px">
-                  <img class="card-img-top" src="img/userImages/<%=details.get(7) %>" alt="img/userImages/<%out.println(details.get(7)); %>">
+                  <img class="card-img-top" src="img/userImages/<%=details.get(7)%>" alt="img/userImages/<%=details.get(7)  %>">
                   <a>
                     <div class="mask rgba-white-slight"></div>
                   </a>
@@ -160,7 +166,7 @@
                 <div class="alert alert-primary" role="alert">
                   <!-- Button trigger modal -->
                   <form action="UploadPhotoServlet" method="post" enctype="multipart/form-data">
-                  	<input type="file" name="file" accept="image/jpeg"/>
+                  	<input type="file" name="file" accept="image/jpg"/>
                   	<button type="submit" class="btn btn-primary" data-toggle="modal" data-target="#fullHeightModalRight">
                     Upload Profile Photo
                   </button>
