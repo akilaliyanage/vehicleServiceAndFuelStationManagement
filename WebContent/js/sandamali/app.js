@@ -134,7 +134,7 @@ var app = angular.module("myModule", [])
 
 						$http
 								.post(
-										'http://localhost:8080/vehicleServiceAndFuelStationManagement/PackageManagerServlet?method=update',
+										'http://localhost:8080/vehicleServiceAndFuelStationManagement/PackageManagerServlet?method=save',
 										data, config)
 								.then(
 										function successCallback(response) {
