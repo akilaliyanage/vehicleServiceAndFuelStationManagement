@@ -41,6 +41,7 @@ public class UpdatUserImplDAO implements IUpdateUserDAO {
 				detailsArrayList.add(resultset.getString("userFullName"));
 				detailsArrayList.add(resultset.getString("gender"));
 				detailsArrayList.add(resultset.getString("Userdescription"));
+				detailsArrayList.add(resultset.getString("userImage"));
 			}
 			
 		} catch (Exception e) {

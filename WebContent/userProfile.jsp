@@ -100,12 +100,13 @@
               <div class="card card-cascade">
               
                 <!-- Card image -->
-                <div class="view view-cascade overlay">
-                  <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Others/men.jpg" alt="Card image cap">
+                <div class="view view-cascade overlay" style="height: 500px">
+                  <img class="card-img-top" src="img/userImages/<%=details.get(7) %>" alt="img/userImages/<%out.println(details.get(7)); %>">
                   <a>
                     <div class="mask rgba-white-slight"></div>
                   </a>
                 </div>
+                
               
                 <!-- Card content -->
                 <div class="card-body card-body-cascade text-center">
@@ -159,7 +160,7 @@
                 <div class="alert alert-primary" role="alert">
                   <!-- Button trigger modal -->
                   <form action="UploadPhotoServlet" method="post" enctype="multipart/form-data">
-                  	<input type="file" name="file"/>
+                  	<input type="file" name="file" accept="image/jpeg"/>
                   	<button type="submit" class="btn btn-primary" data-toggle="modal" data-target="#fullHeightModalRight">
                     Upload Profile Photo
                   </button>
