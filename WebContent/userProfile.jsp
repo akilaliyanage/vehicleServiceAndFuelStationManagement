@@ -1,3 +1,4 @@
+<%@page import="com.oop.model.BillDetailsModel"%>
 <%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1" errorPage="error.jsp"%> 
@@ -47,6 +48,7 @@
 				//gets the user details arrayList
 				
 			 ArrayList<String> details =(ArrayList)request.getAttribute("userDetails");
+			 ArrayList<BillDetailsModel> bill = (ArrayList)request.getAttribute("userDetails");
 				
 			%>
 			<!-- end checks the session variable value -->
@@ -58,6 +60,12 @@
         
           <!-- Navbar brand -->
           <a class="navbar-brand" href="#">User Profile</a>
+          
+           <li class="nav-item active">
+                        <a class="nav-link" href="HomePageRedirectServlet">Home
+                            <span class="sr-only">(current)</span>
+                        </a>
+                    </li>
           
            <li class="nav-item">
                         <form action="LogoutServlet">
@@ -100,12 +108,13 @@
               <div class="card card-cascade">
               
                 <!-- Card image -->
-                <div class="view view-cascade overlay">
-                  <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Others/men.jpg" alt="Card image cap">
+                <div class="view view-cascade overlay" style="height: 500px">
+                  <img class="card-img-top" src="img/userImages/<%=details.get(7)%>" alt="img/userImages/<%=details.get(7)  %>">
                   <a>
                     <div class="mask rgba-white-slight"></div>
                   </a>
                 </div>
+                
               
                 <!-- Card content -->
                 <div class="card-body card-body-cascade text-center">
@@ -159,7 +168,7 @@
                 <div class="alert alert-primary" role="alert">
                   <!-- Button trigger modal -->
                   <form action="UploadPhotoServlet" method="post" enctype="multipart/form-data">
-                  	<input type="file" name="file"/>
+                  	<input type="file" name="file" accept="image/jpg"/>
                   	<button type="submit" class="btn btn-primary" data-toggle="modal" data-target="#fullHeightModalRight">
                     Upload Profile Photo
                   </button>
@@ -324,7 +333,7 @@
                     <div class="alert alert-info" role="alert">
                       Paid payments
                     </div>
-                    <canvas id="doughnutChartpaid"></canvas>
+                    <canvas id="barChart"></canvas>
                   </div>
 
                   <div class="col-lg-6 col-md-6 col-sm-6">
@@ -347,41 +356,29 @@
                   <!--Table head-->
                   <thead>
                     <tr>
-                      <th>#</th>
                       <th>Bill ID</th>
-                      <th>Date</th>
-                      <th>Time</th>
-                      <th>Amount Paid</th>
+                      <th>Payment ID</th>
+                      <th>Paid Amount</th>
+                      <th>Date and Time</th>
                       <th>Download</th>
                     </tr>
                   </thead>
                   <!--Table head-->
                   <!--Table body-->
                   <tbody>
-                    <tr>
-                      <th scope="row">1</th>
-                      <td>bil001</td>
-                      <td>2020/01/01</td>
-                      <td>8.00AM</td>
-                      <td>Rs. 10K</td>
+                  
+                  <c:forEach items="${bill}" var="row">
+                  
+                  <tr>
+                      <td>${row.billIdString}</td>
+                      <td>${row.paymentIdString }</td>
+                      <td>${row.amountDouble }</td>
+                      <td>${row.dateTimeString }</td>
                       <td><button type="button" class="btn btn-primary">PDF</button></td>
                     </tr>
-                    <tr>
-                      <th scope="row">1</th>
-                      <td>bil001</td>
-                      <td>2020/01/01</td>
-                      <td>8.00AM</td>
-                      <td>Rs. 10K</td>
-                      <td><button type="button" class="btn btn-primary">PDF</button></td>
-                    </tr>
-                    <tr>
-                      <th scope="row">1</th>
-                      <td>bil001</td>
-                      <td>2020/01/01</td>
-                      <td>8.00AM</td>
-                      <td>Rs. 10K</td>
-                      <td><button type="button" class="btn btn-primary">PDF</button></td>
-                    </tr>
+                  
+                  </c:forEach>
+                  
                   </tbody>
                   <!--Table body-->
                 </table>
@@ -558,6 +555,48 @@
               responsive: true
             }
           });
+          
+          
+          //paid amounts
+          
+          //bar
+	var ctxB = document.getElementById("barChart").getContext('2d');
+	var myBarChart = new Chart(ctxB, {
+		type: 'bar',
+		data: {
+		labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
+		datasets: [{
+		label: '# of Votes',
+		data: [12, 19, 3, 5, 2, 3],
+		backgroundColor: [
+			'rgba(255, 99, 132, 0.2)',
+			'rgba(54, 162, 235, 0.2)',
+			'rgba(255, 206, 86, 0.2)',
+			'rgba(75, 192, 192, 0.2)',
+			'rgba(153, 102, 255, 0.2)',
+			'rgba(255, 159, 64, 0.2)'
+			],
+		borderColor: [
+			'rgba(255,99,132,1)',
+			'rgba(54, 162, 235, 1)',
+			'rgba(255, 206, 86, 1)',
+			'rgba(75, 192, 192, 1)',
+			'rgba(153, 102, 255, 1)',
+			'rgba(255, 159, 64, 1)'
+			],
+		borderWidth: 1
+			}]
+		},
+		options: {
+		scales: {
+		yAxes: [{
+		ticks: {
+		beginAtZero: true
+		}
+			}]
+		}
+		}
+	});
       </script>
     <!--end of the line chart-->
 </body>

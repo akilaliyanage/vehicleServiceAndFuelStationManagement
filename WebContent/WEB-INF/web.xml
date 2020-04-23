@@ -40,6 +40,14 @@
    <exception-type>java.lang.Throwable</exception-type >
    <location>/error.jsp</location>
 </error-page>
+
+<context-param> 
+   <description>Location to store uploaded file</description> 
+   <param-name>file-upload</param-name> 
+   <param-value>
+      D:\\OOP\\vehicleServiceAndFuelStationManagement\\WebContent\\img\\userImages\\
+   </param-value> 
+</context-param>
 	
 
 
