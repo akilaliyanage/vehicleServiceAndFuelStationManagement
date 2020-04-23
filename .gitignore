@@ -1,2 +1,6 @@
 /build/
 /src/com/oop/database/DatabaseInfo.java
+/.classpath
+
+# JDT-specific (Eclipse Java Development Tools)     
+.classpath
