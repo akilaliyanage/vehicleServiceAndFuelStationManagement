@@ -12,7 +12,7 @@
     <link
       rel="shortcut icon"
       href="img/akila/Reddy Roadster (1).png"
-      type="image/x-icon"
+      type="image/x-iconx"
     />
 
     <!--akila's css-->
