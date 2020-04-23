@@ -67,6 +67,8 @@ public class PackageManagerServlet extends HttpServlet {
 				packageExploreService.addServicePackage(servicePackage);	
 			}else if(("update").equalsIgnoreCase(method)) {
 				packageExploreService.updateServicePackage(servicePackage);
+			}else if(("delete").equalsIgnoreCase(method)) {
+				packageExploreService.removeServicePackage(servicePackage.getPackId());
 			}
 			
 		} catch (JsonMappingException e) {

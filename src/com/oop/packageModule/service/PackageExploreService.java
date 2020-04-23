@@ -9,7 +9,7 @@ public interface PackageExploreService {
 
 	public ServicePackage updateServicePackage(ServicePackage servicePackage);
 
-	public int removeServicePackage(int id);
+	public int removeServicePackage(String id);
 
 	public ServicePackage getServicePackageById(String id);
 

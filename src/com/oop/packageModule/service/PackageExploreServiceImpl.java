@@ -21,7 +21,7 @@ public class PackageExploreServiceImpl implements PackageExploreService {
 	}
 
 	@Override
-	public int removeServicePackage(int id) {
+	public int removeServicePackage(String id) {
 		return packageExploreDao.removeServicePackage(id);
 	}
 

@@ -71,8 +71,23 @@ public class PackageExploreDaoImpl implements PackageExploreDao {
 	}
 
 	@Override
-	public int removeServicePackage(int id) {
-		// TODO Auto-generated method stub
+	public int removeServicePackage(String id) {
+		Connection connection = DatabaseConnection.getConnection();
+		String sql = "DELETE FROM `package` WHERE `packId`= '" + id + "' ";
+		try {
+			PreparedStatement statement = connection.prepareStatement(sql);
+			statement.executeUpdate();
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (connection != null) {
+					connection.close();
+				}
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
 		return 1;
 	}
 

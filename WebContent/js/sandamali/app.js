@@ -80,14 +80,16 @@ var app = angular.module("myModule", [])
 
 					$scope.deleteMember = function() {
 						var dataObject = new Object();
-						dataObject.id = $scope.selectedMember.id;
-						dataObject.name = $scope.selectedMember.name;
-						dataObject.age = $scope.selectedMember.age;
-						dataObject.email = $scope.selectedMember.email;
+						dataObject.packId = $scope.selectedMember.packId;
+						dataObject.packName = $scope.selectedMember.packName;
+						dataObject.adminRegNo = $scope.selectedMember.adminRegNo;
+						dataObject.packType = $scope.selectedMember.packType;
+						dataObject.price = $scope.selectedMember.price;
+						dataObject.packDescription = $scope.selectedMember.packDescription;
 						var content = JSON.stringify(dataObject);
 						console.log(content);
 						var data = $.param({
-							student_info : content
+							package_info : content
 						});
 
 						var config = {
@@ -98,7 +100,7 @@ var app = angular.module("myModule", [])
 
 						$http
 								.post(
-										'http://localhost:8080/student/deletestudent',
+										'http://localhost:8080/vehicleServiceAndFuelStationManagement/PackageManagerServlet?method=delete',
 										data, config)
 								.then(
 										function successCallback(response) {
