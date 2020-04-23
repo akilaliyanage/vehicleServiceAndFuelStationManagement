@@ -49,7 +49,7 @@ public class PackageExploreDaoImpl implements PackageExploreDao {
 	public ServicePackage updateServicePackage(ServicePackage servicePackage) {
 
 		Connection connection = DatabaseConnection.getConnection();
-		String sql = "UPDATE `customer` SET `adminRegNo`= '" + servicePackage.getAdminRegNo() + "',`packType`= '"
+		String sql = "UPDATE `package` SET `adminRegNo`= '" + servicePackage.getAdminRegNo() + "',`packType`= '"
 				+ servicePackage.getPackType() + "' ,`packName`= '" + servicePackage.getPackName() + "' ,`price`= '"
 				+ servicePackage.getPrice() + "' ,`packDescription`= '" + servicePackage.getPackDescription()
 				+ "' WHERE `packId`= '" + servicePackage.getPackId() + "' ";

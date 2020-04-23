@@ -1,5 +1,9 @@
 package com.oop.packageModule.model;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+
+@Entity
 public class ServicePackage {
 	private String packId;
 	private String adminRegNo;
@@ -21,6 +25,7 @@ public class ServicePackage {
 		this.packDescription = packDescription;
 	}
 
+	@Column(name = "packId", unique = true, nullable = false)
 	public String getPackId() {
 		return packId;
 	}
@@ -29,6 +34,7 @@ public class ServicePackage {
 		this.packId = packId;
 	}
 
+	@Column(name = "adminRegNo")
 	public String getAdminRegNo() {
 		return adminRegNo;
 	}
@@ -37,6 +43,7 @@ public class ServicePackage {
 		this.adminRegNo = adminRegNo;
 	}
 
+	@Column(name = "packType")
 	public String getPackType() {
 		return packType;
 	}
@@ -45,6 +52,7 @@ public class ServicePackage {
 		this.packType = packType;
 	}
 
+	@Column(name = "packName")
 	public String getPackName() {
 		return packName;
 	}
@@ -53,6 +61,7 @@ public class ServicePackage {
 		this.packName = packName;
 	}
 
+	@Column(name = "price")
 	public float getPrice() {
 		return price;
 	}
@@ -61,6 +70,7 @@ public class ServicePackage {
 		this.price = price;
 	}
 
+	@Column(name = "packDescription")
 	public String getPackDescription() {
 		return packDescription;
 	}
