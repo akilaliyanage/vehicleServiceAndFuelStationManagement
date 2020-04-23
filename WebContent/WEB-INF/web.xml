@@ -51,7 +51,6 @@
 	
 
 
-
 	<servlet>
 		<servlet-name>LoginServlet</servlet-name>
 		<servlet-class>com.oop.servlet.LoginServlet</servlet-class>
@@ -105,9 +104,6 @@
 		<servlet-name>LogoutServlet</servlet-name>
 		<url-pattern>/LogoutServlet</url-pattern>
 	</servlet-mapping>
-
-
-		
 	
 	<servlet>
 		<servlet-name>UpdateUserDashboard</servlet-name>

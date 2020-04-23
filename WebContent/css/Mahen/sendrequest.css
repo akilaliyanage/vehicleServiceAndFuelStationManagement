@@ -27,7 +27,6 @@
 }
 
 #ro1_section1 {
-    
     position: relative;
     transition: top 3s;
     display: block;
@@ -65,10 +64,6 @@
 .pack_select img{
     height: 200px;
     border-top-right-radius: 30px;
-}
-
-#P_selection{
-    display: none;
 }
 
 /*------------------------------------------------------------------------------------------------------*/
@@ -226,33 +221,11 @@
 
 #Vehicle_details_Demo{
     display: none;
-    
-
 }
 
 #Time_dimo{
     display: none;
-    
 }
-#Service_Demo {
-    display: none;
-    
-}
-#pack_demo{
-    display: none;
-    
-}
-#Week_selector{
-    width: 300px;
-    height: 85px;
-    font-size: larger;
-}
-
-::placeholder {
-    color: white;
-    font-size: large;
-    font-weight: bolder;
-}
-.jumbo2_part2{
+#bill_demo {
     display: none;
 }
