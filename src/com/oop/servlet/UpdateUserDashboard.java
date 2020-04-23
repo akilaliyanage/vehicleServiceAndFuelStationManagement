@@ -2,6 +2,7 @@ package com.oop.servlet;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -12,6 +13,7 @@ import javax.servlet.http.HttpSession;
 
 import com.oop.DAO.IUpdateUserDAO;
 import com.oop.DAO.UpdatUserImplDAO;
+import com.oop.model.BillDetailsModel;
 
 /**
  * Servlet implementation class UpdateUserDashboard
@@ -34,15 +36,26 @@ public class UpdateUserDashboard extends HttpServlet {
 		HttpSession session = request.getSession();
 		String regNoString = (String) session.getAttribute("regno");	//storing the session value to the variable
 		
-			IUpdateUserDAO userMethods = new UpdatUserImplDAO();
+		IUpdateUserDAO userMethods = new UpdatUserImplDAO();
 			
 			try {
 				//getting the user detials
 				ArrayList<String> userDetails =  userMethods.getUserDetails(regNoString);
 				
 				request.setAttribute("userDetails", userDetails);
+				
+				
+				//getting bill details
+				List<BillDetailsModel> billDet = userMethods.getBillDetails(regNoString);
+				
+				request.setAttribute("bill", billDet);
+				
+				
+				
+				
 				RequestDispatcher requestDispatcher = request.getRequestDispatcher("userProfile.jsp");
 				requestDispatcher.forward(request, response);
+				
 				
 			} catch (Exception e) {
 				// TODO: handle exception
