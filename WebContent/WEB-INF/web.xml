@@ -41,7 +41,14 @@
    <location>/error.jsp</location>
 </error-page>
 
-
+<context-param> 
+   <description>Location to store uploaded file</description> 
+   <param-name>file-upload</param-name> 
+   <param-value>
+      D:\\OOP\\vehicleServiceAndFuelStationManagement\\WebContent\\img\\userImages\\
+   </param-value> 
+</context-param>
+	
 
 
 
@@ -101,6 +108,24 @@
 
 
 		
+	
+	<servlet>
+		<servlet-name>UpdateUserDashboard</servlet-name>
+		<servlet-class>com.oop.servlet.UpdateUserDashboard</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>UpdateUserDashboard</servlet-name>
+		<url-pattern>/UpdateUserDashboard</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>UploadPhotoServlet</servlet-name>
+		<servlet-class>com.oop.servlet.UploadPhotoServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>UploadPhotoServlet</servlet-name>
+		<url-pattern>/UploadPhotoServlet</url-pattern>
+	</servlet-mapping>
 	
 
 	

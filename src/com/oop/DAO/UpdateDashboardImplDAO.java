@@ -26,7 +26,7 @@ public class UpdateDashboardImplDAO implements IUpdateDashboardDAO {
 	static PreparedStatement pStatement;
 	
 	//gets the request details of the user
-		@SuppressWarnings("unchecked")
+		@SuppressWarnings("unused")
 		public ArrayList<DashboardRequestModel> getRequestDetails(){
 			
 			ArrayList<DashboardRequestModel> details = new ArrayList<DashboardRequestModel>();
@@ -62,6 +62,7 @@ public class UpdateDashboardImplDAO implements IUpdateDashboardDAO {
 		
 		
 		//get the total number of customers
+		@SuppressWarnings("unused")
 		public int totCustomers() {
 			int tot = 0;
 			

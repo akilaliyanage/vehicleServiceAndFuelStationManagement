@@ -1,5 +1,8 @@
+<%@page import="com.oop.model.BillDetailsModel"%>
+<%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1" errorPage="error.jsp"%> 
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -34,6 +37,22 @@
 </head>
 <body>
 
+			<!-- checks the session variable value -->
+			  <% 
+			
+				String unameString = session.getAttribute("regno").toString();
+				if(session.getAttribute("regno") == null){
+					response.sendRedirect("index.jsp");
+				}
+				
+				//gets the user details arrayList
+				
+			 ArrayList<String> details =(ArrayList)request.getAttribute("userDetails");
+			 ArrayList<BillDetailsModel> bill = (ArrayList)request.getAttribute("userDetails");
+				
+			%>
+			<!-- end checks the session variable value -->
+		
 
     <div class="card main-back">
 
@@ -41,6 +60,18 @@
         
           <!-- Navbar brand -->
           <a class="navbar-brand" href="#">User Profile</a>
+          
+           <li class="nav-item active">
+                        <a class="nav-link" href="HomePageRedirectServlet">Home
+                            <span class="sr-only">(current)</span>
+                        </a>
+                    </li>
+          
+           <li class="nav-item">
+                        <form action="LogoutServlet">
+                        	<button class="nav-link navbar-brand" type="submit" style="background: transparent;border: none;font-weight: bolder;">Log out</button>
+                        </form>
+                    </li>
         
           <!-- Collapsible content -->
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -65,6 +96,10 @@
                   <span aria-hidden="true">&times;</span>
                 </button>
               </div>
+              
+                           
+              
+              
 
             <div class="col-lg-4 col-md-4 col-sm-4 .d-none .d-sm-block left">
 
@@ -73,23 +108,23 @@
               <div class="card card-cascade">
               
                 <!-- Card image -->
-                <div class="view view-cascade overlay">
-                  <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Others/men.jpg" alt="Card image cap">
+                <div class="view view-cascade overlay" style="height: 500px">
+                  <img class="card-img-top" src="img/userImages/<%=details.get(7)%>" alt="img/userImages/<%=details.get(7)  %>">
                   <a>
                     <div class="mask rgba-white-slight"></div>
                   </a>
                 </div>
+                
               
                 <!-- Card content -->
                 <div class="card-body card-body-cascade text-center">
               
                   <!-- Title -->
-                  <h4 class="card-title"><strong>Billy Coleman</strong></h4>
+                  <h4 class="card-title"><strong><%out.println(details.get(4)); %></strong></h4>
                   <!-- Subtitle -->
                   <h6 class="font-weight-bold indigo-text py-2">Customer</h6>
                   <!-- Text -->
-                  <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus, ex, recusandae.
-                    Facere modi sunt, quod quibusdam.
+                  <p class="card-text"> <%out.println(details.get(6)); %>
                   </p>
               
                   <!-- Facebook -->
@@ -98,6 +133,24 @@
                   <a type="button" class="btn-floating btn-small btn-tw"><i class="fab fa-twitter"></i></a>
                   <!-- Google + -->
                   <a type="button" class="btn-floating btn-small btn-dribbble"><i class="fab fa-dribbble"></i></a>
+                  
+                  
+                  <ul class="list-group list-group-flush">
+					  <li class="list-group-item">
+					  	<div class="alert alert-success" role="alert">
+  								Register Number : <%out.println(details.get(0)); %> <br>
+  								<hr>
+  								User Name : <%out.println(details.get(1)); %> <br>
+  								<hr>
+  								Phone Number : <%out.println(details.get(2)); %> <br>
+  								<hr>
+  								Email : <%out.println(details.get(3)); %> <br>
+  								<hr>
+  								Gender : <%out.println(details.get(5)); %>
+						</div>
+					  </li>
+					  					  
+				</ul>
               
                 </div>
               
@@ -110,6 +163,20 @@
                   </button>
                 </div>
                 </div>
+                
+                 <div class="card-footer text-muted text-center">
+                <div class="alert alert-primary" role="alert">
+                  <!-- Button trigger modal -->
+                  <form action="UploadPhotoServlet" method="post" enctype="multipart/form-data">
+                  	<input type="file" name="file" accept="image/jpg"/>
+                  	<button type="submit" class="btn btn-primary" data-toggle="modal" data-target="#fullHeightModalRight">
+                    Upload Profile Photo
+                  </button>
+                  </form>
+                </div>
+                </div>
+                
+                
 
                 <!-- Default form contact -->
                 <form class="text-center border border-light p-5" action="" style="width: 100%;">
@@ -170,40 +237,23 @@
 
                               <div class="container-contact100" style="padding: 0; margin: 0;">
                                 <div class="wrap-contact100" style="padding: 0; margin-right: 0px;">
-                                  <form class="contact100-form validate-form" style="width: 350px;" action="UpdateUserServlet" method="post">
+                                
+                                  <form class="contact100-form validate-form" style="width: 350px;" action="UpdateUserServlet" method="post" enctype="multipart/form-data">
+                                  
                                     <div class="wrap-input100 validate-input" data-validate="Name is required">
                                       <span class="label-input100">Your Name</span>
                                       <input class="input100" type="text" name="updateName" placeholder="Enter your name">
                                       <span class="focus-input100"></span>
                                     </div>
                               
-                                    <div class="wrap-input100 validate-input" data-validate="Valid email is required: ex@abc.xyz">
-                                      <span class="label-input100">Email</span>
-                                      <input class="input100" type="text" name="updateEmail" placeholder="Enter your email addess">
-                                      <span class="focus-input100"></span>
-                                    </div>
-                              
+                                                             
                                     <div class="wrap-input100 validate-input" data-validate="phone number is required">
                                       <span class="label-input100">Phone Number</span>
                                       <input class="input100" type="text" name="updatePhone" placeholder="Enter your phone number">
                                       <span class="focus-input100"></span>
                                     </div>
                               
-                                    <div class="wrap-input100 validate-input">
-                                      <span class="label-input100">Profile photo</span>
-                                      <div class="input-group">
-                                        <div class="input-group-prepend">
-                                          <span class="input-group-text" id="inputGroupFileAddon01">Image</span>
-                                        </div>
-                                        <div class="custom-file">
-                                          <input type="file" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01" name="updatePhoto">
-                                          <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
-                                        </div>
-                                      </div>
-                              
-                                    </div>
-                              
-                              
+                                                         
                               
                                     <div class="wrap-input100 input100-select">
                                       <span class="label-input100">Gender</span>
@@ -216,7 +266,26 @@
                                       </div>
                                       <span class="focus-input100"></span>
                                     </div>
-                              
+                                    
+                                   <div class="wrap-input100 validate-input" data-validate="email is required">
+                                      <span class="label-input100">Your Emil Address</span>
+                                      <input class="input100" type="email" name="updateEmail" placeholder="Enter your email">
+                                      <span class="focus-input100"></span>
+                                    </div>
+                                    
+                                     <div class="wrap-input100 validate-input" data-validate="Username is required">
+                                      <span class="label-input100">Enter your new username</span>
+                                      <input class="input100" type="text" name="updateUsername" placeholder="Enter your user name" required="required">
+                                      <span class="focus-input100"></span>
+                                    </div>
+                                    
+                                     <div class="wrap-input100 validate-input" data-validate="password is required">
+                                      <span class="label-input100">Your new password</span>
+                                      <input class="input100" type="password" name="updatePassword" placeholder="Enter your password" required="required">
+                                      <span class="focus-input100"></span>
+                                    </div>
+                                    
+                                  
                                     <div class="wrap-input100 validate-input" data-validate="Message is required">
                                       <span class="label-input100">Profile Description</span>
                                       <textarea class="input100" name="updateMassege" placeholder="Enter your profile description here..."></textarea>
@@ -264,7 +333,7 @@
                     <div class="alert alert-info" role="alert">
                       Paid payments
                     </div>
-                    <canvas id="doughnutChartpaid"></canvas>
+                    <canvas id="barChart"></canvas>
                   </div>
 
                   <div class="col-lg-6 col-md-6 col-sm-6">
@@ -287,41 +356,29 @@
                   <!--Table head-->
                   <thead>
                     <tr>
-                      <th>#</th>
                       <th>Bill ID</th>
-                      <th>Date</th>
-                      <th>Time</th>
-                      <th>Amount Paid</th>
+                      <th>Payment ID</th>
+                      <th>Paid Amount</th>
+                      <th>Date and Time</th>
                       <th>Download</th>
                     </tr>
                   </thead>
                   <!--Table head-->
                   <!--Table body-->
                   <tbody>
-                    <tr>
-                      <th scope="row">1</th>
-                      <td>bil001</td>
-                      <td>2020/01/01</td>
-                      <td>8.00AM</td>
-                      <td>Rs. 10K</td>
+                  
+                  <c:forEach items="${bill}" var="row">
+                  
+                  <tr>
+                      <td>${row.billIdString}</td>
+                      <td>${row.paymentIdString }</td>
+                      <td>${row.amountDouble }</td>
+                      <td>${row.dateTimeString }</td>
                       <td><button type="button" class="btn btn-primary">PDF</button></td>
                     </tr>
-                    <tr>
-                      <th scope="row">1</th>
-                      <td>bil001</td>
-                      <td>2020/01/01</td>
-                      <td>8.00AM</td>
-                      <td>Rs. 10K</td>
-                      <td><button type="button" class="btn btn-primary">PDF</button></td>
-                    </tr>
-                    <tr>
-                      <th scope="row">1</th>
-                      <td>bil001</td>
-                      <td>2020/01/01</td>
-                      <td>8.00AM</td>
-                      <td>Rs. 10K</td>
-                      <td><button type="button" class="btn btn-primary">PDF</button></td>
-                    </tr>
+                  
+                  </c:forEach>
+                  
                   </tbody>
                   <!--Table body-->
                 </table>
@@ -498,6 +555,48 @@
               responsive: true
             }
           });
+          
+          
+          //paid amounts
+          
+          //bar
+	var ctxB = document.getElementById("barChart").getContext('2d');
+	var myBarChart = new Chart(ctxB, {
+		type: 'bar',
+		data: {
+		labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
+		datasets: [{
+		label: '# of Votes',
+		data: [12, 19, 3, 5, 2, 3],
+		backgroundColor: [
+			'rgba(255, 99, 132, 0.2)',
+			'rgba(54, 162, 235, 0.2)',
+			'rgba(255, 206, 86, 0.2)',
+			'rgba(75, 192, 192, 0.2)',
+			'rgba(153, 102, 255, 0.2)',
+			'rgba(255, 159, 64, 0.2)'
+			],
+		borderColor: [
+			'rgba(255,99,132,1)',
+			'rgba(54, 162, 235, 1)',
+			'rgba(255, 206, 86, 1)',
+			'rgba(75, 192, 192, 1)',
+			'rgba(153, 102, 255, 1)',
+			'rgba(255, 159, 64, 1)'
+			],
+		borderWidth: 1
+			}]
+		},
+		options: {
+		scales: {
+		yAxes: [{
+		ticks: {
+		beginAtZero: true
+		}
+			}]
+		}
+		}
+	});
       </script>
     <!--end of the line chart-->
 </body>

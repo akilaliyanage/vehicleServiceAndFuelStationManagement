@@ -1,11 +1,28 @@
 package com.oop.servlet;
 
+
+import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
+import java.io.PrintWriter;
+import java.net.Socket;
+import java.util.Iterator;
+import java.util.List;
+
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
+import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import org.apache.commons.*;
+import org.apache.commons.fileupload.FileItemFactory;
+import org.apache.commons.fileupload.FileUploadException;
+import org.apache.commons.fileupload.disk.DiskFileItemFactory;
+import org.apache.commons.fileupload.servlet.ServletFileUpload;
+import org.apache.tomcat.util.http.fileupload.FileItem;
 
 import com.oop.DAO.UpdateUserDAO;
 import com.oop.model.UpdateUserModel;
@@ -14,53 +31,76 @@ import com.oop.model.UpdateUserModel;
  * Servlet implementation class UpdateUserServlet
  */
 //@WebServlet(value = "/UpdateUserServlet")
+@MultipartConfig(maxFileSize = 16177215)
 public class UpdateUserServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public UpdateUserServlet() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
 
 	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#HttpServlet()
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		//fetching the values from the request object 
-		
+	public UpdateUserServlet() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
+	 *      response)
+	 */
+	@SuppressWarnings("unused")
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+
+		// fetching the values from the request object
+
 		String nameString = request.getParameter("updateName");
-		String emailString = request.getParameter("updateEmail");
 		String phoneString = request.getParameter("updatePhone");
 		String genderString = request.getParameter("updateGender");
-		String massegeString = request.getParameter("updateMessage");
+		String massegeString = request.getParameter("updateMassege");
+		String usernameString = request.getParameter("updateUsername");
+		String passwordString = request.getParameter("updatePassword");
+		String emailString = request.getParameter("updateEmail");
 		
-		//creating the model and dao objects
+		HttpSession session = request.getSession();
+		String userIdString = (String) session.getAttribute("regno");
 		
+				 
+		
+
+		// creating the model and dao objects
+
 		UpdateUserModel updateModel = new UpdateUserModel();
 		UpdateUserDAO updatedao = new UpdateUserDAO();
 		int status;
-		
+
 		try {
-			
+
 			updateModel.setNameString(nameString);
-			updateModel.setEmailString(emailString);
 			updateModel.setPhoneString(phoneString);
 			updateModel.setGenderString(genderString);
 			updateModel.setDescriptionString(massegeString);
-			
-			
+			updateModel.setUserIdString(userIdString);
+			updateModel.setEmailString(emailString);
+			updateModel.setUsernameString(usernameString);
+			updateModel.setPassworString(passwordString);
+
 			status = updatedao.updateUser(updateModel);
+		
+			if(status == 1) {
+//				request.setAttribute("msg", "Updating user details successful!!");
+//				request.setAttribute("col", "warning");
+//				RequestDispatcher rd = request.getRequestDispatcher("UpdateUserDashboard");
+//				rd.forward(request, response);
+				response.sendRedirect("UpdateUserDashboard");
+				
+			}
 			
-			
+
 		} catch (Exception e) {
 			// TODO: handle exception
+			e.printStackTrace();
 		}
-		
-		
+
 		// TODO Auto-generated method stub
 	}
 

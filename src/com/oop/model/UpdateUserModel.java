@@ -3,6 +3,8 @@
  */
 package com.oop.model;
 
+import java.io.InputStream;
+
 /**
  * @author mlaki
  *
@@ -10,22 +12,16 @@ package com.oop.model;
 public class UpdateUserModel {
 	
 	private String nameString;
-	private String emailString;
 	private String phoneString;
 	private String genderString;
 	private String descriptionString;
-	/**
-	 * @return the nameString
-	 */
-	public String getNameString() {
-		return nameString;
-	}
-	/**
-	 * @param nameString the nameString to set
-	 */
-	public void setNameString(String nameString) {
-		this.nameString = nameString;
-	}
+	private String userIdString;
+	private String emailString;
+	private String usernameString;
+	private String passworString;
+	
+	
+	
 	/**
 	 * @return the emailString
 	 */
@@ -37,6 +33,54 @@ public class UpdateUserModel {
 	 */
 	public void setEmailString(String emailString) {
 		this.emailString = emailString;
+	}
+	/**
+	 * @return the usernameString
+	 */
+	public String getUsernameString() {
+		return usernameString;
+	}
+	/**
+	 * @param usernameString the usernameString to set
+	 */
+	public void setUsernameString(String usernameString) {
+		this.usernameString = usernameString;
+	}
+	/**
+	 * @return the passworString
+	 */
+	public String getPassworString() {
+		return passworString;
+	}
+	/**
+	 * @param passworString the passworString to set
+	 */
+	public void setPassworString(String passworString) {
+		this.passworString = passworString;
+	}
+	/**
+	 * @return the userIdString
+	 */
+	public String getUserIdString() {
+		return userIdString;
+	}
+	/**
+	 * @param userIdString the userIdString to set
+	 */
+	public void setUserIdString(String userIdString) {
+		this.userIdString = userIdString;
+	}
+	/**
+	 * @return the nameString
+	 */
+	public String getNameString() {
+		return nameString;
+	}
+	/**
+	 * @param nameString the nameString to set
+	 */
+	public void setNameString(String nameString) {
+		this.nameString = nameString;
 	}
 	/**
 	 * @return the phoneString
@@ -76,9 +120,11 @@ public class UpdateUserModel {
 	}
 	@Override
 	public String toString() {
-		return "UpdateUserModel [nameString=" + nameString + ", emailString=" + emailString + ", phoneString="
-				+ phoneString + ", genderString=" + genderString + ", descriptionString=" + descriptionString + "]";
+		return "UpdateUserModel [nameString=" + nameString + ", phoneString=" + phoneString + ", genderString="
+				+ genderString + ", descriptionString=" + descriptionString + "]";
 	}
+	
+	
 	
 	
 

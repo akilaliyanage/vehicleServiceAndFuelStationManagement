@@ -800,7 +800,7 @@
           <div class="col col-lg-12 col-md-12" style="padding: 0; margin: 0;">
             <h6 class="dropdown-header">Vehicle Service Center</h6>  
            <div class="but">
-            <button type="button" class="btn btn-light nav-item nav-link"><i class="fas fa-plus"></i> Create Package</button>    
+            <a href="PackageManagerServlet"><button type="button" class="btn btn-light nav-item nav-link"><i class="fas fa-plus"></i> Create Package</button></a>    
             <button type="button" class="btn btn-light"><i class="fab fa-get-pocket"></i> Generate Report</button>
            </div>
           </div>
