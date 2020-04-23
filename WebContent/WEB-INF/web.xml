@@ -40,7 +40,9 @@
    <exception-type>java.lang.Throwable</exception-type >
    <location>/error.jsp</location>
 </error-page>
-	
+
+
+
 
 
 	<servlet>
@@ -96,6 +98,9 @@
 		<servlet-name>LogoutServlet</servlet-name>
 		<url-pattern>/LogoutServlet</url-pattern>
 	</servlet-mapping>
+
+
+		
 	
 
 	

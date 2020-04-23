@@ -1,3 +1,7 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1" errorPage="error.jsp"%> 
+    
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -232,23 +236,36 @@
                 </div>
                 <!--End of row 1 section 1-->
 
-                <!--start of row 1 section 2-->
+                <!--start of Progression-->
                 <div class="shadow category mr-3 ml-3 mb-5" id="cate_sel">
 
                     <div class="row row-cols-4 prog_area m-3 mt-5 d-flex justify-content-center"
                         style="background-color: inherit;">
 
                         <h5 class="text-center"><strong>Package</strong></h5>
+                        <h5 class="text-center"><strong>Service</strong></h5>
                         <h5 class="text-center"><strong>Vehicle Details</strong></h5>
                         <h5 class="text-center"><strong>Time</strong></h5>
-                        <h5 class="text-center"><strong>Client</strong></h5>
                     </div>
                     <!--Begining of Selection desplay area-->
-                    <dv class="exp_change">
-                        <div class="row row-cols-4  status_Display_Area  m-3" style="height: 250px;">
+                    <div class="exp_change">
+                        <dv class="row row-cols-4  status_Display_Area  m-3" style="height: 250px;">
 
+                            <div class="card col-2 mr-5 ml-5 mt-0 p-0">
+                                <img class="card-img-top" src="img/Mahen/gold-package-720x940.png" alt="Card image cap">
+                                <div class="card-body">
+                                    <h5 class="card-title text-center">Gold Package</h5>
+                                    <p class="card-text">
+                                        <p class="card-text">This card has supporting text below as a natural lead-in
+                                            to </p>
+                                            
+                                            <div class="d-flex justify-content-center align-self-center">
 
-                            <div class="card col-2 mr-5 ml-5 mt-0  p-0">
+                                            </div>
+                                </div>
+                            </div>
+
+                            <div class="card col-2 mr-5 ml-5 mt-0  p-0" id="pack_demo">
                                 <img class="card-img-top" src="img/Mahen/interior-HD_card.jpg" alt="Card image cap">
                                 <div class="card-body">
                                     <h5 class="card-title">Interior Detailing</h5>
@@ -259,6 +276,7 @@
                                     </div>
                                 </div>
                             </div>
+
 
                             <div class="card col-2 mr-5 ml-5 mb-0 mt-0 p-0" id="Vehicle_details_Demo">
                                 <img class="card-img-top" src="img/Mahen/gettinf_details.jpg" alt="Card image cap">
@@ -287,21 +305,7 @@
                                 </div>
                             </div>
 
-                            <div class="card col-2 mr-5 ml-5 mt-0 p-0" id="bill_demo">
-                                <img class="card-img-top" src="img/Mahen/invoice-cash-payments-concept.jpg"
-                                    alt="Card image cap">
-                                <div class="card-body">
-                                    <h5 class="card-title">Billing Details</h5>
-                                    <p class="card-text">
-                                        <p class="card-text"><i class="far fa-calendar-alt"></i> 25-03-2020</p>
-                                        <p class="card-text">
-                                            <p class="card-text"><i class="far fa-money-bill-alt"></i> 4200.00 Rs
-                                            </p>
-                                            <div class="d-flex justify-content-center align-self-center">
-
-                                            </div>
-                                </div>
-                            </div>
+                            
 
 
 
@@ -314,43 +318,169 @@
 
                         <div class="row row-cols-4 prog_area m-3 mt-5 d-flex justify-content-center"
                             style="background-color: inherit;">
-                            <i class="fas fa-map-marker-alt fa-3x d-flex justify-content-center" id="land_M_1"></i>
-                            <i class="fas fa-map-marker-alt fa-3x d-flex justify-content-center" id="land_M_2"></i>
-                            <i class="fas fa-map-marker-alt fa-3x d-flex justify-content-center" id="land_M_3"></i>
-                            <i class="fas fa-map-marker-alt fa-3x d-flex justify-content-center" id="land_M_4"></i>
+                            <i class="fas fa-check-circle fa-3x d-flex justify-content-center" id="land_M_1"></i>
+                            <i class="fas fa-check-circle fa-3x d-flex justify-content-center" id="land_M_2"></i>
+                            <i class="fas fa-check-circle fa-3x d-flex justify-content-center" id="land_M_3"></i>
+                            <i class="fas fa-check-circle fa-3x d-flex justify-content-center" id="land_M_4"></i>
 
-                            <div class="progress col-10">
-                                <div class="progress-bar progress-bar-success " role="progressbar" data-progress="10%">
+                            <div class="progress col-10 p-0 m-0">
+                                <div class="progress-bar  p-0 m-0 " role="progressbar"
+                                    data-progress="10%" id="p_bar">
                                 </div>
                             </div>
                         </div>
                 </div>
 
-                <!--End of Selection desplay area-->
+                <!--End of progression area-->
+
+                <!-- Start of package selaction are -->
+
+                <div class="Pack_selection" id="P_selection">
+                    <div class="row row-cols-3 d-flex justify-content-center pack_select">
+                
+                        <div class="card col-3 m-3 p-0">
+
+                            <!-- Card image -->
+                            <div class="view overlay">
+                                <img class="card-img-top" src="img/Mahen/bronze-package-720x940.png"
+                                    alt="Card image cap">
+                                <a>
+                                    <div class="mask rgba-white-slight"></div>
+                                </a>
+                            </div>
+
+                            <!-- Card content -->
+                            <div class="card-body elegant-color white-text rounded-bottom">
+                                <form action="SelectPackServlet" method="get">
+                                    <input type="hidden" value="PAC45454" name="PackgeNo">
+                                    <!-- Title -->
+                                    <h4 class="card-title text-center"><i class="fas fa-box-open"></i>Bronze Package
+                                    </h4>
+                                    <hr class="hr-light">
+                                    <!-- Text -->
+                                    <p class="card-text white-text mb-4">Some quick example text to build on the card
+                                        title and make up the bulk
+                                        of the card's content.</p>
+                                    <!-- Link -->
+                                    <button type="submit" class="btn btn-light btn-lg pcg_btn" onclick="goService(25)"
+                                        value="sample" name="pack">Select</button>
+                                    
+                                </form>
+
+                            </div>
+
+                        </div>
+
+                        <div class="card col-3 m-3 p-0">
+
+                            <!-- Card image -->
+                            <div class="view overlay">
+                                <img class="card-img-top" src="img/Mahen/silver-package_S.png"
+                                    alt="Card image cap">
+                                <a>
+                                    <div class="mask rgba-white-slight"></div>
+                                </a>
+                            </div>
+
+                            <!-- Card content -->
+                            <div class="card-body elegant-color white-text rounded-bottom">
+                                <form action="SelectPackServlet" method="get">
+                                    
+                                    <!-- Title -->
+                                    <h4 class="card-title text-center"><i class="fas fa-box-open"></i> Silver Package</h4>
+                                    <hr class="hr-light">
+                                    <!-- Text -->
+                                    <p class="card-text white-text mb-4">Some quick example text to build on the card
+                                        title and make up the bulk
+                                        of the card's content.</p>
+                                    <!-- Link -->
+                                    <button type="submit" class="btn btn-light btn-lg pcg_btn" onclick="goService(25)"
+                                        value="sample" name="pack">Select</button>
+                                   
+                                </form>
+
+                            </div>
+
+                        </div>
+                
+                        
+
+                        <!-- Card Dark -->
+                        <div class="card col-3 m-3 p-0">
+                        
+                            <!-- Card image -->
+                            <div class="view overlay">
+                                <img class="card-img-top" src="img/Mahen/gold-package-720x940.png"
+                                    alt="Card image cap">
+                                <a>
+                                    <div class="mask rgba-white-slight"></div>
+                                </a>
+                            </div>
+                        
+                            <!-- Card content -->
+                            <div class="card-body elegant-color white-text rounded-bottom">
+                                <form action="SelectPackServlet" method="get">
+                                
+                                <!-- Title -->
+                                <h4 class="card-title text-center"><i class="fas fa-box-open"></i> Gold Package</h4>
+                                <hr class="hr-light">
+                                <!-- Text -->
+                                <p class="card-text white-text mb-4">Some quick example text to build on the card title and make up the bulk
+                                    of the card's content.</p>
+                                <!-- Link -->
+                                <button type="submit" class="btn btn-light btn-lg pcg_btn" onclick="goService(25)"
+                                    value="sample" name="pack">Select</button>
+                                
+                                </form>
+                        
+                            </div>
+                        
+                        </div>
+                        <!-- Card Dark -->
+
+
+
+                    </div>
+                </div>
+
+                <!-- End of package selection area -->
+
                 <!--Start of  row 1 Section 2-->
 
                 <div class="mah" id="mah1">
                     <div class="row row-cols-3 d-flex justify-content-center pack_select">
 
-                        <div class="card col-3 m-3 p-0" id="pcg_card">
-                            <img class="card-img-top" src="img/Mahen/carWash_Card.jpg" alt="Card image cap">
-                            <div class="card-body">
-                                <h5 class="card-title">Vehicle Wash</h5>
-                                <p class="card-text">This is a longer card with supporting text below as a natural
-                                    lead-in to additional
-                                    content.
-                                    This content is a little bit longer.</p>
-                                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                                <div class="d-flex justify-content-center">
-                                    <button type="button" class="btn btn-success btn-lg pcg_btn"
-                                        onclick="goDetails(25)">Select</button>
-                                </div>
-                            </div>
-
-                        </div>
 
 
-                        <div class="card col-3 m-3 p-0" id="pcg_card">
+						<div class="card col-3 m-3 p-0" id="pcg_card">
+							<form action="SelectServiceServelet" method="get">
+								<img class="card-img-top" src="img/Mahen/carWash_Card.jpg"
+									alt="Card image cap">
+								<div class="card-body">
+									<h5 class="card-title">Vehicle Wash</h5>
+									<input type="hidden" name="PackageID" value="SER01">
+									<p class="card-text">This is a longer card with supporting
+										text below as a natural lead-in to additional content. This
+										content is a little bit longer.</p>
+									<p class="card-text">
+										<small class="text-muted">Last updated 3 mins ago</small>
+									</p>
+									<div class="d-flex justify-content-center">
+
+										<button type="submit" class="btn btn-success btn-lg pcg_btn"
+											onclick="goDetails(50)" value="sample" name="pack">Select</button>
+
+
+									</div>
+								</div>
+							</form>
+						</div>
+
+
+
+
+
+						<div class="card col-3 m-3 p-0" id="pcg_card">
                             <img class="card-img-top" src="img/Mahen/interior-HD_card.jpg" alt="Card image cap">
                             <div class="card-body">
                                 <h5 class="card-title">Interior Detailing</h5>
@@ -359,7 +489,7 @@
                                 <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
                                 <div class="d-flex justify-content-center align-self-center">
                                     <button type="button" class="btn btn-success btn-lg pcg_btn"
-                                        onclick="goDetails(25)">Select</button>
+                                        onclick="goDetails(50)">Select</button>
                                 </div>
                             </div>
                         </div>
@@ -376,7 +506,7 @@
                                 <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
                                 <div class="d-flex justify-content-center align-self-center">
                                     <button type="button" class="btn btn-success btn-lg pcg_btn"
-                                        onclick="goDetails(25)">Select</button>
+                                        onclick="goDetails(50)">Select</button>
                                 </div>
                             </div>
                         </div>
@@ -392,7 +522,7 @@
                                 <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
                                 <div class="d-flex justify-content-center">
                                     <button type="button" class="btn btn-success btn-lg pcg_btn"
-                                        onclick="goDetails(25)">Select</button>
+                                        onclick="goDetails(50)">Select</button>
                                 </div>
                             </div>
                         </div>
@@ -405,7 +535,7 @@
                                 <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
                                 <div class="d-flex justify-content-center">
                                     <button type="button" class="btn btn-success btn-lg pcg_btn"
-                                        onclick="goDetails(25)">Select</button>
+                                        onclick="goDetails(50)">Select</button>
                                 </div>
                             </div>
                         </div>
@@ -421,7 +551,7 @@
                                 <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
                                 <div class="d-flex justify-content-center">
                                     <button type="button" class="btn btn-success btn-lg pcg_btn"
-                                        onclick="goDetails(25)">Select</button>
+                                        onclick="goDetails(50)">Select</button>
                                 </div>
                             </div>
                         </div>
@@ -436,7 +566,7 @@
                         <h1 class="display-4 text-center" style="font-weight: 700;">Vehicle Details</h1>
                         <hr class="my-4">
 
-                        <form action="">
+                        <form action="getVehiDetailsServlet" method="get">
                             <div class="form-row d-flex justify-content-center ">
                                 <div class="form-group col-md-5">
                                     <label for="inputState">
@@ -445,9 +575,9 @@
                                     <div class="input-group mb-2 mr-sm-2">
                                         <div class="input-group-prepend">
                                             <div class="input-group-text"><img src="img/Mahen/vehical_no.png"
-                                                    alt=""></i></div>
+                                                    alt=""></div>
                                         </div>
-                                        <input type="text" class="form-control " required name="" id="">
+                                        <input type="text" class="form-control" required name="vehi_No">
                                     </div>
                                 </div>
                             </div>
@@ -462,7 +592,7 @@
                                             <div class="input-group-text"><img src="img/Mahen/brand.png" alt=""></i>
                                             </div>
                                         </div>
-                                        <select id="inputState" class="form-control form-control-lg" required>
+                                        <select id="inputState" class="form-control form-control-lg" required name="brand">
                                             <option selected>Choose...</option>
                                             <option>...</option>
                                         </select>
@@ -477,7 +607,7 @@
                                             <div class="input-group-text"><img src="img/Mahen/model2.png" alt=""></i>
                                             </div>
                                         </div>
-                                        <select id="inputState" class="form-control form-control-lg">
+                                        <select id="inputState" class="form-control form-control-lg" name="Model">
                                             <option selected>Choose...</option>
                                             <option>...</option>
                                         </select>
@@ -492,7 +622,7 @@
                                             <div class="input-group-text"><img src="img/Mahen/calender.png" alt=""></i>
                                             </div>
                                         </div>
-                                        <select id="inputState" class="form-control form-control-lg">
+                                        <select id="inputState" class="form-control form-control-lg" name="year">
                                             <option selected>Choose...</option>
                                             <option>...</option>
                                         </select>
@@ -507,7 +637,7 @@
                                             <div class="input-group-text"><img src="img/Mahen/transmission.png"
                                                     alt=""></i></div>
                                         </div>
-                                        <select id="inputState" class="form-control form-control-lg">
+                                        <select id="inputState" class="form-control form-control-lg" name="Transmission">
                                             <option selected>Choose...</option>
                                             <option>...</option>
                                         </select>
@@ -522,7 +652,7 @@
                                             <div class="input-group-text"><img src="img/Mahen/fuel.png" alt=""></i>
                                             </div>
                                         </div>
-                                        <select id="inputState" class="form-control form-control-lg">
+                                        <select id="inputState" class="form-control form-control-lg" name="Fuel">
                                             <option selected>Choose...</option>
                                             <option>...</option>
                                         </select>
@@ -537,7 +667,7 @@
                                             <div class="input-group-text"><img src="img/Mahen/engine_capacity.jpg"
                                                     alt=""></i></div>
                                         </div>
-                                        <select id="inputState" class="form-control form-control-lg">
+                                        <select id="inputState" class="form-control form-control-lg" name="Engine">
                                             <option selected>Choose...</option>
                                             <option>...</option>
                                         </select>
@@ -552,16 +682,22 @@
                                             <div class="input-group-text"><img src="img/Mahen/milage.png" alt=""></i>
                                             </div>
                                         </div>
-                                        <select id="inputState" class="form-control form-control-lg">
+                                        <select id="inputState" class="form-control form-control-lg" name="Milage">
                                             <option selected>Choose...</option>
                                             <option>...</option>
                                         </select>
                                     </div>
                                 </div>
                             </div>
-                            <a class="btn btn-warning  align-self-center" href="#" role="button" type="submit"
-                                onclick="goTime(60)"><strong class="align-self-center">Next
-                                </strong><i class="far fa-hand-point-right fa-2x"></i></a>
+                         
+                              	<button type="submit"  onclick="goTime(60)" class="btn btn-warning">
+                              	<i class="far fa-hand-point-right fa-2x"><strong> Next </strong></i>
+                                
+                              	
+                              	</button>
+                              
+                                
+                                
                         </form>
 
 
@@ -572,15 +708,25 @@
 
 <div class="Jumbo2">
     <div class="row d-flex justify-content-between">
+        
+        
 
         <div class="ml-4"><i class="fas fa-arrow-circle-left fa-3x"></i><br>Previous Week</div>
-        <button type="button" class="btn btn-success" style="width: 350px;">
-            <h5>24-03-2020 - 30-03-2020</h5>
-        </button>
+            <div class="row">
+                <div class="input-group-prepend mt-2">
+                    <i class="far fa-calendar-alt fa-5x "></i>
+                </div>
+                <input type="date" id="Week_selector" onchange="weekpick()" class="btn btn-primary btn-lg" placeholder="Choose your Date here">
+            </div>
+            
+        
         <div class="mr-4"><i class="fas fa-arrow-circle-right fa-3x"></i><br>Next Week</div>
 
     </div>
-    <h3 class="text-center">Select Your time</h3>
+
+    <div class="jumbo2_part2">
+    <hr class="my-4">
+    <h3 class="text-center">Select Your time below</h3>
     <p class="text-left ml-3"> <i class="fas fa-circle" style="color: #03a9f4; line-height: 0px;"></i> Available times</p>
     <p class="text-left ml-3"> <i class="fas fa-circle" style="color: #ec407a;line-height: 0px;"></i> Unavailable times</p>
     <hr class="my-4">
@@ -597,190 +743,593 @@
                         <tr>
                             <th class="center">
                                 <div class="table_head_class">
-                                    <p class="font-weight-light">Mar 24</p>
+                                    <p class="font-weight-light" id = "SUN">Mar 24</p>
+                                    <hr class="m-0 p-0">
+                                    <p>SUN</p>
+                                </div>
+                            </th>
+                            <th>
+                                <div class="table_head_class">
+                                    <p class="font-weight-light" id = "MON">Mar 25</p>
                                     <hr class="m-0 p-0">
                                     <p>MON</p>
                                 </div>
                             </th>
                             <th>
                                 <div class="table_head_class">
-                                    <p class="font-weight-light">Mar 25</p>
-                                    <hr class="m-0 p-0">
-                                    <p>TUE</p>
-                                </div>
-                            </th>
-                            <th>
-                                <div class="table_head_class">
-                                    <p class="font-weight-light">Mar 26</p>
+                                    <p class="font-weight-light" id = "TUE">Mar 26</p>
                                     <hr class="m-0 p-0">
                                     <p>TUE</p>
                                 </div>
                             </th>
                             <th class="center">
                                 <div class="table_head_class">
-                                    <p class="font-weight-light">Mar 27</p>
+                                    <p class="font-weight-light" id = "WED">Mar 27</p>
+                                    <hr class="m-0 p-0">
+                                    <p>WED</p>
+                                </div>
+                            </th>
+                            <th class="center">
+                                <div class="table_head_class">
+                                    <p class="font-weight-light" id = "THU">Mar 28</p>
                                     <hr class="m-0 p-0">
                                     <p>THU</p>
                                 </div>
                             </th>
                             <th class="center">
                                 <div class="table_head_class">
-                                    <p class="font-weight-light">Mar 28</p>
+                                    <p class="font-weight-light" id="FRI">Mar 29</p>
                                     <hr class="m-0 p-0">
                                     <p>FRI</p>
                                 </div>
                             </th>
                             <th class="center">
                                 <div class="table_head_class">
-                                    <p class="font-weight-light">Mar 29</p>
+                                    <p class="font-weight-light" id="SAT">Mar 30</p>
                                     <hr class="m-0 p-0">
                                     <p>SAT</p>
-                                </div>
-                            </th>
-                            <th class="center">
-                                <div class="table_head_class">
-                                    <p class="font-weight-light">Mar 30</p>
-                                    <hr class="m-0 p-0">
-                                    <p>SUN</p>
                                 </div>
                             </th>
                         </tr>
                     </thead>
                     <tbody>
                          <tr>
-                             <td><button type="button" class="btn btn-light-blue"
-                                     onclick="goInvoice(value)"><strong>8.00-9.00</strong></button></td>
-                             <td><button type="button" class="btn btn-light-blue"
-                                     onclick="goInvoice(value)"><strong>8.00-9.00</strong></button></td>
-                             <td><button type="button" class="btn btn-light-blue"
-                                     onclick="goInvoice(value)"><strong>8.00-9.00</strong></button></td>
-                             <td><button type="button" class="btn btn-light-blue"
-                                     onclick="goInvoice(value)"><strong>8.00-9.00</strong></button></td>
-                             <td><button type="button" class="btn btn-light-blue"
-                                     onclick="goInvoice(value)"><strong>8.00-9.00</strong></button></td>
-                             <td><button type="button" class="btn btn-pink" onclick="goInvoice(value)"
-                                     disabled><strong>8.00-9.00</strong></button></td>
-                             <td><button type="button" class="btn btn-pink" onclick="goInvoice(value)"
-                                     disabled><strong>8.00-9.00</strong></button></td>
+                             <td>
+                                 <form action="getDateServlet" method="get">
+                                     <input type="hidden" value="" class="Sunday_date" name="Date">
+                                     <input type="hidden" value="8.00" name="Time">
+                                     <button type="submit" class="btn btn-pink" onclick="goInvoice(value)"
+                                         disabled><strong>8.00-9.00</strong></button>
+                                 </form>
+                             </td>
+                             <td>
+                                 <form action="getDateServlet" method="get">
+                                     <input type="hidden" value="333" class="Monday_date" name="Date">
+                                     <input type="hidden" value="8.00" name="Time">
+                                     <button type="submit" class="btn btn-light-blue"
+                                         onclick="goInvoice(value)"><strong>8.00-9.00</strong></button>
+                                 </form>
+                             </td>
+                             <td>
+                                 <form action="getDateServlet" method="get">
+                                     <input type="hidden" value="" class="Tuesday_date" name="Date">
+                                     <input type="hidden" value="8.00" name="Time">
+                                     <button type="button" class="btn btn-light-blue"
+                                         onclick="goInvoice(value)"><strong>8.00-9.00</strong></button>
+                                 </form>
+                             </td>
+                             <td>
+                                 <form action="getDateServlet" method="get">
+                                     <input type="hidden" value="" class="Wednesday_date" name="Date">
+                                     <input type="hidden" value="8.00" name="Time">
+                                     <button type="button" class="btn btn-light-blue"
+                                         onclick="goInvoice(value)"><strong>8.00-9.00</strong></button>
+                                 </form>
+                             </td>
+                             <td>
+                                 <form action="getDateServlet" method="get">
+                                     <input type="hidden" value="" class="Thursday_date" name="Date">
+                                     <input type="hidden" value="8.00" name="Time">
+                                     <button type="button" class="btn btn-light-blue"
+                                         onclick="goInvoice(value)"><strong>8.00-9.00</strong></button>
+                                 </form>
+                             </td>
+                             <td>
+                                 <form action="getDateServlet" method="get">
+                                     <input type="hidden" value="" class="Friday_date" name="Date">
+                                     <input type="hidden" value="8.00" name="Time">
+                                     <button type="button" class="btn btn-light-blue"
+                                         onclick="goInvoice(value)"><strong>8.00-9.00</strong></button>
+                                 </form>
+                             </td>
+                             <td>
+                                 <form action="getDateServlet" method="get">
+                                     <input type="hidden" value="" class="Saturday_date" name="Date">
+                                     <input type="hidden" value="8.00" name="Time">
+                                     <button type="submit" class="btn btn-pink" onclick="goInvoice(value)"
+                                         disabled><strong>8.00-9.00</strong></button>
+                                 </form>
+                             </td>
+                             
                          </tr>
                         <!-- This is our clonable table line -->
                         <tr>
-                            <td><button type="button" class="btn btn-light-blue"
-                                    onclick="goInvoice(value)"><strong>9.00-10.00</strong></button></td>
-                            <td><button type="button" class="btn btn-light-blue"
-                                    onclick="goInvoice(value)"><strong>9.00-10.00</strong></button></td>
-                            <td><button type="button" class="btn btn-light-blue"
-                                    onclick="goInvoice(value)"><strong>9.00-10.00</strong></button></td>
-                            <td><button type="button" class="btn btn-light-blue"
-                                    onclick="goInvoice(value)"><strong>9.00-10.00</strong></button></td>
-                            <td><button type="button" class="btn btn-light-blue"
-                                    onclick="goInvoice(value)"><strong>9.00-10.00</strong></button></td>
-                            <td><button type="button" class="btn btn-pink" onclick="goInvoice(value)"
-                                    disabled><strong>9.00-10.00</strong></button></td>
-                            <td><button type="button" class="btn btn-pink" onclick="goInvoice(value)"
-                                    disabled><strong>9.00-10.00</strong></button></td>
+                            <td>
+                                <form action="getDateServlet" method="get">
+                                    <input type="hidden" value="" class="Sunday_date" name="Date">
+                                    <input type="hidden" value="9.00" name="Time">
+                                    <button type="submit" class="btn btn-pink" onclick="goInvoice(value)"
+                                        disabled><strong>9.00-10.00</strong></button>
+                                </form>
+                            </td>
+                            <td>
+                                <form action="getDateServlet" method="get">
+                                    <input type="hidden" value="" class="Monday_date" name="Date">
+                                    <input type="hidden" value="9.00" name="Time">
+                                    <button type="button" class="btn btn-light-blue"
+                                        onclick="goInvoice(value)"><strong>9.00-10.00</strong></button>
+                                </form>
+                            </td>
+                            <td>
+                                <form action="getDateServlet" method="get">
+                                    <input type="hidden" value="" class="Tuesday_date" name="Date">
+                                    <input type="hidden" value="9.00" name="Time">
+                                    <button type="button" class="btn btn-light-blue"
+                                        onclick="goInvoice(value)"><strong>9.00-10.00</strong></button>
+                                </form>
+                            </td>
+                            <td>
+                                <form action="getDateServlet" method="get">
+                                    <input type="hidden" value="" class="Wednesday_date" name="Date">
+                                    <input type="hidden" value="9.00" name="Time">
+                                    <button type="button" class="btn btn-light-blue"
+                                        onclick="goInvoice(value)"><strong>9.00-10.00</strong></button>
+                                </form>
+                            </td>
+                            <td>
+                                <form action="getDateServlet" method="get">
+                                    <input type="hidden" value="" class="Thursday_date" name="Date">
+                                    <input type="hidden" value="9.00" name="Time">
+                                    <button type="button" class="btn btn-light-blue"
+                                        onclick="goInvoice(value)"><strong>9.00-10.00</strong></button>
+                                </form>
+                            </td>
+                            <td>
+                                <form action="getDateServlet" method="get">
+                                    <input type="hidden" value="" class="Friday_date" name="Date">
+                                    <input type="hidden" value="9.00" name="Time">
+                                    <button type="button" class="btn btn-light-blue"
+                                        onclick="goInvoice(value)"><strong>9.00-10.00</strong></button>
+                                </form>
+                            </td>
+                            <td>
+                                <form action="getDateServlet" method="get">
+                                    <input type="hidden" value="" class="Saturday_date" name="Date">
+                                    <input type="hidden" value="9.00" name="Time">
+                                    <button type="submit" class="btn btn-pink" onclick="goInvoice(value)"
+                                        disabled><strong>9.00-10.00</strong></button>
+                                </form>
+                            </td>
+
+                        </tr>
+                        <!-- This is our clonable table line -->
+                        <tr>
+                            <td>
+                                <form action="getDateServlet" method="get">
+                                    <input type="hidden" value="" class="Sunday_date" name="Date">
+                                    <input type="hidden" value="10.00" name="Time">
+                                    <button type="submit" class="btn btn-pink" onclick="goInvoice(value)"
+                                        disabled><strong>10.00-11.00</strong></button>
+                                </form>
+                            </td>
+                            <td>
+                                <form action="getDateServlet" method="get">
+                                    <input type="hidden" value="" class="Monday_date" name="Date">
+                                    <input type="hidden" value="10.00" name="Time">
+                                    <button type="button" class="btn btn-light-blue"
+                                        onclick="goInvoice(value)"><strong>10.00-11.00</strong></button>
+                                </form>
+                            </td>
+                            <td>
+                                <form action="getDateServlet" method="get">
+                                    <input type="hidden" value="" class="Tuesday_date" name="Date">
+                                    <input type="hidden" value="10.00" name="Time">
+                                    <button type="button" class="btn btn-light-blue"
+                                        onclick="goInvoice(value)"><strong>10.00-11.00</strong></button>
+                                </form>
+                            </td>
+                            <td>
+                                <form action="getDateServlet" method="get">
+                                    <input type="hidden" value="" class="Wednesday_date" name="Date">
+                                    <input type="hidden" value="10.00" name="Time">
+                                    <button type="button" class="btn btn-light-blue"
+                                        onclick="goInvoice(value)"><strong>10.00-11.00</strong></button>
+                                </form>
+                            </td>
+                            <td>
+                                <form action="getDateServlet" method="get">
+                                    <input type="hidden" value="" class="Thursday_date" name="Date">
+                                    <input type="hidden" value="10.00" name="Time">
+                                    <button type="button" class="btn btn-light-blue"
+                                        onclick="goInvoice(value)"><strong>10.00-11.00</strong></button>
+                                </form>
+                            </td>
+                            <td>
+                                <form action="getDateServlet" method="get">
+                                    <input type="hidden" value="" class="Friday_date" name="Date">
+                                    <input type="hidden" value="10.00" name="Time">
+                                    <button type="button" class="btn btn-light-blue"
+                                        onclick="goInvoice(value)"><strong>10.00-11.00</strong></button>
+                                </form>
+                            </td>
+                            <td>
+                                <form action="getDateServlet" method="get">
+                                    <input type="hidden" value="" class="Saturday_date" name="Date">
+                                    <input type="hidden" value="10.00" name="Time">
+                                    <button type="submit" class="btn btn-pink" onclick="goInvoice(value)"
+                                        disabled><strong>10.00-11.00</strong></button>
+                                </form>
+                            </td>
+
                         </tr>
                         <!-- This is our clonable table line -->
                          <tr>
-                             <td><button type="button" class="btn btn-light-blue"
-                                     onclick="goInvoice(value)"><strong>10.00-11.00</strong></button></td>
-                             <td><button type="button" class="btn btn-light-blue"
-                                     onclick="goInvoice(value)"><strong>10.00-11.00</strong></button></td>
-                             <td><button type="button" class="btn btn-light-blue"
-                                     onclick="goInvoice(value)"><strong>10.00-11.00</strong></button></td>
-                             <td><button type="button" class="btn btn-light-blue"
-                                     onclick="goInvoice(value)"><strong>10.00-11.00</strong></button></td>
-                             <td><button type="button" class="btn btn-light-blue"
-                                     onclick="goInvoice(value)"><strong>10.00-11.00</strong></button></td>
-                             <td><button type="button" class="btn btn-pink" onclick="goInvoice(value)"
-                                     disabled><strong>10.00-11.00</strong></button></td>
-                             <td><button type="button" class="btn btn-pink" onclick="goInvoice(value)"
-                                     disabled><strong>10.00-11.00</strong></button></td>
+                             <td>
+                                 <form action="getDateServlet" method="get">
+                                     <input type="hidden" value="" class="Sunday_date" name="Date">
+                                     <input type="hidden" value="11.00" name="Time">
+                                     <button type="submit" class="btn btn-pink" onclick="goInvoice(value)"
+                                         disabled><strong>11.00-12.00</strong></button>
+                                 </form>
+                             </td>
+                             <td>
+                                 <form action="getDateServlet" method="get">
+                                     <input type="hidden" value="" class="Monday_date" name="Date">
+                                     <input type="hidden" value="11.00" name="Time">
+                                     <button type="button" class="btn btn-light-blue"
+                                         onclick="goInvoice(value)"><strong>11.00-12.00</strong></button>
+                                 </form>
+                             </td>
+                             <td>
+                                 <form action="getDateServlet" method="get">
+                                     <input type="hidden" value="" class="Tuesday_date" name="Date">
+                                     <input type="hidden" value="11.00" name="Time">
+                                     <button type="button" class="btn btn-light-blue"
+                                         onclick="goInvoice(value)"><strong>11.00-12.00</strong></button>
+                                 </form>
+                             </td>
+                             <td>
+                                 <form action="getDateServlet" method="get">
+                                     <input type="hidden" value="" class="Wednesday_date" name="Date">
+                                     <input type="hidden" value="11.00" name="Time">
+                                     <button type="button" class="btn btn-light-blue"
+                                         onclick="goInvoice(value)"><strong>11.00-12.00</strong></button>
+                                 </form>
+                             </td>
+                             <td>
+                                 <form action="getDateServlet" method="get">
+                                     <input type="hidden" value="" class="Thursday_date" name="Date">
+                                     <input type="hidden" value="11.00" name="Time">
+                                     <button type="button" class="btn btn-light-blue"
+                                         onclick="goInvoice(value)"><strong>11.00-12.00</strong></button>
+                                 </form>
+                             </td>
+                             <td>
+                                 <form action="getDateServlet" method="get">
+                                     <input type="hidden" value="" class="Friday_date" name="Date">
+                                     <input type="hidden" value="11.00" name="Time">
+                                     <button type="button" class="btn btn-light-blue"
+                                         onclick="goInvoice(value)"><strong>11.00-12.00</strong></button>
+                                 </form>
+                             </td>
+                             <td>
+                                 <form action="getDateServlet" method="get">
+                                     <input type="hidden" value="" class="Saturday_date" name="Date">
+                                     <input type="hidden" value="11.00" name="Time">
+                                     <button type="submit" class="btn btn-pink" onclick="goInvoice(value)"
+                                         disabled><strong>11.00-12.00</strong></button>
+                                 </form>
+                             </td>
+
                          </tr>
                          
 
                         <!-- This is our clonable table line -->
                          <tr>
-                             <td><button type="button" class="btn btn-light-blue"
-                                     onclick="goInvoice(value)"><strong>11.00-12.00</strong></button></td>
-                             <td><button type="button" class="btn btn-light-blue"
-                                     onclick="goInvoice(value)"><strong>11.00-12.00</strong></button></td>
-                             <td><button type="button" class="btn btn-light-blue"
-                                     onclick="goInvoice(value)"><strong>11.00-12.00</strong></button></td>
-                             <td><button type="button" class="btn btn-light-blue"
-                                     onclick="goInvoice(value)"><strong>11.00-12.00</strong></button></td>
-                             <td><button type="button" class="btn btn-light-blue"
-                                     onclick="goInvoice(value)"><strong>11.00-12.00</strong></button></td>
-                             <td><button type="button" class="btn btn-pink" onclick="goInvoice(value)"
-                                     disabled><strong>11.00-12.00</strong></button></td>
-                             <td><button type="button" class="btn btn-pink" onclick="goInvoice(value)"
-                                     disabled><strong>11.00-12.00</strong></button></td>
+                             <td>
+                                 <form action="getDateServlet" method="get">
+                                     <input type="hidden" value="" class="Sunday_date" name="Date">
+                                     <input type="hidden" value="12.00" name="Time">
+                                     <button type="submit" class="btn btn-pink" onclick="goInvoice(value)"
+                                         disabled><strong>12.00-13.00</strong></button>
+                                 </form>
+                             </td>
+                             <td>
+                                 <form action="getDateServlet" method="get">
+                                     <input type="hidden" value="" class="Monday_date" name="Date">
+                                     <input type="hidden" value="12.00" name="Time">
+                                     <button type="button" class="btn btn-light-blue"
+                                         onclick="goInvoice(value)"><strong>12.00-13.00</strong></button>
+                                 </form>
+                             </td>
+                             <td>
+                                 <form action="getDateServlet" method="get">
+                                     <input type="hidden" value="" class="Tuesday_date" name="Date">
+                                     <input type="hidden" value="12.00" name="Time">
+                                     <button type="button" class="btn btn-light-blue"
+                                         onclick="goInvoice(value)"><strong>12.00-13.00</strong></button>
+                                 </form>
+                             </td>
+                             <td>
+                                 <form action="getDateServlet" method="get">
+                                     <input type="hidden" value="" class="Wednesday_date" name="Date">
+                                     <input type="hidden" value="12.00" name="Time">
+                                     <button type="button" class="btn btn-light-blue"
+                                         onclick="goInvoice(value)"><strong>12.00-13.00</strong></button>
+                                 </form>
+                             </td>
+                             <td>
+                                 <form action="getDateServlet" method="get">
+                                     <input type="hidden" value="" class="Thursday_date" name="Date">
+                                     <input type="hidden" value="12.00" name="Time">
+                                     <button type="button" class="btn btn-light-blue"
+                                         onclick="goInvoice(value)"><strong>12.00-13.00</strong></button>
+                                 </form>
+                             </td>
+                             <td>
+                                 <form action="getDateServlet" method="get">
+                                     <input type="hidden" value="" class="Friday_date" name="Date">
+                                     <input type="hidden" value="12.00" name="Time">
+                                     <button type="button" class="btn btn-light-blue"
+                                         onclick="goInvoice(value)"><strong>12.00-13.00</strong></button>
+                                 </form>
+                             </td>
+                             <td>
+                                 <form action="getDateServlet" method="get">
+                                     <input type="hidden" value="" class="Saturday_date" name="Date">
+                                     <input type="hidden" value="12.00" name="Time">
+                                     <button type="submit" class="btn btn-pink" onclick="goInvoice(value)"
+                                         disabled><strong>12.00-13.00</strong></button>
+                                 </form>
+                             </td>
+
                          </tr>
                          <tr>
-                             <td><button type="button"class="btn btn-light-blue"
-                                     onclick="goInvoice(value)"><strong>12.00-13.00</strong></button></td>
-                             <td><button type="button" class="btn btn-light-blue"
-                                     onclick="goInvoice(value)"><strong>12.00-13.00</strong></button></td>
-                             <td><button type="button" class="btn btn-light-blue"
-                                     onclick="goInvoice(value)"><strong>12.00-13.00</strong></button></td>
-                             <td><button type="button" class="btn btn-light-blue"
-                                     onclick="goInvoice(value)"><strong>12.00-13.00</strong></button></td>
-                             <td><button type="button" class="btn btn-light-blue"
-                                     onclick="goInvoice(value)"><strong>12.00-13.00</strong></button></td>
-                             <td><button type="button" class="btn btn-pink" onclick="goInvoice(value)"
-                                     disabled><strong>12.00-13.00</strong></button></td>
-                             <td><button type="button" class="btn btn-pink" onclick="goInvoice(value)"
-                                     disabled><strong>12.00-13.00</strong></button></td>
+                             <td>
+                                 <form action="getDateServlet" method="get">
+                                     <input type="hidden" value="" class="Sunday_date" name="Date">
+                                     <input type="hidden" value="13.00" name="Time">
+                                     <button type="submit" class="btn btn-pink" onclick="goInvoice(value)"
+                                         disabled><strong>13.00-14.00</strong></button>
+                                 </form>
+                             </td>
+                             <td>
+                                 <form action="getDateServlet" method="get">
+                                     <input type="hidden" value="" class="Monday_date" name="Date">
+                                     <input type="hidden" value="13.00" name="Time">
+                                     <button type="button" class="btn btn-light-blue"
+                                         onclick="goInvoice(value)"><strong>13.00-14.00</strong></button>
+                                 </form>
+                             </td>
+                             <td>
+                                 <form action="getDateServlet" method="get">
+                                     <input type="hidden" value="" class="Tuesday_date" name="Date">
+                                     <input type="hidden" value="13.00" name="Time">
+                                     <button type="button" class="btn btn-light-blue"
+                                         onclick="goInvoice(value)"><strong>13.00-14.00</strong></button>
+                                 </form>
+                             </td>
+                             <td>
+                                 <form action="getDateServlet" method="get">
+                                     <input type="hidden" value="" class="Wednesday_date" name="Date">
+                                     <input type="hidden" value="13.00" name="Time">
+                                     <button type="button" class="btn btn-light-blue"
+                                         onclick="goInvoice(value)"><strong>13.00-14.00</strong></button>
+                                 </form>
+                             </td>
+                             <td>
+                                 <form action="getDateServlet" method="get">
+                                     <input type="hidden" value="" class="Thursday_date" name="Date">
+                                     <input type="hidden" value="13.00" name="Time">
+                                     <button type="button" class="btn btn-light-blue"
+                                         onclick="goInvoice(value)"><strong>13.00-14.00</strong></button>
+                                 </form>
+                             </td>
+                             <td>
+                                 <form action="getDateServlet" method="get">
+                                     <input type="hidden" value="" class="Friday_date" name="Date">
+                                     <input type="hidden" value="13.00" name="Time">
+                                     <button type="button" class="btn btn-light-blue"
+                                         onclick="goInvoice(value)"><strong>13.00-14.00</strong></button>
+                                 </form>
+                             </td>
+                             <td>
+                                 <form action="getDateServlet" method="get">
+                                     <input type="hidden" value="" class="Saturday_date" name="Date">
+                                     <input type="hidden" value="13.00" name="Time">
+                                     <button type="submit" class="btn btn-pink" onclick="goInvoice(value)"
+                                         disabled><strong>13.00-14.00</strong></button>
+                                 </form>
+                             </td>
+
                          </tr>
                          <tr>
-                             <td><button type="button" class="btn btn-light-blue"
-                                     onclick="goInvoice(value)"><strong>13.00-14.00</strong></button></td>
-                             <td><button type="button" class="btn btn-light-blue"
-                                     onclick="goInvoice(value)"><strong>13.00-14.00</strong></button></td>
-                             <td><button type="button" class="btn btn-light-blue"
-                                     onclick="goInvoice(value)"><strong>13.00-14.00</strong></button></td>
-                             <td><button type="button" class="btn btn-light-blue"
-                                     onclick="goInvoice(value)"><strong>13.00-14.00</strong></button></td>
-                             <td><button type="button" class="btn btn-light-blue"
-                                     onclick="goInvoice(value)"><strong>13.00-14.00</strong></button></td>
-                             <td><button type="button" class="btn btn-pink" onclick="goInvoice(value)"
-                                     disabled><strong>13.00-14.00</strong></button></td>
-                             <td><button type="button" class="btn btn-pink" onclick="goInvoice(value)"
-                                     disabled><strong>13.00-14.00</strong></button></td>
+                             <td>
+                                 <form action="getDateServlet" method="get">
+                                     <input type="hidden" value="" class="Sunday_date" name="Date">
+                                     <input type="hidden" value="14.00" name="Time">
+                                     <button type="submit" class="btn btn-pink" onclick="goInvoice(value)"
+                                         disabled><strong>14.00-15.00</strong></button>
+                                 </form>
+                             </td>
+                             <td>
+                                 <form action="getDateServlet" method="get">
+                                     <input type="hidden" value="" class="Monday_date" name="Date">
+                                     <input type="hidden" value="14.00" name="Time">
+                                     <button type="button" class="btn btn-light-blue"
+                                         onclick="goInvoice(value)"><strong>14.00-15.00</strong></button>
+                                 </form>
+                             </td>
+                             <td>
+                                 <form action="getDateServlet" method="get">
+                                     <input type="hidden" value="" class="Tuesday_date" name="Date">
+                                     <input type="hidden" value="14.00" name="Time">
+                                     <button type="button" class="btn btn-light-blue"
+                                         onclick="goInvoice(value)"><strong>14.00-15.00</strong></button>
+                                 </form>
+                             </td>
+                             <td>
+                                 <form action="getDateServlet" method="get">
+                                     <input type="hidden" value="" class="Wednesday_date" name="Date">
+                                     <input type="hidden" value="14.00" name="Time">
+                                     <button type="button" class="btn btn-light-blue"
+                                         onclick="goInvoice(value)"><strong>14.00-15.00</strong></button>
+                                 </form>
+                             </td>
+                             <td>
+                                 <form action="getDateServlet" method="get">
+                                     <input type="hidden" value="" class="Thursday_date" name="Date">
+                                     <input type="hidden" value="14.00" name="Time">
+                                     <button type="button" class="btn btn-light-blue"
+                                         onclick="goInvoice(value)"><strong>14.00-15.00</strong></button>
+                                 </form>
+                             </td>
+                             <td>
+                                 <form action="getDateServlet" method="get">
+                                     <input type="hidden" value="" class="Friday_date" name="Date">
+                                     <input type="hidden" value="14.00" name="Time">
+                                     <button type="button" class="btn btn-light-blue"
+                                         onclick="goInvoice(value)"><strong>14.00-15.00</strong></button>
+                                 </form>
+                             </td>
+                             <td>
+                                 <form action="getDateServlet" method="get">
+                                     <input type="hidden" value="" class="Saturday_date" name="Date">
+                                     <input type="hidden" value="14.00" name="Time">
+                                     <button type="submit" class="btn btn-pink" onclick="goInvoice(value)"
+                                         disabled><strong>14.00-15.00</strong></button>
+                                 </form>
+                             </td>
+
                          </tr>
                          <tr>
-                             <td><button type="button" class="btn btn-light-blue"
-                                     onclick="goInvoice(value)"><strong>15.00-16.00</strong></button></td>
-                             <td><button type="button" class="btn btn-light-blue"
-                                     onclick="goInvoice(value)"><strong>15.00-16.00</strong></button></td>
-                             <td><button type="button" class="btn btn-light-blue"
-                                     onclick="goInvoice(value)"><strong>15.00-16.00</strong></button></td>
-                             <td><button type="button"class="btn btn-light-blue"
-                                     onclick="goInvoice(value)"><strong>15.00-16.00</strong></button></td>
-                             <td><button type="button" class="btn btn-light-blue"
-                                     onclick="goInvoice(value)"><strong>15.00-16.00</strong></button></td>
-                             <td><button type="button" class="btn btn-pink" onclick="goInvoice(value)"
-                                     disabled><strong>15.00-16.00</strong></button></td>
-                             <td><button type="button" class="btn btn-pink" onclick="goInvoice(value)"
-                                     disabled><strong>15.00-16.00</strong></button></td>
+                             <td>
+                                 <form action="getDateServlet" method="get">
+                                     <input type="hidden" value="" class="Sunday_date" name="Date">
+                                     <input type="hidden" value="15.00" name="Time">
+                                     <button type="submit" class="btn btn-pink" onclick="goInvoice(value)"
+                                         disabled><strong>15.00-16.00</strong></button>
+                                 </form>
+                             </td>
+                             <td>
+                                 <form action="getDateServlet" method="get">
+                                     <input type="hidden" value="" class="Monday_date" name="Date">
+                                     <input type="hidden" value="15.00" name="Time">
+                                     <button type="button" class="btn btn-light-blue"
+                                         onclick="goInvoice(value)"><strong>15.00-16.00</strong></button>
+                                 </form>
+                             </td>
+                             <td>
+                                 <form action="getDateServlet" method="get">
+                                     <input type="hidden" value="" class="Tuesday_date" name="Date">
+                                     <input type="hidden" value="15.00" name="Time">
+                                     <button type="button" class="btn btn-light-blue"
+                                         onclick="goInvoice(value)"><strong>15.00-16.00</strong></button>
+                                 </form>
+                             </td>
+                             <td>
+                                 <form action="getDateServlet" method="get">
+                                     <input type="hidden" value="" class="Wednesday_date" name="Date">
+                                     <input type="hidden" value="15.00" name="Time">
+                                     <button type="button" class="btn btn-light-blue"
+                                         onclick="goInvoice(value)"><strong>15.00-16.00</strong></button>
+                                 </form>
+                             </td>
+                             <td>
+                                 <form action="getDateServlet" method="get">
+                                     <input type="hidden" value="" class="Thursday_date" name="Date">
+                                     <input type="hidden" value="15.00" name="Time">
+                                     <button type="button" class="btn btn-light-blue"
+                                         onclick="goInvoice(value)"><strong>15.00-16.00</strong></button>
+                                 </form>
+                             </td>
+                             <td>
+                                 <form action="getDateServlet" method="get">
+                                     <input type="hidden" value="" class="Friday_date" name="Date">
+                                     <input type="hidden" value="15.00" name="Time">
+                                     <button type="button" class="btn btn-light-blue"
+                                         onclick="goInvoice(value)"><strong>15.00-16.00</strong></button>
+                                 </form>
+                             </td>
+                             <td>
+                                 <form action="getDateServlet" method="get">
+                                     <input type="hidden" value="" class="Saturday_date" name="Date">
+                                     <input type="hidden" value="15.00" name="Time">
+                                     <button type="submit" class="btn btn-pink" onclick="goInvoice(value)"
+                                         disabled><strong>15.00-16.00</strong></button>
+                                 </form>
+                             </td>
+
                          </tr>
-                         <tr>
-                             
-                             <td><button type="button" class="btn btn-light-blue"
-                                     onclick="goInvoice(value)"><strong>16.00-17.00</strong></button></td>
-                             <td><button type="button" class="btn btn-light-blue"
-                                     onclick="goInvoice(value)"><strong>16.00-17.00</strong></button></td>
-                             <td><button type="button" class="btn btn-light-blue"
-                                     onclick="goInvoice(value)"><strong>16.00-17.00</strong></button></td>
-                             <td><button type="button" class="btn btn-light-blue"
-                                     onclick="goInvoice(value)"><strong>16.00-17.00</strong></button></td>
-                             <td><button type="button" class="btn btn-light-blue"
-                                     onclick="goInvoice(value)"><strong>16.00-17.00</strong></button></td>
-                             <td><button type="button" class="btn btn-pink" onclick="goInvoice(value)"
-                                     disabled><strong>16.00-17.00</strong></button></td>
-                             <td><button type="button" class="btn btn-pink" onclick="goInvoice(value)"
-                                     disabled><strong>16.00-17.00</strong></button></td>
-                         </tr>
+                        <tr>
+                            <td>
+                                <form action="getDateServlet" method="get">
+                                    <input type="hidden" value="" class="Sunday_date" name="Date">
+                                    <input type="hidden" value="16.00" name="Time">
+                                    <button type="submit" class="btn btn-pink" onclick="goInvoice(value)"
+                                        disabled><strong>16.00-17.00</strong></button>
+                                </form>
+                            </td>
+                            <td>
+                                <form action="getDateServlet" method="get">
+                                    <input type="hidden" value="" class="Monday_date" name="Date">
+                                    <input type="hidden" value="16.00" name="Time">
+                                    <button type="button" class="btn btn-light-blue"
+                                        onclick="goInvoice(value)"><strong>16.00-17.00</strong></button>
+                                </form>
+                            </td>
+                            <td>
+                                <form action="getDateServlet" method="get">
+                                    <input type="hidden" value="" class="Tuesday_date" name="Date">
+                                    <input type="hidden" value="16.00" name="Time">
+                                    <button type="button" class="btn btn-light-blue"
+                                        onclick="goInvoice(value)"><strong>16.00-17.00</strong></button>
+                                </form>
+                            </td>
+                            <td>
+                                <form action="getDateServlet" method="get">
+                                    <input type="hidden" value="" class="Wednesday_date" name="Date">
+                                    <input type="hidden" value="16.00" name="Time">
+                                    <button type="button" class="btn btn-light-blue"
+                                        onclick="goInvoice(value)"><strong>16.00-17.00</strong></button>
+                                </form>
+                            </td>
+                            <td>
+                                <form action="getDateServlet" method="get">
+                                    <input type="hidden" value="" class="Thursday_date" name="Date">
+                                    <input type="hidden" value="16.00" name="Time">
+                                    <button type="button" class="btn btn-light-blue"
+                                        onclick="goInvoice(value)"><strong>16.00-17.00</strong></button>
+                                </form>
+                            </td>
+                            <td>
+                                <form action="getDateServlet" method="get">
+                                    <input type="hidden" value="" class="Friday_date" name="Date">
+                                    <input type="hidden" value="16.00" name="Time">
+                                    <button type="button" class="btn btn-light-blue"
+                                        onclick="goInvoice(value)"><strong>16.00-17.00</strong></button>
+                                </form>
+                            </td>
+                            <td>
+                                <form action="getDateServlet" method="get">
+                                    <input type="hidden" value="" class="Saturday_date" name="Date">
+                                    <input type="hidden" value="16.00" name="Time">
+                                    <button type="submit" class="btn btn-pink" onclick="goInvoice(value)"
+                                        disabled><strong>16.00-17.00</strong></button>
+                                </form>
+                            </td>
+
+                        </tr>
 
                     </tbody>
                 </table>
@@ -789,10 +1338,11 @@
     </div>
     <!-- Editable table -->
 
-
+</div>
 
 </div>
 <!--Start of  row 1 Section 4-->
+
                 <!--Start of  row 1 Section 5-->
                 <div class="invoice">
                     <div class="jumbotron">
@@ -1160,5 +1710,7 @@
     <!--Mahen js-->
     <script src="js/Mahen/SendRequest.js"></script>
     <!--end of the Mahen js-->
+    
+        
 </body>
 </html>
