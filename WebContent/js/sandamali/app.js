@@ -19,7 +19,7 @@ var app = angular.module("myModule", [])
 
 						$http
 								.get(
-										'http://localhost:8080/vehicleServiceAndFuelStationManagement/PackageManagerServlet?id=getall',
+										'PackageManagerServlet?id=getall',
 										config)
 								.then(
 										function successCallback(response) {
@@ -64,7 +64,7 @@ var app = angular.module("myModule", [])
 
 						$http
 								.post(
-										'http://localhost:8080/vehicleServiceAndFuelStationManagement/PackageManagerServlet?method=update',
+										'PackageManagerServlet?method=update',
 										data, config)
 								.then(
 										function successCallback(response) {
@@ -100,7 +100,7 @@ var app = angular.module("myModule", [])
 
 						$http
 								.post(
-										'http://localhost:8080/vehicleServiceAndFuelStationManagement/PackageManagerServlet?method=delete',
+										'PackageManagerServlet?method=delete',
 										data, config)
 								.then(
 										function successCallback(response) {
@@ -136,7 +136,7 @@ var app = angular.module("myModule", [])
 
 						$http
 								.post(
-										'http://localhost:8080/vehicleServiceAndFuelStationManagement/PackageManagerServlet?method=save',
+										'PackageManagerServlet?method=save',
 										data, config)
 								.then(
 										function successCallback(response) {
