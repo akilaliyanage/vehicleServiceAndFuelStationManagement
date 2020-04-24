@@ -458,7 +458,7 @@
 									alt="Card image cap">
 								<div class="card-body">
 									<h5 class="card-title">Vehicle Wash</h5>
-									<input type="hidden" name="PackageID" value="SER01">
+									<input type="hidden" name="ServiceID" value="SER01">
 									<p class="card-text">This is a longer card with supporting
 										text below as a natural lead-in to additional content. This
 										content is a little bit longer.</p>
