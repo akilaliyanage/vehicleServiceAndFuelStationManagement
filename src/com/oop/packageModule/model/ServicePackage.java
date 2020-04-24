@@ -11,6 +11,7 @@ public class ServicePackage {
 	private String packName;
 	private float price;
 	private String packDescription;
+	private String packImage;
 
 	public ServicePackage() {
 	}
@@ -79,10 +80,20 @@ public class ServicePackage {
 		this.packDescription = packDescription;
 	}
 
+	@Column(name = "packImage")
+	public String getPackImage() {
+		return packImage;
+	}
+
+	public void setPackImage(String packImage) {
+		this.packImage = packImage;
+	}
+
 	@Override
 	public String toString() {
-		return "ServicePackage{packId=" + packId + ", adminRegNo=" + adminRegNo + ", packType=" + packType
-				+ ", packName=" + packName + ", price=" + price + ", packDescription=" + packDescription + "}";
+		return "ServicePackage [packId=" + packId + ", adminRegNo=" + adminRegNo + ", packType=" + packType
+				+ ", packName=" + packName + ", price=" + price + ", packDescription=" + packDescription
+				+ ", packImage=" + packImage + "]";
 	}
 
 }

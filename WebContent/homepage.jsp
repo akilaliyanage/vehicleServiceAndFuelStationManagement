@@ -143,7 +143,7 @@
 								<!-- Card image -->
 								<div class="view overlay">
 									<img class="card-img-top"
-										src="https://mdbootstrap.com/img/Mockups/Lightbox/Thumbnail/img%20(67).jpg"
+										src="./img/sandamali/${ServicePackage.packImage}"
 										alt="Card image cap"> <a href="#!">
 										<div class="mask rgba-white-slight"></div>
 									</a>

@@ -7,6 +7,7 @@ var app = angular.module("myModule", [])
 					$scope.clickedMembers = [];
 					$scope.number = $scope.members = [];
 					$scope.selectedMember = {};
+					$scope.pimage = "";
 
 					refreshPage();
 
@@ -39,7 +40,16 @@ var app = angular.module("myModule", [])
 					};
 
 					$scope.selectMember = function(member) {
+						document.getElementById("fileChooser").value = '';
+						$scope.pimage = "";
 						$scope.selectedMember = member;
+						$scope.PreviewImage = "./img/sandamali/"+$scope.selectedMember.packImage;
+					};
+					
+					$scope.clearImage = function() {
+						document.getElementById("addPack").reset();
+						document.getElementById("pimg").src = "";
+						$scope.PreviewImage = "";
 					};
 
 					$scope.updateMember = function() {
@@ -50,6 +60,10 @@ var app = angular.module("myModule", [])
 						dataObject.packType = $scope.selectedMember.packType;
 						dataObject.price = $scope.selectedMember.price;
 						dataObject.packDescription = $scope.selectedMember.packDescription;
+						dataObject.packImage = $scope.selectedMember.packImage;
+						if($scope.pimage != ""){
+                            dataObject.packImage = $scope.pimage;
+                        }
 						var content = JSON.stringify(dataObject);
 						console.log(content);
 						var data = $.param({
@@ -122,6 +136,7 @@ var app = angular.module("myModule", [])
 						dataObject.packType = $scope.newMember.packType;
 						dataObject.price = $scope.newMember.price;
 						dataObject.packDescription = $scope.newMember.packDescription;
+						dataObject.packImage = $scope.pimage;
 						var content = JSON.stringify(dataObject);
 						console.log("########## "+content);
 						var data = $.param({
@@ -149,5 +164,16 @@ var app = angular.module("myModule", [])
 
 										});
 					};
+					
+				    $scope.SelectFile = function (e) {
+		                var reader = new FileReader();
+		                reader.onload = function (e) {
+		                    $scope.PreviewImage = e.target.result;
+		                    $scope.$apply();
+		                };
+
+		                reader.readAsDataURL(e.target.files[0]);
+		                $scope.pimage=(e.target.files[0]).name;
+		            };
 
 				});
