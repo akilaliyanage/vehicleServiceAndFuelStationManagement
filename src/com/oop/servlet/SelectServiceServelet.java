@@ -2,6 +2,7 @@ package com.oop.servlet;
 
 import java.io.IOException;
 import com.oop.DAO.*;
+import com.oop.service.*;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.Cookie;
@@ -33,17 +34,19 @@ public class SelectServiceServelet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		String selectedService = request.getParameter("PackageID");
+		String selectedService = request.getParameter("ServiceID");
 		System.out.println(selectedService);
 		
-		IAppointmentDAO appointment = new AppointmentDAOImpl();
+		IServiceAccess service = new ServiceAccessImpl();
+		
+		/*IAppointmentDAO appointment = new AppointmentDAOImpl();*/
 		
 		/*Generate a cookies to further use CreateAppointmentServlet*/
-		Cookie serviceCookie = new Cookie("Service", selectedService);
+		/*Cookie serviceCookie = new Cookie("Service", selectedService);
 		Cookie servicePrice = new Cookie("servicePrice", Double.toString(appointment.getServicePrice(selectedService)));
 		response.addCookie(serviceCookie);
 		response.addCookie(servicePrice);
-		response.setStatus(HttpServletResponse.SC_NO_CONTENT);
+		response.setStatus(HttpServletResponse.SC_NO_CONTENT);*/
 	}
 
 	/**

@@ -35,17 +35,21 @@ public class UpdateDashboardImplDAO implements IUpdateDashboardDAO {
 			try {
 				
 				connection = DatabaseConnection.getConnection();
-				pStatement = connection.prepareStatement("");
-				Statement st = connection.createStatement();
+				pStatement = connection.prepareStatement("SELECT a.appId , a.status, a.location, s.serviceName,u.userFullName, u.userImage  from Appointment a, User u, Service s, registeredcustomer r where a.service_id = s.serviceId and a.userRegNo = r.customerRegId and r.customerRegId = u.regNo");
+				//Statement st = connection.createStatement();
 				
 				ResultSet rsResultset = pStatement.executeQuery();
 				
 				while(rsResultset.next()) {
 					DashboardRequestModel drm = new DashboardRequestModel();
-					drm.setUsernameString(rsResultset.getString(""));
-					drm.setAppointmentIDString(rsResultset.getString(""));
-					drm.setServiveTypeString(rsResultset.getString(""));
 					
+					drm.setAppidString(rsResultset.getString("appId"));
+					drm.setStatuString(rsResultset.getString("status"));
+					drm.setLocationString(rsResultset.getString("location"));
+					drm.setServicenameString(rsResultset.getString("serviceName"));
+					drm.setUsernameString(rsResultset.getString("userFullName"));
+					drm.setUserimageString(rsResultset.getString("userImage"));
+										
 					details.add(drm);
 				}
 				
@@ -69,18 +73,20 @@ public class UpdateDashboardImplDAO implements IUpdateDashboardDAO {
 			try {
 				
 				connection = DatabaseConnection.getConnection();
-				pStatement = connection.prepareStatement("");
-				Statement st = connection.createStatement();
+				pStatement = connection.prepareStatement("SELECT COUNT(*) as 'tot' FROM vehicleserviceandfuelstationmanagement.registeredcustomer");
+				//Statement st = connection.createStatement();
 				
 				ResultSet resultSet = pStatement.executeQuery();
 				
 				while(resultSet.next()) {
-					tot = resultSet.getInt("");
+					tot = resultSet.getInt("tot");
 				}
 				
 			} catch (Exception e) {
 				// TODO: handle exception
 			}
+			
+			System.out.println(tot);
 			
 			return tot;
 		}

@@ -123,6 +123,24 @@
 		<url-pattern>/UploadPhotoServlet</url-pattern>
 	</servlet-mapping>
 	
+	<servlet>
+		<servlet-name>NewAdminServlet</servlet-name>
+		<servlet-class>com.oop.servlet.NewAdminServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>NewAdminServlet</servlet-name>
+		<url-pattern>/NewAdminServlet</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>AdminLoginServlet</servlet-name>
+		<servlet-class>com.oop.servlet.AdminLoginServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>AdminLoginServlet</servlet-name>
+		<url-pattern>/AdminLoginServlet</url-pattern>
+	</servlet-mapping>
+	
 
 	
 	

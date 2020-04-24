@@ -273,188 +273,30 @@
         </div>
 
         <div class="row" style="margin: 0;overflow-x: hidden;">
-          <div class="col pending" style="margin: 0;padding: 0;">
-            <div class="card shadow force-overflow" >
-              <img src="img/akila/12.jpg" class="card-img-top" alt="..." />
+          <div class="col pending" style="margin: 0;padding: 0;height: 500px;">
+          
+           <c:forEach items="${userRequests}" var="obj">
+           
+            <div class="card shadow force-overflow" style="height: auto;">
+              <img src="img/userImages/${obj.userimageString }" style="height: 200px; object-fit: cover;" class="card-img-top" alt="${obj.userimageString}" />
               <div class="card-body">
-                <h5 class="card-title">Service Request</h5>
-                <p class="card-text">
-                  Some quick example text to build on the card title and make up
-                  the bulk of the card's content.
-                </p>
-
-                <div
-                  class="btn-group btn-group-sm"
-                  role="group"
-                  aria-label="Basic example"
-                >
-                  <button
-                    type="button"
-                    class="btn btn-success"
-                  >
-                    Approve
-                  </button>
-
-                  <button type="button" class="btn btn-secondary">
-                    Waitlist
-                  </button>
-                  <button type="button" class="btn btn-danger">Decline</button>
-                </div>
-
-                <div class="tab">
-                  <button type="button" class="btn btn-success">Success</button>
-                  <button type="button" class="btn btn-secondary">
-                    Secondary
-                  </button>
-                  <button type="button" class="btn btn-danger">Danger</button>
-                </div>
-              </div>
+                <h5 class="card-title">${obj.usernameString }</h5>
+                <ul class="list-group">
+				  <li class="list-group-item">Service Name : ${obj.servicenameString }</li>
+				  <li class="list-group-item">Location : ${obj.locationString }</li>
+				  <li class="list-group-item">Appointment ID : ${obj.appidString }</li>
+				  <li class="list-group-item">
+  								<div class="alert alert-warning" role="alert">
+								 Status : ${obj.statuString }
+								</div>
+					</li>
+				</ul>
+				</div>
             </div>
+           
+           
+           </c:forEach>
 
-            <div class="card shadow" >
-              <img src="img/akila/12.jpg" class="card-img-top" alt="..." />
-              <div class="card-body">
-                <h5 class="card-title">Service Request</h5>
-                <p class="card-text">
-                  Some quick example text to build on the card title and make up
-                  the bulk of the card's content.
-                </p>
-
-                <div
-                  class="btn-group btn-group-sm"
-                  role="group"
-                  aria-label="Basic example"
-                >
-                  <button
-                    type="button"
-                    class="btn btn-success"
-                  >
-                    Approve
-                  </button>
-
-                  <button type="button" class="btn btn-secondary">
-                    Waitlist
-                  </button>
-                  <button type="button" class="btn btn-danger">Decline</button>
-                </div>
-
-                <div class="tab">
-                  <button type="button" class="btn btn-success">Success</button>
-                  <button type="button" class="btn btn-secondary">
-                    Secondary
-                  </button>
-                  <button type="button" class="btn btn-danger">Danger</button>
-                </div>
-              </div>
-            </div>
-
-
-            <div class="card shadow" >
-              <img src="img/akila/big.jpg" class="card-img-top" alt="..." />
-              <div class="card-body">
-                <h5 class="card-title">Service Request</h5>
-                <p class="card-text">
-                  Some quick example text to build on the card title and make up
-                  the bulk of the card's content.
-                </p>
-
-                <div
-                  class="btn-group btn-group-sm"
-                  role="group"
-                  aria-label="Basic example"
-                >
-                  <button
-                    type="button"
-                    class="btn btn-success"
-                  >
-                    Approve
-                  </button>
-
-                  <button type="button" class="btn btn-secondary">
-                    Waitlist
-                  </button>
-                  <button type="button" class="btn btn-danger">Decline</button>
-                </div>
-
-                <div class="tab">
-                  <button type="button" class="btn btn-success">Success</button>
-                  <button type="button" class="btn btn-secondary">
-                    Secondary
-                  </button>
-                  <button type="button" class="btn btn-danger">Danger</button>
-                </div>
-              </div>
-            </div>
-
-            <div class="card shadow">
-              <img
-                src="img/akila/LinkedIn-Profile-Professional-Picture-Sample-Bernie-Borges.png"
-                class="card-img-top"
-                alt="..."
-              />
-              <div class="card-body">
-                <h5 class="card-title">Service Request</h5>
-                <p class="card-text">
-                  Some quick example text to build on the card title and make up
-                  the bulk of the card's content.
-                </p>
-
-                <div
-                  class="btn-group btn-group-sm"
-                  role="group"
-                  aria-label="Basic example"
-                >
-                  <button type="button" class="btn btn-success">Approve</button>
-                  <button type="button" class="btn btn-secondary">
-                    Waitlist
-                  </button>
-                  <button type="button" class="btn btn-danger">Decline</button>
-                </div>
-
-                <div class="tab">
-                  <button type="button" class="btn btn-success">Success</button>
-                  <button type="button" class="btn btn-secondary">
-                    Secondary
-                  </button>
-                  <button type="button" class="btn btn-danger">Danger</button>
-                </div>
-              </div>
-            </div>
-
-            <div class="card shadow">
-              <img
-                src="img/akila/profile_user.jpg"
-                class="card-img-top"
-                alt="..."
-              />
-              <div class="card-body">
-                <h5 class="card-title">Service Request</h5>
-                <p class="card-text">
-                  Some quick example text to build on the card title and make up
-                  the bulk of the card's content.
-                </p>
-
-                <div
-                  class="btn-group btn-group-sm"
-                  role="group"
-                  aria-label="Basic example"
-                >
-                  <button type="button" class="btn btn-success">Approve</button>
-                  <button type="button" class="btn btn-secondary">
-                    Waitlist
-                  </button>
-                  <button type="button" class="btn btn-danger">Decline</button>
-                </div>
-
-                <div class="tab">
-                  <button type="button" class="btn btn-success">Success</button>
-                  <button type="button" class="btn btn-secondary">
-                    Secondary
-                  </button>
-                  <button type="button" class="btn btn-danger">Danger</button>
-                </div>
-              </div>
-            </div>
           </div>
         </div>
 
@@ -476,7 +318,7 @@
                 <h5 class="card-title pop">
                   <i class="fas fa-user"></i>&nbsp;&nbsp;Total Customers
                 </h5>
-                <h6 class="card-subtitle mb-2 card-text pop">100</h6>
+                <h6 class="card-subtitle mb-2 card-text pop"><c:out value="${totCustomers }"></c:out></h6>
               </div>
             </div>
 

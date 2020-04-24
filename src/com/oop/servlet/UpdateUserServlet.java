@@ -22,8 +22,6 @@ import org.apache.commons.fileupload.FileItemFactory;
 import org.apache.commons.fileupload.FileUploadException;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
-import org.apache.tomcat.util.http.fileupload.FileItem;
-
 import com.oop.DAO.UpdateUserDAO;
 import com.oop.model.UpdateUserModel;
 

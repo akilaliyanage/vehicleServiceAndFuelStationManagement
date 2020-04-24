@@ -42,24 +42,20 @@ public class NewUserServlet extends HttpServlet {
 		String newUserRegNoString;
 		int status;
 		
-		NewUserModel newUserModelObject = new NewUserModel();
-		NewUserDAO newUserDAOObject = new NewUserDAO();
-		RandomString randonString = new RandomString();
 		
 		try {
 			
-			newUserModelObject.setUsernameString(newUsernameString);
-			newUserModelObject.setEmailString(newUsweEailString);
-			newUserModelObject.setPasswordString(newUserPasswordString);
+			RandomString randonString = new RandomString();
 			newUserRegNoString = "REG" + randonString.getAlphaNumericString();
-			newUserModelObject.setUserregNoString(newUserRegNoString);
+			NewUserModel newUserModelObject = new NewUserModel(newUsernameString,newUsweEailString,newUserPasswordString,newUserRegNoString);
+			NewUserDAO newUserDAOObject = new NewUserDAO();
 			
 			status = newUserDAOObject.insertdata(newUserModelObject);
 			
 			if(status == 1) {
 				HttpSession session = request.getSession();
 				session.setAttribute("regno", newUserModelObject.getUserregNoString());
-				response.sendRedirect("homepage.jsp");
+				response.sendRedirect("HomePageRedirectServlet");		
 			}
 			
 		} catch (Exception e) {

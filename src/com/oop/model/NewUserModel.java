@@ -2,13 +2,22 @@ package com.oop.model;
 
 public class NewUserModel {
 	
-	private String usernameString;
-	private String emailString;
-	private String passwordString;
-	private String userregNoString;
+	protected String usernameString;
+	protected String emailString;
+	protected String passwordString;
+	protected String userregNoString;
 	
 	
 	
+	
+	
+	public NewUserModel(String usernameString, String emailString, String passwordString, String userregNoString) {
+		super();
+		this.usernameString = usernameString;
+		this.emailString = emailString;
+		this.passwordString = passwordString;
+		this.userregNoString = userregNoString;
+	}
 	/**
 	 * @return the userregNoString
 	 */
