@@ -129,6 +129,7 @@ var app = angular.module("myModule", [])
 
 					$scope.saveMember = function() {
 						var dataObject = new Object();
+						if($scope.newMember.packId!="" && $scope.newMember.packName!="" && $scope.newMember.adminRegNo!="" && $scope.newMember.packType!="" && $scope.newMember.price!="" && $scope.newMember.packDescription!="" && $scope.pimage!=""){
 						
 						dataObject.packId = $scope.newMember.packId;
 						dataObject.packName = $scope.newMember.packName;
@@ -163,6 +164,9 @@ var app = angular.module("myModule", [])
 											alert("Error. while creating user Try Again!");
 
 										});
+						}else{
+							alert("Please Fill The Form First!");
+						}
 					};
 					
 				    $scope.SelectFile = function (e) {

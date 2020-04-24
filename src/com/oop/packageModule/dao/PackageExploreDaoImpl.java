@@ -99,7 +99,7 @@ public class PackageExploreDaoImpl implements PackageExploreDao {
 	@Override
 	public ServicePackage getServicePackageById(String id) {
 		Connection connection = DatabaseConnection.getConnection();
-		String sql = "SELECT `packId`, `adminRegNo`, `packType`, `packName`, `price`, `packDescription` FROM `package` WHERE `packId`= '"
+		String sql = "SELECT `packId`, `adminRegNo`, `packType`, `packName`, `price`, `packDescription`, `packImage` FROM `package` WHERE `packId`= '"
 				+ id + "' ";
 		ServicePackage servicePackage = null;
 		try {

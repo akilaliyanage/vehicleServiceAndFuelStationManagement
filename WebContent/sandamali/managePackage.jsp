@@ -121,34 +121,34 @@ li a:hover:not (.active ) {
 					<div class="modal-body">
 						<div class="form-group">
 							<label>Package ID</label> <input type="text" class="form-control"
-								ng-model="newMember.packId" />
+								ng-model="newMember.packId" required/>
 						</div>
 						<div class="form-group">
 							<label>Package Name</label> <input type="text" class="form-control"
-								ng-model="newMember.packName" />
+								ng-model="newMember.packName" required/>
 						</div>
 						<div class="form-group">
 							<label>Admin Reg No</label> <input type="text" class="form-control"
-								ng-model="newMember.adminRegNo" />
+								ng-model="newMember.adminRegNo" required/>
 						</div>
 						<div class="form-group">
 							<label>Package Type</label> <input type="text" class="form-control"
-								ng-model="newMember.packType" />
+								ng-model="newMember.packType" required/>
 						</div>
 						<div class="form-group">
 							<label>Package Price</label> <input type="text" class="form-control"
-								ng-model="newMember.price" />
+								ng-model="newMember.price" required/>
 						</div>
 						<div class="form-group">
 							<label>Package Description</label> <input type="text" class="form-control"
-								ng-model="newMember.packDescription" />
+								ng-model="newMember.packDescription" required/>
 						</div>
 						<div class="row form-group">
 							<div class="col-md-9">
 								<label>Package Image</label> <input type="file" name="packImage"
 									accept="image/jpg" class="form-control"
 									onchange="angular.element(this).scope().SelectFile(event)"
-									ng-model="newMember.packImage" />
+									ng-model="newMember.packImage" required/>
 							</div>
 							<div class="col-md-3">
 								<img id="pimg" ng-src="{{PreviewImage}}"
