@@ -13,6 +13,7 @@ import javax.servlet.http.HttpSession;
 
 import com.oop.DAO.IUpdateUserDAO;
 import com.oop.DAO.UpdatUserImplDAO;
+import com.oop.model.AppointmentDetailsModel;
 import com.oop.model.BillDetailsModel;
 
 /**
@@ -41,14 +42,35 @@ public class UpdateUserDashboard extends HttpServlet {
 			try {
 				//getting the user detials
 				ArrayList<String> userDetails =  userMethods.getUserDetails(regNoString);
-				
 				request.setAttribute("userDetails", userDetails);
 				
 				
 				//getting bill details
 				List<BillDetailsModel> billDet = userMethods.getBillDetails(regNoString);
-				
 				request.setAttribute("bill", billDet);
+				
+				
+				//get the appointment details
+				ArrayList<AppointmentDetailsModel> det = userMethods.getAppDetails(regNoString);
+				request.setAttribute("app", det);
+				
+				
+				//get the total vehivles
+				int totalVehicles = userMethods.getTotVehicles(regNoString);
+				request.setAttribute("totvehi", totalVehicles);
+				
+				
+				//get total appointments
+				int totApps =  userMethods.getTotApp(regNoString);
+				request.setAttribute("totapps", totApps);
+				
+				//get the total payments
+				int totPay = userMethods.totPay(regNoString);
+				request.setAttribute("totpay", totPay);
+				
+				//get the total items purchased
+				int totItems = userMethods.totItesm(regNoString);
+				request.setAttribute("totitems", totItems);
 				
 				
 				

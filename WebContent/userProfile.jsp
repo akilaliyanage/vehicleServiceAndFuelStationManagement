@@ -178,37 +178,7 @@
                 
                 
 
-                <!-- Default form contact -->
-                <form class="text-center border border-light p-5" action="" style="width: 100%;">
-                
-                  <p class="h4 mb-4">Send a feedback</p>
-                
-                  <!-- Name -->
-                  <input type="text" id="defaultContactFormName" class="form-control mb-4" placeholder="Name">
-                
-                  <!-- Email -->
-                  <input type="email" id="defaultContactFormEmail" class="form-control mb-4" placeholder="E-mail">
-                
-                  <!-- Subject -->
-                  <label>Reason</label>
-                  <select class="browser-default custom-select mb-4">
-                    <option value="" disabled>Choose option</option>
-                    <option value="1" selected>Feedback</option>
-                    <option value="2">Report a bug</option>
-                    <option value="3">Feature request</option>
-                    <option value="4">Feature request</option>
-                  </select>
-                
-                  <!-- Message -->
-                  <div class="form-group">
-                    <textarea class="form-control rounded-0" id="exampleFormControlTextarea2" rows="3" placeholder="Message"></textarea>
-                  </div>
-                
-                 
-                  <button class="btn btn-info btn-block" type="submit">Send</button>
-                
-                </form>
-                <!-- Default form contact -->
+              
               
               </div>
 
@@ -242,14 +212,14 @@
                                   
                                     <div class="wrap-input100 validate-input" data-validate="Name is required">
                                       <span class="label-input100">Your Name</span>
-                                      <input class="input100" type="text" name="updateName" placeholder="Enter your name">
+                                      <input class="input100" type="text" name="updateName" value="<%out.println(details.get(1)); %>" Enter your name">
                                       <span class="focus-input100"></span>
                                     </div>
                               
                                                              
                                     <div class="wrap-input100 validate-input" data-validate="phone number is required">
                                       <span class="label-input100">Phone Number</span>
-                                      <input class="input100" type="text" name="updatePhone" placeholder="Enter your phone number">
+                                      <input class="input100" type="text" name="updatePhone" value="<%out.println(details.get(2)); %>" placeholder="Enter your phone number">
                                       <span class="focus-input100"></span>
                                     </div>
                               
@@ -269,19 +239,19 @@
                                     
                                    <div class="wrap-input100 validate-input" data-validate="email is required">
                                       <span class="label-input100">Your Emil Address</span>
-                                      <input class="input100" type="email" name="updateEmail" placeholder="Enter your email">
+                                      <input class="input100" type="email" name="updateEmail" value="<%out.println(details.get(3)); %>" placeholder="Enter your email">
                                       <span class="focus-input100"></span>
                                     </div>
                                     
                                      <div class="wrap-input100 validate-input" data-validate="Username is required">
                                       <span class="label-input100">Enter your new username</span>
-                                      <input class="input100" type="text" name="updateUsername" placeholder="Enter your user name" required="required">
+                                      <input class="input100" type="text" value="<%out.println(details.get(1)); %>" name="updateUsername" placeholder="Enter your user name" required="required">
                                       <span class="focus-input100"></span>
                                     </div>
                                     
                                      <div class="wrap-input100 validate-input" data-validate="password is required">
                                       <span class="label-input100">Your new password</span>
-                                      <input class="input100" type="password" name="updatePassword" placeholder="Enter your password" required="required">
+                                      <input class="input100" type="password" name="updatePassword"  placeholder="Enter your password" required="required">
                                       <span class="focus-input100"></span>
                                     </div>
                                     
@@ -320,9 +290,115 @@
              
               <div>
                 <div class="alert alert-success" role="alert">
-                  Service / Fuel
+                  Profile Summary
                 </div>
-                <canvas id="lineChart"></canvas>
+                <div class="row">
+                	<div class="col-lg-3">
+                		<!-- Card -->
+							<div class="card" style="height: 350px; margin-bottom: 10px">
+							
+							  <!-- Card image -->
+							  <img class="card-img-top" src="img/akila/homegif.gif" alt="Card image cap">
+							
+							  <!-- Card content -->
+							  <div class="card-body">
+							
+							    <!-- Title -->
+							    <h4 class="card-title">Total Vehicles</h4>
+							   
+							  
+							
+							  </div>
+							  
+							   <div class="alert alert-dark" role="alert" style="font-size: 30px">
+									<c:out value="${totvehi}"></c:out>
+								</div>
+							
+							</div>
+							<!-- Card -->
+                	</div>
+                	
+                	<div class="col-lg-3">
+                		
+                		<!-- Card -->
+							<div class="card" style="height: 350px; margin-bottom: 10px">
+							
+							  <!-- Card image -->
+							  <img class="card-img-top" src="img/akila/app.gif" alt="Card image cap">
+							
+							  <!-- Card content -->
+							  <div class="card-body">
+							
+							    <!-- Title -->
+							    <h4 class="card-title">Total <br> Appointments</h4>
+							   
+							   
+							
+							  </div>
+							  
+							  <div class="alert alert-success" role="alert" style="font-size: 30px">
+									<c:out value="${totapps}"></c:out>
+								</div>
+							
+							</div>
+							<!-- Card -->
+							
+                	</div>
+                	
+                	<div class="col-lg-3">
+                	
+                	
+                		<!-- Card -->
+							<div class="card" style="height: 350px; margin-bottom: 10px">
+							
+							  <!-- Card image -->
+							  <img class="card-img-top" src="img/akila/pay.gif" alt="Card image cap">
+							
+							  <!-- Card content -->
+							  <div class="card-body">
+							
+							    <!-- Title -->
+							    <h4 class="card-title">Total Payments</h4>
+							   
+							  
+							  </div>
+							  
+							   <div class="alert alert-warning" role="alert" style="font-size: 30px">
+									Rs.<br><c:out value="${totpay}"></c:out>
+								</div>
+							
+							</div>
+							<!-- Card -->
+							
+                	</div>
+                	
+                	<div class="col-lg-3">
+                		
+                		
+                		<!-- Card -->
+							<div class="card" style="height: 350px; margin-bottom: 10px">
+							
+							  <!-- Card image -->
+							  <img class="card-img-top" src="img/akila/item.gif" alt="Card image cap">
+							
+							  <!-- Card content -->
+							  <div class="card-body">
+							
+							    <!-- Title -->
+							    <h4 class="card-title">Total Items</h4>
+							   
+							   
+							
+							  </div>
+							  <div class="alert alert-info" role="alert" style="font-size: 30px;margin-top: 20px">
+									<c:out value="${totitems}"></c:out>
+								</div>
+							
+							</div>
+							<!-- Card -->
+							
+                	</div>
+                </div>
               </div>
                 <div class="alert alert-warning" role="alert">
                  Payments
@@ -407,43 +483,45 @@
               <table class="table">
                 <thead>
                   <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">Service Type</th>
-                    <th scope="col">Sheduled Date</th>
-                    <th scope="col">Location</th>
-                    <th scope="col">Vehicle Number</th>
+                 
+                    <th scope="col">App ID</th>
+                    <th scope="col">Pack Name</th>
                     <th scope="col">Status</th>
-                    <th scope="col">More Details</th>
+                    <th scope="col">Rating</th>
+                    <th scope="col">Location</th>
+                    <th scope="col">Date</th>
+                    <th scope="col">Time</th>
+                    <th scope="col">Remarks</th>
+                    <th scope="col">Service Name</th>
+                    <th scope="col">Details</th>
                   </tr>
                 </thead>
                 <tbody>
+                 
+                 <c:forEach items="${app}" var="obj">
+                 
+               
                   <tr>
-                    <th scope="row">1</th>
-                    <td>Vehicle Wash</td>
-                    <td>2020-4-20</td>
-                    <td>Malabe</td>
-                    <td>SG GH 6558</td>
-                    <td><span class="badge badge-danger">Rejected</span></td>
+                    <td>${obj.appidString}</td>
+                    <td>${obj.packnameString}</td>
+                    <td>
+                    	<div class="alert alert-primary" role="alert">
+								<strong>${obj.statuString}</strong> 
+						</div>
+                   
+                    </td>
+                    <td>${obj.rating}</td>
+                    <td>${obj.locationString}</td>
+                    <td>${obj.dateString}</td>
+                    <td>${obj.timeString}</td>
+                    <td>${obj.remarkString}</td>
+                    <td>${obj.sernameString}</td>
+                    
                     <td><a href="RequestDetailsFrontend.html" class="btn btn-dark">Full Details</a></td>
                   </tr>
-                  <tr>
-                    <th scope="row">1</th>
-                    <td>Vehicle Wash</td>
-                    <td>2020-4-20</td>
-                    <td>Malabe</td>
-                    <td>SG GH 6558</td>
-                    <td><span class="badge badge-success">Approved</span></td>
-                    <td><a href="RequestDetailsFrontend.html" class="btn btn-dark">Full Details</a></td>
-                  </tr>
-                  <tr>
-                    <th scope="row">1</th>
-                    <td>Vehicle Wash</td>
-                    <td>2020-4-20</td>
-                    <td>Malabe</td>
-                    <td>SG GH 6558</td>
-                    <td><span class="badge badge-warning">Pending</span></td>
-                    <td><a href="RequestDetailsFrontend.html" class="btn btn-dark">Full Details</a></td>
-                  </tr>
+                 
+                 </c:forEach>
+                 
                 </tbody>
               </table>
             
