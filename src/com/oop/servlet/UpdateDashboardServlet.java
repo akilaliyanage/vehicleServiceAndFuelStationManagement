@@ -9,10 +9,13 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.oop.DAO.IUpdateDashboardDAO;
 import com.oop.DAO.UpdateDashboardImplDAO;
+import com.oop.model.DashboardPaymentsDAO;
 import com.oop.model.DashboardRequestModel;
+import com.oop.model.RequestModel;
 
 /**
  * Servlet implementation class UpdateDashboardServlet
@@ -24,6 +27,10 @@ public class UpdateDashboardServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		
+		HttpSession session = request.getSession();
+		String regNoString = session.getAttribute("regno").toString();
+		request.setAttribute("regno", regNoString);
+		
 		try {
 			//creating a objrct of the UpdateDashboardImplDAO
 			IUpdateDashboardDAO dashbordMethods = new UpdateDashboardImplDAO();
@@ -31,15 +38,36 @@ public class UpdateDashboardServlet extends HttpServlet {
 			
 			//fetching appointment details from UpdateDashboardImplDAO
 			ArrayList<DashboardRequestModel> details = dashbordMethods.getRequestDetails();
-			
 			//setting the attribute to the request object
 			request.setAttribute("userRequests", details);
 			
 			//fetching appointment details from UpdateDashboardImplDAO
 			int totalCustomes = dashbordMethods.totCustomers();
-			
 			//setting the attribute to the request object
 			request.setAttribute("totCustomers", totalCustomes);
+			
+			int paid = dashbordMethods.paidAmm();
+			request.setAttribute("paid", paid);
+			
+			int pending = dashbordMethods.pendingAmm();
+			request.setAttribute("pending", pending);
+			
+			int totApps = dashbordMethods.totApps();
+			request.setAttribute("apps", totApps);
+			
+			int totPay = dashbordMethods.totPay();
+			request.setAttribute("totpay", totPay);
+			
+			int totPack = dashbordMethods.totPack();
+			request.setAttribute("pack", totPack);
+			
+			ArrayList<RequestModel> req = dashbordMethods.req();
+			request.setAttribute("req", req);
+			
+			ArrayList<DashboardPaymentsDAO> payment = dashbordMethods.pay();
+			request.setAttribute("pay", payment);
+			
+			
 			
 			
 			RequestDispatcher requestDispatcher = request.getRequestDispatcher("dashboard.jsp");

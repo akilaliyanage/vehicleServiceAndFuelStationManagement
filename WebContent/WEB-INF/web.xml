@@ -141,6 +141,15 @@
 		<url-pattern>/AdminLoginServlet</url-pattern>
 	</servlet-mapping>
 	
+	<servlet>
+		<servlet-name>UpdateAdminServlet</servlet-name>
+		<servlet-class>com.oop.servlet.UpdateAdminServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>UpdateAdminServlet</servlet-name>
+		<url-pattern>/UpdateAdminServlet</url-pattern>
+	</servlet-mapping>
+	
 
 	
 	

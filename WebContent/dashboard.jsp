@@ -238,7 +238,7 @@
         <a href="" class="btn btn-light"
           ><i class="fas fa-reply"></i>&nbsp;&nbsp; User Feedback</a
         >
-        <a href="" class="btn btn-light"
+        <a href="PackageManagerServlet" class="btn btn-light"
           ><i class="fas fa-box"></i>&nbsp;&nbsp; Packages</a
         >
         <a href="" class="btn btn-light"
@@ -303,12 +303,6 @@
         <div class="alert alert-secondary requests sales" role="alert">
           <i class="fas fa-balance-scale-right"></i
           ><span> &nbsp;&nbsp;&nbsp;</span> Sales Dashboard &nbsp;&nbsp;&nbsp;
-          <div class="filter">
-            <select id="day">
-              <option value="volvo">Today</option>
-              <option value="volvo">Yesterday</option>
-            </select>
-          </div>
         </div>
 
         <div class="row">
@@ -327,7 +321,7 @@
                 <h5 class="card-title pop">
                   <i class="fas fa-dollar-sign"></i>&nbsp;&nbsp;Gross Profit
                 </h5>
-                <h6 class="card-subtitle mb-2 card-text pop">$4500</h6>
+                <h6 class="card-subtitle mb-2 card-text pop">${paid}</h6>
               </div>
             </div>
 
@@ -336,7 +330,7 @@
                 <h5 class="card-title pop">
                   <i class="fas fa-exchange-alt"></i>&nbsp;&nbsp;Total Requests
                 </h5>
-                <h6 class="card-subtitle mb-2 card-text pop">1456</h6>
+                <h6 class="card-subtitle mb-2 card-text pop">${apps}</h6>
               </div>
             </div>
           </div>
@@ -347,18 +341,8 @@
             <div class="card">
               <div class="card-body">
                 <h5 class="card-title">Customers</h5>
-                <div class="dropdown">
-                  <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Catagory
-                  </a>
-                
-                  <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                    <a class="dropdown-item" href="#">Weekly</a>
-                    <a class="dropdown-item" href="#">Monthly</a>
-                    <a class="dropdown-item" href="#">Quarterly</a>
-                  </div>
-                </div>
-                <canvas id="user"></canvas>
+
+               			<canvas id="user"></canvas>
               </div>
             </div>
           </div>
@@ -368,17 +352,6 @@
               <div class="card-body">
                 <h5 class="card-title">Gross Profit</h5>
 
-                <div class="dropdown">
-                  <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Catagory
-                  </a>
-                
-                  <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                    <a class="dropdown-item" href="#">Weekly</a>
-                    <a class="dropdown-item" href="#">Monthly</a>
-                    <a class="dropdown-item" href="#">Quarterly</a>
-                  </div>
-                </div>
 
                 <canvas id="income" style="margin: 10px;"></canvas>
               </div>
@@ -389,11 +362,7 @@
             <div class="card">
               <div class="card-body">
                 <h5 class="card-title">Total Requests</h5>
-                <div class="btn-group" role="group" aria-label="Basic example">
-                  <button type="button" class="btn btn-success">This Week</button>
-                  <button type="button" class="btn btn-warning">Last Week</button>
-                  <button type="button" class="btn btn-secondary">Last Month</button>
-                </div>
+                
                 <canvas id="req"></canvas>
               </div>
             </div>
@@ -414,44 +383,35 @@
           <div class="col col-lg-12 col-md-12 col-sm-12">
             <div class="card scrollbar" id="style-1" style="overflow-y: scroll; height: 500px;">
               <div class="card-body force-overflow">
-                <h5 class="card-title">This Week top Sales</h5>
+                <h5 class="card-title">Top Sales</h5>
                 <button type="button" class="btn btn-success">See all</button>
                 <table>
                   <tr>
-                    <th>CUSTOMER</th>
-                    <th>SERVICE</th>
-                    <th>STATUS</th>
-                    <th>TOTAL</th>
+                    <th>Payment ID</th>
+                    <th>User Name</th>
+                    <th>Amount</th>
+                    <th>Date</th>
+                     <th>Paid</th>
+                      <th>Pending</th>
+                       <th>Appointment ID</th>
                   </tr>
+                  
+                  <c:forEach items="${pay }" var="rows">
+                  
                   <tr>
-                    <td><img src="img/akila/profile_user.jpg" alt=""> <br>
-                      <br>
-                      <h5>M.L.Akila Liyanage</h5>
-                    </td>
-                   <td><h5>Service Request</h5></td>
-                   <td><i class="far fa-check-circle status" style="color: #50d890;"></i></td>
-                   <td><h5>$4500</h5></td>
+                   <td><h5>${rows.paymentidString }</h5></td>
+                   <td><h5>${rows.usernameString }</h5></td>
+                   <td><h5>${rows.amount }</h5></td>
+                   <td><h5>${rows.dateString }</h5></td>
+                   <td><h5>${rows.paid }</h5></td>
+                   <td><h5>${rows.pending }</h5></td>
+                   <td><h5>${rows.appidString }</h5></td>
                   </tr>
+                  
+                  
+                  </c:forEach>
 
-                  <tr>
-                    <td><img src="img/akila/profile_user.jpg" alt=""> <br>
-                      <br>
-                      <h5>M.L.Akila Liyanage</h5>
-                    </td>
-                   <td><h5>Service Request</h5></td>
-                   <td><i class="fas fa-exclamation-triangle status" style="color: #ffcc00;"></i></td>
-                   <td><h5>$4500</h5></td>
-                  </tr>
-
-                  <tr>
-                    <td><img src="img/akila/profile_user.jpg" alt=""> <br>
-                      <br>
-                      <h5>M.L.Akila Liyanage</h5>
-                    </td>
-                   <td><h5>Service Request</h5></td>
-                   <td><i class="fas fa-times status" style="color: red;"></i></td>
-                   <td><h5>$4500</h5></td>
-                  </tr>
+                 
 
                  
                 </table>
@@ -649,116 +609,73 @@
         </div>
 
         <div class="row">
-          <h6 class="dropdown-header timeline-head" style="font-size: 30px;text-align: center;;">Recent Activity</h6>  
+          <h6 class="dropdown-header timeline-head" style="font-size: 30px;text-align: center;;">Your Details</h6>  
           <div class="col" style="margin-top: 30px;padding: 0;">
             <div class="timeline">
               <div class="container right">
 
                 <div class="content" style="overflow-y:scroll">
 
-                  <h2 class="act-head">TODAY</h2>
-                  <div>
-                    <h6 class="dropdown-header"><span>10</span> MINS ago</h6>  
-
-                    <div class="dropdown-divider"></div>
-  
-                    <div class="act-user">
-                      <img src="img/akila/profile_user.jpg" class="act-img" alt="">
-                      &nbsp;
-                      &nbsp;
-                      <p>M.L.Akila Liyanage</p>
-                    </div>
-                  </div>
-
-                  <div>
-                    <h6 class="dropdown-header"><span>1</span> HOUR ago</h6>  
-
-                    <div class="dropdown-divider"></div>
-  
-                    <div class="act-user">
-                      <img src="img/akila/big.jpg" class="act-img" alt="">
-                      &nbsp;
-                      &nbsp;
-                      <p>Sandamali Geethika</p>
-                    </div>
-                  </div>
-
-                  <div>
-                    <h6 class="dropdown-header"><span>1</span> HOUR ago</h6>  
-
-                    <div class="dropdown-divider"></div>
-  
-                    <div class="act-user">
-                      <img src="img/akila/big.jpg" class="act-img" alt="">
-                      &nbsp;
-                      &nbsp;
-                      <p>Sandamali Geethika</p>
-                    </div>
-                  </div>
+                   <!-- Default form register -->
+                <form class="text-center border border-light p-1" action="UpdateAdminServlet" method="post">
+                
+                    <p class="h4 mb-4">Edit Your Details</p>
+                
+ 
+                    
+                    <input type="text" name="updatename" id="defaultRegisterFormFirstName" class="form-control mb-4"
+                                placeholder="Full Name">
+                   
+                   <input type="text" name="updateusername" id="defaultRegisterFormLastName" class="form-control mb-4"
+                   placeholder="User Name">
+                
+                    <!-- E-mail -->
+                    <input type="email" name="updateemail" id="defaultRegisterFormEmail" class="form-control mb-4" placeholder="E-mail">
+                
+                    <!-- Password -->
+                    <input required type="password" name="updatepass" id="defaultRegisterFormPassword" class="form-control" placeholder="Password"
+                        aria-describedby="defaultRegisterFormPasswordHelpBlock">
+                    <small id="defaultRegisterFormPasswordHelpBlock" class="form-text text-muted mb-4">
+                        At least 8 characters and 1 digit
+                    </small>
+                
+                    <!-- Phone number -->
+                    <input type="text" name="updatephone" id="defaultRegisterPhonePassword" class="form-control"
+                        placeholder="Phone number" aria-describedby="defaultRegisterFormPhoneHelpBlock">
+                    <small id="defaultRegisterFormPhoneHelpBlock" class="form-text text-muted mb-4">
+                        Optional!!
+                    </small>
+                
+                
+                    <!-- Phone number -->
+                    <input type="text" name="updatesal" class="form-control" placeholder="Salary"
+                        aria-describedby="defaultRegisterFormPhoneHelpBlock">
+                    <small id="defaultRegisterFormPhoneHelpBlock" class="form-text text-muted mb-4">
+                        Optional!!
+                    </small>
+                
+                   
+                
+                    <!-- Sign up button -->
+                    <button class="btn btn-info my-4 btn-block" type="submit">Update</button>
+                
+                
+                
+                    <hr>
+                
+                    <!-- Terms of service -->
+                    <p>By clicking
+                        <em>Sign up</em> you agree to our
+                        <a href="" target="_blank">terms of service</a>
+                
+                </form>
+                <!-- Default form register -->
                   
                 </div>
               </div>
             
-              <div class="container right">
-                <div class="content">
-                  <h2 class="act-head">YESTERDAY</h2>
 
-                 <div>
-                  <h6 class="dropdown-header"><span>10</span> MINS ago</h6>  
-
-                  <div class="dropdown-divider"></div>
-
-                  <div class="act-user">
-                    <img src="img/akila/LinkedIn-Profile-Professional-Picture-Sample-Bernie-Borges.png" class="act-img" alt="">
-                    &nbsp;
-                    &nbsp;
-                    <p>Mahen thammita</p>
-                  </div>
-                 </div>
-
-                 <div>
-                  <h6 class="dropdown-header"><span>1</span> HOUR ago</h6>  
-
-                  <div class="dropdown-divider"></div>
-
-                  <div class="act-user">
-                    <img src="img/akila/profile_user.jpg" class="act-img" alt="">
-                    &nbsp;
-                    &nbsp;
-                    <p>M.L.Akila Liyanage</p>
-                  </div> 
-                 </div>
-                  
-                </div>
-              </div>
-
-              <div class="container right">
-                <div class="content">
-                  <h2 class="act-head">DATE</h2>
-                  <h6 class="dropdown-header"><span>10</span> MINS ago</h6>  
-
-                  <div class="dropdown-divider"></div>
-
-                  <div class="act-user">
-                    <img src="img/akila/12.jpg" class="act-img" alt="">
-                    &nbsp;
-                    &nbsp;
-                    <p>Sandamali Geethika</p>
-                  </div>
-
-                  <h6 class="dropdown-header"><span>1</span> HOUR ago</h6>  
-
-                  <div class="dropdown-divider"></div>
-
-                  <div class="act-user">
-                    <img src="img/akila/profile_user.jpg" class="act-img" alt="">
-                    &nbsp;
-                    &nbsp;
-                    <p>M.L.Akila Liyanage</p>
-                  </div>
-                  
-                </div>
-              </div>
+             
             
             </div>
           </div>
@@ -875,45 +792,49 @@
 
     <!--charts-->
     <script>
-      let user = document.getElementById("user").getContext("2d");
-
-      let lineOne = new Chart(user, {
-        type: "line",
-        data: {
-          labels: [
-            "Sunday",
-            "Monday",
-            "Tuesday",
-            "Wednsday",
-            "Thursday",
-            "Friday",
-            "Saturday"
-          ],
-          datasets: [
-            {
-              label: "Count",
-              data: [10, 30, 1, 30, 50, 70, 90],
-              backgroundColor: ["#fa163f"],
-              borderColor: "#FFFF",
-              borderWidth: "3px"
-            }
-          ]
-        },
-        options: {
-          scales: {
-        xAxes: [{
-            gridLines: {
-                color: "rgba(0, 0, 0, 0)",
-            }
-        }],
-        yAxes: [{
-            gridLines: {
-               display : true
-            }   
-        }]
+    
+  //bar
+    var ctxB = document.getElementById("user").getContext('2d');
+    var myBarChart = new Chart(ctxB, {
+    type: 'bar',
+    data: {
+    labels: ["Total Customers", "Total Appointments", "Total Payments", "Total Packages"],
+    datasets: [{
+    label: '# of Votes',
+    data: [${totCustomers}, ${apps}, ${totpay}, ${pack}],
+    backgroundColor: [
+    'rgba(255, 99, 132, 0.2)',
+    'rgba(54, 162, 235, 0.2)',
+    'rgba(255, 206, 86, 0.2)',
+    'rgba(75, 192, 192, 0.2)',
+    'rgba(153, 102, 255, 0.2)',
+    'rgba(255, 159, 64, 0.2)'
+    ],
+    borderColor: [
+    'rgba(255,99,132,1)',
+    'rgba(54, 162, 235, 1)',
+    'rgba(255, 206, 86, 1)',
+    'rgba(75, 192, 192, 1)',
+    'rgba(153, 102, 255, 1)',
+    'rgba(255, 159, 64, 1)'
+    ],
+    borderWidth: 1
+    }]
+    },
+    options: {
+    scales: {
+    yAxes: [{
+    ticks: {
+    beginAtZero: true
     }
-        }
-      });
+    }]
+    }
+    }
+    });
+    
+    
+    
+    
 
       let imcome = document.getElementById("income").getContext("2d");
 
@@ -921,26 +842,17 @@
         type: "doughnut",
         data: {
           labels: [
-            "Sunday",
-            "Monday",
-            "Tuesday",
-            "Wednsday",
-            "Thursday",
-            "Friday",
-            "Saturday"
+            "Paid",
+            "Pending"
           ],
           datasets: [
             {
               label: "Count",
-              data: [10, 30, 1, 30, 50, 70, 90],
+              data: [${paid},${pending}],
               backgroundColor: [
-                "#fa163f",
-                "#f0134d",
-                "#40bfc1",
-                "#1b262c",
-                "#52de97",
-                "#3e206d",
-                "#12cad6"
+                "green",
+                "red"
+               
               ],
               //borderColor : '#FFFF',
               borderWidth: "3px"
@@ -969,18 +881,21 @@ let bar = new Chart(req, {
   type: "bar",
   data: {
     labels: [
-      "Sunday",
-      "Monday",
-      "Tuesday",
-      "Wednsday",
-      "Thursday",
-      "Friday",
-      "Saturday"
+    	
+    	<c:forEach items="${req}" var="item">
+    		"${item.dateString}",
+    	</c:forEach>
+    	
     ],
     datasets: [
       {
         label: "Count",
-        data: [10, 30, 1, 30, 50, 70, 90],
+        data: [
+        	
+        	<c:forEach items="${req}" var="item">
+    			${item.count},
+    		</c:forEach>
+		],
         backgroundColor: [
           "#fa163f",
           "#f0134d",
