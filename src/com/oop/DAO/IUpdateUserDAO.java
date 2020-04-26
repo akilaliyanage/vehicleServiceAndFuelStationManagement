@@ -34,5 +34,9 @@ public interface IUpdateUserDAO {
 		
 		//gets the total itesm purchased
 		public int totItesm(String regNoString);
+		
+		public float paid(String regnoString);
+		
+		public float pending(String regnoString);
 
 }

@@ -6,6 +6,7 @@ package com.oop.DAO;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -242,6 +243,55 @@ public class UpdatUserImplDAO implements IUpdateUserDAO {
 		}
 		
 		return totItems;
+	}
+
+	@Override
+	public float paid(String regnoString) {
+		// TODO Auto-generated method stub
+		float paid = 0;
+		try {
+			
+			connection = DatabaseConnection.getConnection();
+			pStatement = connection.prepareStatement("SELECT sum(paid) as 'paid' FROM vehicleserviceandfuelstationmanagement.payments where userRegNo = ?");
+			pStatement.setString(1, regnoString);
+			ResultSet resultSet = pStatement.executeQuery();
+			
+			while(resultSet.next()) {
+				
+				paid = resultSet.getFloat("paid");
+				System.out.println(paid);
+				
+			}
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		
+		return paid;
+	}
+
+	@Override
+	public float pending(String regnoString) {
+		float pend = 0;
+		try {
+			
+			connection = DatabaseConnection.getConnection();
+			pStatement = connection.prepareStatement("SELECT sum(pending) as 'pend' FROM vehicleserviceandfuelstationmanagement.payments where userRegNo = ?");
+			pStatement.setString(1, regnoString);
+			ResultSet resultSet = pStatement.executeQuery();
+			
+			while(resultSet.next()) {
+				
+				pend = resultSet.getFloat("pend");
+				System.out.println(pend);
+				
+				System.out.println(pend);
+				
+			}
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		
+		return pend;
 	}
 
 }

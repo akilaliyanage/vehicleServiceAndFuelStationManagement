@@ -72,6 +72,14 @@ public class UpdateUserDashboard extends HttpServlet {
 				int totItems = userMethods.totItesm(regNoString);
 				request.setAttribute("totitems", totItems);
 				
+				//get the total paid amount
+				float paid = userMethods.paid(regNoString);
+				request.setAttribute("paid", paid);
+				
+				//get the total paid amount
+				float pend = userMethods.pending(regNoString);
+				request.setAttribute("pend", pend);
+				
 				
 				
 				
