@@ -49,108 +49,10 @@
               aria-haspopup="true"
               aria-expanded="false"
             >
-              <img src="img/akila/profile_user.jpg" class="profile" alt="" />
             </a>
-            <div
-              class="dropdown-menu shadow line-height"
-              aria-labelledby="navbarDropdown"
-            >
-              <h4 class="dropdown-header">
-                <i class="fas fa-user-shield"></i>
-                <strong>M.L.Akila Liyanage - <span>ADMINISTRATOR</span></strong>
-              </h4>
-              <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="#"
-                ><i class="far fa-envelope-open"></i> Incomming Mail</a
-              >
-              <a class="dropdown-item" href="#"
-                ><i class="fas fa-id-card-alt"></i> Profile Details</a
-              >
-              <a class="dropdown-item" href="#"
-                ><i class="far fa-money-bill-alt"></i> Billing Status</a
-              >
-              <a class="dropdown-item" href="#"
-                ><i class="fas fa-bullhorn"></i> Notifications
-                <span class="badge badge-danger">1</span></a
-              >
-              <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="#">Log Out</a>
-            </div>
           </li>
 
-          <li class="nav-item dropdown">
-            <a
-              class="nav-link"
-              href="#"
-              id="navbarDropdown"
-              role="button"
-              data-toggle="dropdown"
-              aria-haspopup="true"
-              aria-expanded="false"
-            >
-              <img
-                src="img/akila/message-1767998.png"
-                class="icons"
-                alt=""
-              /><span class="badge badge-danger">1</span>
-            </a>
-            <div class="dropdown-menu shadow" aria-labelledby="navbarDropdown">
-              <h4 class="dropdown-header">Latest Notifications</h4>
-              <a class="dropdown-item" href="#">
-                <div
-                  class="alert alert-danger alert-dismissible fade show"
-                  role="alert"
-                >
-                  <strong>Test user 1</strong> This is a test notification
-                  <button
-                    type="button"
-                    class="close"
-                    data-dismiss="alert"
-                    aria-label="Close"
-                  >
-                    <span aria-hidden="true">&times;</span>
-                  </button>
-                </div>
-              </a>
-
-              <div class="dropdown-divider"></div>
-
-              <h4 class="dropdown-header">Older Notifications</h4>
-
-              <a class="dropdown-item" href="#">
-                <div
-                  class="alert alert-success alert-dismissible fade show"
-                  role="alert"
-                >
-                  <strong>Test user 1</strong> This is a test notification
-                  <button
-                    type="button"
-                    class="close"
-                    data-dismiss="alert"
-                    aria-label="Close"
-                  >
-                    <span aria-hidden="true">&times;</span>
-                  </button>
-                </div>
-              </a>
-              <a class="dropdown-item" href="#">
-                <div
-                  class="alert alert-success alert-dismissible fade show"
-                  role="alert"
-                >
-                  <strong>Test user 1</strong> This is a test notification
-                  <button
-                    type="button"
-                    class="close"
-                    data-dismiss="alert"
-                    aria-label="Close"
-                  >
-                    <span aria-hidden="true">&times;</span>
-                  </button>
-                </div>
-              </a>
-            </div>
-          </li>
+       
 
           <li class="nav-item dropdown">
             <a
@@ -169,10 +71,7 @@
               /><span class="badge badge-danger">1</span>
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="#">Action</a>
-              <a class="dropdown-item" href="#">Another action</a>
-              <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="#">Something else here</a>
+              <a class="dropdown-item" href="LogoutServlet">Log Out</a>
             </div>
           </li>
         </ul>
