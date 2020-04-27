@@ -3,6 +3,7 @@ package com.oop.DAO;
 import java.util.Date;
 
 import com.oop.model.AppointmentModel;
+import com.oop.model.UserModel;
 
 public interface IAppointmentDAO {
 	
@@ -23,6 +24,8 @@ public interface IAppointmentDAO {
 	public AppointmentModel createNewAppointment(String userId, String vehi_NO, String raelAppointmentDate, String vehiBrand,
 			String vehiModel, String vehiTransmission, String vehiFuel, String vehEngine, int vehiYear,
 			String serviceID, String appointTime, String packID);
+
+	public UserModel getCurrentUserByUid(String userId);
 	
 	
 	

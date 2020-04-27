@@ -6,6 +6,7 @@ import java.util.Date;
 import com.oop.DAO.AppointmentDAOImpl;
 import com.oop.DAO.IAppointmentDAO;
 import com.oop.model.AppointmentModel;
+import com.oop.model.UserModel;
 
 
 public class AppointmentServicesImpl implements AppointmentServices{
@@ -25,6 +26,12 @@ public class AppointmentServicesImpl implements AppointmentServices{
 		
 		return CreatedAppoinment;
 		
+	}
+
+	@Override
+	public UserModel GetUserById(String userId) {
+		UserModel thisUser = apppointData.getCurrentUserByUid(userId);
+		return thisUser;
 	}
 
 	private String getDay(Date appointDate, int appointDay) {

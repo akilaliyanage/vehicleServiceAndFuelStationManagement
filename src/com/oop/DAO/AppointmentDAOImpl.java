@@ -71,6 +71,53 @@ public class AppointmentDAOImpl implements IAppointmentDAO{
 	 * Service price from a given Service ID
 	 * */
 	
+	@Override
+	public UserModel getCurrentUserByUid(String userId) {
+		connection = DatabaseConnection.getConnection();
+		UserModel thisUser = new UserModel();
+		try {
+			prepStatement = connection.prepareStatement("SELECT * FROM user");
+			ResultSet resultSet = prepStatement.executeQuery();
+			thisUser = getUserObject(resultSet);
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
+		return thisUser;
+	}
+
+
+
+	private UserModel getUserObject(ResultSet resultSet) {
+		
+		UserModel userModel = new UserModel();
+		
+		try {
+			if (resultSet.next()) {
+				userModel.setRegNo(resultSet.getString("regNo"));
+				userModel.setUserName(resultSet.getString("userName"));
+				userModel.setUserPassword(resultSet.getString("userPassword"));
+				userModel.setUserPhone(resultSet.getString("userPhone"));
+				userModel.setUserEmail(resultSet.getString("userEmail"));
+				userModel.setUserFullName(resultSet.getString("userFullName"));
+				userModel.setGender(resultSet.getString("gender"));
+				userModel.setUserdescription(resultSet.getString("Userdescription"));
+				userModel.setUserImage(resultSet.getString("userImage"));
+				userModel.setAddress_line_1(resultSet.getString("address_line_1"));
+				userModel.setAddress_line_2(resultSet.getString("address_line_2"));
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return userModel;
+	}
+
+
+
 	public double getServicePrice(String ServiceID) {
 		
 		double ServPrice = 0;

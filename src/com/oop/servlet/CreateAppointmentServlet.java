@@ -16,6 +16,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.oop.model.AppointmentModel;
+import com.oop.model.UserModel;
 import com.oop.service.AppointmentServices;
 import com.oop.service.AppointmentServicesImpl;
 
@@ -89,7 +90,7 @@ public class CreateAppointmentServlet extends HttpServlet {
 		
 		AppointmentModel createdAppointmentModel = appointmentServices.createAppointment(userId, vehi_nameString, AppointDate, vehiBrand, vehiModel, vehiTransmission, vehiFuel, vehEngine, vehiYear, serviceID, appointTime, packID, appointDay);
 		
-		
+		UserModel currentUser = appointmentServices.GetUserById(userId);
 		
 		
 		
