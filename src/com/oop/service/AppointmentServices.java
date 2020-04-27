@@ -4,6 +4,7 @@ import java.util.Date;
 
 import com.oop.model.AppointmentModel;
 import com.oop.model.UserModel;
+import com.oop.model.VehicleModel;
 
 public interface AppointmentServices {
 	public AppointmentModel createAppointment(String userId , String vehi_NO, Date AppointDate, String vehiBrand, String vehiModel,
@@ -11,4 +12,6 @@ public interface AppointmentServices {
 			String appointTime, String packID, int appointDay);
 
 	public UserModel GetUserById(String userId);
+
+	public VehicleModel getVehicleByAppointmentId(String appId);
 }

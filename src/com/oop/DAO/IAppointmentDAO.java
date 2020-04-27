@@ -1,9 +1,10 @@
 package com.oop.DAO;
 
-import java.util.Date;
+
 
 import com.oop.model.AppointmentModel;
 import com.oop.model.UserModel;
+import com.oop.model.VehicleModel;
 
 public interface IAppointmentDAO {
 	
@@ -26,6 +27,8 @@ public interface IAppointmentDAO {
 			String serviceID, String appointTime, String packID);
 
 	public UserModel getCurrentUserByUid(String userId);
+
+	public VehicleModel getvehicleByAppintmentId(String appId);
 	
 	
 	

@@ -7,6 +7,7 @@ import com.oop.DAO.AppointmentDAOImpl;
 import com.oop.DAO.IAppointmentDAO;
 import com.oop.model.AppointmentModel;
 import com.oop.model.UserModel;
+import com.oop.model.VehicleModel;
 
 
 public class AppointmentServicesImpl implements AppointmentServices{
@@ -29,6 +30,12 @@ public class AppointmentServicesImpl implements AppointmentServices{
 	}
 
 	@Override
+	public VehicleModel getVehicleByAppointmentId(String appId) {
+		VehicleModel vehicleOfAppoint = apppointData.getvehicleByAppintmentId(appId);
+		return vehicleOfAppoint;
+	}
+
+	@Override
 	public UserModel GetUserById(String userId) {
 		UserModel thisUser = apppointData.getCurrentUserByUid(userId);
 		return thisUser;
@@ -48,8 +55,6 @@ public class AppointmentServicesImpl implements AppointmentServices{
  		
  		SimpleDateFormat usingFormat = new SimpleDateFormat("yyyy-MM-dd");
  		String formattedDate = usingFormat.format(corrDate);
-  		System.out.println("Day of the week is" +  DayOfWeek);
- 		System.out.println("real Day of the week is" +  formattedDate);
 		return formattedDate;
 	}
 

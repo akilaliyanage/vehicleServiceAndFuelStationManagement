@@ -8,5 +8,5 @@ public interface IPackageAccess {
 
 	public List<PackageForAppoint> getAllPackages();
 	
-	
+	public PackageForAppoint getPackageByPackId(String packId);
 }

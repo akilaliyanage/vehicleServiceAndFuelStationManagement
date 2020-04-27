@@ -989,7 +989,7 @@
 													<td>
 														<form action="getDateServlet" method="get">
 															<input type="hidden" value="" class="Sunday_date"
-																name="Date"> <input type="hidden" value="9.00"
+																name="Date"> <input type="hidden" value="09:00:00"
 																name="Time">
 															<button type="submit" class="btn btn-pink"
 																onclick="goInvoice(value)" disabled>
@@ -999,8 +999,8 @@
 													</td>
 													<td>
 														<form action="getDateServlet" method="get">
-															<input type="hidden" value="" class="Monday_date"
-																name="Date"> <input type="hidden" value="9.00"
+															<input type="hidden" value="1" class="Monday_date"
+																name="Date"> <input type="hidden" value="09:00:00"
 																name="Time">
 															<button type="submit" class="btn btn-light-blue"
 																onclick="goInvoice(value)">
@@ -1010,8 +1010,8 @@
 													</td>
 													<td>
 														<form action="getDateServlet" method="get">
-															<input type="hidden" value="" class="Tuesday_date"
-																name="Date"> <input type="hidden" value="9.00"
+															<input type="hidden" value="2" class="Tuesday_date"
+																name="Date"> <input type="hidden" value="09:00:00"
 																name="Time">
 															<button type="button" class="btn btn-light-blue"
 																onclick="goInvoice(value)">
@@ -1021,8 +1021,8 @@
 													</td>
 													<td>
 														<form action="getDateServlet" method="get">
-															<input type="hidden" value="" class="Wednesday_date"
-																name="Date"> <input type="hidden" value="9.00"
+															<input type="hidden" value="3" class="Wednesday_date"
+																name="Date"> <input type="hidden" value="09:00:00"
 																name="Time">
 															<button type="button" class="btn btn-light-blue"
 																onclick="goInvoice(value)">
@@ -1032,8 +1032,8 @@
 													</td>
 													<td>
 														<form action="getDateServlet" method="get">
-															<input type="hidden" value="" class="Thursday_date"
-																name="Date"> <input type="hidden" value="9.00"
+															<input type="hidden" value="4" class="Thursday_date"
+																name="Date"> <input type="hidden" value="09:00:00"
 																name="Time">
 															<button type="button" class="btn btn-light-blue"
 																onclick="goInvoice(value)">
@@ -1043,8 +1043,8 @@
 													</td>
 													<td>
 														<form action="getDateServlet" method="get">
-															<input type="hidden" value="" class="Friday_date"
-																name="Date"> <input type="hidden" value="9.00"
+															<input type="hidden" value="5" class="Friday_date"
+																name="Date"> <input type="hidden" value="09:00:00"
 																name="Time">
 															<button type="button" class="btn btn-light-blue"
 																onclick="goInvoice(value)">
@@ -1054,8 +1054,8 @@
 													</td>
 													<td>
 														<form action="getDateServlet" method="get">
-															<input type="hidden" value="" class="Saturday_date"
-																name="Date"> <input type="hidden" value="9.00"
+															<input type="hidden" value="6" class="Saturday_date"
+																name="Date"> <input type="hidden" value="09:00:00"
 																name="Time">
 															<button type="submit" class="btn btn-pink"
 																onclick="goInvoice(value)" disabled>
@@ -1070,7 +1070,7 @@
 													<td>
 														<form action="getDateServlet" method="get">
 															<input type="hidden" value="" class="Sunday_date"
-																name="Date"> <input type="hidden" value="10.00"
+																name="Date"> <input type="hidden" value="10:00:00"
 																name="Time">
 															<button type="submit" class="btn btn-pink"
 																onclick="goInvoice(value)" disabled>
@@ -1080,8 +1080,8 @@
 													</td>
 													<td>
 														<form action="getDateServlet" method="get">
-															<input type="hidden" value="" class="Monday_date"
-																name="Date"> <input type="hidden" value="10.00"
+															<input type="hidden" value="1" class="Monday_date"
+																name="Date"> <input type="hidden" value="10:00:00"
 																name="Time">
 															<button type="button" class="btn btn-light-blue"
 																onclick="goInvoice(value)">
@@ -1091,8 +1091,8 @@
 													</td>
 													<td>
 														<form action="getDateServlet" method="get">
-															<input type="hidden" value="" class="Tuesday_date"
-																name="Date"> <input type="hidden" value="10.00"
+															<input type="hidden" value="2" class="Tuesday_date"
+																name="Date"> <input type="hidden" value="10:00:00"
 																name="Time">
 															<button type="button" class="btn btn-light-blue"
 																onclick="goInvoice(value)">
@@ -1102,8 +1102,8 @@
 													</td>
 													<td>
 														<form action="getDateServlet" method="get">
-															<input type="hidden" value="" class="Wednesday_date"
-																name="Date"> <input type="hidden" value="10.00"
+															<input type="hidden" value="3" class="Wednesday_date"
+																name="Date"> <input type="hidden" value="10:00:00"
 																name="Time">
 															<button type="button" class="btn btn-light-blue"
 																onclick="goInvoice(value)">
@@ -1113,8 +1113,8 @@
 													</td>
 													<td>
 														<form action="getDateServlet" method="get">
-															<input type="hidden" value="" class="Thursday_date"
-																name="Date"> <input type="hidden" value="10.00"
+															<input type="hidden" value="4" class="Thursday_date"
+																name="Date"> <input type="hidden" value="10:00:00"
 																name="Time">
 															<button type="button" class="btn btn-light-blue"
 																onclick="goInvoice(value)">
@@ -1124,8 +1124,8 @@
 													</td>
 													<td>
 														<form action="getDateServlet" method="get">
-															<input type="hidden" value="" class="Friday_date"
-																name="Date"> <input type="hidden" value="10.00"
+															<input type="hidden" value="5" class="Friday_date"
+																name="Date"> <input type="hidden" value="10:00:00"
 																name="Time">
 															<button type="button" class="btn btn-light-blue"
 																onclick="goInvoice(value)">
@@ -1135,8 +1135,8 @@
 													</td>
 													<td>
 														<form action="getDateServlet" method="get">
-															<input type="hidden" value="" class="Saturday_date"
-																name="Date"> <input type="hidden" value="10.00"
+															<input type="hidden" value="6" class="Saturday_date"
+																name="Date"> <input type="hidden" value="10:00:00"
 																name="Time">
 															<button type="submit" class="btn btn-pink"
 																onclick="goInvoice(value)" disabled>
@@ -1151,7 +1151,7 @@
 													<td>
 														<form action="getDateServlet" method="get">
 															<input type="hidden" value="" class="Sunday_date"
-																name="Date"> <input type="hidden" value="11.00"
+																name="Date"> <input type="hidden" value="11:00:00"
 																name="Time">
 															<button type="submit" class="btn btn-pink"
 																onclick="goInvoice(value)" disabled>
@@ -1161,8 +1161,8 @@
 													</td>
 													<td>
 														<form action="getDateServlet" method="get">
-															<input type="hidden" value="" class="Monday_date"
-																name="Date"> <input type="hidden" value="11.00"
+															<input type="hidden" value="1" class="Monday_date"
+																name="Date"> <input type="hidden" value="11:00:00"
 																name="Time">
 															<button type="button" class="btn btn-light-blue"
 																onclick="goInvoice(value)">
@@ -1172,8 +1172,8 @@
 													</td>
 													<td>
 														<form action="getDateServlet" method="get">
-															<input type="hidden" value="" class="Tuesday_date"
-																name="Date"> <input type="hidden" value="11.00"
+															<input type="hidden" value="2" class="Tuesday_date"
+																name="Date"> <input type="hidden" value="11:00:00"
 																name="Time">
 															<button type="button" class="btn btn-light-blue"
 																onclick="goInvoice(value)">
@@ -1183,8 +1183,8 @@
 													</td>
 													<td>
 														<form action="getDateServlet" method="get">
-															<input type="hidden" value="" class="Wednesday_date"
-																name="Date"> <input type="hidden" value="11.00"
+															<input type="hidden" value="3" class="Wednesday_date"
+																name="Date"> <input type="hidden" value="11:00:00"
 																name="Time">
 															<button type="button" class="btn btn-light-blue"
 																onclick="goInvoice(value)">
@@ -1194,8 +1194,8 @@
 													</td>
 													<td>
 														<form action="getDateServlet" method="get">
-															<input type="hidden" value="" class="Thursday_date"
-																name="Date"> <input type="hidden" value="11.00"
+															<input type="hidden" value="4" class="Thursday_date"
+																name="Date"> <input type="hidden" value="11:00:00"
 																name="Time">
 															<button type="button" class="btn btn-light-blue"
 																onclick="goInvoice(value)">
@@ -1205,8 +1205,8 @@
 													</td>
 													<td>
 														<form action="getDateServlet" method="get">
-															<input type="hidden" value="" class="Friday_date"
-																name="Date"> <input type="hidden" value="11.00"
+															<input type="hidden" value="5" class="Friday_date"
+																name="Date"> <input type="hidden" value="11:00:00"
 																name="Time">
 															<button type="button" class="btn btn-light-blue"
 																onclick="goInvoice(value)">
@@ -1216,8 +1216,8 @@
 													</td>
 													<td>
 														<form action="getDateServlet" method="get">
-															<input type="hidden" value="" class="Saturday_date"
-																name="Date"> <input type="hidden" value="11.00"
+															<input type="hidden" value="6" class="Saturday_date"
+																name="Date"> <input type="hidden" value="11:00:00"
 																name="Time">
 															<button type="submit" class="btn btn-pink"
 																onclick="goInvoice(value)" disabled>
@@ -1234,7 +1234,7 @@
 													<td>
 														<form action="getDateServlet" method="get">
 															<input type="hidden" value="" class="Sunday_date"
-																name="Date"> <input type="hidden" value="12.00"
+																name="Date"> <input type="hidden" value="12:00:00"
 																name="Time">
 															<button type="submit" class="btn btn-pink"
 																onclick="goInvoice(value)" disabled>
@@ -1244,8 +1244,8 @@
 													</td>
 													<td>
 														<form action="getDateServlet" method="get">
-															<input type="hidden" value="" class="Monday_date"
-																name="Date"> <input type="hidden" value="12.00"
+															<input type="hidden" value="1" class="Monday_date"
+																name="Date"> <input type="hidden" value="12:00:00"
 																name="Time">
 															<button type="button" class="btn btn-light-blue"
 																onclick="goInvoice(value)">
@@ -1255,8 +1255,8 @@
 													</td>
 													<td>
 														<form action="getDateServlet" method="get">
-															<input type="hidden" value="" class="Tuesday_date"
-																name="Date"> <input type="hidden" value="12.00"
+															<input type="hidden" value="2" class="Tuesday_date"
+																name="Date"> <input type="hidden" value="12:00:00"
 																name="Time">
 															<button type="button" class="btn btn-light-blue"
 																onclick="goInvoice(value)">
@@ -1266,8 +1266,8 @@
 													</td>
 													<td>
 														<form action="getDateServlet" method="get">
-															<input type="hidden" value="" class="Wednesday_date"
-																name="Date"> <input type="hidden" value="12.00"
+															<input type="hidden" value="3" class="Wednesday_date"
+																name="Date"> <input type="hidden" value="12:00:00"
 																name="Time">
 															<button type="button" class="btn btn-light-blue"
 																onclick="goInvoice(value)">
@@ -1277,8 +1277,8 @@
 													</td>
 													<td>
 														<form action="getDateServlet" method="get">
-															<input type="hidden" value="" class="Thursday_date"
-																name="Date"> <input type="hidden" value="12.00"
+															<input type="hidden" value="4" class="Thursday_date"
+																name="Date"> <input type="hidden" value="12:00:00"
 																name="Time">
 															<button type="button" class="btn btn-light-blue"
 																onclick="goInvoice(value)">
@@ -1288,8 +1288,8 @@
 													</td>
 													<td>
 														<form action="getDateServlet" method="get">
-															<input type="hidden" value="" class="Friday_date"
-																name="Date"> <input type="hidden" value="12.00"
+															<input type="hidden" value="5" class="Friday_date"
+																name="Date"> <input type="hidden" value="12:00:00"
 																name="Time">
 															<button type="button" class="btn btn-light-blue"
 																onclick="goInvoice(value)">
@@ -1299,8 +1299,8 @@
 													</td>
 													<td>
 														<form action="getDateServlet" method="get">
-															<input type="hidden" value="" class="Saturday_date"
-																name="Date"> <input type="hidden" value="12.00"
+															<input type="hidden" value="6" class="Saturday_date"
+																name="Date"> <input type="hidden" value="12:00:00"
 																name="Time">
 															<button type="submit" class="btn btn-pink"
 																onclick="goInvoice(value)" disabled>
@@ -1314,7 +1314,7 @@
 													<td>
 														<form action="getDateServlet" method="get">
 															<input type="hidden" value="" class="Sunday_date"
-																name="Date"> <input type="hidden" value="13.00"
+																name="Date"> <input type="hidden" value="13:00:00"
 																name="Time">
 															<button type="submit" class="btn btn-pink"
 																onclick="goInvoice(value)" disabled>
@@ -1324,8 +1324,8 @@
 													</td>
 													<td>
 														<form action="getDateServlet" method="get">
-															<input type="hidden" value="" class="Monday_date"
-																name="Date"> <input type="hidden" value="13.00"
+															<input type="hidden" value="1" class="Monday_date"
+																name="Date"> <input type="hidden" value="13:00:00"
 																name="Time">
 															<button type="button" class="btn btn-light-blue"
 																onclick="goInvoice(value)">
@@ -1335,8 +1335,8 @@
 													</td>
 													<td>
 														<form action="getDateServlet" method="get">
-															<input type="hidden" value="" class="Tuesday_date"
-																name="Date"> <input type="hidden" value="13.00"
+															<input type="hidden" value="2" class="Tuesday_date"
+																name="Date"> <input type="hidden" value="13:00:00"
 																name="Time">
 															<button type="button" class="btn btn-light-blue"
 																onclick="goInvoice(value)">
@@ -1346,8 +1346,8 @@
 													</td>
 													<td>
 														<form action="getDateServlet" method="get">
-															<input type="hidden" value="" class="Wednesday_date"
-																name="Date"> <input type="hidden" value="13.00"
+															<input type="hidden" value="3" class="Wednesday_date"
+																name="Date"> <input type="hidden" value="13:00:00"
 																name="Time">
 															<button type="button" class="btn btn-light-blue"
 																onclick="goInvoice(value)">
@@ -1357,8 +1357,8 @@
 													</td>
 													<td>
 														<form action="getDateServlet" method="get">
-															<input type="hidden" value="" class="Thursday_date"
-																name="Date"> <input type="hidden" value="13.00"
+															<input type="hidden" value="4" class="Thursday_date"
+																name="Date"> <input type="hidden" value="13:00:00"
 																name="Time">
 															<button type="button" class="btn btn-light-blue"
 																onclick="goInvoice(value)">
@@ -1368,8 +1368,8 @@
 													</td>
 													<td>
 														<form action="getDateServlet" method="get">
-															<input type="hidden" value="" class="Friday_date"
-																name="Date"> <input type="hidden" value="13.00"
+															<input type="hidden" value="5" class="Friday_date"
+																name="Date"> <input type="hidden" value="13:00:00"
 																name="Time">
 															<button type="button" class="btn btn-light-blue"
 																onclick="goInvoice(value)">
@@ -1379,8 +1379,8 @@
 													</td>
 													<td>
 														<form action="getDateServlet" method="get">
-															<input type="hidden" value="" class="Saturday_date"
-																name="Date"> <input type="hidden" value="13.00"
+															<input type="hidden" value="6" class="Saturday_date"
+																name="Date"> <input type="hidden" value="13:00:00"
 																name="Time">
 															<button type="submit" class="btn btn-pink"
 																onclick="goInvoice(value)" disabled>
@@ -1394,7 +1394,7 @@
 													<td>
 														<form action="getDateServlet" method="get">
 															<input type="hidden" value="" class="Sunday_date"
-																name="Date"> <input type="hidden" value="14.00"
+																name="Date"> <input type="hidden" value="14:00:00"
 																name="Time">
 															<button type="submit" class="btn btn-pink"
 																onclick="goInvoice(value)" disabled>
@@ -1404,8 +1404,8 @@
 													</td>
 													<td>
 														<form action="getDateServlet" method="get">
-															<input type="hidden" value="" class="Monday_date"
-																name="Date"> <input type="hidden" value="14.00"
+															<input type="hidden" value="1" class="Monday_date"
+																name="Date"> <input type="hidden" value="14:00:00"
 																name="Time">
 															<button type="button" class="btn btn-light-blue"
 																onclick="goInvoice(value)">
@@ -1415,8 +1415,8 @@
 													</td>
 													<td>
 														<form action="getDateServlet" method="get">
-															<input type="hidden" value="" class="Tuesday_date"
-																name="Date"> <input type="hidden" value="14.00"
+															<input type="hidden" value="2" class="Tuesday_date"
+																name="Date"> <input type="hidden" value="14:00:00"
 																name="Time">
 															<button type="button" class="btn btn-light-blue"
 																onclick="goInvoice(value)">
@@ -1426,8 +1426,8 @@
 													</td>
 													<td>
 														<form action="getDateServlet" method="get">
-															<input type="hidden" value="" class="Wednesday_date"
-																name="Date"> <input type="hidden" value="14.00"
+															<input type="hidden" value="3" class="Wednesday_date"
+																name="Date"> <input type="hidden" value="14:00:00"
 																name="Time">
 															<button type="button" class="btn btn-light-blue"
 																onclick="goInvoice(value)">
@@ -1437,8 +1437,8 @@
 													</td>
 													<td>
 														<form action="getDateServlet" method="get">
-															<input type="hidden" value="" class="Thursday_date"
-																name="Date"> <input type="hidden" value="14.00"
+															<input type="hidden" value="4" class="Thursday_date"
+																name="Date"> <input type="hidden" value="14:00:00"
 																name="Time">
 															<button type="button" class="btn btn-light-blue"
 																onclick="goInvoice(value)">
@@ -1448,8 +1448,8 @@
 													</td>
 													<td>
 														<form action="getDateServlet" method="get">
-															<input type="hidden" value="" class="Friday_date"
-																name="Date"> <input type="hidden" value="14.00"
+															<input type="hidden" value="5" class="Friday_date"
+																name="Date"> <input type="hidden" value="14:00:00"
 																name="Time">
 															<button type="button" class="btn btn-light-blue"
 																onclick="goInvoice(value)">
@@ -1459,8 +1459,8 @@
 													</td>
 													<td>
 														<form action="getDateServlet" method="get">
-															<input type="hidden" value="" class="Saturday_date"
-																name="Date"> <input type="hidden" value="14.00"
+															<input type="hidden" value="6" class="Saturday_date"
+																name="Date"> <input type="hidden" value="14:00:00"
 																name="Time">
 															<button type="submit" class="btn btn-pink"
 																onclick="goInvoice(value)" disabled>
@@ -1474,7 +1474,7 @@
 													<td>
 														<form action="getDateServlet" method="get">
 															<input type="hidden" value="" class="Sunday_date"
-																name="Date"> <input type="hidden" value="15.00"
+																name="Date"> <input type="hidden" value="15:00:00"
 																name="Time">
 															<button type="submit" class="btn btn-pink"
 																onclick="goInvoice(value)" disabled>
@@ -1484,8 +1484,8 @@
 													</td>
 													<td>
 														<form action="getDateServlet" method="get">
-															<input type="hidden" value="" class="Monday_date"
-																name="Date"> <input type="hidden" value="15.00"
+															<input type="hidden" value="1" class="Monday_date"
+																name="Date"> <input type="hidden" value="15:00:00"
 																name="Time">
 															<button type="button" class="btn btn-light-blue"
 																onclick="goInvoice(value)">
@@ -1495,8 +1495,8 @@
 													</td>
 													<td>
 														<form action="getDateServlet" method="get">
-															<input type="hidden" value="" class="Tuesday_date"
-																name="Date"> <input type="hidden" value="15.00"
+															<input type="hidden" value="2" class="Tuesday_date"
+																name="Date"> <input type="hidden" value="15:00:00"
 																name="Time">
 															<button type="button" class="btn btn-light-blue"
 																onclick="goInvoice(value)">
@@ -1506,8 +1506,8 @@
 													</td>
 													<td>
 														<form action="getDateServlet" method="get">
-															<input type="hidden" value="" class="Wednesday_date"
-																name="Date"> <input type="hidden" value="15.00"
+															<input type="hidden" value="3" class="Wednesday_date"
+																name="Date"> <input type="hidden" value="15:00:00"
 																name="Time">
 															<button type="button" class="btn btn-light-blue"
 																onclick="goInvoice(value)">
@@ -1517,8 +1517,8 @@
 													</td>
 													<td>
 														<form action="getDateServlet" method="get">
-															<input type="hidden" value="" class="Thursday_date"
-																name="Date"> <input type="hidden" value="15.00"
+															<input type="hidden" value="4" class="Thursday_date"
+																name="Date"> <input type="hidden" value="15:00:00"
 																name="Time">
 															<button type="button" class="btn btn-light-blue"
 																onclick="goInvoice(value)">
@@ -1528,8 +1528,8 @@
 													</td>
 													<td>
 														<form action="getDateServlet" method="get">
-															<input type="hidden" value="" class="Friday_date"
-																name="Date"> <input type="hidden" value="15.00"
+															<input type="hidden" value="5" class="Friday_date"
+																name="Date"> <input type="hidden" value="15:00:00"
 																name="Time">
 															<button type="button" class="btn btn-light-blue"
 																onclick="goInvoice(value)">
@@ -1539,8 +1539,8 @@
 													</td>
 													<td>
 														<form action="getDateServlet" method="get">
-															<input type="hidden" value="" class="Saturday_date"
-																name="Date"> <input type="hidden" value="15.00"
+															<input type="hidden" value="6" class="Saturday_date"
+																name="Date"> <input type="hidden" value="15:00:00"
 																name="Time">
 															<button type="submit" class="btn btn-pink"
 																onclick="goInvoice(value)" disabled>
@@ -1554,7 +1554,7 @@
 													<td>
 														<form action="getDateServlet" method="get">
 															<input type="hidden" value="" class="Sunday_date"
-																name="Date"> <input type="hidden" value="16.00"
+																name="Date"> <input type="hidden" value="16:00:00"
 																name="Time">
 															<button type="submit" class="btn btn-pink"
 																onclick="goInvoice(value)" disabled>
@@ -1564,8 +1564,8 @@
 													</td>
 													<td>
 														<form action="getDateServlet" method="get">
-															<input type="hidden" value="" class="Monday_date"
-																name="Date"> <input type="hidden" value="16.00"
+															<input type="hidden" value="1" class="Monday_date"
+																name="Date"> <input type="hidden" value="16:00:00"
 																name="Time">
 															<button type="button" class="btn btn-light-blue"
 																onclick="goInvoice(value)">
@@ -1575,8 +1575,8 @@
 													</td>
 													<td>
 														<form action="getDateServlet" method="get">
-															<input type="hidden" value="" class="Tuesday_date"
-																name="Date"> <input type="hidden" value="16.00"
+															<input type="hidden" value=""2 class="Tuesday_date"
+																name="Date"> <input type="hidden" value="16:00:00"
 																name="Time">
 															<button type="button" class="btn btn-light-blue"
 																onclick="goInvoice(value)">
@@ -1586,8 +1586,8 @@
 													</td>
 													<td>
 														<form action="getDateServlet" method="get">
-															<input type="hidden" value="" class="Wednesday_date"
-																name="Date"> <input type="hidden" value="16.00"
+															<input type="hidden" value="3" class="Wednesday_date"
+																name="Date"> <input type="hidden" value="16:00:00"
 																name="Time">
 															<button type="button" class="btn btn-light-blue"
 																onclick="goInvoice(value)">
@@ -1597,8 +1597,8 @@
 													</td>
 													<td>
 														<form action="getDateServlet" method="get">
-															<input type="hidden" value="" class="Thursday_date"
-																name="Date"> <input type="hidden" value="16.00"
+															<input type="hidden" value="4" class="Thursday_date"
+																name="Date"> <input type="hidden" value="16:00:00"
 																name="Time">
 															<button type="button" class="btn btn-light-blue"
 																onclick="goInvoice(value)">
@@ -1608,8 +1608,8 @@
 													</td>
 													<td>
 														<form action="getDateServlet" method="get">
-															<input type="hidden" value="" class="Friday_date"
-																name="Date"> <input type="hidden" value="16.00"
+															<input type="hidden" value="5" class="Friday_date"
+																name="Date"> <input type="hidden" value="16:00:00"
 																name="Time">
 															<button type="button" class="btn btn-light-blue"
 																onclick="goInvoice(value)">
@@ -1619,8 +1619,8 @@
 													</td>
 													<td>
 														<form action="getDateServlet" method="get">
-															<input type="hidden" value="" class="Saturday_date"
-																name="Date"> <input type="hidden" value="16.00"
+															<input type="hidden" value="6" class="Saturday_date"
+																name="Date"> <input type="hidden" value="16:00:00"
 																name="Time">
 															<button type="submit" class="btn btn-pink"
 																onclick="goInvoice(value)" disabled>

@@ -11,6 +11,7 @@ public class AppointmentDAOImpl implements IAppointmentDAO{
 	
 	private  Connection connection;
 	private  PreparedStatement prepStatement;
+	PreparedStatement prepStatement2;
 	
 	@Override
 	public AppointmentModel createNewAppointment(String userId, String vehi_NO, String raelAppointmentDate, String vehiBrand,
@@ -32,7 +33,7 @@ public class AppointmentDAOImpl implements IAppointmentDAO{
 			prepStatement.setString(6, newAppointment.getService_id());
 			prepStatement.setString(7, newAppointment.getVehicleI_No());
 			
-			PreparedStatement prepStatement2;
+			
 			prepStatement2 = connection.prepareStatement("INSERT INTO vehicle (vehicleId , userRegNo , model , brand , manuYear , engineCap , transmission , fuelType , appointment_id)\r\n" + 
 					"values (? , ? , ? , ? , ? , ? , ? , ? , ?)");
 			prepStatement2.setString(1, vehicleOfAppointment.getVehicleId());
@@ -47,9 +48,12 @@ public class AppointmentDAOImpl implements IAppointmentDAO{
 			
 			int AffectedRows_qury1 = prepStatement.executeUpdate();
 			int AffectedRows_qury2 = prepStatement2.executeUpdate();
+			System.out.println(AffectedRows_qury1);
+			System.out.println(AffectedRows_qury2);
  		} 
 		catch (SQLException e) {
 			e.printStackTrace();
+			System.out.println(e);
 		}
 		finally {
 			if (connection != null) {
@@ -58,6 +62,7 @@ public class AppointmentDAOImpl implements IAppointmentDAO{
 				} catch (SQLException e) {
 					
 					e.printStackTrace();
+					System.out.println(e);
 				}
 			}
 		}
@@ -72,6 +77,61 @@ public class AppointmentDAOImpl implements IAppointmentDAO{
 	 * */
 	
 	@Override
+	public VehicleModel getvehicleByAppintmentId(String appId) {
+		connection = DatabaseConnection.getConnection();
+		VehicleModel vehicle = new VehicleModel();
+		try {
+			prepStatement = connection.prepareStatement("SELECT * FROM vehicle WHERE appointment_id = ?");
+			prepStatement.setString(1, appId);
+			ResultSet result = prepStatement.executeQuery();
+			vehicle = getVehicleObject(result);
+			System.out.println(vehicle.getVehicleId());
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			System.out.println(e);
+		}
+		finally {
+			try {
+				if (connection != null) {
+					connection.close();
+				}
+			} catch (SQLException e2) {
+				e2.printStackTrace();
+				System.out.println(e2);
+			}
+		}
+		
+		
+		return vehicle;
+	}
+
+
+
+	private VehicleModel getVehicleObject(ResultSet result) {
+		VehicleModel vehicleObject = new VehicleModel();
+		try {
+			if(result.next()) {
+				vehicleObject.setVehicleId(result.getString("vehicleId"));
+				vehicleObject.setUserRegNo(result.getString("userRegNo"));
+				vehicleObject.setModel(result.getString("model"));
+				vehicleObject.setBrand(result.getString("brand"));
+				vehicleObject.setManuYear(result.getInt("manuYear"));
+				vehicleObject.setEngineCap(result.getString("engineCap"));
+				vehicleObject.setTransmission(result.getString("transmission"));
+				vehicleObject.setAppointment_id(result.getString("fuelType"));
+				vehicleObject.setAppointment_id(result.getString("appointment_id"));
+			}
+		} catch (Exception e) {
+			// TODO: handle exception
+			System.out.println(e);
+		}
+		return vehicleObject;
+	}
+
+
+
+	@Override
 	public UserModel getCurrentUserByUid(String userId) {
 		connection = DatabaseConnection.getConnection();
 		UserModel thisUser = new UserModel();
@@ -83,6 +143,17 @@ public class AppointmentDAOImpl implements IAppointmentDAO{
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+			System.out.println(e);
+		}
+		finally {
+			try {
+				if (connection != null) {
+					connection.close();
+				}
+			} catch (SQLException e2) {
+				e2.printStackTrace();
+				System.out.println(e2);
+			}
 		}
 		
 		
@@ -112,6 +183,7 @@ public class AppointmentDAOImpl implements IAppointmentDAO{
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+			System.out.println(e);
 		}
 		return userModel;
 	}
@@ -174,6 +246,7 @@ public class AppointmentDAOImpl implements IAppointmentDAO{
 			
 		} catch (Exception e) {
 			e.printStackTrace();
+			System.out.println(e);
 		}
 		finally {
 			try {
@@ -181,7 +254,8 @@ public class AppointmentDAOImpl implements IAppointmentDAO{
 					connection.close();
 				}
 			} catch (SQLException e2) {
-				// TODO: handle exception
+				e2.printStackTrace();
+				System.out.println(e2);
 			}
 		}
 		return PackPrice;

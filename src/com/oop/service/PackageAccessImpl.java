@@ -8,10 +8,17 @@ import com.oop.model.PackageForAppoint;
 
 public class PackageAccessImpl implements IPackageAccess{
 
+	IPackageAccessDAO packages = new PackageAccessDAOImpl();
 	@Override
 	public List<PackageForAppoint> getAllPackages() {
-		IPackageAccessDAO packages = new PackageAccessDAOImpl();
+		
 		return packages.AllpackagesList();
+	}
+
+	@Override
+	public PackageForAppoint getPackageByPackId(String packId) {
+
+		return packages.getPacacgeByPackageID(packId);
 	}
 
 }

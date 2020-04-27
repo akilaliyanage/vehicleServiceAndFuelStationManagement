@@ -1,4 +1,9 @@
 <!DOCTYPE html>
+<%@page import="com.oop.model.PackageForAppoint"%>
+<%@page import="com.oop.model.VehicalServices"%>
+<%@page import="com.oop.model.VehicleModel"%>
+<%@page import="com.oop.model.AppointmentModel"%>
+<%@page import="com.oop.model.UserModel"%>
 <html lang="en">
 
 <head>
@@ -24,6 +29,14 @@
 </head>
 
 <body>
+
+	<%
+		UserModel User = (UserModel) request.getAttribute("User");
+		AppointmentModel Appointment = (AppointmentModel) request.getAttribute("Appointment");
+		VehicleModel Vehicle = (VehicleModel) request.getAttribute("Vehicle");
+		VehicalServices Service = (VehicalServices) request.getAttribute("Service");
+		PackageForAppoint Package = (PackageForAppoint)request.getAttribute("Package");
+	%>
 
     <div class="section-1" id="section-1">
         <!--Navbar -->
@@ -81,28 +94,24 @@
                         <!--Grid column-->
                         <div class="col-md-6 mb-4 mb-md-0">
 
-                            <h1 class="font-weight-bold">Car Wash</h1>
+                            <h1 class="font-weight-bold"><%=Service.getServiceName() %></h1>
 
-                            <p class="text-muted">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Id quam
-                                sapiente
-                                molestiae
-                                numquam quas, voluptates omnis nulla ea odio quia similique corrupti magnam,
-                                doloremque laborum.</p>
+                            <p class="text-muted"><%=Service.getDescription() %></p>
 
                             <div class="row">
                                 <h3 class="col-6">Request No :</h3>
-                                <h3 class="text-right col-5">ABD5445</h3>
+                                <h3 class="text-right col-5"><%=Package.getPackId() %></h3>
                             </div>
                             <div class="row">
                                 <h3 class="col-6">Date :</h3>
-                                <h3 class="text-right col-5">03-06-2020</h3>
+                                <h3 class="text-right col-5"><%=Appointment.getPrefDate() %></h3>
                             </div>
                             <div class="row">
                                 <h3 class="col-6">Time :</h3>
-                                <h3 class="text-right col-5">10:00 Am</h3>
+                                <h3 class="text-right col-5"><%=Appointment.getPrefTime() %></h3>
                             </div>
 
-                            <a class="btn btn-purple btn-md ml-0" role="button" disabled> Accepted <i
+                            <a class="btn btn-purple btn-md ml-0" role="button" disabled> <%=Appointment.getStatus() %> <i
                                     class="fa fa-gem ml-2"></i></a>
 
                         </div>
@@ -113,7 +122,7 @@
 
                             <!--Image-->
                             <div class="view overlay z-depth-1-half">
-                                <img src="img/Mahen/carWash_Card.jpg" class="img-fluid" alt="">
+                                <img src="<%=Service.getServiceImg() %>" class="img-fluid" alt="">
                                 <a href="#">
                                     <div class="mask rgba-white-light"></div>
                                 </a>
@@ -187,15 +196,15 @@
                             <div class="col-6 border-right" style="line-height: 0px;">
 
                                 <p class="ml-4"> <i class="fas fa-user-alt"></i> <strong> Customer name : </strong> </p>
-                                <p class="text-right"> Stacy V. Pearson</p>
+                                <p class="text-right"> <%=User.getUserName()%></p>
 
                                 <p class="ml-4"> <i class="fas fa-box"></i> <strong> Package : </strong> </p>
-                                <p class="text-right >">Wash Car</p>
+                                <p class="text-right >"><%=Package.getPackName() %></p>
 
                             </div>
                             <div class="col-6 " style="line-height: 0px;">
                                 <p class="ml-4"> <i class="fas fa-car"></i> <strong> Vehicle No : </strong> </p>
-                                <p class="text-right "> WP AFG 4512</p>
+                                <p class="text-right ">VehiclenId</p>
 
                             </div>
                         </div>
@@ -207,25 +216,25 @@
                             <div class="col-6 border-right" style="line-height: 0px;">
 
                                 <p class="ml-4"> <i class="fab fa-bootstrap"></i> <strong> Brand : </strong> </p>
-                                <p class="text-right">Toyota</p>
+                                <p class="text-right"><%=Vehicle.getBrand() %></p>
 
                                 <p class="ml-4"> <i class="fab fa-medium-m"></i> <strong> Model: </strong> </p>
-                                <p class="text-right">CHR</p>
+                                <p class="text-right"><%=Vehicle.getModel() %></p>
 
-                                <p class="ml-4"> <i class="fas fa-tachometer-alt"></i> <strong> Milage: </strong> </p>
-                                <p class="text-right">40000 Km</p>
+                                <p class="ml-4"> <i class="fas fa-tachometer-alt"></i> <strong> Year: </strong> </p>
+                                <p class="text-right"><%=Vehicle.getManuYear() %></p>
 
                             </div>
                             <div class="col-6 " style="line-height: 0px;">
                                 <p class="ml-4"> <i class="fas fa-cogs"></i> <strong> Transmission : </strong> </p>
-                                <p class="text-right">Auto</p>
+                                <p class="text-right"><%=Vehicle.getTransmission() %></p>
 
                                 <p class="ml-4"> <i class="fas fa-gas-pump"></i> <strong> Fuel Type : </strong> </p>
-                                <p class="text-right">Petrol</p>
+                                <p class="text-right"><%=Vehicle.getFuelType() %></p>
 
                                 <p class="ml-4"> <i class="fas fa-oil-can"></i> <strong> Engine Capacity : </strong>
                                 </p>
-                                <p class="text-right">1200 CC</p>
+                                <p class="text-right"><%=Vehicle.getEngineCap() %></p>
                             </div>
                         </div>
 
@@ -249,17 +258,13 @@
                             <div class="col-6 " style="line-height: 0px;">
                                 <p class="ml-4"> <i class="far fa-file-alt"></i> <strong> Payment Status : </strong>
                                 </p>
-                                <p class="text-right"> Pending </p>
+                                <p class="text-right"> <%=Appointment.getStatus() %> </p>
                             </div>
                             <a href="" class="ml-4 mb-4 mb-2"><strong> Click here to view bill</strong></a>
                         </div>
 
                         <h4 class="h4 mb-4">Company Remarks</h4>
-                        <p class="text-right">Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic ducimus
-                            consequuntur vitae sed vero facilis reprehenderit debitis non, laborum aperiam, inventore
-                            cumque voluptate, nobis quidem consequatur ipsum incidunt! Voluptatibus corrupti
-                            exercitationem voluptate, eos, suscipit voluptatum temporibus aut debitis placeat, in
-                            pariatur nemo vel libero dolores corporis voluptates quisquam alias fugit?</p>
+                        <p class="text-right"><%=Appointment.getRemarks() %></p>
 
 
 
@@ -302,8 +307,8 @@
                                     
                                 </div>
                                 <div class="col-3 mt-4 pt-4">
-                                    <h5 class="text-right >">ABC572121</p>
-                                    <h5 class="text-right"> Stacy V. Pearson</h5>
+                                    <h5 class="text-right >"><%=Appointment.getAppId()%></p>
+                                    <h5 class="text-right"> <%=User.getUserName() %></h5>
                                 </div>
                             </div>
                             <hr style="border-width: 3px; border-color: #ff9100;">
@@ -354,10 +359,10 @@
                                     <div class="form-group col-md-3 ml-4">
                                         <label for="inputState"> <i class="fas fa-cogs grey-text fa-2x"></i> Transmission</label>
                                         <select id="inputState" class="form-control ml-3">
-                                            <option selected>Choose...</option>
-                                            <option value="1">One</option>
-                                            <option value="2">Two</option>
-                                            <option value="3">Three</option>
+                                            <option selected>Electric</option>
+                                            <option value="1">Auto</option>
+                                            <option value="2">Manual</option>
+                                            <option value="3">Tiptronic</option>
                                         </select>
                                     </div>
 
@@ -365,9 +370,9 @@
                                         <label for="inputState"> <i class="fas fa-gas-pump grey-text fa-2x"></i> fuel type</label>
                                         <select id="inputState" class="form-control ml-3">
                                             <option selected>Choose...</option>
-                                            <option value="1">One</option>
-                                            <option value="2">Two</option>
-                                            <option value="3">Three</option>
+                                            <option value="1">Petrol</option>
+                                            <option value="2">Diesel</option>
+                                            <option value="3">Gasoline</option>
                                         </select>
                                     </div>
                                 </div>
@@ -393,10 +398,10 @@
                                     <div class="form-group col-md-6 ml-4">
                                         <label for="inputState"> <i class="fab fa-cc-amazon-pay grey-text fa-2x"></i> Your Payment Option</label>
                                         <select id="inputState" class="form-control ml-3">
-                                            <option selected>Choose...</option>
-                                            <option value="1">One</option>
-                                            <option value="2">Two</option>
-                                            <option value="3">Three</option>
+                                            <option selected>Pay by credit/debit card</option>
+                                            <option value="1">Pay by PayPal</option>
+                                            <option value="2">Pay by cash</option>
+                                            <option value="3">Pay by cash</option>
                                         </select>
                                     </div>
                                 </div>

@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -16,9 +17,16 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.oop.model.AppointmentModel;
+import com.oop.model.PackageForAppoint;
 import com.oop.model.UserModel;
+import com.oop.model.VehicalServices;
+import com.oop.model.VehicleModel;
 import com.oop.service.AppointmentServices;
 import com.oop.service.AppointmentServicesImpl;
+import com.oop.service.IPackageAccess;
+import com.oop.service.IServiceAccess;
+import com.oop.service.PackageAccessImpl;
+import com.oop.service.ServiceAccessImpl;
 
 import javax.servlet.http.Cookie;
 
@@ -54,9 +62,8 @@ public class CreateAppointmentServlet extends HttpServlet {
 		String vehiBrand  = request.getParameter("brand");
 		String vehiModel  = request.getParameter("model");
 		String vehiTransmission  = request.getParameter("Transmission");
-		String vehiFuel  = request.getParameter("Vehicle_fuel");
+		String vehiFuel  = request.getParameter("Fuel");
 		String vehEngine  = request.getParameter("Engine");
-		//String vehiMilage  = request.getParameter("Milage");
 		int vehiYear  = Integer.parseInt(request.getParameter("year"));
 		String serviceID = null;
 		int appointDay = 1;
@@ -89,10 +96,22 @@ public class CreateAppointmentServlet extends HttpServlet {
 		}
 		
 		AppointmentModel createdAppointmentModel = appointmentServices.createAppointment(userId, vehi_nameString, AppointDate, vehiBrand, vehiModel, vehiTransmission, vehiFuel, vehEngine, vehiYear, serviceID, appointTime, packID, appointDay);
-		
 		UserModel currentUser = appointmentServices.GetUserById(userId);
+		VehicleModel appointedVehicle = appointmentServices.getVehicleByAppointmentId(createdAppointmentModel.getAppId());
 		
+		IServiceAccess appointedService = new ServiceAccessImpl();
+		VehicalServices selectedService = appointedService.getServiceDetailServices(serviceID);
 		
+		IPackageAccess appointedPackage = new PackageAccessImpl();
+		PackageForAppoint selectedpack = appointedPackage.getPackageByPackId(packID);
+		
+		request.setAttribute("Appointment", createdAppointmentModel);
+		request.setAttribute("User", currentUser);
+		request.setAttribute("Vehicle", appointedVehicle);
+		request.setAttribute("Service", selectedService);
+		request.setAttribute("Package", selectedpack);
+		
+		request.getRequestDispatcher("RequestDetailsFrontend.jsp").forward(request, response);;
 		
 		
 	}
