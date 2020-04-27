@@ -16,7 +16,7 @@ public class PackageExploreDaoImpl implements PackageExploreDao {
 	public int addServicePackage(ServicePackage servicePackage) {
 		int rowInserted = 0;
 		Connection connection = DatabaseConnection.getConnection();
-		String sql = "INSERT INTO `package`(`packId`, `adminRegNo`, `packType`, `packName`, `price`, `packDescription`) VALUES (?,?,?,?,?,?)";
+		String sql = "INSERT INTO `package`(`packId`, `adminRegNo`, `packType`, `packName`, `price`, `packDescription`, `packImage`) VALUES (?,?,?,?,?,?,?)";
 		try {
 			PreparedStatement statement = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
 			statement.setString(1, servicePackage.getPackId());
@@ -25,6 +25,7 @@ public class PackageExploreDaoImpl implements PackageExploreDao {
 			statement.setString(4, servicePackage.getPackName());
 			statement.setFloat(5, servicePackage.getPrice());
 			statement.setString(6, servicePackage.getPackDescription());
+			statement.setString(7, servicePackage.getPackImage());
 			statement.executeUpdate();
 			ResultSet rs = statement.getGeneratedKeys();
 			if (rs.next()) {
@@ -49,9 +50,13 @@ public class PackageExploreDaoImpl implements PackageExploreDao {
 	public ServicePackage updateServicePackage(ServicePackage servicePackage) {
 
 		Connection connection = DatabaseConnection.getConnection();
-		String sql = "UPDATE `package` SET `adminRegNo`= '" + servicePackage.getAdminRegNo() + "',`packType`= '"
-				+ servicePackage.getPackType() + "' ,`packName`= '" + servicePackage.getPackName() + "' ,`price`= '"
-				+ servicePackage.getPrice() + "' ,`packDescription`= '" + servicePackage.getPackDescription()
+		String sql = "UPDATE `package` SET "
+				+ "`adminRegNo`= '" + servicePackage.getAdminRegNo() 
+				+ "',`packType`= '" + servicePackage.getPackType() 
+				+ "' ,`packName`= '" + servicePackage.getPackName() 
+				+ "' ,`price`= '" + servicePackage.getPrice() 
+				+ "' ,`packDescription`= '" + servicePackage.getPackDescription()
+				+ "' ,`packImage`= '" + servicePackage.getPackImage()
 				+ "' WHERE `packId`= '" + servicePackage.getPackId() + "' ";
 		try {
 			PreparedStatement statement = connection.prepareStatement(sql);
@@ -94,7 +99,7 @@ public class PackageExploreDaoImpl implements PackageExploreDao {
 	@Override
 	public ServicePackage getServicePackageById(String id) {
 		Connection connection = DatabaseConnection.getConnection();
-		String sql = "SELECT `packId`, `adminRegNo`, `packType`, `packName`, `price`, `packDescription` FROM `package` WHERE `packId`= '"
+		String sql = "SELECT `packId`, `adminRegNo`, `packType`, `packName`, `price`, `packDescription`, `packImage` FROM `package` WHERE `packId`= '"
 				+ id + "' ";
 		ServicePackage servicePackage = null;
 		try {
@@ -174,6 +179,7 @@ public class PackageExploreDaoImpl implements PackageExploreDao {
 				servicePackage.setPackName(result.getString("packName"));
 				servicePackage.setPackType(result.getString("packType"));
 				servicePackage.setPrice(result.getFloat("price"));
+				servicePackage.setPackImage(result.getString("packImage"));
 				servicePackages.add(servicePackage);
 			}
 		} catch (SQLException e) {
@@ -192,6 +198,7 @@ public class PackageExploreDaoImpl implements PackageExploreDao {
 				servicePackage.setPackName(result.getString("packName"));
 				servicePackage.setPackType(result.getString("packType"));
 				servicePackage.setPrice(result.getFloat("price"));
+				servicePackage.setPackImage(result.getString("packImage"));
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();

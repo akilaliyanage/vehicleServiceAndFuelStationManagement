@@ -18,4 +18,21 @@ public interface IUpdateDashboardDAO {
 	
 	//get the total number of customers
 	public int totCustomers();
+	
+	//get the total income
+	public int paidAmm();
+	
+	//get the total income
+	public int pendingAmm();
+	
+	
+	public int totApps();
+	
+	public int totPay();
+	
+	public int totPack();
+	
+	public ArrayList<RequestModel> req();
+	
+	public ArrayList<DashboardPaymentsDAO> pay();
 }

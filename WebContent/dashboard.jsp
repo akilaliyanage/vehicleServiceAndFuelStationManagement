@@ -49,108 +49,10 @@
               aria-haspopup="true"
               aria-expanded="false"
             >
-              <img src="img/akila/profile_user.jpg" class="profile" alt="" />
             </a>
-            <div
-              class="dropdown-menu shadow line-height"
-              aria-labelledby="navbarDropdown"
-            >
-              <h4 class="dropdown-header">
-                <i class="fas fa-user-shield"></i>
-                <strong>M.L.Akila Liyanage - <span>ADMINISTRATOR</span></strong>
-              </h4>
-              <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="#"
-                ><i class="far fa-envelope-open"></i> Incomming Mail</a
-              >
-              <a class="dropdown-item" href="#"
-                ><i class="fas fa-id-card-alt"></i> Profile Details</a
-              >
-              <a class="dropdown-item" href="#"
-                ><i class="far fa-money-bill-alt"></i> Billing Status</a
-              >
-              <a class="dropdown-item" href="#"
-                ><i class="fas fa-bullhorn"></i> Notifications
-                <span class="badge badge-danger">1</span></a
-              >
-              <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="#">Log Out</a>
-            </div>
           </li>
 
-          <li class="nav-item dropdown">
-            <a
-              class="nav-link"
-              href="#"
-              id="navbarDropdown"
-              role="button"
-              data-toggle="dropdown"
-              aria-haspopup="true"
-              aria-expanded="false"
-            >
-              <img
-                src="img/akila/message-1767998.png"
-                class="icons"
-                alt=""
-              /><span class="badge badge-danger">1</span>
-            </a>
-            <div class="dropdown-menu shadow" aria-labelledby="navbarDropdown">
-              <h4 class="dropdown-header">Latest Notifications</h4>
-              <a class="dropdown-item" href="#">
-                <div
-                  class="alert alert-danger alert-dismissible fade show"
-                  role="alert"
-                >
-                  <strong>Test user 1</strong> This is a test notification
-                  <button
-                    type="button"
-                    class="close"
-                    data-dismiss="alert"
-                    aria-label="Close"
-                  >
-                    <span aria-hidden="true">&times;</span>
-                  </button>
-                </div>
-              </a>
-
-              <div class="dropdown-divider"></div>
-
-              <h4 class="dropdown-header">Older Notifications</h4>
-
-              <a class="dropdown-item" href="#">
-                <div
-                  class="alert alert-success alert-dismissible fade show"
-                  role="alert"
-                >
-                  <strong>Test user 1</strong> This is a test notification
-                  <button
-                    type="button"
-                    class="close"
-                    data-dismiss="alert"
-                    aria-label="Close"
-                  >
-                    <span aria-hidden="true">&times;</span>
-                  </button>
-                </div>
-              </a>
-              <a class="dropdown-item" href="#">
-                <div
-                  class="alert alert-success alert-dismissible fade show"
-                  role="alert"
-                >
-                  <strong>Test user 1</strong> This is a test notification
-                  <button
-                    type="button"
-                    class="close"
-                    data-dismiss="alert"
-                    aria-label="Close"
-                  >
-                    <span aria-hidden="true">&times;</span>
-                  </button>
-                </div>
-              </a>
-            </div>
-          </li>
+       
 
           <li class="nav-item dropdown">
             <a
@@ -169,10 +71,7 @@
               /><span class="badge badge-danger">1</span>
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="#">Action</a>
-              <a class="dropdown-item" href="#">Another action</a>
-              <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="#">Something else here</a>
+              <a class="dropdown-item" href="LogoutServlet">Log Out</a>
             </div>
           </li>
         </ul>
@@ -238,7 +137,7 @@
         <a href="" class="btn btn-light"
           ><i class="fas fa-reply"></i>&nbsp;&nbsp; User Feedback</a
         >
-        <a href="" class="btn btn-light"
+        <a href="PackageManagerServlet" class="btn btn-light"
           ><i class="fas fa-box"></i>&nbsp;&nbsp; Packages</a
         >
         <a href="" class="btn btn-light"
@@ -273,200 +172,36 @@
         </div>
 
         <div class="row" style="margin: 0;overflow-x: hidden;">
-          <div class="col pending" style="margin: 0;padding: 0;">
-            <div class="card shadow force-overflow" >
-              <img src="img/akila/12.jpg" class="card-img-top" alt="..." />
+          <div class="col pending" style="margin: 0;padding: 0;height: 500px;">
+          
+           <c:forEach items="${userRequests}" var="obj">
+           
+            <div class="card shadow force-overflow" style="height: auto;">
+              <img src="img/userImages/${obj.userimageString }" style="height: 200px; object-fit: cover;" class="card-img-top" alt="${obj.userimageString}" />
               <div class="card-body">
-                <h5 class="card-title">Service Request</h5>
-                <p class="card-text">
-                  Some quick example text to build on the card title and make up
-                  the bulk of the card's content.
-                </p>
-
-                <div
-                  class="btn-group btn-group-sm"
-                  role="group"
-                  aria-label="Basic example"
-                >
-                  <button
-                    type="button"
-                    class="btn btn-success"
-                  >
-                    Approve
-                  </button>
-
-                  <button type="button" class="btn btn-secondary">
-                    Waitlist
-                  </button>
-                  <button type="button" class="btn btn-danger">Decline</button>
-                </div>
-
-                <div class="tab">
-                  <button type="button" class="btn btn-success">Success</button>
-                  <button type="button" class="btn btn-secondary">
-                    Secondary
-                  </button>
-                  <button type="button" class="btn btn-danger">Danger</button>
-                </div>
-              </div>
+                <h5 class="card-title">${obj.usernameString }</h5>
+                <ul class="list-group">
+				  <li class="list-group-item">Service Name : ${obj.servicenameString }</li>
+				  <li class="list-group-item">Location : ${obj.locationString }</li>
+				  <li class="list-group-item">Appointment ID : ${obj.appidString }</li>
+				  <li class="list-group-item">
+  								<div class="alert alert-warning" role="alert">
+								 Status : ${obj.statuString }
+								</div>
+					</li>
+				</ul>
+				</div>
             </div>
+           
+           
+           </c:forEach>
 
-            <div class="card shadow" >
-              <img src="img/akila/12.jpg" class="card-img-top" alt="..." />
-              <div class="card-body">
-                <h5 class="card-title">Service Request</h5>
-                <p class="card-text">
-                  Some quick example text to build on the card title and make up
-                  the bulk of the card's content.
-                </p>
-
-                <div
-                  class="btn-group btn-group-sm"
-                  role="group"
-                  aria-label="Basic example"
-                >
-                  <button
-                    type="button"
-                    class="btn btn-success"
-                  >
-                    Approve
-                  </button>
-
-                  <button type="button" class="btn btn-secondary">
-                    Waitlist
-                  </button>
-                  <button type="button" class="btn btn-danger">Decline</button>
-                </div>
-
-                <div class="tab">
-                  <button type="button" class="btn btn-success">Success</button>
-                  <button type="button" class="btn btn-secondary">
-                    Secondary
-                  </button>
-                  <button type="button" class="btn btn-danger">Danger</button>
-                </div>
-              </div>
-            </div>
-
-
-            <div class="card shadow" >
-              <img src="img/akila/big.jpg" class="card-img-top" alt="..." />
-              <div class="card-body">
-                <h5 class="card-title">Service Request</h5>
-                <p class="card-text">
-                  Some quick example text to build on the card title and make up
-                  the bulk of the card's content.
-                </p>
-
-                <div
-                  class="btn-group btn-group-sm"
-                  role="group"
-                  aria-label="Basic example"
-                >
-                  <button
-                    type="button"
-                    class="btn btn-success"
-                  >
-                    Approve
-                  </button>
-
-                  <button type="button" class="btn btn-secondary">
-                    Waitlist
-                  </button>
-                  <button type="button" class="btn btn-danger">Decline</button>
-                </div>
-
-                <div class="tab">
-                  <button type="button" class="btn btn-success">Success</button>
-                  <button type="button" class="btn btn-secondary">
-                    Secondary
-                  </button>
-                  <button type="button" class="btn btn-danger">Danger</button>
-                </div>
-              </div>
-            </div>
-
-            <div class="card shadow">
-              <img
-                src="img/akila/LinkedIn-Profile-Professional-Picture-Sample-Bernie-Borges.png"
-                class="card-img-top"
-                alt="..."
-              />
-              <div class="card-body">
-                <h5 class="card-title">Service Request</h5>
-                <p class="card-text">
-                  Some quick example text to build on the card title and make up
-                  the bulk of the card's content.
-                </p>
-
-                <div
-                  class="btn-group btn-group-sm"
-                  role="group"
-                  aria-label="Basic example"
-                >
-                  <button type="button" class="btn btn-success">Approve</button>
-                  <button type="button" class="btn btn-secondary">
-                    Waitlist
-                  </button>
-                  <button type="button" class="btn btn-danger">Decline</button>
-                </div>
-
-                <div class="tab">
-                  <button type="button" class="btn btn-success">Success</button>
-                  <button type="button" class="btn btn-secondary">
-                    Secondary
-                  </button>
-                  <button type="button" class="btn btn-danger">Danger</button>
-                </div>
-              </div>
-            </div>
-
-            <div class="card shadow">
-              <img
-                src="img/akila/profile_user.jpg"
-                class="card-img-top"
-                alt="..."
-              />
-              <div class="card-body">
-                <h5 class="card-title">Service Request</h5>
-                <p class="card-text">
-                  Some quick example text to build on the card title and make up
-                  the bulk of the card's content.
-                </p>
-
-                <div
-                  class="btn-group btn-group-sm"
-                  role="group"
-                  aria-label="Basic example"
-                >
-                  <button type="button" class="btn btn-success">Approve</button>
-                  <button type="button" class="btn btn-secondary">
-                    Waitlist
-                  </button>
-                  <button type="button" class="btn btn-danger">Decline</button>
-                </div>
-
-                <div class="tab">
-                  <button type="button" class="btn btn-success">Success</button>
-                  <button type="button" class="btn btn-secondary">
-                    Secondary
-                  </button>
-                  <button type="button" class="btn btn-danger">Danger</button>
-                </div>
-              </div>
-            </div>
           </div>
         </div>
 
         <div class="alert alert-secondary requests sales" role="alert">
           <i class="fas fa-balance-scale-right"></i
           ><span> &nbsp;&nbsp;&nbsp;</span> Sales Dashboard &nbsp;&nbsp;&nbsp;
-          <div class="filter">
-            <select id="day">
-              <option value="volvo">Today</option>
-              <option value="volvo">Yesterday</option>
-            </select>
-          </div>
         </div>
 
         <div class="row">
@@ -476,7 +211,7 @@
                 <h5 class="card-title pop">
                   <i class="fas fa-user"></i>&nbsp;&nbsp;Total Customers
                 </h5>
-                <h6 class="card-subtitle mb-2 card-text pop">100</h6>
+                <h6 class="card-subtitle mb-2 card-text pop"><c:out value="${totCustomers }"></c:out></h6>
               </div>
             </div>
 
@@ -485,7 +220,7 @@
                 <h5 class="card-title pop">
                   <i class="fas fa-dollar-sign"></i>&nbsp;&nbsp;Gross Profit
                 </h5>
-                <h6 class="card-subtitle mb-2 card-text pop">$4500</h6>
+                <h6 class="card-subtitle mb-2 card-text pop">${paid}</h6>
               </div>
             </div>
 
@@ -494,7 +229,7 @@
                 <h5 class="card-title pop">
                   <i class="fas fa-exchange-alt"></i>&nbsp;&nbsp;Total Requests
                 </h5>
-                <h6 class="card-subtitle mb-2 card-text pop">1456</h6>
+                <h6 class="card-subtitle mb-2 card-text pop">${apps}</h6>
               </div>
             </div>
           </div>
@@ -505,18 +240,8 @@
             <div class="card">
               <div class="card-body">
                 <h5 class="card-title">Customers</h5>
-                <div class="dropdown">
-                  <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Catagory
-                  </a>
-                
-                  <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                    <a class="dropdown-item" href="#">Weekly</a>
-                    <a class="dropdown-item" href="#">Monthly</a>
-                    <a class="dropdown-item" href="#">Quarterly</a>
-                  </div>
-                </div>
-                <canvas id="user"></canvas>
+
+               			<canvas id="user"></canvas>
               </div>
             </div>
           </div>
@@ -526,17 +251,6 @@
               <div class="card-body">
                 <h5 class="card-title">Gross Profit</h5>
 
-                <div class="dropdown">
-                  <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Catagory
-                  </a>
-                
-                  <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                    <a class="dropdown-item" href="#">Weekly</a>
-                    <a class="dropdown-item" href="#">Monthly</a>
-                    <a class="dropdown-item" href="#">Quarterly</a>
-                  </div>
-                </div>
 
                 <canvas id="income" style="margin: 10px;"></canvas>
               </div>
@@ -547,11 +261,7 @@
             <div class="card">
               <div class="card-body">
                 <h5 class="card-title">Total Requests</h5>
-                <div class="btn-group" role="group" aria-label="Basic example">
-                  <button type="button" class="btn btn-success">This Week</button>
-                  <button type="button" class="btn btn-warning">Last Week</button>
-                  <button type="button" class="btn btn-secondary">Last Month</button>
-                </div>
+                
                 <canvas id="req"></canvas>
               </div>
             </div>
@@ -572,44 +282,35 @@
           <div class="col col-lg-12 col-md-12 col-sm-12">
             <div class="card scrollbar" id="style-1" style="overflow-y: scroll; height: 500px;">
               <div class="card-body force-overflow">
-                <h5 class="card-title">This Week top Sales</h5>
+                <h5 class="card-title">Top Sales</h5>
                 <button type="button" class="btn btn-success">See all</button>
                 <table>
                   <tr>
-                    <th>CUSTOMER</th>
-                    <th>SERVICE</th>
-                    <th>STATUS</th>
-                    <th>TOTAL</th>
+                    <th>Payment ID</th>
+                    <th>User Name</th>
+                    <th>Amount</th>
+                    <th>Date</th>
+                     <th>Paid</th>
+                      <th>Pending</th>
+                       <th>Appointment ID</th>
                   </tr>
+                  
+                  <c:forEach items="${pay }" var="rows">
+                  
                   <tr>
-                    <td><img src="img/akila/profile_user.jpg" alt=""> <br>
-                      <br>
-                      <h5>M.L.Akila Liyanage</h5>
-                    </td>
-                   <td><h5>Service Request</h5></td>
-                   <td><i class="far fa-check-circle status" style="color: #50d890;"></i></td>
-                   <td><h5>$4500</h5></td>
+                   <td><h5>${rows.paymentidString }</h5></td>
+                   <td><h5>${rows.usernameString }</h5></td>
+                   <td><h5>${rows.amount }</h5></td>
+                   <td><h5>${rows.dateString }</h5></td>
+                   <td><h5>${rows.paid }</h5></td>
+                   <td><h5>${rows.pending }</h5></td>
+                   <td><h5>${rows.appidString }</h5></td>
                   </tr>
+                  
+                  
+                  </c:forEach>
 
-                  <tr>
-                    <td><img src="img/akila/profile_user.jpg" alt=""> <br>
-                      <br>
-                      <h5>M.L.Akila Liyanage</h5>
-                    </td>
-                   <td><h5>Service Request</h5></td>
-                   <td><i class="fas fa-exclamation-triangle status" style="color: #ffcc00;"></i></td>
-                   <td><h5>$4500</h5></td>
-                  </tr>
-
-                  <tr>
-                    <td><img src="img/akila/profile_user.jpg" alt=""> <br>
-                      <br>
-                      <h5>M.L.Akila Liyanage</h5>
-                    </td>
-                   <td><h5>Service Request</h5></td>
-                   <td><i class="fas fa-times status" style="color: red;"></i></td>
-                   <td><h5>$4500</h5></td>
-                  </tr>
+                 
 
                  
                 </table>
@@ -807,116 +508,73 @@
         </div>
 
         <div class="row">
-          <h6 class="dropdown-header timeline-head" style="font-size: 30px;text-align: center;;">Recent Activity</h6>  
+          <h6 class="dropdown-header timeline-head" style="font-size: 30px;text-align: center;;">Your Details</h6>  
           <div class="col" style="margin-top: 30px;padding: 0;">
             <div class="timeline">
               <div class="container right">
 
                 <div class="content" style="overflow-y:scroll">
 
-                  <h2 class="act-head">TODAY</h2>
-                  <div>
-                    <h6 class="dropdown-header"><span>10</span> MINS ago</h6>  
-
-                    <div class="dropdown-divider"></div>
-  
-                    <div class="act-user">
-                      <img src="img/akila/profile_user.jpg" class="act-img" alt="">
-                      &nbsp;
-                      &nbsp;
-                      <p>M.L.Akila Liyanage</p>
-                    </div>
-                  </div>
-
-                  <div>
-                    <h6 class="dropdown-header"><span>1</span> HOUR ago</h6>  
-
-                    <div class="dropdown-divider"></div>
-  
-                    <div class="act-user">
-                      <img src="img/akila/big.jpg" class="act-img" alt="">
-                      &nbsp;
-                      &nbsp;
-                      <p>Sandamali Geethika</p>
-                    </div>
-                  </div>
-
-                  <div>
-                    <h6 class="dropdown-header"><span>1</span> HOUR ago</h6>  
-
-                    <div class="dropdown-divider"></div>
-  
-                    <div class="act-user">
-                      <img src="img/akila/big.jpg" class="act-img" alt="">
-                      &nbsp;
-                      &nbsp;
-                      <p>Sandamali Geethika</p>
-                    </div>
-                  </div>
+                   <!-- Default form register -->
+                <form class="text-center border border-light p-1" action="UpdateAdminServlet" method="post">
+                
+                    <p class="h4 mb-4">Edit Your Details</p>
+                
+ 
+                    
+                    <input type="text" name="updatename" id="defaultRegisterFormFirstName" class="form-control mb-4"
+                                placeholder="Full Name">
+                   
+                   <input type="text" name="updateusername" id="defaultRegisterFormLastName" class="form-control mb-4"
+                   placeholder="User Name">
+                
+                    <!-- E-mail -->
+                    <input type="email" name="updateemail" id="defaultRegisterFormEmail" class="form-control mb-4" placeholder="E-mail">
+                
+                    <!-- Password -->
+                    <input required type="password" name="updatepass" id="defaultRegisterFormPassword" class="form-control" placeholder="Password"
+                        aria-describedby="defaultRegisterFormPasswordHelpBlock">
+                    <small id="defaultRegisterFormPasswordHelpBlock" class="form-text text-muted mb-4">
+                        At least 8 characters and 1 digit
+                    </small>
+                
+                    <!-- Phone number -->
+                    <input type="text" name="updatephone" id="defaultRegisterPhonePassword" class="form-control"
+                        placeholder="Phone number" aria-describedby="defaultRegisterFormPhoneHelpBlock">
+                    <small id="defaultRegisterFormPhoneHelpBlock" class="form-text text-muted mb-4">
+                        Optional!!
+                    </small>
+                
+                
+                    <!-- Phone number -->
+                    <input type="text" name="updatesal" class="form-control" placeholder="Salary"
+                        aria-describedby="defaultRegisterFormPhoneHelpBlock">
+                    <small id="defaultRegisterFormPhoneHelpBlock" class="form-text text-muted mb-4">
+                        Optional!!
+                    </small>
+                
+                   
+                
+                    <!-- Sign up button -->
+                    <button class="btn btn-info my-4 btn-block" type="submit">Update</button>
+                
+                
+                
+                    <hr>
+                
+                    <!-- Terms of service -->
+                    <p>By clicking
+                        <em>Sign up</em> you agree to our
+                        <a href="" target="_blank">terms of service</a>
+                
+                </form>
+                <!-- Default form register -->
                   
                 </div>
               </div>
             
-              <div class="container right">
-                <div class="content">
-                  <h2 class="act-head">YESTERDAY</h2>
 
-                 <div>
-                  <h6 class="dropdown-header"><span>10</span> MINS ago</h6>  
-
-                  <div class="dropdown-divider"></div>
-
-                  <div class="act-user">
-                    <img src="img/akila/LinkedIn-Profile-Professional-Picture-Sample-Bernie-Borges.png" class="act-img" alt="">
-                    &nbsp;
-                    &nbsp;
-                    <p>Mahen thammita</p>
-                  </div>
-                 </div>
-
-                 <div>
-                  <h6 class="dropdown-header"><span>1</span> HOUR ago</h6>  
-
-                  <div class="dropdown-divider"></div>
-
-                  <div class="act-user">
-                    <img src="img/akila/profile_user.jpg" class="act-img" alt="">
-                    &nbsp;
-                    &nbsp;
-                    <p>M.L.Akila Liyanage</p>
-                  </div> 
-                 </div>
-                  
-                </div>
-              </div>
-
-              <div class="container right">
-                <div class="content">
-                  <h2 class="act-head">DATE</h2>
-                  <h6 class="dropdown-header"><span>10</span> MINS ago</h6>  
-
-                  <div class="dropdown-divider"></div>
-
-                  <div class="act-user">
-                    <img src="img/akila/12.jpg" class="act-img" alt="">
-                    &nbsp;
-                    &nbsp;
-                    <p>Sandamali Geethika</p>
-                  </div>
-
-                  <h6 class="dropdown-header"><span>1</span> HOUR ago</h6>  
-
-                  <div class="dropdown-divider"></div>
-
-                  <div class="act-user">
-                    <img src="img/akila/profile_user.jpg" class="act-img" alt="">
-                    &nbsp;
-                    &nbsp;
-                    <p>M.L.Akila Liyanage</p>
-                  </div>
-                  
-                </div>
-              </div>
+             
             
             </div>
           </div>
@@ -1033,45 +691,49 @@
 
     <!--charts-->
     <script>
-      let user = document.getElementById("user").getContext("2d");
-
-      let lineOne = new Chart(user, {
-        type: "line",
-        data: {
-          labels: [
-            "Sunday",
-            "Monday",
-            "Tuesday",
-            "Wednsday",
-            "Thursday",
-            "Friday",
-            "Saturday"
-          ],
-          datasets: [
-            {
-              label: "Count",
-              data: [10, 30, 1, 30, 50, 70, 90],
-              backgroundColor: ["#fa163f"],
-              borderColor: "#FFFF",
-              borderWidth: "3px"
-            }
-          ]
-        },
-        options: {
-          scales: {
-        xAxes: [{
-            gridLines: {
-                color: "rgba(0, 0, 0, 0)",
-            }
-        }],
-        yAxes: [{
-            gridLines: {
-               display : true
-            }   
-        }]
+    
+  //bar
+    var ctxB = document.getElementById("user").getContext('2d');
+    var myBarChart = new Chart(ctxB, {
+    type: 'bar',
+    data: {
+    labels: ["Total Customers", "Total Appointments", "Total Payments", "Total Packages"],
+    datasets: [{
+    label: '# of Votes',
+    data: [${totCustomers}, ${apps}, ${totpay}, ${pack}],
+    backgroundColor: [
+    'rgba(255, 99, 132, 0.2)',
+    'rgba(54, 162, 235, 0.2)',
+    'rgba(255, 206, 86, 0.2)',
+    'rgba(75, 192, 192, 0.2)',
+    'rgba(153, 102, 255, 0.2)',
+    'rgba(255, 159, 64, 0.2)'
+    ],
+    borderColor: [
+    'rgba(255,99,132,1)',
+    'rgba(54, 162, 235, 1)',
+    'rgba(255, 206, 86, 1)',
+    'rgba(75, 192, 192, 1)',
+    'rgba(153, 102, 255, 1)',
+    'rgba(255, 159, 64, 1)'
+    ],
+    borderWidth: 1
+    }]
+    },
+    options: {
+    scales: {
+    yAxes: [{
+    ticks: {
+    beginAtZero: true
     }
-        }
-      });
+    }]
+    }
+    }
+    });
+    
+    
+    
+    
 
       let imcome = document.getElementById("income").getContext("2d");
 
@@ -1079,26 +741,17 @@
         type: "doughnut",
         data: {
           labels: [
-            "Sunday",
-            "Monday",
-            "Tuesday",
-            "Wednsday",
-            "Thursday",
-            "Friday",
-            "Saturday"
+            "Paid",
+            "Pending"
           ],
           datasets: [
             {
               label: "Count",
-              data: [10, 30, 1, 30, 50, 70, 90],
+              data: [${paid},${pending}],
               backgroundColor: [
-                "#fa163f",
-                "#f0134d",
-                "#40bfc1",
-                "#1b262c",
-                "#52de97",
-                "#3e206d",
-                "#12cad6"
+                "green",
+                "red"
+               
               ],
               //borderColor : '#FFFF',
               borderWidth: "3px"
@@ -1127,18 +780,21 @@ let bar = new Chart(req, {
   type: "bar",
   data: {
     labels: [
-      "Sunday",
-      "Monday",
-      "Tuesday",
-      "Wednsday",
-      "Thursday",
-      "Friday",
-      "Saturday"
+    	
+    	<c:forEach items="${req}" var="item">
+    		"${item.dateString}",
+    	</c:forEach>
+    	
     ],
     datasets: [
       {
         label: "Count",
-        data: [10, 30, 1, 30, 50, 70, 90],
+        data: [
+        	
+        	<c:forEach items="${req}" var="item">
+    			${item.count},
+    		</c:forEach>
+		],
         backgroundColor: [
           "#fa163f",
           "#f0134d",

@@ -123,6 +123,51 @@
 		<url-pattern>/UploadPhotoServlet</url-pattern>
 	</servlet-mapping>
 	
+	<servlet>
+		<servlet-name>NewAdminServlet</servlet-name>
+		<servlet-class>com.oop.servlet.NewAdminServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>NewAdminServlet</servlet-name>
+		<url-pattern>/NewAdminServlet</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>AdminLoginServlet</servlet-name>
+		<servlet-class>com.oop.servlet.AdminLoginServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>AdminLoginServlet</servlet-name>
+		<url-pattern>/AdminLoginServlet</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>UpdateAdminServlet</servlet-name>
+		<servlet-class>com.oop.servlet.UpdateAdminServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>UpdateAdminServlet</servlet-name>
+		<url-pattern>/UpdateAdminServlet</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>NewMechServlet</servlet-name>
+		<servlet-class>com.oop.servlet.NewMechServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>NewMechServlet</servlet-name>
+		<url-pattern>/NewMechServlet</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>UpdateMechServlet</servlet-name>
+		<servlet-class>com.oop.servlet.UpdateMechServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>UpdateMechServlet</servlet-name>
+		<url-pattern>/UpdateMechServlet</url-pattern>
+	</servlet-mapping>
+	
 
 	
 	

@@ -65,7 +65,8 @@ li a:hover:not (.active ) {
 			<div class="alert alert-info">
 				Create your new service packages here
 				<button class="btn btn-sm btn-primary pull-right"
-					data-toggle="modal" data-target="#add_member">
+					ng-click="clearImage()" data-toggle="modal"
+					data-target="#add_member">
 					<span class="glyphicon glyphicon-plus"> </span>
 				</button>
 			</div>
@@ -108,7 +109,7 @@ li a:hover:not (.active ) {
 		aria-labelledby="myModalLabel">
 		<div class="modal-dialog" role="document">
 			<div class="modal-content">
-				<form>
+				<form id="addPack" enctype="multipart/form-data">
 					<div class="modal-header">
 						<button type="button" class="close" data-dismiss="modal"
 							aria-label="Close">
@@ -120,29 +121,41 @@ li a:hover:not (.active ) {
 					<div class="modal-body">
 						<div class="form-group">
 							<label>Package ID</label> <input type="text" class="form-control"
-								ng-model="newMember.packId" />
+								ng-model="newMember.packId" required/>
 						</div>
 						<div class="form-group">
 							<label>Package Name</label> <input type="text" class="form-control"
-								ng-model="newMember.packName" />
+								ng-model="newMember.packName" required/>
 						</div>
 						<div class="form-group">
 							<label>Admin Reg No</label> <input type="text" class="form-control"
-								ng-model="newMember.adminRegNo" />
+								ng-model="newMember.adminRegNo" required/>
 						</div>
 						<div class="form-group">
 							<label>Package Type</label> <input type="text" class="form-control"
-								ng-model="newMember.packType" />
+								ng-model="newMember.packType" required/>
 						</div>
 						<div class="form-group">
 							<label>Package Price</label> <input type="text" class="form-control"
-								ng-model="newMember.price" />
+								ng-model="newMember.price" required/>
 						</div>
 						<div class="form-group">
 							<label>Package Description</label> <input type="text" class="form-control"
-								ng-model="newMember.packDescription" />
+								ng-model="newMember.packDescription" required/>
 						</div>
-
+						<div class="row form-group">
+							<div class="col-md-9">
+								<label>Package Image</label> <input type="file" name="packImage"
+									accept="image/jpg" class="form-control"
+									onchange="angular.element(this).scope().SelectFile(event)"
+									ng-model="newMember.packImage" required/>
+							</div>
+							<div class="col-md-3">
+								<img id="pimg" ng-src="{{PreviewImage}}"
+									ng-show="PreviewImage != null" alt=""
+									style="height: 100px; width: 120px" />
+							</div>
+						</div>
 					</div>
 					<div class="modal-footer">
 						<button class="btn btn-primary" ng-click="saveMember()"
@@ -193,6 +206,18 @@ li a:hover:not (.active ) {
 							<label>Package Description</label> <input type="text" class="form-control"
 								ng-model="selectedMember.packDescription" />
 						</div>
+						<div class="row form-group">
+							<div class="col-md-9">
+								<label>Package Image</label> <input id="fileChooser" type="file" name="packImage"
+									accept="image/jpg" class="form-control"
+									onchange="angular.element(this).scope().SelectFile(event)"
+									ng-model="selectedMember.packImage" />
+							</div>
+							<div class="col-md-3">
+								<img ng-src="{{PreviewImage}}" ng-show="PreviewImage != null"
+									alt="" style="height: 100px; width: 120px" />
+							</div>
+						</div>
 
 					</div>
 					<div class="modal-footer">
@@ -229,6 +254,5 @@ li a:hover:not (.active ) {
 			</div>
 		</div>
 	</div>
-
 </body>
 </html>

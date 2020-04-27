@@ -59,7 +59,6 @@ public class PackageManagerServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException {
 		String packageData = request.getParameter("package_info");
 		String method = request.getParameter("method");
-		System.out.println(packageData);
 		
 		try {
 			ServicePackage servicePackage = (ServicePackage) new ObjectMapper().readValue(packageData,ServicePackage.class);
