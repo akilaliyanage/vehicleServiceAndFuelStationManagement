@@ -31,13 +31,12 @@ public class SelectPackServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		String selectedPack = request.getParameter("PackgeNo");
-		System.out.println(selectedPack);
+		String selectedPack = request.getParameter("SelectedPackgeNo");
 		
-		IAppointmentDAO appointment = new AppointmentDAOImpl();
+		Cookie packId = new Cookie("packId", selectedPack);
 		
-		Cookie packCooke = new Cookie("SelectedPack", selectedPack);
-		Cookie packPricwCookie = new Cookie("PackPrice", Double.toString(appointment.getPackagePrice(selectedPack)));
+		response.addCookie(packId);
+		
 		response.setStatus(HttpServletResponse.SC_NO_CONTENT);
 		
 	}

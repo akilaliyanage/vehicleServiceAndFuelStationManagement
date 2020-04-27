@@ -12,7 +12,9 @@ import java.util.List;
 
 import com.mysql.cj.protocol.Resultset;
 import com.oop.database.DatabaseConnection;
+import com.oop.model.DashboardPaymentsDAO;
 import com.oop.model.DashboardRequestModel;
+import com.oop.model.RequestModel;
 
 /**
  * @author mlaki
@@ -89,6 +91,207 @@ public class UpdateDashboardImplDAO implements IUpdateDashboardDAO {
 			System.out.println(tot);
 			
 			return tot;
+		}
+
+
+
+		@Override
+		public int paidAmm() {
+			int paid = 0;
+			
+			try {
+				
+				connection = DatabaseConnection.getConnection();
+				pStatement = connection.prepareStatement("SELECT sum(paid) as 'paid' FROM vehicleserviceandfuelstationmanagement.payments");
+				ResultSet rSet = pStatement.executeQuery();
+				
+				while(rSet.next()) {
+					paid = rSet.getInt("paid");
+					System.out.println(paid);
+				}
+				
+			} catch (Exception e) {
+				// TODO: handle exception
+			}
+			
+			
+			return paid;
+		}
+
+
+
+		@Override
+		public int pendingAmm() {
+			
+			int pending = 0;
+			
+			try {
+				
+				connection = DatabaseConnection.getConnection();
+				pStatement = connection.prepareStatement("SELECT sum(pending) as 'paid' FROM vehicleserviceandfuelstationmanagement.payments");
+				ResultSet rSet = pStatement.executeQuery();
+				
+				while(rSet.next()) {
+					pending = rSet.getInt("paid");
+					System.out.println(pending);
+				}
+				
+			} catch (Exception e) {
+				// TODO: handle exception
+			}
+			
+			
+			return pending;
+			
+		}
+
+
+
+
+		@Override
+		public int totApps() {
+			
+			
+			int totApps = 0;
+			
+			try {
+				
+				connection = DatabaseConnection.getConnection();
+				pStatement = connection.prepareStatement("SELECT count(*) as 'tot' FROM vehicleserviceandfuelstationmanagement.appointment;");
+				ResultSet rSet = pStatement.executeQuery();
+				
+				while(rSet.next()) {
+					totApps = rSet.getInt("tot");
+					System.out.println(totApps);
+				}
+				
+			} catch (Exception e) {
+				// TODO: handle exception
+			}
+			
+			
+			return totApps;
+			
+		}
+
+
+
+		@Override
+		public int totPay() {
+	
+			int totpay = 0;
+			
+			try {
+				
+				connection = DatabaseConnection.getConnection();
+				pStatement = connection.prepareStatement("SELECT count(*) as 'tot' FROM vehicleserviceandfuelstationmanagement.payments;");
+				ResultSet rSet = pStatement.executeQuery();
+				
+				while(rSet.next()) {
+					totpay = rSet.getInt("tot");
+					System.out.println(totpay);
+				}
+				
+			} catch (Exception e) {
+				// TODO: handle exception
+			}
+			
+			
+			return totpay;
+			
+		}
+
+
+
+		@Override
+		public int totPack() {
+			
+			
+			int totPack = 0;
+			
+			try {
+				
+				connection = DatabaseConnection.getConnection();
+				pStatement = connection.prepareStatement("SELECT count(*) as 'tot' FROM vehicleserviceandfuelstationmanagement.package;");
+				ResultSet rSet = pStatement.executeQuery();
+				
+				while(rSet.next()) {
+					totPack = rSet.getInt("tot");
+					System.out.println(totPack);
+				}
+				
+			} catch (Exception e) {
+				// TODO: handle exception
+			}
+			
+			
+			return totPack;
+			
+		}
+
+
+
+		@Override
+		public ArrayList<RequestModel> req() {
+			
+			ArrayList<RequestModel> requestModels = new ArrayList<RequestModel>();
+			
+			try {
+				
+				connection = DatabaseConnection.getConnection();
+				pStatement = connection.prepareStatement("SELECT count(*) as 'tot', prefDate  FROM vehicleserviceandfuelstationmanagement.appointment group by prefDate");
+				ResultSet rSet = pStatement.executeQuery();
+				
+				while(rSet.next()) {
+					
+					RequestModel obj = new RequestModel();
+					obj.setCount(rSet.getInt("tot"));
+					obj.setDateString(rSet.getString("prefDate"));
+					
+					requestModels.add(obj);
+				}
+				
+			} catch (Exception e) {
+				// TODO: handle exception
+			}
+			// TODO Auto-generated method stub
+			return requestModels;
+		}
+
+
+
+		@Override
+		public ArrayList<DashboardPaymentsDAO> pay() {
+			
+			ArrayList<DashboardPaymentsDAO> paymentsDAOs = new ArrayList<DashboardPaymentsDAO>();
+			
+			try {
+				
+				connection = DatabaseConnection.getConnection();
+				pStatement = connection.prepareStatement("SELECT p.paymentId, u.userFullName, p.amount,p.paymentDateTime,p.paid, p.pending, p.appId FROM payments p, User u, registeredcustomer r where r.customerRegId = u.regNo and p.userRegNo = r.customerRegId;");
+				ResultSet resultSet = pStatement.executeQuery();
+				
+				while(resultSet.next()) {
+					
+					DashboardPaymentsDAO paymentsDAO = new DashboardPaymentsDAO();
+					paymentsDAO.setPaymentidString(resultSet.getString("paymentId"));
+					paymentsDAO.setUsernameString(resultSet.getString("userFullName"));
+					paymentsDAO.setAmount(resultSet.getFloat("amount"));
+					paymentsDAO.setDateString(resultSet.getString("paymentDateTime"));
+					paymentsDAO.setPaid(resultSet.getFloat("paid"));
+					paymentsDAO.setPending(resultSet.getFloat("pending"));
+					paymentsDAO.setAppidString(resultSet.getString("appId"));
+					
+					paymentsDAOs.add(paymentsDAO);
+					
+				}
+				
+				
+			} catch (Exception e) {
+				// TODO: handle exception
+			}
+			
+			return paymentsDAOs;
 		}
 
 }

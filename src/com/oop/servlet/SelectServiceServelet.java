@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.oop.DAO.AppointmentDAOImpl;
+import com.oop.model.VehicalServices;
 
 
 
@@ -35,18 +36,17 @@ public class SelectServiceServelet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		String selectedService = request.getParameter("ServiceID");
-		System.out.println(selectedService);
 		
-		IServiceAccess service = new ServiceAccessImpl();
+		//IServiceAccess service = new ServiceAccessImpl();
+		//VehicalServices vehicleService = service.getServiceDetailServices(selectedService);
 		
-		/*IAppointmentDAO appointment = new AppointmentDAOImpl();*/
 		
-		/*Generate a cookies to further use CreateAppointmentServlet*/
-		/*Cookie serviceCookie = new Cookie("Service", selectedService);
-		Cookie servicePrice = new Cookie("servicePrice", Double.toString(appointment.getServicePrice(selectedService)));
+		Cookie serviceCookie = new Cookie("Service", selectedService);
+		
 		response.addCookie(serviceCookie);
-		response.addCookie(servicePrice);
-		response.setStatus(HttpServletResponse.SC_NO_CONTENT);*/
+		
+		
+		response.setStatus(HttpServletResponse.SC_NO_CONTENT);
 	}
 
 	/**
