@@ -9,11 +9,18 @@
 }
 
 .div2{
-    background: url(../../img/sandamali/dark-sky.jpg)repeat;
-    -webkit-background-size: contain;
-    -moz-background-size: contain;
-    -o-background-size: contain;
-    background-size: contain;
+    background: url(../../img/sandamali/road2.jpg)no-repeat;
+    background-size: cover;
+}
+
+.div3{
+    background: url(../../img/sandamali/road1.jpg)no-repeat;
+    background-size: cover;
+}
+
+.div4{
+    background: url(../../img/sandamali/horizon.jpg)no-repeat;
+    background-size: cover;
 }
 
 .transbox {

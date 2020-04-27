@@ -66,7 +66,7 @@ li a:hover:not (.active ) {
 				Create your new service packages here
 				<button class="btn btn-sm btn-primary pull-right"
 					ng-click="clearImage()" data-toggle="modal"
-					data-target="#add_member">
+					data-target="#add_member">Add New
 					<span class="glyphicon glyphicon-plus"> </span>
 				</button>
 			</div>

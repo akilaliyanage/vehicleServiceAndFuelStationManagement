@@ -12,6 +12,9 @@
 <link rel="stylesheet" href="css/sandamali/swiper.min.css">
 <link rel="stylesheet"
 	href="https://fonts.googleapis.com/css?family=Lobster">
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
 <script src="js/sandamali/jquery.min.js"></script>
 <script
 	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
@@ -19,6 +22,18 @@
 <style>
 body {
 	position: relative;
+}
+
+footer p {
+	color: white;
+}
+
+footer h6 {
+	color: white;
+}
+
+footer a {
+	color: white;
 }
 </style>
 </head>
@@ -119,7 +134,7 @@ body {
 
 	</div>
 
-	<div id="section3" class="container-fluid bg-secondary"
+	<div id="section3" class="container-fluid div3"
 		style="padding-top: 60px; padding-bottom: 60px">
 		<h1>About Our Packages</h1>
 		<div class="container">
@@ -172,12 +187,146 @@ body {
 
 	</div>
 
-	<div id="section4" class="container-fluid bg-info"
+	<div id="section4" class="container-fluid div4"
 		style="padding-top: 60px; padding-bottom: 60px">
 		<h1>Explore More Our Packages</h1>
-		
+
 
 	</div>
+	<!-- Footer -->
+	<footer class="page-footer font-small bg-dark">
+
+	<div style="background-color: #6351ce;">
+		<div class="container">
+
+			<!-- Grid row-->
+			<div class="row py-4 d-flex align-items-center">
+
+				<!-- Grid column -->
+				<div class="col-md-6 col-lg-5 text-center text-md-left mb-4 mb-md-0">
+					<h6 class="mb-0">Get connected with us on social networks!</h6>
+				</div>
+				<!-- Grid column -->
+
+				<!-- Grid column -->
+				<div class="col-md-6 col-lg-7 text-center text-md-right">
+
+					<!-- Facebook -->
+					<a class="fb-ic"> <i class="fa fa-facebook-f white-text mr-4">
+					</i>
+					</a>
+					<!-- Twitter -->
+					<a class="tw-ic"> <i class="fa fa-twitter white-text mr-4">
+					</i>
+					</a>
+					<!-- Google +-->
+					<a class="gplus-ic"> <i
+						class="fa fa-google-plus white-text mr-4"> </i>
+					</a>
+					<!--Linkedin -->
+					<a class="li-ic"> <i class="fa fa-linkedin white-text mr-4">
+					</i>
+					</a>
+					<!--Instagram-->
+					<a class="ins-ic"> <i class="fa fa-instagram white-text"> </i>
+					</a>
+
+				</div>
+				<!-- Grid column -->
+
+			</div>
+			<!-- Grid row-->
+
+		</div>
+	</div>
+
+	<!-- Footer Links -->
+	<div class="container text-center text-md-left mt-5">
+
+		<!-- Grid row -->
+		<div class="row mt-3">
+
+			<!-- Grid column -->
+			<div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+
+				<!-- Content -->
+				<h6 class="text-uppercase font-weight-bold">Company name</h6>
+				<hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto"
+					style="width: 60px;">
+				<p align="justify">Regular maintenance service is a key
+					component to keeping your vehicle running and reliable. So we have
+					put together service packages that give you the mechanic work you
+					need all bundled up to save you money. Making sure your car is
+					services will save you money in the long run, but take advantage of
+					savings sooner.</p>
+
+			</div>
+			<!-- Grid column -->
+
+			<!-- Grid column -->
+			<div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+
+				<!-- Links -->
+				<h6 class="text-uppercase font-weight-bold">Products</h6>
+				<hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto"
+					style="width: 60px;">
+				<p>
+					<a href="#!">Packages</a>
+				</p>
+				<p>
+					<a href="#!">Services</a>
+				</p>
+				<p>
+					<a href="#!">Petrolium</a>
+				</p>
+				<p>
+					<a href="#!">Maintenance</a>
+				</p>
+
+			</div>
+			<!-- Grid column -->
+
+
+			<!-- Grid column -->
+			<div class="col-md-3 mb-md-0 mb-4">
+
+				<!-- Links -->
+				<h6 class="text-uppercase font-weight-bold">Contact</h6>
+				<hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto"
+					style="width: 60px;">
+				<p>
+					<i class="fa fa-home mr-3"></i>10012, New Kandy Road, Malabe
+				</p>
+				<p>
+					<i class="fa fa-envelope mr-3"></i> info@sliit.com
+				</p>
+				<p>
+					<i class="fa fa-phone mr-3"></i> + 01 234 567 88
+				</p>
+				<p>
+					<i class="fa fa-print mr-3"></i> + 01 234 567 89
+				</p>
+
+			</div>
+			<!-- Grid column -->
+
+			<!-- Grid column -->
+			<div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-4">
+				<img alt="" src="./img/sandamali/service.gif" style="width: 120%;border-radius: 50px;">
+
+			</div>
+			<!-- Grid column -->
+
+		</div>
+		<!-- Grid row -->
+
+	</div>
+	<!-- Footer Links --> <!-- Copyright -->
+	<div style="color: white" class="footer-copyright text-center py-3">
+		© 2020 Copyright: <a href="https://mdbootstrap.com/"> www.SLIIT.lk</a>
+	</div>
+	<!-- Copyright --> </footer>
+	<!-- Footer -->
 
 
 	<script src="js/sandamali/packages.js"></script>
