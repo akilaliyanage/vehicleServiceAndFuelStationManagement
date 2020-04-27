@@ -33,10 +33,10 @@ public class getDateServlet extends HttpServlet {
 		System.out.println(AppDate);
 		System.out.println(AppTime);
 		
-		Cookie prefDateCookie = new Cookie("PrefDate", AppDate);
+		Cookie prefDayCookie = new Cookie("PrefDay", AppDate);
 		Cookie prefTimeCookie = new Cookie("PrefTime", AppTime);
 		
-		response.addCookie(prefDateCookie);
+		response.addCookie(prefDayCookie);
 		response.addCookie(prefTimeCookie);
 		response.setStatus(HttpServletResponse.SC_NO_CONTENT);
 	}
