@@ -47,7 +47,7 @@ li a:hover:not (.active ) {
 <body ng-app="myModule" ng-controller="myController">
 
 <ul>
-  <li><a href="dashboard.jsp">Home</a></li>
+  <li><a href="UpdateDashboardServlet">Home</a></li>
   <li><a href="#news">News</a></li>
   <li><a href="#contact">Contact</a></li>
   <li style="float:right"><a class="active" href="#about">About</a></li>
