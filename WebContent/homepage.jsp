@@ -56,7 +56,7 @@
                         <a class="nav-link" href="UpdateUserDashboard">My profile</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="userProfile.jsp">Make payment</a>
+                        <a class="nav-link" href="UpdatePaymentServlet">Make payment</a>
                     </li>
                     <li class="nav-item">
                         <form action="LogoutServlet">
