@@ -3,11 +3,13 @@ package com.oop.servlet;
 import java.io.IOException;
 import java.util.ArrayList;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.oop.DAO.UpdateMechDAO;
 import com.oop.model.NewMechModel;
@@ -31,18 +33,25 @@ public class UpdateMechServlet extends HttpServlet {
 		
 		UpdateMechDAO mechDAO = new UpdateMechDAO();
 		
-		ArrayList<String> mech = new ArrayList<String>();
+		NewMechModel newMechModel = null;
 		
 		try {
 			
-			mech = mechDAO.updateMech(unameString, passString);
-			request.setAttribute("mech", mech);
+			newMechModel = mechDAO.updateMech(unameString, passString);
+			request.setAttribute("mech", newMechModel);
+			//response.sendRedirect("updateMech.jsp");
+			RequestDispatcher requestDispatcher = request.getRequestDispatcher("updateMech.jsp");
+			requestDispatcher.forward(request, response);
+			HttpSession session = request.getSession();
+			session.setAttribute("regno", newMechModel.getUserregNoString());
 			
-			response.sendRedirect("updateMech.jsp");
-			
+			System.out.println(newMechModel.getEmailString());
 		} catch (Exception e) {
 			// TODO: handle exception
+			e.printStackTrace();
 		}
+		
+
 		
 		
 	}

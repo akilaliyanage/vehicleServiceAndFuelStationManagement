@@ -80,6 +80,7 @@ public class NewMechModel extends NewUserModel {
 	public float getEx() {
 		return ex;
 	}
+	
 	/**
 	 * @param ex the ex to set
 	 */
@@ -97,6 +98,14 @@ public class NewMechModel extends NewUserModel {
 	 */
 	public void setWh(float wh) {
 		this.wh = wh;
+	}
+	
+	@Override
+	public String toString() {
+		return "NewMechModel [fullnameString=" + fullnameString + ", genderString=" + genderString + ", phoneString="
+				+ phoneString + ", sal=" + sal + ", specString=" + specString + ", ex=" + ex + ", wh=" + wh
+				+ ", usernameString=" + usernameString + ", emailString=" + emailString + ", passwordString="
+				+ passwordString + ", userregNoString=" + userregNoString + "]";
 	}
 	
 

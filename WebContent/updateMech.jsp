@@ -20,41 +20,42 @@
     <title>Document</title>
 </head>
 <body>
+
+	<% NewMechModel mech = (NewMechModel)request.getAttribute("mech"); %>
     
-    <% ArrayList<String> model = (ArrayList)request.getAttribute("mech");
-    	
-    %>
     
     <nav class="navbar navbar-dark primary-color">
-        <form class="form-inline my-2 mx-2 my-lg-0 ml-auto" method="POST" id="mech" action="UpdateMechServlet">
-            <input class="form-control mx-2" type="text" placeholder="Username" aria-label="Search">
-            <input class="form-control" type="text" placeholder="Password" aria-label="Search">
-            <button class="btn btn-outline-white btn-md my-2 my-sm-0 ml-3" data-toggle="modal" data-target="#basicExampleModal" type="submit">Update</button>
-        </form>
+       	<ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="index.jsp">Login Page
+        </a>
+      </li>
+    
+    </ul>
     </nav>
 
     <div class="row main">
         <div class="col-lg-6 left">
-            <img src="img/shalini/mech.gif" alt="">
+            <img src="img/shalini/mech2.gif" alt="">
         </div>
 
         <div class="col-lg-6 right">
 
             
 
-        <form class="text-center p-4" action="NewMechServlet"  method="post" style="background-color: white; height: 100vh;">
+        <form class="text-center p-4" action="SaveMechDetailsServlet"  method="post" style="background-color: white; height: 100vh;">
             <h1>Welcome to <strong>CarCare</strong> Systems!</h1>
-            <p class="h4 mb-4">Mechanic Sign Up</p>
+            <p class="h4 mb-4">Update your details</p>
         
             <div class="form-row mb-4">
                 <div class="col">
                     <!-- First name -->
-                    <input type="text" name="mechusername" value="<% out.println(model.get(0)); %>" id="defaultRegisterFormFirstName" class="form-control"
+                    <input type="text" name="mechusername" value=<%=mech.getUsernameString() %> id="defaultRegisterFormFirstName" class="form-control"
                         placeholder="Username">
                 </div>
                 <div class="col">
                     <!-- Last name -->
-                    <input type="password" name="mechpass" id="defaultRegisterFormLastName" class="form-control"
+                    <input type="password" name="mechpass" value="${mech.passwordString }" id="defaultRegisterFormLastName" class="form-control"
                         placeholder="Password">
                 </div>
             </div>
@@ -62,12 +63,12 @@
             <div class="form-row mb-4">
                 <div class="col">
                     <!-- First name -->
-                    <input type="text" name="mechful" id="defaultRegisterFormFirstName" class="form-control"
+                    <input type="text" name="mechful" value="${mech.fullnameString }"  id="defaultRegisterFormFirstName" class="form-control"
                         placeholder="Full Name">
                 </div>
                 <div class="col">
                     <!-- Last name -->
-                    <input type="text" name="mechemail" id="defaultRegisterFormLastName" class="form-control"
+                    <input type="text" name="mechemail" value="${mech.emailString }"  id="defaultRegisterFormLastName" class="form-control"
                         placeholder="Email">
                 </div>
             </div>
@@ -75,12 +76,12 @@
             <div class="form-row mb-4">
                 <div class="col">
                     <!-- First name -->
-                    <input type="text" name="mechsal" id="defaultRegisterFormFirstName" class="form-control"
+                    <input type="text" name="mechsal" value="${mech.sal }" id="defaultRegisterFormFirstName" class="form-control"
                         placeholder="Salary">
                 </div>
                 <div class="col">
                     <!-- Last name -->
-                    <input type="text" name="mechspe" id="defaultRegisterFormLastName" class="form-control"
+                    <input type="text" name="mechspe" value="${mech.specString }" id="defaultRegisterFormLastName" class="form-control"
                         placeholder="Speciality">
                 </div>
             </div>
@@ -88,12 +89,12 @@
             <div class="form-row mb-4">
                 <div class="col">
                     <!-- First name -->
-                    <input type="text" name="mechex" id="defaultRegisterFormFirstName" class="form-control"
+                    <input type="text" name="mechex" value="${mech.ex }" id="defaultRegisterFormFirstName" class="form-control"
                         placeholder="Experience">
                 </div>
                 <div class="col">
                     <!-- Last name -->
-                    <input type="text" name="mechwork" id="defaultRegisterFormLastName" class="form-control"
+                    <input type="text" name="mechwork" value="${mech.wh }" id="defaultRegisterFormLastName" class="form-control"
                         placeholder="Working Hours">
                 </div>
             </div>
@@ -101,15 +102,15 @@
             
         
             <!-- Phone number -->
-            <input type="text" name="mechphone" id="defaultRegisterPhonePassword" class="form-control"
+            <input type="text" name="mechphone" id="defaultRegisterPhonePassword" value="${mech.phoneString }" class="form-control"
                 placeholder="Phone number" aria-describedby="defaultRegisterFormPhoneHelpBlock">
             
 
     
             
         
-            <select class="browser-default custom-select form-control my-4" name="mechgender">
-                <option selected>Gender</option>
+            <select class="browser-default custom-select form-control my-4"  name="mechgender">
+                <option selected>${mech.genderString }</option>
                 <option value="male">male</option>
                 <option value="female">female</option>
             </select>
@@ -119,7 +120,7 @@
             
         
             <!-- Sign up button -->
-            <button class="btn btn-info my-4 btn-block" type="submit">Sign in</button>
+            <button class="btn btn-info my-4 btn-block" type="submit">Update Info</button>
         
         
         

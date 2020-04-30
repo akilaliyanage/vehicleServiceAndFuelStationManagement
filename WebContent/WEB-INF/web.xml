@@ -168,6 +168,24 @@
 		<url-pattern>/UpdateMechServlet</url-pattern>
 	</servlet-mapping>
 	
+	<servlet>
+		<servlet-name>SaveMechDetailsServlet</servlet-name>
+		<servlet-class>com.oop.servlet.SaveMechDetailsServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>SaveMechDetailsServlet</servlet-name>
+		<url-pattern>/SaveMechDetailsServlet</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>UpdatePaymentServlet</servlet-name>
+		<servlet-class>com.oop.servlet.UpdatePaymentServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>UpdatePaymentServlet</servlet-name>
+		<url-pattern>/UpdatePaymentServlet</url-pattern>
+	</servlet-mapping>
+	
 
 	
 	

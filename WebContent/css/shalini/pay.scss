@@ -1,0 +1,230 @@
+/*----------  libraries ---------- */
+
+@import "compass";
+@import "compass/reset";
+
+/*----------  style ----------*/
+
+@import url(https://fonts.googleapis.com/css?family=Montserrat:400,700);
+@import url(https://fonts.googleapis.com/css?family=Work+Sans);
+$white: #fff;
+$black: #000;
+$grey: #d9d9d9;
+$dark: #263238;
+$bg: #b3e5fc;
+$blue: #00b0ff;
+
+@mixin placeholder {
+	&::-webkit-input-placeholder {@content;}
+	&:-moz-placeholder {@content;}
+	&::-moz-placeholder {@content;}
+	&:-ms-input-placeholder {@content;}
+}
+
+* {@include box-sizing(border-box); -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; text-rendering: optimizeLegibility;}
+
+body {
+	background-color: $bg;
+}
+
+.wrapper {
+	width: 611px;
+	height: 400px;
+	margin: 80px auto 0;
+	.container {
+		float: right;
+		width: 600px;
+		height: 400px;
+		background-color: $white;
+		@include border-radius(10px);
+		.part {
+			float: left;
+			height: 100%;
+			&.card-details {
+				padding: 48px 40px 0;
+				width: 60%;
+				h1 {
+					background-color: $blue;
+					color: white;
+					font-family: 'Montserrat', sans-serif;
+					font-size: 12px;
+					text-transform: uppercase;
+					padding: 14px 0 10px 49px;
+					letter-spacing: 1px;
+					margin-left: -52px;
+					width: 330px;
+				}
+			}
+			&.bg {
+				width: 40%;
+				background-image: url("https://s13.postimg.org/d8emjhccn/image.jpg");
+        		background-size: 121%;
+        		background-repeat: no-repeat;
+				overflow: hidden;
+				@include border-right-radius(10px);
+			}
+		}
+		form {
+			font-family: 'Work Sans', sans-serif;
+			.group {
+				display: block;
+				width: 100%;
+				float: left;
+				position: relative;
+				margin-bottom: 25px;
+				label {
+					font-size: 12px;
+					float: left;
+					width: 100%;
+					display: block;
+					margin-bottom: 5px;
+				}
+				input {
+					float: left;
+                    width: 100%;
+                    height: 30px;
+					font-size: 18px;
+					font-family: 'Work Sans', sans-serif;
+					border: 0;
+					color: $dark;
+                    border-bottom: 1px solid $grey;
+					@include placeholder {
+						font-family: 'Work Sans', sans-serif;
+						font-size: 14px;
+						line-height: 20px;
+						vertical-align: middle;
+						color: $grey;
+						text-align: left;
+					}
+					&:focus {
+						outline: none;
+                        border-bottom-color: $blue;
+						@include placeholder {
+							color: transparent;
+						}
+					}
+				}
+			}
+			.card-number {
+                border-bottom: 1px solid $grey;
+				&:first-of-type {
+					margin-top: 32px;
+				}
+				input {
+					width: 43px;
+                    border-bottom: 0;
+				}
+                &.focused {
+                    border-bottom-color: $blue;
+                }
+			}
+			.card-expiry {
+				border-bottom: 0;
+				.input-item {
+					float: left;
+					&.expiry {
+						width: 200px;
+						input:last-of-type {
+							margin-left: 30px;
+						}
+					}
+					&.csv {
+						width: 80px;
+						position: relative;
+						a {
+							display: block;
+							position: absolute;
+							top: 0;
+							right: 0;
+							font-size: 12px;
+							text-decoration: none;
+							color: $blue;
+                            &:hover {
+                                color: $dark;
+                            }
+						}
+					}
+					label {
+						width: 100%;
+					}
+					input {
+						border-bottom: 1px solid $grey;
+						padding-bottom: 8px;
+						&.month {
+							width: 60px;
+						}
+						&.year {
+							width: 79px;
+						}
+						&.csv {
+							width: 79px;
+						}
+						&:focus {
+							border-bottom: 1px solid $blue;
+						}
+					}
+				}
+			}
+			.submit-group {
+				width: 100%;
+				float: left;
+				position: relative;
+			}
+			.submit {
+				text-transform: uppercase;
+				position: relative;
+				border: none;
+				background-color: transparent;
+				font-size: 12px;
+				line-height: 21px;
+    			letter-spacing: 1.4px;
+				text-align: left;
+				color: $dark;
+				margin-left: 24px;
+                cursor: pointer;
+                &:hover {
+                    text-decoration: underline;
+                }
+				&:focus {
+					outline: none;
+				}
+			}
+			.arrow {
+				position: absolute;
+				top: -2px;
+				left: -1px;
+				&:before {
+					content: '';
+					width: 15px;
+					height: 15px;
+					background-image: url('https://s21.postimg.org/lgxvam5df/arrow.png');
+					position: absolute;
+					top: 4px;
+					left: 0;
+                    @include transition(all 0.3s);
+				}
+                &.rotate {
+                    &:before {
+                        @include transform(rotate(360deg));
+                    }
+                }
+			}
+		}
+	}
+}
+.credits {
+    display: block;
+    font-family: 'Work Sans', sans-serif;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    color: $dark;
+    font-size: 12px;
+    margin: 0 10px 10px 0;
+    a {
+        @include opacity(0.8);
+        color: inherit;
+        font-weight: 700;
+        text-decoration: none;
+    }
+}

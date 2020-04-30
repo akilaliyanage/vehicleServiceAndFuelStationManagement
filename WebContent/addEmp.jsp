@@ -23,8 +23,8 @@
     
     <nav class="navbar navbar-dark primary-color">
         <form class="form-inline my-2 mx-2 my-lg-0 ml-auto" method="POST" id="mech" action="UpdateMechServlet">
-            <input class="form-control mx-2" type="text" placeholder="Username" aria-label="Search">
-            <input class="form-control" type="text" placeholder="Password" aria-label="Search">
+            <input class="form-control mx-2" type="text" name="username" placeholder="Username" aria-label="Search">
+            <input class="form-control" type="text" placeholder="Password" name="password" aria-label="Search">
             <button class="btn btn-outline-white btn-md my-2 my-sm-0 ml-3"  type="submit">Update</button>
         </form>
     </nav>
