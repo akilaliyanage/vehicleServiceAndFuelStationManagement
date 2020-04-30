@@ -14,4 +14,6 @@ public interface AppointmentServices {
 	public UserModel GetUserById(String userId);
 
 	public VehicleModel getVehicleByAppointmentId(String appId);
+
+	//public AppointmentModel UpdateAppointment();
 }
