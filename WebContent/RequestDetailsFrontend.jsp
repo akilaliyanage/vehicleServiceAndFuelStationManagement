@@ -204,7 +204,7 @@
                             </div>
                             <div class="col-6 " style="line-height: 0px;">
                                 <p class="ml-4"> <i class="fas fa-car"></i> <strong> Vehicle No : </strong> </p>
-                                <p class="text-right ">VehiclenId</p>
+                                <p class="text-right "><%=Vehicle.getVehicleId() %>></p>
 
                             </div>
                         </div>
@@ -307,22 +307,23 @@
                                     
                                 </div>
                                 <div class="col-3 mt-4 pt-4">
-                                    <h5 class="text-right >"><%=Appointment.getAppId()%></p>
-                                    <h5 class="text-right"> <%=User.getUserName() %></h5>
+                                    <h5 class="text-right" name = "Appoint_no"><%=Appointment.getAppId()%></p>
+                                   
+                                    <h5 class="text-right" > <%=User.getUserName() %></h5>
                                 </div>
                             </div>
                             <hr style="border-width: 3px; border-color: #ff9100;">
 
                             
 
-                            <form>
+                            <form action="EditAppointmentServlet" method="get">
                                 <h3  style="color: orange;font-weight: bold;"> Vehicle Details</h3>
 
                                 <div class="row">
                                     <div class="col-6">
                                         <div class="md-form ml-4 mr-4">
                                             <i class="fas fa-car prefix grey-text"></i>
-                                            <input type="text" id="materialFormCardNameEx" class="form-control"
+                                            <input type="text" id="materialFormCardNameEx" class="form-control name="Edit_Vehi_No""
                                                 value="">
                                             <label for="materialFormCardNameEx" class="font-weight-light">Vehical
                                                 Number</label>
@@ -331,14 +332,14 @@
                                     <div class="col-6">
                                         <div class="md-form ml-4 mr-4 ml-4">
                                             <i class="fa fa-envelope prefix grey-text"></i>
-                                            <input type="email" id="materialFormCardEmailEx" class="form-control">
+                                            <input type="text" id="materialFormCardEmailEx" class="form-control" >
                                             <label for="materialFormCardEmailEx"
                                                 class="font-weight-light">Milage</label>
                                         </div>
                                     </div>
                                     <div class="form-group col-md-3 ml-4">
                                         <label for="inputState"><i class="fab fa-bootstrap grey-text fa-2x"></i> Brand</label>
-                                        <select id="inputState" class="form-control ml-3">
+                                        <select id="inputState" class="form-control ml-3" name="Edit_brand">
                                             <option selected>Choose...</option>
                                             <option value="1">One</option>
                                             <option value="2">Two</option>
@@ -348,7 +349,7 @@
                                         
                                     <div class="form-group col-md-3 ml-4">
                                         <label for="inputState"> <i class="fab fa-medium-m grey-text fa-2x"></i> Model</label>
-                                        <select id="inputState" class="form-control ml-3">
+                                        <select id="inputState" class="form-control ml-3" name = "Edit_model">
                                             <option selected>Choose...</option>
                                             <option value="1">One</option>
                                             <option value="2">Two</option>
@@ -358,9 +359,8 @@
 
                                     <div class="form-group col-md-3 ml-4">
                                         <label for="inputState"> <i class="fas fa-cogs grey-text fa-2x"></i> Transmission</label>
-                                        <select id="inputState" class="form-control ml-3">
-                                            <option selected>Electric</option>
-                                            <option value="1">Auto</option>
+                                        <select id="inputState" class="form-control ml-3" name="Edit_transmission">
+                                            <option selected>Auto</option>
                                             <option value="2">Manual</option>
                                             <option value="3">Tiptronic</option>
                                         </select>
@@ -368,7 +368,7 @@
 
                                     <div class="form-group col-md-3 ml-4">
                                         <label for="inputState"> <i class="fas fa-gas-pump grey-text fa-2x"></i> fuel type</label>
-                                        <select id="inputState" class="form-control ml-3">
+                                        <select id="inputState" class="form-control ml-3" name="Edit_fuel">
                                             <option selected>Choose...</option>
                                             <option value="1">Petrol</option>
                                             <option value="2">Diesel</option>
@@ -382,12 +382,12 @@
                                     
                                     <div class="md-form col-5 ml-4 mr-4">
                                         <i class="far fa-calendar-alt fa-2x grey-text"></i>
-                                        <input placeholder="Selected date" type="date" id="date-picker" class="form-control">
+                                        <input placeholder="Selected date" type="date" id="date-picker" class="form-control" name="Edit_date">
                                         
                                     </div>
                                     <div class="md-form col-5 ml-4 mr-4">
                                         <i class="far fa-clock fa-2x grey-text"></i>
-                                        <input placeholder="Selected date" type="time" id="date-picker" class="form-control">
+                                        <input placeholder="Selected date" type="time" id="date-picker" class="form-control" name="Edit_time">
                                         
                                     </div>
                                 </div>
@@ -397,7 +397,7 @@
                                     
                                     <div class="form-group col-md-6 ml-4">
                                         <label for="inputState"> <i class="fab fa-cc-amazon-pay grey-text fa-2x"></i> Your Payment Option</label>
-                                        <select id="inputState" class="form-control ml-3">
+                                        <select id="inputState" class="form-control ml-3" name="Edit_pay_option">
                                             <option selected>Pay by credit/debit card</option>
                                             <option value="1">Pay by PayPal</option>
                                             <option value="2">Pay by cash</option>
@@ -405,16 +405,17 @@
                                         </select>
                                     </div>
                                 </div>
+                                <div class="modal-footer">
+                            		<button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Close</button>
+                            		<button type="submit" class="btn btn-primary btn-sm">Save changes</button>
+                       	 		</div>
                                 
                             </form>
 
 
 
                         </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-primary btn-sm">Save changes</button>
-                        </div>
+                        
                     </div>
                 </div>
             </div>
