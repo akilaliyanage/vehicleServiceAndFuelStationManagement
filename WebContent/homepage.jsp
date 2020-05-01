@@ -47,7 +47,7 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent-555">
                 <ul class="navbar-nav mr-auto">
-                    <li class="nav-item active">
+                    <li class="nav-item active" style="background-color: transparent;">
                         <a class="nav-link" href="HomePageRedirectServlet">Home
                             <span class="sr-only">(current)</span>
                         </a>
@@ -66,14 +66,7 @@
                     <!-- Dropdown -->
                    
                 </ul>
-                <ul class="navbar-nav ml-auto nav-flex-icons">
-                    <li class="nav-item avatar">
-                        <a class="nav-link p-0" href="userProfile.jsp">
-                            <img src="https://mdbootstrap.com/img/Photos/Avatars/avatar-5.jpg" class="rounded-circle z-depth-0"
-                                alt="avatar image" height="35">
-                        </a>
-                    </li>
-                </ul>
+                
             </div>
         </nav>
         <!--/.Navbar -->
@@ -118,9 +111,25 @@
             
             <div class="col-lg-6 col-md-6 col-sm-6 col-sm-12 col-xs-12 sec2-right">
                 <h1 class="font-weight-bold">STOP WAITING....... <br> SCHEDULE AND GO</h1> <br>
-                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolor qui porro totam explicabo quam, aspernatur maxime. Accusantium magnam vel fugit maxime magni, aspernatur ad adipisci dolor dolore nisi! Eligendi, quod. Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt nulla omnis ex placeat, tenetur dolorum quia atque voluptates quasi neque explicabo voluptatibus ut eveniet voluptatum iure culpa saepe vel. Culpa? Lorem ipsum dolor sit amet consectetur, adipisicing elit. Molestiae laborum corporis delectus placeat cum quis beatae, nisi ab totam corrupti in architecto, amet nesciunt dolorem quasi error harum perferendis porro.</p>
+                <p>Regular maintenance service is a key component to keeping your vehicle running and reliable. So we have put together service packages that give you the mechanic work you need all bundled up to save you money. Making sure your car is services will save you money in the long run, but take advantage of savings sooner.</p>
                 <a href="#section-1" class="btn btn-success">Shedule an <strong>Apponitment</strong></a>
                 <a href="#section-3" class="btn btn-danger">See the <strong>Packages</strong></a>
+            </div>
+        </div>
+    </div>
+    
+    <div class="section-2" style="overflow: hidden;">
+        <div class="row">
+                        
+            <div class="col-lg-6 col-md-6 col-sm-6 col-sm-12 col-xs-12 sec2-right">
+                <h1 class="font-weight-bold">SHOP WITH TECHNOLOGY<br></h1> <br>
+                <p>" We make it possible for anyone with drive <br>
+																to operate a successful business! "</p>
+                <a href="#section-1" class="btn btn-success">Purshase<strong> Items</strong></a>
+            </div>
+            
+            <div class="col-lg-6 col-md-6 col-sm-6 d-none d-md-block sec2-left">
+                <img src="img/akila/item.gif" alt="">
             </div>
         </div>
     </div>

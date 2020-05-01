@@ -10,10 +10,16 @@
     <!-- bootstrap -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+       <link rel="stylesheet" href="css/akila/homepage.css">
+    <link rel="stylesheet" href="css/akila/dashboard.css">
     <!-- end of the bootsrtap -->
     <title>Welcome</title>
 </head>
-<body style="overflow: hidden;">
+<body style="overflow-x: hidden;">
+
+	<nav class="navbar navbar-dark primary-color" style="background-color: #162447">
+  <a class="navbar-brand" href="index.jsp">Login</a>
+</nav>
 
     <div class="row">
         <div class="col-lg-6">
@@ -124,6 +130,9 @@
         </div>
     </div>
     <!-- Full Height Modal Right -->
+    
+      <jsp:include page="/WEB-INF/views/akila/footer.jsp"></jsp:include>
+    
     
 
 

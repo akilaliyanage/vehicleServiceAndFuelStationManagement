@@ -35,4 +35,8 @@ public interface IUpdateDashboardDAO {
 	public ArrayList<RequestModel> req();
 	
 	public ArrayList<DashboardPaymentsDAO> pay();
+	
+	public ArrayList<NewMechModel> mech();
+	
+	public ArrayList<UpdateUserModel> user();
 }

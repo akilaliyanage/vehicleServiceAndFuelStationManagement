@@ -114,7 +114,7 @@
     <nav aria-label="breadcrumb" style="border-bottom: #8e8e8e solid 1px;;">
       <ol class="breadcrumb">
         <li class="breadcrumb-item"><a href="#">Login</a></li>
-        <li class="breadcrumb-item active" aria-current="page">Admin</li>
+        <li class="breadcrumb-item active" aria-current="page">Admin ID : <c:out value="${regno }"></c:out></li>
       </ol>
     </nav>
     <!--end of the breadcrumb-->
@@ -176,7 +176,7 @@
           
            <c:forEach items="${userRequests}" var="obj">
            
-            <div class="card shadow force-overflow" style="height: auto;">
+            <div class="card shadow force-overflow" style="height: auto;font-size: 13px">
               <img src="img/userImages/${obj.userimageString }" style="height: 200px; object-fit: cover;" class="card-img-top" alt="${obj.userimageString}" />
               <div class="card-body">
                 <h5 class="card-title">${obj.usernameString }</h5>
@@ -283,16 +283,14 @@
             <div class="card scrollbar" id="style-1" style="overflow-y: scroll; height: 500px;">
               <div class="card-body force-overflow">
                 <h5 class="card-title">Top Sales</h5>
-                <button type="button" class="btn btn-success">See all</button>
+               
                 <table>
                   <tr>
                     <th>Payment ID</th>
                     <th>User Name</th>
                     <th>Amount</th>
                     <th>Date</th>
-                     <th>Paid</th>
-                      <th>Pending</th>
-                       <th>Appointment ID</th>
+                    
                   </tr>
                   
                   <c:forEach items="${pay }" var="rows">
@@ -302,9 +300,7 @@
                    <td><h5>${rows.usernameString }</h5></td>
                    <td><h5>${rows.amount }</h5></td>
                    <td><h5>${rows.dateString }</h5></td>
-                   <td><h5>${rows.paid }</h5></td>
-                   <td><h5>${rows.pending }</h5></td>
-                   <td><h5>${rows.appidString }</h5></td>
+                                  
                   </tr>
                   
                   
@@ -320,175 +316,14 @@
 
 
         </div>
-
-        <!--reports section-->
-        <div class="alert alert-warning requests sales" role="alert">
-          <i class="fas fa-file-word"></i><span> &nbsp;&nbsp;&nbsp;</span> Reports
-          <!-- <div class="filter">
-            <select id="day">
-              <option value="volvo">Today</option>
-              <option value="volvo">Yesterday</option>
-            </select>
-          </div> -->
-        </div>
-
-        <div class="row  report-main">
-          <div class="col col-lg-12 col-md-12 col-sm-12">
-            <div class="card scrollbar" id="style-1" style="width: auto;">
-              <div class="card-body force-overflow">
-                <h5 class="card-title">Employee Details</h5>
-                <button type="button" class="btn btn-info">See All</button>
-                <table>
-                  <tr>
-                    <th>Name of the Employee</th>
-                    <th>Services</th>
-                    <th>Worked Hours</th>
-                    <th>OT Hours</th>
-                    <th>Totals calc. Salary</th>
-                    <th>Export Data</th>
-                  </tr>
-
-                  <tr>
-                    <td>Peter</td>
-                    <td>Service</td>
-                    <td>100</td>
-                    <td>20</td>
-                    <td>$100</td>
-                    <td>
-                      <div class="dropdown">
-                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                          Export
-                        </button>
-                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                          <a class="dropdown-item" href="#">PDF</a>
-                          <a class="dropdown-item" href="#">EXCEL SHEET</a>
-                          <a class="dropdown-item" href="#">DB FILE</a>
-                        </div>
-                      </div>
-                    </td>
-                  </tr>
-
-                  
-                  <tr>
-                    <td>Peter</td>
-                    <td>Service</td>
-                    <td>100</td>
-                    <td>20</td>
-                    <td>$100</td>
-                    <td>
-                      <div class="dropdown">
-                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                          Export
-                        </button>
-                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                          <a class="dropdown-item" href="#">PDF</a>
-                          <a class="dropdown-item" href="#">EXCEL SHEET</a>
-                          <a class="dropdown-item" href="#">DB FILE</a>
-                        </div>
-                      </div>
-                    </td>
-                  </tr>
-
-                  
-                  <tr>
-                    <td>Peter</td>
-                    <td>Service</td>
-                    <td>100</td>
-                    <td>20</td>
-                    <td>$100</td>
-                    <td>
-                      <div class="dropdown">
-                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                          Export
-                        </button>
-                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                          <a class="dropdown-item" href="#">PDF</a>
-                          <a class="dropdown-item" href="#">EXCEL SHEET</a>
-                          <a class="dropdown-item" href="#">DB FILE</a>
-                        </div>
-                      </div>
-                    </td>
-                  </tr>
-
-                  
-                  <tr>
-                    <td>Peter</td>
-                    <td>Service</td>
-                    <td>100</td>
-                    <td>20</td>
-                    <td>$100</td>
-                    <td>
-                      <div class="dropdown">
-                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                          Export
-                        </button>
-                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                          <a class="dropdown-item" href="#">PDF</a>
-                          <a class="dropdown-item" href="#">EXCEL SHEET</a>
-                          <a class="dropdown-item" href="#">DB FILE</a>
-                        </div>
-                      </div>
-                    </td>
-                  </tr>
-
-                  
-                  <tr>
-                    <td>Peter</td>
-                    <td>Service</td>
-                    <td>100</td>
-                    <td>20</td>
-                    <td>$100</td>
-                    <td>
-                      <div class="dropdown">
-                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                          Export
-                        </button>
-                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                          <a class="dropdown-item" href="#">PDF</a>
-                          <a class="dropdown-item" href="#">EXCEL SHEET</a>
-                          <a class="dropdown-item" href="#">DB FILE</a>
-                        </div>
-                      </div>
-                    </td>
-                  </tr>
-
-                
-
-                </table>
-              </div>
-            </div>
-          </div>
-        </div>
+      
 
         
         <!--end of the reports section-->
 
         <!--fuel and meter readings-->
 
-        <div class="alert alert-danger requests sales" role="alert">
-          <i class="fas fa-thermometer-quarter"></i><span> &nbsp;&nbsp;&nbsp;</span> Status
-          <!-- <div class="filter">
-            <select id="day">
-              <option value="volvo">Today</option>
-              <option value="volvo">Yesterday</option>
-            </select>
-          </div> -->
-        </div>      
-        
-        <div class="row status">
-          <div class="col col-lg-12 col-md-12 col-sm-12">
-            <div class="card">
-             <div class="card-body">
-              <h5 class="card-title">Fuel Tank Real-Time Readings</h5>
-              <div class="chartWrapper">
-                <div class="chartAreaWrapper">
-                    <canvas id="tank" height="auto" width="auto"></canvas>
-                </div>
-            </div>
-             </div>
-            </div>
-          </div>
-        </div>
+       
 
         <!--end of the fuel and meter readings-->
 
@@ -581,9 +416,131 @@
         </div>
       </div>
     </div>
+    
+    <!--reports section-->
+        <div class="alert alert-warning requests sales" role="alert">
+          <i class="fas fa-file-word"></i><span> &nbsp;&nbsp;&nbsp;</span> Mechanic Details
+          <!-- <div class="filter">
+            <select id="day">
+              <option value="volvo">Today</option>
+              <option value="volvo">Yesterday</option>
+            </select>
+          </div> -->
+        </div>
 
     <!--end of the body part-->
+    
+     <div class="row  report-main" style="width: 100%; height: 500px">
+          <div class="col col-lg-12 col-md-12 col-sm-12">
+            <div class="card scrollbar" id="style-1" style="width: 100%;height: 480px">
+              <div class="card-body force-overflow" style="width: 100%;height: 500px">
+                <h5 class="card-title">Employee Details</h5>
+                <table style="padding: 0px">
+                  <tr>
+                    <th>Name of the Employee</th>
+                    <th>Phone</th>
+                    <th>Email</th>
+                    <th>Salary</th>
+                    <th>Speciality</th>
+                    <th>Experience</th>
+                    <th>Working Hours</th>
+                  </tr>
 
+                 <c:forEach items="${mech }" var="mech">
+                 	
+                 	 <tr style="padding: 0px">
+                    <td>${mech.fullnameString }</td>
+                    <td>${mech.phoneString }</td>
+                    <td>${mech.emailString }</td>
+                    <td>${mech.sal }</td>
+                    <td>${mech.specString }</td>
+                    <td>${mech.ex }</td>
+                    <td>${mech.wh }</td>
+                    <td>
+                       <a class="btn btn-primary" href="DeleteMechServlet?id=${mech.userregNoString }">DEL</a>
+                    </td>
+                  </tr>
+                 	
+                 </c:forEach>
+                 </table>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+         <!--reports section-->
+        <div class="alert alert-success requests sales" role="alert">
+          <i class="fas fa-file-word"></i><span> &nbsp;&nbsp;&nbsp;</span> Registered User Details
+          <!-- <div class="filter">
+            <select id="day">
+              <option value="volvo">Today</option>
+              <option value="volvo">Yesterday</option>
+            </select>
+          </div> -->
+        </div>
+        
+        
+        <div class="row  report-main" style="width: 100%;height: 500px">
+          <div class="col col-lg-12 col-md-12 col-sm-12">
+            <div class="card scrollbar" id="style-1" style="width: 100%;height: 480px">
+              <div class="card-body force-overflow" style="width: 100%;height: 500px">
+                <h5 class="card-title">Employee Details</h5>
+                <table style="padding: 0px">
+                  <tr>
+                    <th>Name of the User</th>
+                    <th>Phone</th>
+                    <th>Email</th>
+                    <th>Gender</th>
+                    <th>Regno</th>
+                    <th>Options</th>
+                    
+                  </tr>
+
+                 <c:forEach items="${user }" var="use">
+                 	
+                 	 <tr>
+                    <td>${use.nameString }</td>
+                    <td>${use.phoneString }</td>
+                    <td>${use.emailString }</td>
+                    <td>${use.genderString }</td>
+                    <td>${use.userIdString }</td>
+                    <td>
+                       <a class="btn btn-primary" href="UserDelServlet?id=${use.userIdString }">DEL</a>
+                    </td>
+                  </tr>
+                 	
+                 </c:forEach>
+                 </table>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+ <div class="alert alert-danger requests sales" role="alert">
+          <i class="fas fa-thermometer-quarter"></i><span> &nbsp;&nbsp;&nbsp;</span> Status
+          <!-- <div class="filter">
+            <select id="day">
+              <option value="volvo">Today</option>
+              <option value="volvo">Yesterday</option>
+            </select>
+          </div> -->
+        </div>      
+        
+        <div class="row status">
+          <div class="col col-lg-12 col-md-12 col-sm-12">
+            <div class="card">
+             <div class="card-body">
+              <h5 class="card-title">Fuel Tank Real-Time Readings</h5>
+              <div class="chartWrapper">
+                <div class="chartAreaWrapper">
+                    <canvas id="tank" height="auto" width="auto"></canvas>
+                </div>
+            </div>
+             </div>
+            </div>
+          </div>
+        </div>
     <!--footer-->
     
 

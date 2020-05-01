@@ -121,8 +121,11 @@ public class UpdateUserModel {
 	@Override
 	public String toString() {
 		return "UpdateUserModel [nameString=" + nameString + ", phoneString=" + phoneString + ", genderString="
-				+ genderString + ", descriptionString=" + descriptionString + "]";
+				+ genderString + ", descriptionString=" + descriptionString + ", userIdString=" + userIdString
+				+ ", emailString=" + emailString + ", usernameString=" + usernameString + ", passworString="
+				+ passworString + "]";
 	}
+	
 	
 	
 	

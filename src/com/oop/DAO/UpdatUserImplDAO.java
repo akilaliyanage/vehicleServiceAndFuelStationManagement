@@ -98,7 +98,7 @@ public class UpdatUserImplDAO implements IUpdateUserDAO {
 
 			connection = DatabaseConnection.getConnection();
 			pStatement = connection.prepareStatement(
-					"select appId,packname,status,rating,location,prefDate,prefTime,remarks,serviceName from appointment a, package p, service s where a.packID = p.packId and a.service_id = serviceId and a.userRegNo = ?");
+					"select * from vehicleserviceandfuelstationmanagement.appointment where userRegNo = ?");
 			pStatement.setString(1, regNoString);
 
 			ResultSet resultSet = pStatement.executeQuery();
@@ -106,14 +106,14 @@ public class UpdatUserImplDAO implements IUpdateUserDAO {
 			while (resultSet.next()) {
 				AppointmentDetailsModel app = new AppointmentDetailsModel();
 				app.setAppidString(resultSet.getString("appId"));
-				app.setPacknameString(resultSet.getString("packname"));
+				app.setPacknameString(resultSet.getString("packID"));
 				app.setStatuString(resultSet.getString("status"));
 				app.setRating(resultSet.getInt("rating"));
 				app.setLocationString(resultSet.getString("location"));
 				app.setDateString(resultSet.getString("prefDate"));
 				app.setTimeString(resultSet.getString("prefTime"));
 				app.setRemarkString(resultSet.getString("remarks"));
-				app.setSernameString(resultSet.getString("serviceName"));
+				app.setSernameString(resultSet.getString("service_id"));
 
 				det.add(app);
 				
@@ -195,7 +195,7 @@ public class UpdatUserImplDAO implements IUpdateUserDAO {
 		try {
 			
 			connection = DatabaseConnection.getConnection();
-			pStatement = connection.prepareStatement("SELECT sum(paid) as'tot' FROM vehicleserviceandfuelstationmanagement.payments where userRegNo = ?");
+			pStatement = connection.prepareStatement("SELECT sum(amount) as'tot' FROM vehicleserviceandfuelstationmanagement.payments where userRegNo = ?");
 			pStatement.setString(1, regNoString);
 			
 			ResultSet resultSet = pStatement.executeQuery();
@@ -252,13 +252,13 @@ public class UpdatUserImplDAO implements IUpdateUserDAO {
 		try {
 			
 			connection = DatabaseConnection.getConnection();
-			pStatement = connection.prepareStatement("SELECT sum(paid) as 'paid' FROM vehicleserviceandfuelstationmanagement.payments where userRegNo = ?");
+			pStatement = connection.prepareStatement("select sum(amount) as 'amount' from vehicleserviceandfuelstationmanagement.payments where userRegNo = ?");
 			pStatement.setString(1, regnoString);
 			ResultSet resultSet = pStatement.executeQuery();
 			
 			while(resultSet.next()) {
 				
-				paid = resultSet.getFloat("paid");
+				paid = resultSet.getFloat("amount");
 				System.out.println(paid);
 				
 			}
@@ -275,7 +275,7 @@ public class UpdatUserImplDAO implements IUpdateUserDAO {
 		try {
 			
 			connection = DatabaseConnection.getConnection();
-			pStatement = connection.prepareStatement("SELECT sum(pending) as 'pend' FROM vehicleserviceandfuelstationmanagement.payments where userRegNo = ?");
+			pStatement = connection.prepareStatement("select a.amount as 'pend' from vehicleserviceandfuelstationmanagement.appointment a left join vehicleserviceandfuelstationmanagement.payments p on a.appId = p.appId where a.userRegNo = ? and p.appId is null");
 			pStatement.setString(1, regnoString);
 			ResultSet resultSet = pStatement.executeQuery();
 			
@@ -284,7 +284,6 @@ public class UpdatUserImplDAO implements IUpdateUserDAO {
 				pend = resultSet.getFloat("pend");
 				System.out.println(pend);
 				
-				System.out.println(pend);
 				
 			}
 		} catch (Exception e) {

@@ -17,11 +17,15 @@
 <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
 <!-- Material Design Bootstrap -->
 <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.16.0/css/mdb.min.css" rel="stylesheet">
-    <title>Document</title>
+ <!--akila css-->
+    <link rel="stylesheet" href="css/akila/dashboard.css" />
+    <!--end of the akila css-->
+    <title>Employee</title>
 </head>
 <body>
     
     <nav class="navbar navbar-dark primary-color">
+     <a class="navbar-brand" href="index.jsp">Login</a>
         <form class="form-inline my-2 mx-2 my-lg-0 ml-auto" method="POST" id="mech" action="UpdateMechServlet">
             <input class="form-control mx-2" type="text" name="username" placeholder="Username" aria-label="Search">
             <input class="form-control" type="text" placeholder="Password" name="password" aria-label="Search">

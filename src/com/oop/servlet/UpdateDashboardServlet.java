@@ -15,7 +15,9 @@ import com.oop.DAO.IUpdateDashboardDAO;
 import com.oop.DAO.UpdateDashboardImplDAO;
 import com.oop.model.DashboardPaymentsDAO;
 import com.oop.model.DashboardRequestModel;
+import com.oop.model.NewMechModel;
 import com.oop.model.RequestModel;
+import com.oop.model.UpdateUserModel;
 
 /**
  * Servlet implementation class UpdateDashboardServlet
@@ -67,7 +69,11 @@ public class UpdateDashboardServlet extends HttpServlet {
 			ArrayList<DashboardPaymentsDAO> payment = dashbordMethods.pay();
 			request.setAttribute("pay", payment);
 			
+			ArrayList<NewMechModel> mech = dashbordMethods.mech();
+			request.setAttribute("mech", mech);
 			
+			ArrayList<UpdateUserModel> user = dashbordMethods.user();
+			request.setAttribute("user", user);
 			
 			
 			RequestDispatcher requestDispatcher = request.getRequestDispatcher("dashboard.jsp");

@@ -158,12 +158,8 @@ body {
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+ 
+  
   overflow-x: scroll;
   overflow-y: hidden;
   margin: 10px;
@@ -195,12 +191,8 @@ body {
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+ 
+  
 }
 
 @media (max-width: 970px) {
@@ -403,7 +395,7 @@ body {
 }
 
 .sales-main .col .card-body table th, .sales-main .col .card-body table td {
-  padding: 8px;
+  padding: 10px;
   text-align: left;
   border-bottom: 1px solid #ddd;
 }

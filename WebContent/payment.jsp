@@ -65,7 +65,7 @@
                 <section class="payment-form dark">
                     <div class="container">
                        
-                        <form>
+                       
                          <h3 class="products title">Checkout</h3>
                             <div class="products" style="overflow-y: scroll;height: 200px">
                                                                
@@ -76,7 +76,7 @@
                                     <p class="item-name">${obj.idString }</p>
                                    		<!-- Default unchecked -->
 										<div class="custom-control custom-checkbox">
-										    <input type="checkbox" name="choice" class="custom-control-input" id="${obj.idString }" value="${obj.total }" onchange="checkTotal()">
+										    <input type="checkbox" name="choice" class="custom-control-input" id="${obj.idString }" value="${obj.total }" onclick="update('${obj.idString}')" onchange="checkTotal(this)">
 										    <label class="custom-control-label" for="${obj.idString }">Add to payment</label>
 										</div>
                                 </div>
@@ -86,35 +86,33 @@
                                 
                             </div>
                             <div class="products total">Total<span class="price"><div id="total"></div></span></div>
+                            <form action="PaymentServlet" method="post">
                             <div class="card-details">
+                            	
                                 <h3 class="title">Payment Details</h3>
                                	
-                               	<form action="" method="post">
+                               
                                		 <div class="row">
                                     <div class="form-group col-sm-7">
+                                        <label for="card-holder">ID</label>
+                                        <input  name="id" id ="id" type="text" class="form-control" aria-label="Card Holder" aria-describedby="basic-addon1">
+                                    </div>
+                                    
+                                     <div class="form-group col-sm-7">
                                         <label for="card-holder">Total Amount</label>
-                                        <input disabled="disabled" id ="sum" type="text" class="form-control" aria-label="Card Holder" aria-describedby="basic-addon1">
+                                        <input  name="tot" id ="sum" type="text" class="form-control" aria-label="Card Holder" aria-describedby="basic-addon1">
                                     </div>
-                                    <div class="form-group col-sm-5">
-                                        <label for="">Paying / Remainning</label>
-                                        <div class="input-group expiration-date">
-                                            <input type="text" class="form-control" id="pay" onkeyup="edValueKeyPress()"
-                                                aria-describedby="basic-addon1">
-                                            <span class="date-separator">/</span>
-                                            <input type="text" class="form-control" id="remm"
-                                                aria-describedby="basic-addon1">
-                                        </div>
-                                    </div>
+                                   
                                    
                                    
                                     <div class="form-group col-sm-12">
                                         <button type="submit" class="btn btn-primary btn-block">Pay</button>
                                     </div>
                                 </div>
-                               	</form>
+                              
                                	
                             </div>
-                        </form>
+						</form>
                     </div>
                 </section>
             </main>
@@ -137,11 +135,13 @@
 			function CalculateTotal(){
 			    $("input:checkbox").each(function(){
 			        if($(this).is(":checked")){
-			            total += parseFloat($(this).val());
-			        }
+			            total += parseFloat($(this).val());	
+			            }
 			    });
 			    $("#total").html(total);
 			    document.getElementById("sum").value = total;
+			   
+			   
 			}
 
 			$("input:checkbox").change(function(){
@@ -171,6 +171,10 @@
 
 			    //var s = $("#edValue").val();
 			    //$("#lblValue").text(s);    
+			}
+			
+			function update(x) {
+				 document.getElementById("id").value = x;
 			}
 				
 				

@@ -52,6 +52,7 @@ public class SaveMechDetailsServlet extends HttpServlet {
 			int result = mechDAO.saveMechDetails(mechModel);
 			
 			
+			
 		} catch (Exception e) {
 			// TODO: handle exception
 		}

@@ -186,6 +186,33 @@
 		<url-pattern>/UpdatePaymentServlet</url-pattern>
 	</servlet-mapping>
 	
+	<servlet>
+		<servlet-name>PaymentServlet</servlet-name>
+		<servlet-class>com.oop.servlet.PaymentServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>PaymentServlet</servlet-name>
+		<url-pattern>/PaymentServlet</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>DeleteMechServlet</servlet-name>
+		<servlet-class>com.oop.servlet.DeleteMechServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>DeleteMechServlet</servlet-name>
+		<url-pattern>/DeleteMechServlet</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>UserDelServlet</servlet-name>
+		<servlet-class>com.oop.servlet.UserDelServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>UserDelServlet</servlet-name>
+		<url-pattern>/UserDelServlet</url-pattern>
+	</servlet-mapping>
+	
 
 	
 	

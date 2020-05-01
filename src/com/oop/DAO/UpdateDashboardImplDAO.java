@@ -10,11 +10,17 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.print.attribute.TextSyntax;
+
 import com.mysql.cj.protocol.Resultset;
 import com.oop.database.DatabaseConnection;
 import com.oop.model.DashboardPaymentsDAO;
 import com.oop.model.DashboardRequestModel;
+import com.oop.model.NewMechModel;
+import com.oop.model.NewUserModel;
 import com.oop.model.RequestModel;
+import com.oop.model.UpdateUserModel;
+//import com.sun.tools.javap.TryBlockWriter;
 
 /**
  * @author mlaki
@@ -102,7 +108,7 @@ public class UpdateDashboardImplDAO implements IUpdateDashboardDAO {
 			try {
 				
 				connection = DatabaseConnection.getConnection();
-				pStatement = connection.prepareStatement("SELECT sum(paid) as 'paid' FROM vehicleserviceandfuelstationmanagement.payments");
+				pStatement = connection.prepareStatement("SELECT sum(amount) as 'paid' FROM vehicleserviceandfuelstationmanagement.payments");
 				ResultSet rSet = pStatement.executeQuery();
 				
 				while(rSet.next()) {
@@ -128,11 +134,11 @@ public class UpdateDashboardImplDAO implements IUpdateDashboardDAO {
 			try {
 				
 				connection = DatabaseConnection.getConnection();
-				pStatement = connection.prepareStatement("SELECT sum(pending) as 'paid' FROM vehicleserviceandfuelstationmanagement.payments");
+				pStatement = connection.prepareStatement("select sum(a.amount) as 'tot' from vehicleserviceandfuelstationmanagement.appointment a left join vehicleserviceandfuelstationmanagement.payments p on a.appId = p.appId and p.appId is null");
 				ResultSet rSet = pStatement.executeQuery();
 				
 				while(rSet.next()) {
-					pending = rSet.getInt("paid");
+					pending = rSet.getInt("tot");
 					System.out.println(pending);
 				}
 				
@@ -292,6 +298,79 @@ public class UpdateDashboardImplDAO implements IUpdateDashboardDAO {
 			}
 			
 			return paymentsDAOs;
+		}
+
+
+
+		@Override
+		public ArrayList<NewMechModel> mech() {
+		
+			ArrayList<NewMechModel> mech = new ArrayList<NewMechModel>();
+			
+			try {
+				
+				
+				connection = DatabaseConnection.getConnection();
+				pStatement = connection.prepareStatement("SELECT u.userFullName,u.regNo, m.basicSalary, m.speciality, m.experience, m.workingHours, u.userPhone, u.userEmail FROM vehicleserviceandfuelstationmanagement.user u , vehicleserviceandfuelstationmanagement.mechanic m where u.regNo = m.regNo");
+				ResultSet rSet = pStatement.executeQuery();
+				
+				while(rSet.next()) {
+					
+					NewMechModel mechModel = new NewMechModel(null, rSet.getString("userEmail"), null, null);
+					mechModel.setFullnameString(rSet.getString("userFullName"));
+					mechModel.setSal(rSet.getFloat("basicSalary"));
+					mechModel.setSpecString(rSet.getString("speciality"));
+					mechModel.setEx(rSet.getFloat("experience"));
+					mechModel.setWh(rSet.getFloat("workingHours"));
+					mechModel.setPhoneString(rSet.getString("userPhone"));
+					mechModel.setUserregNoString(rSet.getString("regNo"));
+					
+					mech.add(mechModel);
+					
+				}
+				
+				
+			} catch (Exception e) {
+				// TODO: handle exception
+			}
+			
+			return mech;
+		}
+
+
+
+		@Override
+		public ArrayList<UpdateUserModel> user() {
+
+			
+			ArrayList<UpdateUserModel> userModels = new ArrayList<UpdateUserModel>();
+			
+			try {
+				
+				connection = DatabaseConnection.getConnection();
+				pStatement = connection.prepareStatement("SELECT * FROM vehicleserviceandfuelstationmanagement.user where regNo like 'REG%'");
+				
+				ResultSet resultSet = pStatement.executeQuery();
+				
+				while(resultSet.next()) {
+					
+					UpdateUserModel update = new UpdateUserModel();
+					update.setNameString(resultSet.getString("userFullName"));
+					update.setEmailString(resultSet.getString("userEmail"));
+					update.setPhoneString(resultSet.getString("userPhone"));
+					update.setGenderString(resultSet.getString("gender"));
+					update.setUserIdString(resultSet.getString("regNo"));
+					
+					userModels.add(update);
+					
+				}
+				
+			} catch (Exception e) {
+				// TODO: handle exception
+			}
+			
+			return userModels;
+			
 		}
 
 }
