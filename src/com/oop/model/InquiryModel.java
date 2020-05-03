@@ -9,6 +9,32 @@ public class InquiryModel {
 	private String adminmessageString;
 	private String adminidString;
 	private String useridString;
+	private String usernameString;
+	private String emailString;
+	/**
+	 * @return the emailString
+	 */
+	public String getEmailString() {
+		return emailString;
+	}
+	/**
+	 * @param emailString the emailString to set
+	 */
+	public void setEmailString(String emailString) {
+		this.emailString = emailString;
+	}
+	/**
+	 * @return the usernameString
+	 */
+	public String getUsernameString() {
+		return usernameString;
+	}
+	/**
+	 * @param usernameString the usernameString to set
+	 */
+	public void setUsernameString(String usernameString) {
+		this.usernameString = usernameString;
+	}
 	/**
 	 * @return the inqidString
 	 */
@@ -85,8 +111,17 @@ public class InquiryModel {
 	public String toString() {
 		return "InquiryModel [inqidString=" + inqidString + ", typeString=" + typeString + ", usermessageString="
 				+ usermessageString + ", adminmessageString=" + adminmessageString + ", adminidString=" + adminidString
-				+ ", useridString=" + useridString + "]";
+				+ ", useridString=" + useridString + ", usernameString=" + usernameString + ", emailString="
+				+ emailString + "]";
 	}
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	
 	

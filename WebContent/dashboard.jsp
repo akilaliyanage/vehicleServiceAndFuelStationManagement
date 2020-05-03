@@ -134,7 +134,7 @@
         <a href="reports.html" class="btn btn-light"
           ><i class="fas fa-file-word"></i>&nbsp;&nbsp; Reports</a
         >
-        <a href="" class="btn btn-light"
+        <a href="InquieryNavigateServlet" class="btn btn-light"
           ><i class="fas fa-reply"></i>&nbsp;&nbsp; User Feedback</a
         >
         <a href="PackageManagerServlet" class="btn btn-light"

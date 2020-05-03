@@ -222,6 +222,24 @@
 		<url-pattern>/InquiryServlet</url-pattern>
 	</servlet-mapping>
 	
+	<servlet>
+		<servlet-name>InquieryNavigateServlet</servlet-name>
+		<servlet-class>com.oop.servlet.InquieryNavigateServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>InquieryNavigateServlet</servlet-name>
+		<url-pattern>/InquieryNavigateServlet</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>ReplyServlet</servlet-name>
+		<servlet-class>com.oop.servlet.ReplyServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ReplyServlet</servlet-name>
+		<url-pattern>/ReplyServlet</url-pattern>
+	</servlet-mapping>
+	
 
 	
 	

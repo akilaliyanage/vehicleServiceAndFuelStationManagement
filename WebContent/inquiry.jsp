@@ -46,10 +46,11 @@
 					<span class="label-input100">Inquiry Type</span>
 					<div>
 						<select class="selection-2" name="type">
-							<option>Select Budget</option>
-							<option>1500 $</option>
-							<option>2000 $</option>
-							<option>2500 $</option>
+							<option>Select Type</option>
+							<option>General Request</option>
+							<option>Payments</option>
+							<option>Bills</option>
+							<option>Other</option>
 						</select>
 					</div>
 					<span class="focus-input100"></span>

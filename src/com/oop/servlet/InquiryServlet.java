@@ -1,6 +1,7 @@
 package com.oop.servlet;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -29,6 +30,7 @@ public class InquiryServlet extends HttpServlet {
 			
 			HttpSession session = request.getSession();
 			String regnoString = (String) session.getAttribute("regno");
+			PrintWriter out = response.getWriter();
 			
 			RandomString idString = new RandomString();
 			String inqidString = "INQ" + idString.getAlphaNumericString();
@@ -47,6 +49,10 @@ public class InquiryServlet extends HttpServlet {
 			int result = inquiryDAO.insertInq(inquiryModel);
 			
 			if(result == 1) {
+				response.setContentType("text/html;charset=UTF-8");
+				out.println("<script>");
+			    out.println("alert('Inquiery sent successfully!');");
+			    out.println("</script>");
 				response.sendRedirect("inquiry.jsp");
 			}
 			
