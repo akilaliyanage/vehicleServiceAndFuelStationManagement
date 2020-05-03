@@ -5,14 +5,20 @@ package com.oop.DAO;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import com.oop.database.DatabaseConnection;
+import com.oop.servlet.AdminLoginServlet;
 
 /**
  * @author mlaki
  *
  */
 public class DeleteMechDAO {
+	
+	/** Initialize logger */
+	private static final Logger LOGGER = Logger.getLogger(DeleteMechDAO.class.getName());
 
 	static Connection connection;
 	static PreparedStatement preparedStatement;
@@ -31,6 +37,7 @@ public class DeleteMechDAO {
 			
 		} catch (Exception e) {
 			// TODO: handle exception
+			LOGGER.log(Level.SEVERE, e.getMessage());
 		}
 		
 		return rslt;

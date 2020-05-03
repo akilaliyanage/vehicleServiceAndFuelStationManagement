@@ -2,15 +2,21 @@ package com.oop.DAO;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import com.oop.database.DatabaseConnection;
 import com.oop.model.NewMechModel;
+import com.oop.servlet.AdminLoginServlet;
 
 public class NewMechDAO {
 
 	static Connection connection;
 	static PreparedStatement preparedStatement;
 	static PreparedStatement preparedStatement2;
+	
+	/** Initialize logger */
+	private static final Logger LOGGER = Logger.getLogger(NewMechDAO.class.getName());
 	
 	public int newMech(NewMechModel user) {
 		
@@ -39,10 +45,11 @@ public class NewMechDAO {
 			result = preparedStatement.executeUpdate();
 			result2 = preparedStatement2.executeUpdate();
 			
-			System.out.println(result + " " + result2);
+			
 			
 		} catch (Exception e) {
 			// TODO: handle exception
+			LOGGER.log(Level.SEVERE, e.getMessage());
 		}
 		
 		

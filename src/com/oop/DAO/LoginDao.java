@@ -4,14 +4,20 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import com.oop.database.DatabaseConnection;
 import com.oop.model.LoginModel;
+import com.oop.servlet.AdminLoginServlet;
 
 public class LoginDao {
 	
 	static Connection connection;
 	static PreparedStatement pStatement;
+	
+	/** Initialize logger */
+	private static final Logger LOGGER = Logger.getLogger(LoginDao.class.getName());
 	
 	//getData() method to fetch and save data from the database to the LoginModel object
 	
@@ -45,7 +51,7 @@ public class LoginDao {
 		} catch (Exception e) {
 			// TODO: handle exception
 			
-			System.out.println(e);
+			LOGGER.log(Level.SEVERE, e.getMessage());
 		}
 		
 		

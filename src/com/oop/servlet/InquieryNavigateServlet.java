@@ -2,6 +2,8 @@ package com.oop.servlet;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -19,7 +21,8 @@ import com.oop.model.InquiryModel;
 //@WebServlet("/InquieryNavigateServlet")
 public class InquieryNavigateServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-
+	/** Initialize logger */
+	private static final Logger LOGGER = Logger.getLogger(InquieryNavigateServlet.class.getName());
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
@@ -36,6 +39,7 @@ public class InquieryNavigateServlet extends HttpServlet {
 			
 		} catch (Exception e) {
 			// TODO: handle exception
+			LOGGER.log(Level.SEVERE, e.getMessage());
 		}
 		
 	}

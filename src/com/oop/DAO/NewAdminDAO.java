@@ -2,9 +2,12 @@ package com.oop.DAO;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import com.oop.database.DatabaseConnection;
 import com.oop.model.NewAdminModel;
+import com.oop.servlet.AdminLoginServlet;
 
 
 public class NewAdminDAO {
@@ -12,6 +15,9 @@ public class NewAdminDAO {
 	static Connection connection;
 	static PreparedStatement pStatement;
 	static PreparedStatement pStatement2;
+	
+	/** Initialize logger */
+	private static final Logger LOGGER = Logger.getLogger(NewAdminDAO.class.getName());
 	
 	public int insertAdmin(NewAdminModel user) {
 		int status = 0;
@@ -37,6 +43,8 @@ public class NewAdminDAO {
 			System.out.println(status + " " + status2);
 		} catch (Exception e) {
 			// TODO: handle exception
+			
+			LOGGER.log(Level.SEVERE, e.getMessage());
 		}
 		
 		return status;

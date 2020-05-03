@@ -5,14 +5,20 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import com.oop.database.DatabaseConnection;
 import com.oop.model.InquiryModel;
+import com.oop.servlet.AdminLoginServlet;
 
 public class InquiryDAO {
 		
 	static Connection connection;
 	static PreparedStatement preparedStatement;
+	
+	/** Initialize logger */
+	private static final Logger LOGGER = Logger.getLogger(InquiryDAO.class.getName());
 	
 	public int insertInq(InquiryModel inq) {
 		int result = 0;
@@ -29,7 +35,7 @@ public class InquiryDAO {
 			result = preparedStatement.executeUpdate();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
+			LOGGER.log(Level.SEVERE, e.getMessage());
 		}
 		
 		return result;
@@ -62,6 +68,7 @@ public class InquiryDAO {
 			
 		} catch (Exception e) {
 			// TODO: handle exception
+			LOGGER.log(Level.SEVERE, e.getMessage());
 		}
 		
 		return inquiryModels;
@@ -83,6 +90,7 @@ public class InquiryDAO {
 			
 		} catch (Exception e) {
 			// TODO: handle exception
+			LOGGER.log(Level.SEVERE, e.getMessage());
 		}
 		
 		return result;

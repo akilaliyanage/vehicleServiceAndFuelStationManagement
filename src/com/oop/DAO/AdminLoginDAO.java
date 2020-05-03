@@ -7,15 +7,21 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import com.oop.database.DatabaseConnection;
 import com.oop.model.LoginAdminModel;
+import com.oop.servlet.AdminLoginServlet;
 
 /**
  * @author mlaki
  *
  */
 public class AdminLoginDAO {
+	
+	/** Initialize logger */
+	private static final Logger LOGGER = Logger.getLogger(AdminLoginDAO.class.getName());
 
 	static Connection connection;
 	static PreparedStatement pStatement;
@@ -41,6 +47,7 @@ public class AdminLoginDAO {
 			}
 		} catch (Exception e) {
 			// TODO: handle exception
+			LOGGER.log(Level.SEVERE, e.getMessage());
 		}
 		
 		return adminModel;

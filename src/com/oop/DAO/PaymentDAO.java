@@ -4,15 +4,21 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import com.oop.database.DatabaseConnection;
 import com.oop.model.PaymentModel;
+import com.oop.servlet.AdminLoginServlet;
 
 public class PaymentDAO {
 
 	static Connection connection;
 	static PreparedStatement pStatement;
 	static PreparedStatement pStatement2;
+	
+	/** Initialize logger */
+	private static final Logger LOGGER = Logger.getLogger(PaymentDAO.class.getName());
 	
 	public ArrayList<PaymentModel> getPayInfo(String regno) {
 		
@@ -43,6 +49,8 @@ public class PaymentDAO {
 			
 		} catch (Exception e) {
 			// TODO: handle exception
+			
+			LOGGER.log(Level.SEVERE, e.getMessage());
 		}
 		
 		return arraypayArrayList;
@@ -77,7 +85,7 @@ public class PaymentDAO {
 			
 		} catch (Exception e) {
 			// TODO: handle exception
-			e.printStackTrace();
+			LOGGER.log(Level.SEVERE, e.getMessage());
 		}
 		
 		

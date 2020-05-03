@@ -1,6 +1,9 @@
 package com.oop.servlet;
 
 import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -18,6 +21,8 @@ import com.oop.DAO.InquiryDAO;
 //@WebServlet("/ReplyServlet")
 public class ReplyServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	/** Initialize logger */
+	private static final Logger LOGGER = Logger.getLogger(ReplyServlet.class.getName());
        
     
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -45,6 +50,7 @@ public class ReplyServlet extends HttpServlet {
 			
 		} catch (Exception e) {
 			// TODO: handle exception
+			LOGGER.log(Level.SEVERE, e.getMessage());
 		}
 	}
 
