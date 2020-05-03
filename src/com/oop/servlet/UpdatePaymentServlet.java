@@ -2,6 +2,8 @@ package com.oop.servlet;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import javax.print.attribute.TextSyntax;
 import javax.servlet.RequestDispatcher;
@@ -21,7 +23,8 @@ import com.oop.model.PaymentModel;
 //@WebServlet("/UpdatePaymentServlet")
 public class UpdatePaymentServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-  
+    private static final Logger LOGGER = Logger.getLogger(UpdatePaymentServlet.class.getName());   
+
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		
@@ -43,7 +46,7 @@ public class UpdatePaymentServlet extends HttpServlet {
 			
 		} catch (Exception e) {
 			// TODO: handle exception
-			e.printStackTrace();
+			LOGGER.log(Level.SEVERE, e.getMessage());
 		}
 		
 		

@@ -11,6 +11,8 @@ import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
@@ -36,7 +38,8 @@ import com.oop.DAO.UpdateUserImageDAO;
 @MultipartConfig
 public class UploadPhotoServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
+    private static final Logger LOGGER = Logger.getLogger(UploadPhotoServlet.class.getName());   
+   
 	
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
@@ -81,8 +84,7 @@ public class UploadPhotoServlet extends HttpServlet {
 			}
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
-			System.out.println(e);
+			LOGGER.log(Level.SEVERE, e.getMessage());
 		}
 		
 		

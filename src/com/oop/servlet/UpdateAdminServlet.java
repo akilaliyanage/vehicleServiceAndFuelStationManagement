@@ -1,6 +1,9 @@
 package com.oop.servlet;
 
 import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -17,7 +20,8 @@ import com.oop.model.UpdateAdminModel;
 //@WebServlet("/UpdateAdminServlet")
 public class UpdateAdminServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
+    private static final Logger LOGGER = Logger.getLogger(UpdateAdminServlet.class.getName());   
+   
     /**
      * @see HttpServlet#HttpServlet()
      */
@@ -68,8 +72,7 @@ public class UpdateAdminServlet extends HttpServlet {
 			
 			
 		} catch (Exception e) {
-			// TODO: handle exception
-			System.out.println(e);
+			LOGGER.log(Level.SEVERE, e.getMessage());
 		}
 		
 		

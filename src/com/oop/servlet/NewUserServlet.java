@@ -1,6 +1,8 @@
 package com.oop.servlet;
 
 import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -20,7 +22,8 @@ import com.oop.model.RandomString;
 //@WebServlet(urlPatterns = { "/NewUserServlet" })
 public class NewUserServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
+    private static final Logger LOGGER = Logger.getLogger(NewUserServlet.class.getName());   
+   
     /**
      * @see HttpServlet#HttpServlet()
      */
@@ -61,7 +64,7 @@ public class NewUserServlet extends HttpServlet {
 		} catch (Exception e) {
 			// TODO: handle exception
 			
-			System.out.println(e);
+			LOGGER.log(Level.SEVERE, e.getMessage());
 			
 		}
 	}

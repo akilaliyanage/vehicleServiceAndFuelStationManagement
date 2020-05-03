@@ -8,6 +8,8 @@ import java.io.PrintWriter;
 import java.net.Socket;
 import java.util.Iterator;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -32,6 +34,7 @@ import com.oop.model.UpdateUserModel;
 @MultipartConfig(maxFileSize = 16177215)
 public class UpdateUserServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+    private static final Logger LOGGER = Logger.getLogger(UpdateUserServlet.class.getName());   
 
 	/**
 	 * @see HttpServlet#HttpServlet()
@@ -96,7 +99,7 @@ public class UpdateUserServlet extends HttpServlet {
 
 		} catch (Exception e) {
 			// TODO: handle exception
-			e.printStackTrace();
+			LOGGER.log(Level.SEVERE, e.getMessage());
 		}
 
 		// TODO Auto-generated method stub

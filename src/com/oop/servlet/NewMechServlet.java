@@ -1,6 +1,9 @@
 package com.oop.servlet;
 
 import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -17,18 +20,8 @@ import com.oop.model.RandomString;
 //@WebServlet("/NewMechServlet")
 public class NewMechServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public NewMechServlet() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
+    private static final Logger LOGGER = Logger.getLogger(NewMechServlet.class.getName());   
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
 	@SuppressWarnings("static-access")
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
@@ -66,8 +59,10 @@ public class NewMechServlet extends HttpServlet {
 				response.sendRedirect("addEmp.jsp");
 			}
 			
+			
 		} catch (Exception e) {
 			// TODO: handle exception
+			LOGGER.log(Level.SEVERE, e.getMessage());
 		}
 		
 		

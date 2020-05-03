@@ -2,6 +2,8 @@ package com.oop.servlet;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -20,7 +22,8 @@ import com.oop.model.NewMechModel;
 //@WebServlet("/UpdateMechServlet")
 public class UpdateMechServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
+    private static final Logger LOGGER = Logger.getLogger(UpdateMechServlet.class.getName());   
+   
    
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
@@ -48,7 +51,7 @@ public class UpdateMechServlet extends HttpServlet {
 			System.out.println(newMechModel.getEmailString());
 		} catch (Exception e) {
 			// TODO: handle exception
-			e.printStackTrace();
+			LOGGER.log(Level.SEVERE, e.getMessage());
 		}
 		
 

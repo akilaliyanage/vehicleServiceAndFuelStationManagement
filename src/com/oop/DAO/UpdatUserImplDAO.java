@@ -275,7 +275,7 @@ public class UpdatUserImplDAO implements IUpdateUserDAO {
 		try {
 			
 			connection = DatabaseConnection.getConnection();
-			pStatement = connection.prepareStatement("select a.amount as 'pend' from vehicleserviceandfuelstationmanagement.appointment a left join vehicleserviceandfuelstationmanagement.payments p on a.appId = p.appId where a.userRegNo = ? and p.appId is null");
+			pStatement = connection.prepareStatement("select sum(a.amount) as 'pend' from vehicleserviceandfuelstationmanagement.appointment a left join vehicleserviceandfuelstationmanagement.payments p on a.appId = p.appId where a.userRegNo = ? and p.appId is null");
 			pStatement.setString(1, regnoString);
 			ResultSet resultSet = pStatement.executeQuery();
 			

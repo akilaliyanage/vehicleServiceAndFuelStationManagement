@@ -134,7 +134,7 @@ public class UpdateDashboardImplDAO implements IUpdateDashboardDAO {
 			try {
 				
 				connection = DatabaseConnection.getConnection();
-				pStatement = connection.prepareStatement("select sum(a.amount) as 'tot' from vehicleserviceandfuelstationmanagement.appointment a left join vehicleserviceandfuelstationmanagement.payments p on a.appId = p.appId and p.appId is null");
+				pStatement = connection.prepareStatement("select sum(a.amount) as 'tot' from vehicleserviceandfuelstationmanagement.appointment a left join vehicleserviceandfuelstationmanagement.payments p on a.appId = p.appId where p.appId is null");
 				ResultSet rSet = pStatement.executeQuery();
 				
 				while(rSet.next()) {

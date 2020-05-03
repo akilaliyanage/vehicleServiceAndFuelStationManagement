@@ -38,5 +38,6 @@ public interface IUpdateUserDAO {
 		public float paid(String regnoString);
 		
 		public float pending(String regnoString);
+		
 
 }

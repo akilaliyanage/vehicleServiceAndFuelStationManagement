@@ -2,6 +2,8 @@ package com.oop.servlet;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -25,7 +27,8 @@ import com.oop.model.UpdateUserModel;
 //@WebServlet("/UpdateDashboardServlet")
 public class UpdateDashboardServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-  
+    private static final Logger LOGGER = Logger.getLogger(UpdateDashboardServlet.class.getName());   
+
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		
@@ -81,7 +84,7 @@ public class UpdateDashboardServlet extends HttpServlet {
 			
 		} catch (Exception e) {
 			// TODO: handle exception
-			System.out.println(e);
+			LOGGER.log(Level.SEVERE, e.getMessage());
 		}
 		
 		

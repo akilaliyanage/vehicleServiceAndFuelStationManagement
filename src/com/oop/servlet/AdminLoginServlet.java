@@ -1,6 +1,9 @@
 package com.oop.servlet;
 
 import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -17,6 +20,9 @@ import com.oop.model.LoginAdminModel;
 //@WebServlet("/AdminLoginServlet")
 public class AdminLoginServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	
+	/** Initialize logger */
+	private static final Logger LOGGER = Logger.getLogger(AdminLoginServlet.class.getName());
        
 
 	/**
@@ -46,9 +52,13 @@ public class AdminLoginServlet extends HttpServlet {
 				
 				System.out.println("akila");
 			}
+			else {
+				response.sendRedirect("adminLogin.jsp");	
+			}
 			
 		} catch (Exception e) {
 			// TODO: handle exception
+			LOGGER.log(Level.SEVERE,e.getMessage());
 		}
 		
 		
