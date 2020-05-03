@@ -213,6 +213,15 @@
 		<url-pattern>/UserDelServlet</url-pattern>
 	</servlet-mapping>
 	
+	<servlet>
+		<servlet-name>InquiryServlet</servlet-name>
+		<servlet-class>com.oop.servlet.InquiryServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>InquiryServlet</servlet-name>
+		<url-pattern>/InquiryServlet</url-pattern>
+	</servlet-mapping>
+	
 
 	
 	

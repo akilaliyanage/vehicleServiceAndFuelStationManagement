@@ -59,6 +59,9 @@
                         <a class="nav-link" href="UpdatePaymentServlet">Make payment</a>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link" href="inquiry.jsp">Make Inquiry</a>
+                    </li>
+                    <li class="nav-item">
                         <form action="LogoutServlet">
                         	<button class="nav-link" type="submit" style="background: transparent;border: none;font-weight: bolder;">Log out</button>
                         </form>
