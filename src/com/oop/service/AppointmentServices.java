@@ -15,5 +15,8 @@ public interface AppointmentServices {
 
 	public VehicleModel getVehicleByAppointmentId(String appId);
 
+	public AppointmentModel UpdateAppointment(String appoint_No, String vehi_no, String brand, String model,
+			String transmission, String fuel, String date, String time, String pack, String Service);
+
 	//public AppointmentModel UpdateAppointment();
 }

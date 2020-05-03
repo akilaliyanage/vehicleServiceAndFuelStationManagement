@@ -13,13 +13,15 @@ public class AppointmentModel {
 	private String remarks;
 	private String service_id;
 	private String vehicleI_No;
+	private double Ammount;
+	
 	
 	public AppointmentModel() {
 		super();
 	}
 
 	public AppointmentModel(String appId, String packID, String userRegNo, String status, String rating,
-			String location, String prefDate, String prefTime, String remarks, String service_id , String vehicleI_No) {
+			String location, String prefDate, String prefTime, String remarks, String service_id , String vehicleI_No , double Ammount) {
 		super();
 		this.appId = appId;
 		this.packID = packID;
@@ -32,9 +34,18 @@ public class AppointmentModel {
 		this.remarks = remarks;
 		this.service_id = service_id;
 		this.vehicleI_No = vehicleI_No;
+		this.Ammount = Ammount;
 	}
 	
 	
+
+	public double getAmmount() {
+		return Ammount;
+	}
+
+	public void setAmmount(double ammount) {
+		Ammount = ammount;
+	}
 
 	public AppointmentModel(String appId, String packID, String userRegNo, String prefDate, String prefTime,
 			String service_id , String vehicleI_No) {

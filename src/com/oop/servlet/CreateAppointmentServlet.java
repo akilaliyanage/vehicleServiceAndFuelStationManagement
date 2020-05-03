@@ -105,14 +105,28 @@ public class CreateAppointmentServlet extends HttpServlet {
 		IPackageAccess appointedPackage = new PackageAccessImpl();
 		PackageForAppoint selectedpack = appointedPackage.getPackageByPackId(packID);
 		
-		request.setAttribute("Appointment", createdAppointmentModel);
-		request.setAttribute("User", currentUser);
-		request.setAttribute("Vehicle", appointedVehicle);
-		request.setAttribute("Service", selectedService);
-		request.setAttribute("Package", selectedpack);
+		List<PackageForAppoint> Allpacks = new ArrayList<PackageForAppoint>();
+		List<VehicalServices> AllvehiServices = new ArrayList<VehicalServices>();
 		
-		request.getRequestDispatcher("RequestDetailsFrontend.jsp").forward(request, response);;
+		IPackageAccess packages = new PackageAccessImpl();
+		IServiceAccess sevices = new ServiceAccessImpl();
 		
+		Allpacks = packages.getAllPackages();
+		AllvehiServices = sevices.getAllServices();
+		
+		if (createdAppointmentModel != null && currentUser != null && appointedVehicle != null && selectedService != null && selectedpack != null) {
+			request.setAttribute("Appointment", createdAppointmentModel);
+			request.setAttribute("User", currentUser);
+			request.setAttribute("Vehicle", appointedVehicle);
+			request.setAttribute("Service", selectedService);
+			request.setAttribute("Package", selectedpack);
+			request.setAttribute("Allpacks", Allpacks);
+			request.setAttribute("AllvehiServices", AllvehiServices);
+			
+			request.getRequestDispatcher("RequestDetailsFrontend.jsp").forward(request, response);
+		}
+		
+		return;
 		
 	}
 

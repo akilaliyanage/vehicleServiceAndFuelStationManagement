@@ -58,4 +58,11 @@ public class AppointmentServicesImpl implements AppointmentServices{
 		return formattedDate;
 	}
 
+	@Override
+	public AppointmentModel UpdateAppointment(String appoint_No, String vehi_no, String brand, String model,
+			String transmission, String fuel, String date, String time , String pack , String Service) {
+		AppointmentModel updatedAppointment = apppointData.UpdateAppointmentbyID(appoint_No , vehi_no , brand , model , transmission , fuel , date , time , pack , Service);
+		return updatedAppointment;
+	}
+
 }
