@@ -11,7 +11,7 @@ public class AppointmentDAOImpl implements IAppointmentDAO{
 	
 	private  Connection connection;
 	private  PreparedStatement prepStatement;
-	PreparedStatement prepStatement2;
+	private  PreparedStatement prepStatement2;
 	
 	@Override
 	public AppointmentModel createNewAppointment(String userId, String vehi_NO, String raelAppointmentDate, String vehiBrand,
@@ -77,6 +77,112 @@ public class AppointmentDAOImpl implements IAppointmentDAO{
 	 * */
 	
 	@Override
+	public AppointmentModel UpdateAppointmentbyID(String appoint_No, String vehi_no, String brand, String model,
+			String transmission, String fuel, String date, String time  , String pack  , String Service) {
+		connection = DatabaseConnection.getConnection();
+		AppointmentModel UdatedApointment = new AppointmentModel();
+		VehicleModel updatedVehicle = new VehicleModel();
+		
+		try {
+			prepStatement = connection.prepareStatement("UPDATE appointment SET prefDate = ? , prefTime = ?  WHERE appId = ?");
+			prepStatement.setString(1, date);
+			prepStatement.setString(2, time);
+			prepStatement.setString(3, appoint_No);
+			
+			prepStatement.executeUpdate();
+			
+			prepStatement2 = connection.prepareStatement("UPDATE vehicle SET model = ? , brand = ? , transmission = ? , fuelType = ? WHERE vehicleId = ?");
+			prepStatement2.setString(1, model);
+			prepStatement2.setString(2, brand);
+			prepStatement2.setString(3, transmission);
+			prepStatement2.setString(4, fuel);
+			prepStatement2.setString(5, vehi_no);
+			
+			
+			prepStatement2.executeUpdate();
+			
+			UdatedApointment = getAppointmentById(appoint_No);
+		} catch (SQLException e) {
+			e.printStackTrace();
+			System.out.println(e);
+		}
+		finally {
+			if (connection != null) {
+				try {
+					connection.close();
+				} catch (SQLException e) {
+					
+					e.printStackTrace();
+					System.out.println(e);
+				}
+			}
+		}
+		
+		
+		return null;
+	}
+
+
+
+	private AppointmentModel getAppointmentById(String appoint_No) {
+		// TODO Auto-generated method stub
+		connection = DatabaseConnection.getConnection();
+		AppointmentModel appointment = new AppointmentModel();
+		
+		try {
+			prepStatement = connection.prepareStatement("SELECT * FROM appointment WHERE appId = ?");
+			prepStatement.setString(1, appoint_No);
+			ResultSet result = prepStatement.executeQuery();
+			appointment = getAppointmentObject(result);
+		} catch (SQLException e) {
+			e.printStackTrace();
+			System.out.println(e);
+		}
+		finally {
+			if (connection != null) {
+				try {
+					connection.close();
+				} catch (SQLException e) {
+					
+					e.printStackTrace();
+					System.out.println(e);
+				}
+			}
+		}
+		return appointment;
+	}
+
+
+
+	private AppointmentModel getAppointmentObject(ResultSet result) {
+		AppointmentModel appoinrObject = new AppointmentModel();
+		
+		try {
+			if (result.next()) {
+				appoinrObject.setAppId(result.getString("appId"));
+				appoinrObject.setPackID(result.getString("packID"));
+				appoinrObject.setUserRegNo(result.getString("userRegNo"));
+				appoinrObject.setStatus(result.getString("status"));
+				appoinrObject.setRating(result.getString("rating"));
+				appoinrObject.setLocation(result.getString("location"));
+				appoinrObject.setPrefDate(result.getString("prefDate"));
+				appoinrObject.setPrefTime(result.getString("prefTime"));
+				appoinrObject.setRemarks(result.getString("remarks"));
+				appoinrObject.setService_id(result.getString("service_id"));
+				appoinrObject.setVehicleI_No(result.getString("vehicleI_No"));
+				appoinrObject.setAmmount(result.getDouble("amount"));
+				
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+			System.out.println(e);
+		}		
+		return appoinrObject;
+	}
+
+
+
+	@Override
 	public VehicleModel getvehicleByAppintmentId(String appId) {
 		connection = DatabaseConnection.getConnection();
 		VehicleModel vehicle = new VehicleModel();
@@ -86,6 +192,7 @@ public class AppointmentDAOImpl implements IAppointmentDAO{
 			ResultSet result = prepStatement.executeQuery();
 			vehicle = getVehicleObject(result);
 			System.out.println(vehicle.getVehicleId());
+			System.out.println(vehicle.getBrand());
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

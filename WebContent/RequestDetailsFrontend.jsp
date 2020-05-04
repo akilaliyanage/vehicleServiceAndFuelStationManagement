@@ -1,4 +1,7 @@
 <!DOCTYPE html>
+<%@page import="org.apache.jasper.tagplugins.jstl.core.ForEach"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="java.util.List"%>
 <%@page import="com.oop.model.PackageForAppoint"%>
 <%@page import="com.oop.model.VehicalServices"%>
 <%@page import="com.oop.model.VehicleModel"%>
@@ -36,6 +39,9 @@
 		VehicleModel Vehicle = (VehicleModel) request.getAttribute("Vehicle");
 		VehicalServices Service = (VehicalServices) request.getAttribute("Service");
 		PackageForAppoint Package = (PackageForAppoint)request.getAttribute("Package");
+		
+		List<PackageForAppoint> Allpacks = (ArrayList<PackageForAppoint>) request.getAttribute("Allpacks");
+		List<VehicalServices> AllvehiServices = (ArrayList<VehicalServices>) request.getAttribute("AllvehiServices");
 	%>
 
     <div class="section-1" id="section-1">
@@ -304,12 +310,15 @@
                                 <div class="col-5 mt-4 pt-4">
                                     <h4 class="ml-4"> <i class="fas fa-envelope-open-text"></i> <strong> Request No : </strong> </h4>
                                     <h4 class="ml-4"> <i class="fas fa-user-alt"></i> <strong> Customer name : </strong> </h4>
+                                    <h4 class="ml-4"> <i class="fas fa-car"></i> <strong> Vehicle No : </strong> </h4>
                                     
                                 </div>
                                 <div class="col-3 mt-4 pt-4">
-                                    <h5 class="text-right" name = "Appoint_no"><%=Appointment.getAppId()%></p>
+                                    <h5 class="text-right" name = "Appoint_no" ><%=Appointment.getAppId()%></p>
                                    
                                     <h5 class="text-right" > <%=User.getUserName() %></h5>
+                                    
+                                    <h5 class="text-right" > <%=Vehicle.getVehicleId() %></h5>
                                 </div>
                             </div>
                             <hr style="border-width: 3px; border-color: #ff9100;">
@@ -317,26 +326,39 @@
                             
 
                             <form action="EditAppointmentServlet" method="get">
+                            	<input type="hidden" name="CurrentAppID" value="<%=Appointment.getAppId()%>">
+                            	<input type="hidden" name="CurrentVehiId" value="<%=Vehicle.getVehicleId() %>">
+                            	
+                            	 <h3  style="color: orange;font-weight: bold;"> Service Details</h3>
+                            	 
+                            	 <div class="row">
+                            	 
+                            	 	<div class="form-group col-5 ml-4">
+                                        <label for="inputState"> <i class="fas fas fa-box grey-text fa-2x"></i>Package</label>
+                                        <select id="inputState" class="form-control ml-3" name="Edit_pack" >
+                                            <option selected><%=Package.getPackName() %></option>
+                                            <% for(PackageForAppoint psckList : Allpacks) { %>
+                                            	<option value="<%= psckList.getPackName() %>"><%= psckList.getPackName() %></option>
+                                            <% } %>
+                                        </select>
+                                    </div>
+                                    
+                                    <div class="form-group col-md-3 ml-4">
+                                        <label for="inputState"> <i class="fasfa-hands-helping grey-text fa-2x"></i>Service</label>
+                                        <select id="inputState" class="form-control ml-3" name="Edit_Service">
+                                            <option selected></option>
+                                            <% for(VehicalServices serviceList : AllvehiServices) { %>
+                                            	<option value="<%= serviceList.getServiceName() %>"><%= serviceList.getServiceName() %></option>
+                                            <% } %>
+                                        </select>
+                                    </div>
+                            	 	
+                            	 </div>
                                 <h3  style="color: orange;font-weight: bold;"> Vehicle Details</h3>
 
                                 <div class="row">
-                                    <div class="col-6">
-                                        <div class="md-form ml-4 mr-4">
-                                            <i class="fas fa-car prefix grey-text"></i>
-                                            <input type="text" id="materialFormCardNameEx" class="form-control name="Edit_Vehi_No""
-                                                value="">
-                                            <label for="materialFormCardNameEx" class="font-weight-light">Vehical
-                                                Number</label>
-                                        </div>
-                                    </div>
-                                    <div class="col-6">
-                                        <div class="md-form ml-4 mr-4 ml-4">
-                                            <i class="fa fa-envelope prefix grey-text"></i>
-                                            <input type="text" id="materialFormCardEmailEx" class="form-control" >
-                                            <label for="materialFormCardEmailEx"
-                                                class="font-weight-light">Milage</label>
-                                        </div>
-                                    </div>
+                                    
+                                    
                                     <div class="form-group col-md-3 ml-4">
                                         <label for="inputState"><i class="fab fa-bootstrap grey-text fa-2x"></i> Brand</label>
                                         <select id="inputState" class="form-control ml-3" name="Edit_brand">

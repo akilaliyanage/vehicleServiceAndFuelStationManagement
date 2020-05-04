@@ -29,6 +29,9 @@ public interface IAppointmentDAO {
 	public UserModel getCurrentUserByUid(String userId);
 
 	public VehicleModel getvehicleByAppintmentId(String appId);
+
+	public AppointmentModel UpdateAppointmentbyID(String appoint_No, String vehi_no, String brand, String model,
+			String transmission, String fuel, String date, String time , String pack  , String Service);
 	
 	
 	
