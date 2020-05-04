@@ -106,7 +106,7 @@
 
                             <div class="row">
                                 <h3 class="col-6">Request No :</h3>
-                                <h3 class="text-right col-5"><%=Package.getPackId() %></h3>
+                                <h3 class="text-right col-5"><%=Appointment.getAppId() %></h3>
                             </div>
                             <div class="row">
                                 <h3 class="col-6">Date :</h3>
@@ -210,7 +210,7 @@
                             </div>
                             <div class="col-6 " style="line-height: 0px;">
                                 <p class="ml-4"> <i class="fas fa-car"></i> <strong> Vehicle No : </strong> </p>
-                                <p class="text-right "><%=Vehicle.getVehicleId() %>></p>
+                                <p class="text-right "><%=Vehicle.getVehicleId() %></p>
 
                             </div>
                         </div>
@@ -343,10 +343,10 @@
                                         </select>
                                     </div>
                                     
-                                    <div class="form-group col-md-3 ml-4">
-                                        <label for="inputState"> <i class="fasfa-hands-helping grey-text fa-2x"></i>Service</label>
+                                    <div class="form-group col-5 ml-4">
+                                        <label for="inputState"> <i class="fas fa-hands-helping grey-text fa-2x"></i>Service</label>
                                         <select id="inputState" class="form-control ml-3" name="Edit_Service">
-                                            <option selected></option>
+                                            <option selected><%= Service.getServiceName() %></option>
                                             <% for(VehicalServices serviceList : AllvehiServices) { %>
                                             	<option value="<%= serviceList.getServiceName() %>"><%= serviceList.getServiceName() %></option>
                                             <% } %>
@@ -361,30 +361,22 @@
                                     
                                     <div class="form-group col-md-3 ml-4">
                                         <label for="inputState"><i class="fab fa-bootstrap grey-text fa-2x"></i> Brand</label>
-                                        <select id="inputState" class="form-control ml-3" name="Edit_brand">
-                                            <option selected>Choose...</option>
-                                            <option value="1">One</option>
-                                            <option value="2">Two</option>
-                                            <option value="3">Three</option>
-                                        </select>
-                                    </div>
+                                        <input id="inputState" class="form-control ml-3" name="Edit_brand">
+                                    </div>     
                                         
                                     <div class="form-group col-md-3 ml-4">
                                         <label for="inputState"> <i class="fab fa-medium-m grey-text fa-2x"></i> Model</label>
-                                        <select id="inputState" class="form-control ml-3" name = "Edit_model">
-                                            <option selected>Choose...</option>
-                                            <option value="1">One</option>
-                                            <option value="2">Two</option>
-                                            <option value="3">Three</option>
-                                        </select>
+                                        <input id="inputState" class="form-control ml-3" name = "Edit_model">
+                                            
                                     </div>
 
                                     <div class="form-group col-md-3 ml-4">
                                         <label for="inputState"> <i class="fas fa-cogs grey-text fa-2x"></i> Transmission</label>
                                         <select id="inputState" class="form-control ml-3" name="Edit_transmission">
-                                            <option selected>Auto</option>
-                                            <option value="2">Manual</option>
-                                            <option value="3">Tiptronic</option>
+                                            <option selected>Choose...</option>
+                                            <option value="Auto">Auto</option>
+                                            <option value="Manual">Manual</option>
+                                            <option value="Tiptronic">Tiptronic</option>
                                         </select>
                                     </div>
 
@@ -404,12 +396,14 @@
                                     
                                     <div class="md-form col-5 ml-4 mr-4">
                                         <i class="far fa-calendar-alt fa-2x grey-text"></i>
-                                        <input placeholder="Selected date" type="date" id="date-picker" class="form-control" name="Edit_date">
+                                        <input placeholder="Selected date" type="date" id="date-picker" class="form-control" 
+                                        value="<%=Appointment.getPrefDate() %>" name="Edit_date">
                                         
                                     </div>
                                     <div class="md-form col-5 ml-4 mr-4">
                                         <i class="far fa-clock fa-2x grey-text"></i>
-                                        <input placeholder="Selected date" type="time" id="date-picker" class="form-control" name="Edit_time">
+                                        <input placeholder="Selected date" type="time" id="date-picker" class="form-control"
+                                        value="<%=Appointment.getPrefTime() %>" name="Edit_time">
                                         
                                     </div>
                                 </div>

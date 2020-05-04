@@ -1,6 +1,7 @@
 package com.oop.service;
 
 import java.util.Date;
+import java.util.List;
 
 import com.oop.model.AppointmentModel;
 import com.oop.model.UserModel;
@@ -18,5 +19,17 @@ public interface AppointmentServices {
 	public AppointmentModel UpdateAppointment(String appoint_No, String vehi_no, String brand, String model,
 			String transmission, String fuel, String date, String time, String pack, String Service);
 
-	//public AppointmentModel UpdateAppointment();
+	public List<AppointmentModel> getPendingAppointments();
+
+	public void assignMechanic(String appointment, String assignrdMec);
+
+	public void SetRemarksToAppointment(String appointment, String remark);
+
+	public void Changestatus(String appointment, String status);
+
+	public void delelteRequest(String appointment, String vehicle);
+
+	public List<AppointmentModel> getAllAppointments();
+
+	
 }

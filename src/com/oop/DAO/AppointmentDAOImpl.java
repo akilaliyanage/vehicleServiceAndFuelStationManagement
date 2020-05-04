@@ -2,6 +2,8 @@ package com.oop.DAO;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 import java.sql.Connection;
 import com.oop.database.DatabaseConnection;
 import com.oop.model.*;
@@ -119,7 +121,65 @@ public class AppointmentDAOImpl implements IAppointmentDAO{
 		}
 		
 		
-		return null;
+		return UdatedApointment;
+	}
+
+
+
+	@Override
+	public List<AppointmentModel> getAllPendingAppointments() {
+		connection = DatabaseConnection.getConnection();
+		List<AppointmentModel> PendingReruests = new ArrayList<AppointmentModel>();
+		try {
+			prepStatement = connection.prepareStatement("SELECT * FROM appointment WHERE status = ?");
+			prepStatement.setString(1, "Pending");
+			ResultSet result = prepStatement.executeQuery();
+			PendingReruests = getPendingRequestList(result);
+		}  catch (SQLException e) {
+			e.printStackTrace();
+			System.out.println(e);
+		}
+		finally {
+			if (connection != null) {
+				try {
+					connection.close();
+				} catch (SQLException e) {
+					
+					e.printStackTrace();
+					System.out.println(e);
+				}
+			}
+		}
+		return PendingReruests;
+	}
+
+
+
+	private List<AppointmentModel> getPendingRequestList(ResultSet result) {
+		List<AppointmentModel> requestList = new ArrayList<AppointmentModel>();
+		
+		try {
+			while (result.next()) {
+				AppointmentModel appointmentPending = new AppointmentModel();
+				appointmentPending.setAppId(result.getString("appId"));
+				appointmentPending.setPackID(result.getString("packID"));
+				appointmentPending.setUserRegNo(result.getString("userRegNo"));
+				appointmentPending.setStatus(result.getString("status"));
+				appointmentPending.setRating(result.getString("rating"));
+				appointmentPending.setLocation(result.getString("location"));
+				appointmentPending.setPrefDate(result.getString("prefDate"));
+				appointmentPending.setPrefTime(result.getString("prefTime"));
+				appointmentPending.setRemarks(result.getString("remarks"));
+				appointmentPending.setService_id(result.getString("service_id"));
+				appointmentPending.setVehicleI_No(result.getString("vehicleI_No"));
+				appointmentPending.setAmmount(result.getDouble("amount"));
+				requestList.add(appointmentPending);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+			System.out.println(e);
+		}
+		return requestList;
 	}
 
 
@@ -368,6 +428,171 @@ public class AppointmentDAOImpl implements IAppointmentDAO{
 		return PackPrice;
 		
 	}
+
+
+
+	@Override
+	public void AssignMechanic(String appointment, String assignrdMec) {
+		connection = DatabaseConnection.getConnection();
+		
+		try {
+			prepStatement = connection.prepareStatement("UPDATE appointment SET Mechanic_ID = ? WHERE appId = ?");
+			prepStatement.setString(1, assignrdMec);
+			prepStatement.setString(2, appointment);
+			prepStatement.executeUpdate();
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.out.println(e);
+		}
+		finally {
+			try {
+				if (connection != null) {
+					connection.close();
+				}
+			} catch (SQLException e2) {
+				e2.printStackTrace();
+				System.out.println(e2);
+			}
+		}
+		
+	}
+
+
+
+	@Override
+	public void SetRemarks(String appointment, String remark) {
+		connection = DatabaseConnection.getConnection();
+		
+		try {
+			prepStatement = connection.prepareStatement("UPDATE appointment SET remarks = ? WHERE appId = ?");
+			prepStatement.setString(1, remark);
+			prepStatement.setString(2, appointment);
+			prepStatement.executeUpdate();
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.out.println(e);
+		}
+		finally {
+			try {
+				if (connection != null) {
+					connection.close();
+				}
+			} catch (SQLException e2) {
+				e2.printStackTrace();
+				System.out.println(e2);
+			}
+		}
+		
+	}
+
+
+
+	@Override
+	public void setRequestStatus(String appointment, String status) {
+		connection = DatabaseConnection.getConnection();
+		
+		try {
+			prepStatement = connection.prepareStatement("UPDATE appointment SET status = ? WHERE appId = ?");
+			prepStatement.setString(1, status);
+			prepStatement.setString(2, appointment);
+			prepStatement.executeUpdate();
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.out.println(e);
+		}
+		finally {
+			try {
+				if (connection != null) {
+					connection.close();
+				}
+			} catch (SQLException e2) {
+				e2.printStackTrace();
+				System.out.println(e2);
+			}
+		}
+		
+	}
+
+
+
+	@Override
+	public void DeleteAppointment(String appointment, String vehicle) {
+		connection = DatabaseConnection.getConnection();
+		try {
+			prepStatement = connection.prepareStatement("DELETE FROM vehicle WHERE vehicleId= ?");
+			prepStatement.setString(1, vehicle);
+			System.out.println("VehicleModel Deleted");
+			
+			if (prepStatement.executeUpdate() != 0) {
+				prepStatement2 = connection.prepareStatement("DELETE FROM appointment WHERE appId= ? ");
+				prepStatement2.setString(1, appointment);
+				prepStatement2.executeUpdate();
+				System.out.println("Appointment Deleted");
+			}
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.out.println(e);
+		}
+		finally {
+			try {
+				if (connection != null) {
+					connection.close();
+				}
+			} catch (SQLException e2) {
+				e2.printStackTrace();
+				System.out.println(e2);
+			}
+		}
+	}
+
+
+
+	@Override
+	public List<AppointmentModel> getAllAppointmentsData() {
+		List<AppointmentModel> AllappointmentList = new ArrayList<AppointmentModel>();
+		connection = DatabaseConnection.getConnection();
+		try {
+			prepStatement = connection.prepareStatement("SELECT * FROM appointment");
+			ResultSet result = prepStatement.executeQuery();
+			AllappointmentList = getAppointmentList(result);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return AllappointmentList;
+	}
+
+
+
+	private List<AppointmentModel> getAppointmentList(ResultSet result) {
+		List<AppointmentModel> appointmentList = new ArrayList<AppointmentModel>();
+		try {
+			while(result.next()) {
+				AppointmentModel appointmentObject = new AppointmentModel();
+				appointmentObject.setAppId(result.getString("appId"));
+				appointmentObject.setPackID(result.getString("packID"));
+				appointmentObject.setUserRegNo(result.getString("userRegNo"));
+				appointmentObject.setStatus(result.getString("status"));
+				appointmentObject.setRating(result.getString("rating"));
+				appointmentObject.setLocation(result.getString("location"));
+				appointmentObject.setPrefDate(result.getString("prefDate"));
+				appointmentObject.setPrefTime(result.getString("prefTime"));
+				appointmentObject.setRemarks(result.getString("remarks"));
+				appointmentObject.setService_id(result.getString("service_id"));
+				appointmentObject.setVehicleI_No(result.getString("vehicleI_No"));
+				appointmentObject.setAmmount(result.getDouble("amount"));
+				appointmentList.add(appointmentObject);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return appointmentList;
+	}
+
+
+
 	
 	
 }

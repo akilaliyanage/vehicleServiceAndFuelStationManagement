@@ -1,8 +1,11 @@
 package com.oop.service;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
+
 import com.oop.DAO.AppointmentDAOImpl;
 import com.oop.DAO.IAppointmentDAO;
 import com.oop.model.AppointmentModel;
@@ -13,6 +16,12 @@ import com.oop.model.VehicleModel;
 public class AppointmentServicesImpl implements AppointmentServices{
 
 	IAppointmentDAO apppointData = new AppointmentDAOImpl();
+
+	@Override
+	public void assignMechanic(String appointment, String assignrdMec) {
+		apppointData.AssignMechanic(appointment , assignrdMec);
+		
+	}
 
 	@Override
 	public AppointmentModel createAppointment(String userId, String vehi_NO, Date AppointDate, String vehiBrand, String vehiModel,
@@ -63,6 +72,37 @@ public class AppointmentServicesImpl implements AppointmentServices{
 			String transmission, String fuel, String date, String time , String pack , String Service) {
 		AppointmentModel updatedAppointment = apppointData.UpdateAppointmentbyID(appoint_No , vehi_no , brand , model , transmission , fuel , date , time , pack , Service);
 		return updatedAppointment;
+	}
+
+	@Override
+	public List<AppointmentModel> getPendingAppointments() {
+		List<AppointmentModel> pendingAppointments = apppointData.getAllPendingAppointments();
+		return pendingAppointments;
+	}
+
+	@Override
+	public void SetRemarksToAppointment(String appointment, String remark) {
+		apppointData.SetRemarks(appointment , remark);
+		
+	}
+
+	@Override
+	public void Changestatus(String appointment, String status) {
+		apppointData.setRequestStatus(appointment , status);
+		
+	}
+
+	@Override
+	public void delelteRequest(String appointment, String vehicle) {
+		apppointData.DeleteAppointment(appointment , vehicle);
+		
+	}
+
+	@Override
+	public List<AppointmentModel> getAllAppointments() {
+		List<AppointmentModel> allRequests = new ArrayList<AppointmentModel>();
+		allRequests = apppointData.getAllAppointmentsData();
+		return allRequests;
 	}
 
 }

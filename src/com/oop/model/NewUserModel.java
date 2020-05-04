@@ -18,6 +18,9 @@ public class NewUserModel {
 		this.passwordString = passwordString;
 		this.userregNoString = userregNoString;
 	}
+	public NewUserModel() {
+		// TODO Auto-generated constructor stub
+	}
 	/**
 	 * @return the userregNoString
 	 */

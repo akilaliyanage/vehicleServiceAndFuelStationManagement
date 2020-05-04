@@ -60,6 +60,9 @@ public class EditAppointmentServlet extends HttpServlet {
 		
 		System.out.println(Service);
 		System.out.println(pack);
+		System.out.println("date is" + date);
+		System.out.println(time);
+		
 		
 		AppointmentModel editedAppointment = editAppoinement.UpdateAppointment(Appoint_No , Current_vehi_no , brand , model , transmission , fuel , date , time , pack , Service);
 		
@@ -79,7 +82,7 @@ public class EditAppointmentServlet extends HttpServlet {
 		IServiceAccess sevices = new ServiceAccessImpl();
 		
 		
-		if (editedAppointment != null && currentUser != null && selectedService != null && selectedpack != null) {
+		if (editedAppointment != null && currentUser != null  && selectedpack != null) {
 			request.setAttribute("Appointment", editedAppointment);
 			request.setAttribute("User", currentUser);
 			request.setAttribute("Vehicle", editedVehicle);
