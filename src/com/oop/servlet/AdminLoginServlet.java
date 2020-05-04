@@ -50,7 +50,7 @@ public class AdminLoginServlet extends HttpServlet {
 				sHttpSession.setAttribute("regno", adminModel.getRegnoString());
 				response.sendRedirect("UpdateDashboardServlet");	
 				
-				System.out.println("akila");
+				
 			}
 			else {
 				response.sendRedirect("adminLogin.jsp");	

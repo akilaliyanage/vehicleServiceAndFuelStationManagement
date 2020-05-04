@@ -131,6 +131,9 @@
         <a href="All_request.jsp" class="btn btn-light"
           ><i class="fas fa-flag-checkered"></i>&nbsp;&nbsp; Pending Requests</a
         >
+         <a href="All_request.jsp" class="btn btn-light"
+          ><i class="fas fa-flag-checkered"></i>&nbsp;&nbsp; All requests</a
+        >
         <a href="reports.html" class="btn btn-light"
           ><i class="fas fa-file-word"></i>&nbsp;&nbsp; Reports</a
         >
