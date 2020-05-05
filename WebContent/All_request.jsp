@@ -252,62 +252,59 @@
 					<span
 						style="color: #428bca; font-style: italic; font-weight: bold;">Advanced
 						Search</span>
+					<form action="AdvanceSearchServlet" method="get">
 					<div class="row row-cols-4 ">
 						<div class="col-md-4 d-flex justify-content-center">
-							<input type="text" placeholder="Name" class="serch_in Text_val">
+							<input type="text" placeholder="Customer ID" class="serch_in Text_val"
+							name="Search_by_CusId">
 						</div>
 
 						<div class="col-md-4 d-flex justify-content-center">
 							<input type="text" placeholder="Vehicle No"
-								class="serch_in Text_val">
+								class="serch_in Text_val" name="Search_by_VehiNo">
 						</div>
 
 						<div class="col-md-4 d-flex justify-content-center">
-							<input type="text" placeholder="Mechanic"
-								class="serch_in Text_val">
+							<input type="text" placeholder="Ammount"
+								class="serch_in Text_val" name="Search_by_Ammount">
 						</div>
 
 
 						<div class="col-md-4 d-flex justify-content-center">
-							<select class="serch_in Sel_val">
-								<option value="null" disabled selected hidden>Choose a
-									drink</option>
-								<option>ACCESSORIES</option>
-								<option>SUBJECT B</option>
-								<option>SUBJECT C</option>
-							</select>
+							<input type="text" placeholder="Service"
+								class="serch_in Sel_val" name="Search_by_Service">
 						</div>
 
 						<div class="col-md-4 d-flex justify-content-center">
-							<select class="serch_in Sel_val">
-								<option value="null" disabled selected hidden>Choose
+							<select class="serch_in Sel_val" name="Search_by_Status">
+								<option disabled selected value="">Choose
 									Status</option>
 								<option>Pending</option>
-								<option>Approved</option>
-								<option>Active</option>
-								<option>Finished</option>
-								<option>Closed</option>
+								<option>Accepted</option>
+								<option>Rejected</option>
 							</select>
 						</div>
 
 						<div class="col-md-4 d-flex justify-content-center">
 
 							<input placeholder="Date" class="textbox-n serch_in Sel_val"
-								type="text" onfocus="(this.type='date')" id="picker">
+								type="text" onfocus="(this.type='date')" id="picker"
+								name="Search_by_Date">
 						</div>
 
 
 
 						<div class="col-md-12 d-flex justify-content-end mt-3">
-							<button type="button" class="btn btn-primary"
+							<button type="submit" class="btn btn-primary"
 								style="margin-right: 20px; width: 160px">Apply</button>
-							<button type="button" class="btn btn-secondary"
+							<button type="reset" class="btn btn-secondary"
 								style="width: 160px">Delete</button>
 						</div>
 
 
 
 					</div>
+					</form>
 
 				</div>
 				<div id="testhide">
@@ -338,17 +335,27 @@
 								<td><%= Appointment.getAmmount() %></td>
 								<td><%= Appointment.getStatus() %></td>
 
-								<td><a href="newReq.jsp" class="btn btn-secondary"
-									data-toggle="tooltip" data-placement="top" title="Edit"> <i
-										class="fas fa-edit"></i>
-								</a>
-
-									<button type="button" class="btn btn-danger"
+								<td>
+								<div class="row">
+									<form action="FullRequestservlet">
+										<input type="hidden" value="<%=Appointment.getAppId()%>" name="Id_Of_Appointment">
+										<button type="submit" class="btn btn-secondary"
+										data-toggle="tooltip" data-placement="top"
+										title="Tooltip on top">
+										<i class="far fa-edit"></i>
+									</button>
+									
+									</form>
+									
+									<form action="">
+									<button type="submit" class="btn btn-danger"
 										data-toggle="tooltip" data-placement="top"
 										title="Tooltip on top">
 										<i class="far fa-trash-alt"></i>
-									</button></td>
-
+									</button>
+									</form>
+									</div>
+								</td>
 							</tr>
 							<% } %>
 							

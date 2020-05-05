@@ -98,7 +98,7 @@ public class CreateAppointmentServlet extends HttpServlet {
 		AppointmentModel createdAppointmentModel = appointmentServices.createAppointment(userId, vehi_nameString, AppointDate, vehiBrand, vehiModel, vehiTransmission, vehiFuel, vehEngine, vehiYear, serviceID, appointTime, packID, appointDay);
 		UserModel currentUser = appointmentServices.GetUserById(userId);
 		VehicleModel appointedVehicle = appointmentServices.getVehicleByAppointmentId(createdAppointmentModel.getAppId());
-		
+		System.out.println("checking vehi Fuel is : " + appointedVehicle.getFuelType());
 		IServiceAccess appointedService = new ServiceAccessImpl();
 		VehicalServices selectedService = appointedService.getServiceDetailServices(serviceID);
 		

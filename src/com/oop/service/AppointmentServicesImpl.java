@@ -9,6 +9,7 @@ import java.util.List;
 import com.oop.DAO.AppointmentDAOImpl;
 import com.oop.DAO.IAppointmentDAO;
 import com.oop.model.AppointmentModel;
+import com.oop.model.UserAppointmentModel;
 import com.oop.model.UserModel;
 import com.oop.model.VehicleModel;
 
@@ -104,5 +105,29 @@ public class AppointmentServicesImpl implements AppointmentServices{
 		allRequests = apppointData.getAllAppointmentsData();
 		return allRequests;
 	}
+
+	@Override
+	public List<AppointmentModel> SearchAdvanceAppointments(String userRegNo, String vehicleI_No, String amount,
+			String service_id, String status, String prefDate) {
+		List<AppointmentModel> filteredappoint = new ArrayList<AppointmentModel>();
+		filteredappoint = apppointData.AdvanceAppointmentSearch(userRegNo , vehicleI_No , amount , service_id , status , prefDate);
+		return filteredappoint;
+	}
+
+	@Override
+	public AppointmentModel getAppointmentByAppID(String appointmentID) {
+		AppointmentModel appointment = new AppointmentModel();
+		appointment = apppointData.getAppointmentById(appointmentID);
+		return appointment;
+	}
+
+	@Override
+	public List<UserAppointmentModel> getUserWithAppointment() {
+		List<UserAppointmentModel> userWithapp = new ArrayList<UserAppointmentModel>();
+		userWithapp = apppointData.getUserAndAppointment();
+		return userWithapp;
+	}
+	
+	
 
 }

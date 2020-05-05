@@ -6,13 +6,16 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 import com.oop.database.*;
 
 import com.oop.model.PackageForAppoint;
 
 public class PackageAccessDAOImpl implements IPackageAccessDAO {
 	
-	
+	private static final Logger LOGGER = Logger.getLogger(PackageAccessDAOImpl.class.getName());
 
 	private Connection conn;
 	
@@ -25,7 +28,9 @@ public class PackageAccessDAOImpl implements IPackageAccessDAO {
 			PreparedStatement PrepStatement = conn.prepareStatement("SELECT * FROM package");
 			ResultSet rSet = PrepStatement.executeQuery();
 			packList = AddAllPackages(rSet);
-		} catch (Exception e) {
+		} catch (SQLException e) {
+			LOGGER.log(Level.SEVERE, e.getMessage());
+			LOGGER.log(Level.SEVERE, e.getSQLState());
 			e.printStackTrace();
 		}
 		finally {
@@ -34,6 +39,7 @@ public class PackageAccessDAOImpl implements IPackageAccessDAO {
 					conn.close();
 				}
 			} catch (Exception e2) {
+				LOGGER.log(Level.SEVERE, e2.getMessage());
 				e2.printStackTrace();
 			}
 		}
@@ -56,7 +62,9 @@ public class PackageAccessDAOImpl implements IPackageAccessDAO {
 				packList.add(pack);
 				
 			}
-		} catch (Exception e) {
+		} catch (SQLException e) {
+			LOGGER.log(Level.SEVERE, e.getMessage());
+			LOGGER.log(Level.SEVERE, e.getSQLState());
 			e.printStackTrace();
 		}
 		finally {
@@ -65,6 +73,7 @@ public class PackageAccessDAOImpl implements IPackageAccessDAO {
 					conn.close();
 				}
 			} catch (Exception e2) {
+				LOGGER.log(Level.SEVERE, e2.getMessage());
 				e2.printStackTrace();
 			}
 		}
@@ -82,7 +91,8 @@ public class PackageAccessDAOImpl implements IPackageAccessDAO {
 			ResultSet result = pStatment.executeQuery();
 			resultPackage = getPackageObject(result);
 		} catch (SQLException e) {			
-			e.printStackTrace();
+			LOGGER.log(Level.SEVERE, e.getMessage());
+			LOGGER.log(Level.SEVERE, e.getSQLState());
 		}
 		finally {
 			try {
@@ -90,6 +100,7 @@ public class PackageAccessDAOImpl implements IPackageAccessDAO {
 					conn.close();
 				}
 			} catch (Exception e2) {
+				LOGGER.log(Level.SEVERE, e2.getMessage());
 				e2.printStackTrace();
 			}
 		}
@@ -110,8 +121,9 @@ public class PackageAccessDAOImpl implements IPackageAccessDAO {
 				
 			}
 			
-		} catch (Exception e) {
-			// TODO: handle exception
+		} catch (SQLException e) {
+			LOGGER.log(Level.SEVERE, e.getMessage());
+			LOGGER.log(Level.SEVERE, e.getSQLState());
 			e.printStackTrace();
 		}
 		return packageObject;

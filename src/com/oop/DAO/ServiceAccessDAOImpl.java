@@ -3,8 +3,11 @@ package com.oop.DAO;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import com.oop.database.*;
 
@@ -13,7 +16,7 @@ import com.oop.service.PackageAccessImpl;
 
 public class ServiceAccessDAOImpl implements IServiceAccessDAO{
 	
-	
+	private static final Logger LOGGER = Logger.getLogger(ServiceAccessDAOImpl.class.getName()); 
 
 
 
@@ -29,7 +32,9 @@ public class ServiceAccessDAOImpl implements IServiceAccessDAO{
 			prepStatement = conn.prepareStatement("SELECT * FROM service");
 			ResultSet resultSet = prepStatement.executeQuery();
 			allServives = getServiceList(resultSet);
-		} catch (Exception e) {
+		} catch (SQLException e) {
+			LOGGER.log(Level.SEVERE, e.getMessage());
+			LOGGER.log(Level.SEVERE, e.getSQLState());
 			e.printStackTrace();
 		}
 		finally {
@@ -38,6 +43,7 @@ public class ServiceAccessDAOImpl implements IServiceAccessDAO{
 					conn.close();
 				}
 			} catch (Exception e2) {
+				LOGGER.log(Level.SEVERE, e2.getMessage());
 				e2.printStackTrace();
 			}
 		}
@@ -61,7 +67,9 @@ public class ServiceAccessDAOImpl implements IServiceAccessDAO{
 				serviceList.add(vehiService);
 				
 			}
-		} catch (Exception e) {
+		} catch (SQLException e) {
+			LOGGER.log(Level.SEVERE, e.getMessage());
+			LOGGER.log(Level.SEVERE, e.getSQLState());
 			e.printStackTrace();
 		}
 		return serviceList;
@@ -81,7 +89,9 @@ public class ServiceAccessDAOImpl implements IServiceAccessDAO{
 			service = getServiceValues(rSet);
 		} 
 		
-		catch (Exception e) {
+		catch (SQLException e) {
+			LOGGER.log(Level.SEVERE, e.getMessage());
+			LOGGER.log(Level.SEVERE, e.getSQLState());
 			e.printStackTrace();
 		}
 		finally {
@@ -90,12 +100,10 @@ public class ServiceAccessDAOImpl implements IServiceAccessDAO{
 					conn.close();
 				}
 			} catch (Exception e2) {
+				LOGGER.log(Level.SEVERE, e2.getMessage());
 				e2.printStackTrace();
 			}
 		}
-		
-		System.out.println(service.getServiceId());
-		System.out.println(service.getDescription());
 		
 		return service;
 	}
@@ -117,8 +125,10 @@ public class ServiceAccessDAOImpl implements IServiceAccessDAO{
 				
 				
 			}
-		} catch (Exception e) {
-			// TODO: handle exception
+		} catch (SQLException e) {
+			LOGGER.log(Level.SEVERE, e.getMessage());
+			LOGGER.log(Level.SEVERE, e.getSQLState());
+			e.printStackTrace();
 		}
 		return service;
 	}

@@ -51,7 +51,6 @@ public class NewAppointmentServlet extends HttpServlet {
 		request.setAttribute("AllServices", vehiServices);
 		
 		request.getRequestDispatcher("SendRequest.jsp").forward(request, response);
-		request.getRequestDispatcher("SendRequest.jsp").forward(request, response);
 		
 	}
 

@@ -4,6 +4,7 @@ import java.util.Date;
 import java.util.List;
 
 import com.oop.model.AppointmentModel;
+import com.oop.model.UserAppointmentModel;
 import com.oop.model.UserModel;
 import com.oop.model.VehicleModel;
 
@@ -30,6 +31,13 @@ public interface AppointmentServices {
 	public void delelteRequest(String appointment, String vehicle);
 
 	public List<AppointmentModel> getAllAppointments();
+
+	public List<AppointmentModel> SearchAdvanceAppointments(String userRegNo, String vehicleI_No, String amount,
+			String service_id, String status, String prefDate);
+
+	public AppointmentModel getAppointmentByAppID(String appointmentID);
+
+	public List<UserAppointmentModel> getUserWithAppointment();
 
 	
 }

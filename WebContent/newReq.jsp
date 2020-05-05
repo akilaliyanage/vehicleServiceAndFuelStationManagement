@@ -18,6 +18,8 @@
 	integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
 	crossorigin="anonymous" />
 <!-- <link href="css/bootstrap-dropdownhover.min.css" rel="stylesheet" /> -->
+
+
 <!--end of the bootstrap-->
 
 <!--akila css-->
@@ -30,15 +32,16 @@
 <body>
 
 	<%
-		List<AppointmentModel> PendingRequests = (ArrayList<AppointmentModel>)request.getAttribute("PendingRequests");
-		List<NewMechModel> Mechanics = (ArrayList<NewMechModel>)request.getAttribute("Mechanics");
-		String origin = (String)request.getAttribute("origin");
-		String Affectedappointment = (String)request.getAttribute("Affectedappointment");
-		if(origin == "Deleted"){
+	List<AppointmentModel> PendingRequests = (ArrayList<AppointmentModel>) request.getAttribute("PendingRequests");
+	List<NewMechModel> Mechanics = (ArrayList<NewMechModel>) request.getAttribute("Mechanics");
+	String origin = (String) request.getAttribute("origin");
+	String Affectedappointment = (String) request.getAttribute("Affectedappointment");
+	if (origin == "Deleted") {
 	%>
-			<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-			<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-		<script>
+	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script>
 		$(document).ready(function () {
 			swal({
 				  title: "You Have Deleted The Request",
@@ -46,10 +49,14 @@
 				});
 		});
 		</script>
-		<% }if(origin.equals("Accepted")) { %>
-			<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-			<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-		<script>
+	<%
+		}
+	if (origin.equals("Accepted")) {
+	%>
+	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script>
 		$(document).ready(function () {
 			swal({
 				  title: "You Have Accepted The Request <%=Affectedappointment%> ",
@@ -57,18 +64,25 @@
 				});
 		});
 		</script>
-		<% } if(origin.equals("Rejected") ) { %>
-			<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-			<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-		<script>
+	<%
+		}
+	if (origin.equals("Rejected")) {
+	%>
+	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script>
 		$(document).ready(function () {
 			swal({
-				  title: "You Have Rejected The Request <%=Affectedappointment%>",
-				  icon: "warning",
-				});
-		});
-		</script>
-		<% } %>
+				  title: "You Have Rejected The Request <%=Affectedappointment%>
+		",
+								icon : "warning",
+							});
+						});
+	</script>
+	<%
+		}
+	%>
 
 	<nav
 		class="navbar menu sticky-top navbar-expand-lg navbar-light bg-light"
@@ -214,12 +228,15 @@
 
 		<!--Start middle part-->
 		<div class="col-10 ">
+			
 
-			<% for(AppointmentModel Appointment : PendingRequests){ %>
+			<%
+				for (AppointmentModel Appointment : PendingRequests) {
+			%>
 
 			<div class="Act_new_req m-4">
 
-				<div class="jumbotron">
+				<div class="jumbotron" style="background-color: white; border-style: solid; border-color: black;">
 
 					<div class="row row-cols-3 d-flex align-items-center">
 
@@ -252,21 +269,21 @@
 							<hr class="my-4">
 							<div class="requ_inf">
 								<strong>Requested Service : </strong>
-								<p class="text-right"><%=Appointment.getService_id() %></p>
+								<p class="text-right"><%=Appointment.getService_id()%></p>
 							</div>
 
 							<div class="requ_inf">
 								<strong>Vehicle NO : </strong>
-								<p class="text-right"><%=Appointment.getVehicleI_No() %></p>
+								<p class="text-right"><%=Appointment.getVehicleI_No()%></p>
 							</div>
 							<div class="requ_inf">
 								<strong>Total Amount : </strong>
-								<p class="text-right"><%=Appointment.getAmmount() %></p>
+								<p class="text-right"><%=Appointment.getAmmount()%></p>
 							</div>
 							<div class="requ_inf">
 								<strong>Service Date & Time : </strong>
-								<p class="text-right"><%=Appointment.getPrefDate() %></p>
-								<p class="text-right"><%=Appointment.getPrefTime() %></p>
+								<p class="text-right"><%=Appointment.getPrefDate()%></p>
+								<p class="text-right"><%=Appointment.getPrefTime()%></p>
 							</div>
 							<div class="requ_inf">
 								<strong>Mechanic : </strong>
@@ -318,9 +335,9 @@
 						<div class="row mt-4 d-flex justify-content-center">
 							<form action="ChangeStatusServlet" method="get">
 								<input type="hidden" value="<%=Appointment.getAppId()%>"
-									name="appointment2">
-								<input type="hidden" name="Status" value="Accepted">
-								
+									name="appointment2"> <input type="hidden" name="Status"
+									value="Accepted">
+
 								<button type="submit" class="btn btn-success mr-4">
 									<i class="fas fa-clipboard-check"></i> Accept Job Request
 								</button>
@@ -328,8 +345,8 @@
 
 							<form action="ChangeStatusServlet" method="get">
 								<input type="hidden" value="<%=Appointment.getAppId()%>"
-									name="appointment2">
-								<input type="hidden" name="Status" value="Rejected">
+									name="appointment2"> <input type="hidden" name="Status"
+									value="Rejected">
 								<button type="submit" class="btn btn-warning mr-4">
 									<i class="far fa-window-close"></i> Reject Job Request
 								</button>
@@ -337,9 +354,10 @@
 
 							<form action="ChangeStatusServlet" method="get">
 								<input type="hidden" value="<%=Appointment.getAppId()%>"
-									name="appointment2">
-								<input type="hidden" name="Status" value="Delete">
-								<input type="hidden" name="Vehicle_to_dele" value="<%=Appointment.getVehicleI_No()%>">
+									name="appointment2"> <input type="hidden" name="Status"
+									value="Delete"> <input type="hidden"
+									name="Vehicle_to_dele"
+									value="<%=Appointment.getVehicleI_No()%>">
 								<button type="submit" class="btn btn-danger mr-4">
 									<i class="far fa-trash-alt"></i> Delete Job Request
 								</button>
@@ -359,9 +377,13 @@
 				</div>
 
 			</div>
-			<%} %>
+			<%
+				}
+			%>
 
-			<% for(AppointmentModel Appointment : PendingRequests){ %>
+			<%
+				for (AppointmentModel Appointment : PendingRequests) {
+			%>
 
 			<!-- Modal: modalCart -->
 			<div class="modal fade" id="<%=Appointment.getAppId()%>"
@@ -389,21 +411,25 @@
 									</tr>
 								</thead>
 								<tbody>
-									<% for(NewMechModel mech : Mechanics){ %>
+									<%
+										for (NewMechModel mech : Mechanics) {
+									%>
 									<tr>
-										<td>Product 1</td>
-										<td><%=mech.getUserregNoString() %></td>
+										<td><%=mech.getFullnameString()%></td>
+										<td><%=mech.getUserregNoString()%></td>
 										<td>
 											<form action="AssignMechServelet" method="get">
-												<input type="hidden" value="<%=mech.getUserregNoString() %>"
+												<input type="hidden" value="<%=mech.getUserregNoString()%>"
 													name="AssignrdMec"> <input type="hidden"
 													value="<%=Appointment.getAppId()%>" name="appointment">
-												<button type="submit" class="btn btn-primary btn-sm m-0">Assign</button>
+												<button type="submit" class="btn btn-primary btn-sm m-0" data-toggle="modal" data-target="#SuccessfullyAssigned" > Assign </button>
 											</form>
 
 										</td>
 									</tr>
-									<%} %>
+									<%
+										}
+									%>
 								</tbody>
 							</table>
 
@@ -416,9 +442,49 @@
 
 			<!-- Modal: modalCart -->
 
-			<%} %>
+			<%
+				}
+			%>
 
+			<!-- Mechanic Assigning confermation Model -->
+			<div class="modal fade" id="SuccessfullyAssigned" tabindex="-1"
+				role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+				<div class="modal-dialog modal-notify modal-success" role="document">
+					<!--Content-->
+					<div class="modal-content">
+						<!--Header-->
+						<div class="modal-header">
+							<p class="heading lead">Modal Success</p>
 
+							<button type="button" class="close" data-dismiss="modal"
+								aria-label="Close">
+								<span aria-hidden="true" class="white-text">&times;</span>
+							</button>
+						</div>
+
+						<!--Body-->
+						<div class="modal-body">
+							<div class="text-center">
+								<i class="fas fa-check fa-4x mb-3 animated rotateIn"></i>
+								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+									Impedit iusto nulla aperiam blanditiis ad consequatur in
+									dolores culpa, dignissimos, eius non possimus fugiat. Esse
+									ratione fuga, enim, ab officiis totam.</p>
+							</div>
+						</div>
+
+						<!--Footer-->
+						<div class="modal-footer justify-content-center">
+						 <a type="button"
+								class="btn btn-outline-success waves-effect"
+								data-dismiss="modal">No, thanks
+						</a>
+						</div>
+					</div>
+					<!--/.Content-->
+				</div>
+			</div>
+			<!-- Mechanic Assigning confermation Model-->
 
 
 
@@ -530,7 +596,7 @@
 		crossorigin="anonymous"></script>
 	<!--end of the bootstrap-->
 
-	
+
 	<!--akila js-->
 	<script src="js/akila/dashboard.js"></script>
 	<!--end of the akila js-->

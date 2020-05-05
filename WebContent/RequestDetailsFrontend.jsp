@@ -40,6 +40,7 @@
 		VehicalServices Service = (VehicalServices) request.getAttribute("Service");
 		PackageForAppoint Package = (PackageForAppoint)request.getAttribute("Package");
 		
+		
 		List<PackageForAppoint> Allpacks = (ArrayList<PackageForAppoint>) request.getAttribute("Allpacks");
 		List<VehicalServices> AllvehiServices = (ArrayList<VehicalServices>) request.getAttribute("AllvehiServices");
 	%>
@@ -258,7 +259,7 @@
 
                                 <p class="ml-4"> <i class="fas fa-hand-holding-usd"></i> <strong> Total Payment :
                                     </strong> </p>
-                                <p class="text-right">4150.00 Rs</p>
+                                <p class="text-right"><%=Appointment.getAmmount() %> Rs</p>
 
                             </div>
                             <div class="col-6 " style="line-height: 0px;">

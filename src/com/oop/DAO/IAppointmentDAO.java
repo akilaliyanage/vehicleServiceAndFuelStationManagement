@@ -5,6 +5,7 @@ package com.oop.DAO;
 import java.util.List;
 
 import com.oop.model.AppointmentModel;
+import com.oop.model.UserAppointmentModel;
 import com.oop.model.UserModel;
 import com.oop.model.VehicleModel;
 
@@ -46,6 +47,13 @@ public interface IAppointmentDAO {
 	public void DeleteAppointment(String appointment, String vehicle);
 
 	public List<AppointmentModel> getAllAppointmentsData();
+
+	public List<AppointmentModel> AdvanceAppointmentSearch(String userRegNo, String vehicleI_No, String amount,
+			String service_id, String status, String prefDate);
+
+	public AppointmentModel getAppointmentById(String appointmentID);
+
+	public List<UserAppointmentModel> getUserAndAppointment();
 
 	
 	

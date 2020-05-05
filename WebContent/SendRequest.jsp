@@ -30,7 +30,9 @@
 <!--Mahen css-->
 <link rel="stylesheet" href="css/Mahen/sendrequest.css" />
 
-<title>Frontend Template</title>
+<title>Send Request</title>
+
+
 </head>
 <body>
 
@@ -707,9 +709,10 @@
 												<img src="img/Mahen/calender.png" alt=""></i>
 											</div>
 										</div>
+										  
 										<input type="text" id="Vehicle_year" class="form-control" required name="year"
 											placeholder="" name="year" required value="">
-
+											
 									</div>
 								</div>
 								<div class="form-group col-md-4">
@@ -744,10 +747,10 @@
 										<select id="Vehicle_fuel" class="form-control form-control-lg"
 											name="Fuel" required>
 											<option selected>Choose...</option>
-											<option>Petrol</option>
-											<option>Diesel</option>
-											<option>Gasoline</option>
-											<option>Electric</option>
+											<option value="Petrol">Petrol</option>
+											<option value="Diesel">Diesel</option>
+											<option value="Gasoline">Gasoline</option>
+											<option value="Electric">Electric</option>
 										</select>
 									</div>
 								</div>
@@ -904,15 +907,17 @@
 												</tr>
 											</thead>
 											<tbody>
+											
+											<% for(int timeSet = 8 ; timeSet < 17 ; timeSet++){ int nextime = (timeSet + 1); %>
 												<tr>
 													<td>
 														<form action="getDateServlet" method="get">
 															<input type="hidden" value="" class="Sunday_date"
 																name="Date"> <input type="hidden"
-																value="08:00:00" name="Time">
+																value="<%=timeSet%>:00:00" name="Time">
 															<button type="submit" class="btn btn-pink"
 																onclick="goInvoice(value)" disabled>
-																<strong>8.00-9.00</strong>
+																<strong><%=timeSet%>.00-<%=nextime%>.00</strong>
 															</button>
 														</form>
 													</td>
@@ -920,10 +925,10 @@
 														<form action="getDateServlet" method="get">
 															<input type="hidden" value="1" class="Monday_date"
 																name="Date"> <input type="hidden"
-																value="08:00:00" name="Time">
+																value="<%=timeSet%>:00:00" name="Time">
 															<button type="submit" class="btn btn-light-blue"
 																onclick="goInvoice(value)">
-																<strong>8.00-9.00</strong>
+																<strong><%=timeSet%>.00-<%=nextime%>.00</strong>
 															</button>
 														</form>
 													</td>
@@ -931,10 +936,10 @@
 														<form action="getDateServlet" method="get" name="datform">
 															<input type="hidden" value="2" class="Tuesday_date"
 																name="Date"> <input type="hidden"
-																value="08:00:00" name="Time">
+																value="<%=timeSet%>:00:00" name="Time">
 															<button type="submit" class="btn btn-light-blue"
 																onclick="goInvoice(value)">
-																<strong>8.00-9.00</strong>
+																<strong><%=timeSet%>.00-<%=nextime%>.00</strong>
 															</button>
 														</form>
 													</td>
@@ -942,10 +947,10 @@
 														<form action="getDateServlet" method="get" name="datform">
 															<input type="hidden" value="3" class="Wednesday_date"
 																name="Date"> <input type="hidden"
-																value="08:00:00" name="Time">
+																value="<%=timeSet%>:00:00" name="Time">
 															<button type="submit" class="btn btn-light-blue"
 																onclick="goInvoice(value)">
-																<strong>8.00-9.00</strong>
+																<strong><%=timeSet%>.00-<%=nextime%>.00</strong>
 															</button>
 														</form>
 													</td>
@@ -953,10 +958,10 @@
 														<form action="getDateServlet" method="get" name="datform">
 															<input type="hidden" value="4" class="Thursday_date"
 																name="Date"> <input type="hidden"
-																value="08:00:00" name="Time">
+																value="<%=timeSet%>:00:00" name="Time">
 															<button type="submit" class="btn btn-light-blue"
 																onclick="goInvoice(value)">
-																<strong>8.00-9.00</strong>
+																<strong><%=timeSet%>.00-<%=nextime%>.00</strong>
 															</button>
 														</form>
 													</td>
@@ -964,10 +969,10 @@
 														<form action="getDateServlet" method="get" name="datform">
 															<input type="hidden" value="5" class="Friday_date"
 																name="Date"> <input type="hidden"
-																value="08:00:00" name="Time">
+																value="<%=timeSet%>:00:00" name="Time">
 															<button type="submit" class="btn btn-light-blue"
 																onclick="goInvoice(value)">
-																<strong>8.00-9.00</strong>
+																<strong><%=timeSet%>.00-<%=nextime%>.00</strong>
 															</button>
 														</form>
 													</td>
@@ -975,661 +980,18 @@
 														<form action="getDateServlet" method="get">
 															<input type="hidden" value="6" class="Saturday_date"
 																name="Date"> <input type="hidden"
-																value="08:00:00" name="Time">
+																value="<%=timeSet%>:00:00" name="Time">
 															<button type="submit" class="btn btn-pink"
 																onclick="goInvoice(value)" disabled>
-																<strong>8.00-9.00</strong>
+																<strong><%=timeSet%>.00-<%=nextime%>.00</strong>
 															</button>
 														</form>
 													</td>
 
 												</tr>
+												<%} %>
 												<!-- This is our clonable table line -->
-												<tr>
-													<td>
-														<form action="getDateServlet" method="get">
-															<input type="hidden" value="" class="Sunday_date"
-																name="Date"> <input type="hidden" value="09:00:00"
-																name="Time">
-															<button type="submit" class="btn btn-pink"
-																onclick="goInvoice(value)" disabled>
-																<strong>9.00-10.00</strong>
-															</button>
-														</form>
-													</td>
-													<td>
-														<form action="getDateServlet" method="get">
-															<input type="hidden" value="1" class="Monday_date"
-																name="Date"> <input type="hidden" value="09:00:00"
-																name="Time">
-															<button type="submit" class="btn btn-light-blue"
-																onclick="goInvoice(value)">
-																<strong>9.00-10.00</strong>
-															</button>
-														</form>
-													</td>
-													<td>
-														<form action="getDateServlet" method="get">
-															<input type="hidden" value="2" class="Tuesday_date"
-																name="Date"> <input type="hidden" value="09:00:00"
-																name="Time">
-															<button type="button" class="btn btn-light-blue"
-																onclick="goInvoice(value)">
-																<strong>9.00-10.00</strong>
-															</button>
-														</form>
-													</td>
-													<td>
-														<form action="getDateServlet" method="get">
-															<input type="hidden" value="3" class="Wednesday_date"
-																name="Date"> <input type="hidden" value="09:00:00"
-																name="Time">
-															<button type="button" class="btn btn-light-blue"
-																onclick="goInvoice(value)">
-																<strong>9.00-10.00</strong>
-															</button>
-														</form>
-													</td>
-													<td>
-														<form action="getDateServlet" method="get">
-															<input type="hidden" value="4" class="Thursday_date"
-																name="Date"> <input type="hidden" value="09:00:00"
-																name="Time">
-															<button type="button" class="btn btn-light-blue"
-																onclick="goInvoice(value)">
-																<strong>9.00-10.00</strong>
-															</button>
-														</form>
-													</td>
-													<td>
-														<form action="getDateServlet" method="get">
-															<input type="hidden" value="5" class="Friday_date"
-																name="Date"> <input type="hidden" value="09:00:00"
-																name="Time">
-															<button type="button" class="btn btn-light-blue"
-																onclick="goInvoice(value)">
-																<strong>9.00-10.00</strong>
-															</button>
-														</form>
-													</td>
-													<td>
-														<form action="getDateServlet" method="get">
-															<input type="hidden" value="6" class="Saturday_date"
-																name="Date"> <input type="hidden" value="09:00:00"
-																name="Time">
-															<button type="submit" class="btn btn-pink"
-																onclick="goInvoice(value)" disabled>
-																<strong>9.00-10.00</strong>
-															</button>
-														</form>
-													</td>
-
-												</tr>
-												<!-- This is our clonable table line -->
-												<tr>
-													<td>
-														<form action="getDateServlet" method="get">
-															<input type="hidden" value="" class="Sunday_date"
-																name="Date"> <input type="hidden" value="10:00:00"
-																name="Time">
-															<button type="submit" class="btn btn-pink"
-																onclick="goInvoice(value)" disabled>
-																<strong>10.00-11.00</strong>
-															</button>
-														</form>
-													</td>
-													<td>
-														<form action="getDateServlet" method="get">
-															<input type="hidden" value="1" class="Monday_date"
-																name="Date"> <input type="hidden" value="10:00:00"
-																name="Time">
-															<button type="button" class="btn btn-light-blue"
-																onclick="goInvoice(value)">
-																<strong>10.00-11.00</strong>
-															</button>
-														</form>
-													</td>
-													<td>
-														<form action="getDateServlet" method="get">
-															<input type="hidden" value="2" class="Tuesday_date"
-																name="Date"> <input type="hidden" value="10:00:00"
-																name="Time">
-															<button type="button" class="btn btn-light-blue"
-																onclick="goInvoice(value)">
-																<strong>10.00-11.00</strong>
-															</button>
-														</form>
-													</td>
-													<td>
-														<form action="getDateServlet" method="get">
-															<input type="hidden" value="3" class="Wednesday_date"
-																name="Date"> <input type="hidden" value="10:00:00"
-																name="Time">
-															<button type="button" class="btn btn-light-blue"
-																onclick="goInvoice(value)">
-																<strong>10.00-11.00</strong>
-															</button>
-														</form>
-													</td>
-													<td>
-														<form action="getDateServlet" method="get">
-															<input type="hidden" value="4" class="Thursday_date"
-																name="Date"> <input type="hidden" value="10:00:00"
-																name="Time">
-															<button type="button" class="btn btn-light-blue"
-																onclick="goInvoice(value)">
-																<strong>10.00-11.00</strong>
-															</button>
-														</form>
-													</td>
-													<td>
-														<form action="getDateServlet" method="get">
-															<input type="hidden" value="5" class="Friday_date"
-																name="Date"> <input type="hidden" value="10:00:00"
-																name="Time">
-															<button type="button" class="btn btn-light-blue"
-																onclick="goInvoice(value)">
-																<strong>10.00-11.00</strong>
-															</button>
-														</form>
-													</td>
-													<td>
-														<form action="getDateServlet" method="get">
-															<input type="hidden" value="6" class="Saturday_date"
-																name="Date"> <input type="hidden" value="10:00:00"
-																name="Time">
-															<button type="submit" class="btn btn-pink"
-																onclick="goInvoice(value)" disabled>
-																<strong>10.00-11.00</strong>
-															</button>
-														</form>
-													</td>
-
-												</tr>
-												<!-- This is our clonable table line -->
-												<tr>
-													<td>
-														<form action="getDateServlet" method="get">
-															<input type="hidden" value="" class="Sunday_date"
-																name="Date"> <input type="hidden" value="11:00:00"
-																name="Time">
-															<button type="submit" class="btn btn-pink"
-																onclick="goInvoice(value)" disabled>
-																<strong>11.00-12.00</strong>
-															</button>
-														</form>
-													</td>
-													<td>
-														<form action="getDateServlet" method="get">
-															<input type="hidden" value="1" class="Monday_date"
-																name="Date"> <input type="hidden" value="11:00:00"
-																name="Time">
-															<button type="button" class="btn btn-light-blue"
-																onclick="goInvoice(value)">
-																<strong>11.00-12.00</strong>
-															</button>
-														</form>
-													</td>
-													<td>
-														<form action="getDateServlet" method="get">
-															<input type="hidden" value="2" class="Tuesday_date"
-																name="Date"> <input type="hidden" value="11:00:00"
-																name="Time">
-															<button type="button" class="btn btn-light-blue"
-																onclick="goInvoice(value)">
-																<strong>11.00-12.00</strong>
-															</button>
-														</form>
-													</td>
-													<td>
-														<form action="getDateServlet" method="get">
-															<input type="hidden" value="3" class="Wednesday_date"
-																name="Date"> <input type="hidden" value="11:00:00"
-																name="Time">
-															<button type="button" class="btn btn-light-blue"
-																onclick="goInvoice(value)">
-																<strong>11.00-12.00</strong>
-															</button>
-														</form>
-													</td>
-													<td>
-														<form action="getDateServlet" method="get">
-															<input type="hidden" value="4" class="Thursday_date"
-																name="Date"> <input type="hidden" value="11:00:00"
-																name="Time">
-															<button type="button" class="btn btn-light-blue"
-																onclick="goInvoice(value)">
-																<strong>11.00-12.00</strong>
-															</button>
-														</form>
-													</td>
-													<td>
-														<form action="getDateServlet" method="get">
-															<input type="hidden" value="5" class="Friday_date"
-																name="Date"> <input type="hidden" value="11:00:00"
-																name="Time">
-															<button type="button" class="btn btn-light-blue"
-																onclick="goInvoice(value)">
-																<strong>11.00-12.00</strong>
-															</button>
-														</form>
-													</td>
-													<td>
-														<form action="getDateServlet" method="get">
-															<input type="hidden" value="6" class="Saturday_date"
-																name="Date"> <input type="hidden" value="11:00:00"
-																name="Time">
-															<button type="submit" class="btn btn-pink"
-																onclick="goInvoice(value)" disabled>
-																<strong>11.00-12.00</strong>
-															</button>
-														</form>
-													</td>
-
-												</tr>
-
-
-												<!-- This is our clonable table line -->
-												<tr>
-													<td>
-														<form action="getDateServlet" method="get">
-															<input type="hidden" value="" class="Sunday_date"
-																name="Date"> <input type="hidden" value="12:00:00"
-																name="Time">
-															<button type="submit" class="btn btn-pink"
-																onclick="goInvoice(value)" disabled>
-																<strong>12.00-13.00</strong>
-															</button>
-														</form>
-													</td>
-													<td>
-														<form action="getDateServlet" method="get">
-															<input type="hidden" value="1" class="Monday_date"
-																name="Date"> <input type="hidden" value="12:00:00"
-																name="Time">
-															<button type="button" class="btn btn-light-blue"
-																onclick="goInvoice(value)">
-																<strong>12.00-13.00</strong>
-															</button>
-														</form>
-													</td>
-													<td>
-														<form action="getDateServlet" method="get">
-															<input type="hidden" value="2" class="Tuesday_date"
-																name="Date"> <input type="hidden" value="12:00:00"
-																name="Time">
-															<button type="button" class="btn btn-light-blue"
-																onclick="goInvoice(value)">
-																<strong>12.00-13.00</strong>
-															</button>
-														</form>
-													</td>
-													<td>
-														<form action="getDateServlet" method="get">
-															<input type="hidden" value="3" class="Wednesday_date"
-																name="Date"> <input type="hidden" value="12:00:00"
-																name="Time">
-															<button type="button" class="btn btn-light-blue"
-																onclick="goInvoice(value)">
-																<strong>12.00-13.00</strong>
-															</button>
-														</form>
-													</td>
-													<td>
-														<form action="getDateServlet" method="get">
-															<input type="hidden" value="4" class="Thursday_date"
-																name="Date"> <input type="hidden" value="12:00:00"
-																name="Time">
-															<button type="button" class="btn btn-light-blue"
-																onclick="goInvoice(value)">
-																<strong>12.00-13.00</strong>
-															</button>
-														</form>
-													</td>
-													<td>
-														<form action="getDateServlet" method="get">
-															<input type="hidden" value="5" class="Friday_date"
-																name="Date"> <input type="hidden" value="12:00:00"
-																name="Time">
-															<button type="button" class="btn btn-light-blue"
-																onclick="goInvoice(value)">
-																<strong>12.00-13.00</strong>
-															</button>
-														</form>
-													</td>
-													<td>
-														<form action="getDateServlet" method="get">
-															<input type="hidden" value="6" class="Saturday_date"
-																name="Date"> <input type="hidden" value="12:00:00"
-																name="Time">
-															<button type="submit" class="btn btn-pink"
-																onclick="goInvoice(value)" disabled>
-																<strong>12.00-13.00</strong>
-															</button>
-														</form>
-													</td>
-
-												</tr>
-												<tr>
-													<td>
-														<form action="getDateServlet" method="get">
-															<input type="hidden" value="" class="Sunday_date"
-																name="Date"> <input type="hidden" value="13:00:00"
-																name="Time">
-															<button type="submit" class="btn btn-pink"
-																onclick="goInvoice(value)" disabled>
-																<strong>13.00-14.00</strong>
-															</button>
-														</form>
-													</td>
-													<td>
-														<form action="getDateServlet" method="get">
-															<input type="hidden" value="1" class="Monday_date"
-																name="Date"> <input type="hidden" value="13:00:00"
-																name="Time">
-															<button type="button" class="btn btn-light-blue"
-																onclick="goInvoice(value)">
-																<strong>13.00-14.00</strong>
-															</button>
-														</form>
-													</td>
-													<td>
-														<form action="getDateServlet" method="get">
-															<input type="hidden" value="2" class="Tuesday_date"
-																name="Date"> <input type="hidden" value="13:00:00"
-																name="Time">
-															<button type="button" class="btn btn-light-blue"
-																onclick="goInvoice(value)">
-																<strong>13.00-14.00</strong>
-															</button>
-														</form>
-													</td>
-													<td>
-														<form action="getDateServlet" method="get">
-															<input type="hidden" value="3" class="Wednesday_date"
-																name="Date"> <input type="hidden" value="13:00:00"
-																name="Time">
-															<button type="button" class="btn btn-light-blue"
-																onclick="goInvoice(value)">
-																<strong>13.00-14.00</strong>
-															</button>
-														</form>
-													</td>
-													<td>
-														<form action="getDateServlet" method="get">
-															<input type="hidden" value="4" class="Thursday_date"
-																name="Date"> <input type="hidden" value="13:00:00"
-																name="Time">
-															<button type="button" class="btn btn-light-blue"
-																onclick="goInvoice(value)">
-																<strong>13.00-14.00</strong>
-															</button>
-														</form>
-													</td>
-													<td>
-														<form action="getDateServlet" method="get">
-															<input type="hidden" value="5" class="Friday_date"
-																name="Date"> <input type="hidden" value="13:00:00"
-																name="Time">
-															<button type="button" class="btn btn-light-blue"
-																onclick="goInvoice(value)">
-																<strong>13.00-14.00</strong>
-															</button>
-														</form>
-													</td>
-													<td>
-														<form action="getDateServlet" method="get">
-															<input type="hidden" value="6" class="Saturday_date"
-																name="Date"> <input type="hidden" value="13:00:00"
-																name="Time">
-															<button type="submit" class="btn btn-pink"
-																onclick="goInvoice(value)" disabled>
-																<strong>13.00-14.00</strong>
-															</button>
-														</form>
-													</td>
-
-												</tr>
-												<tr>
-													<td>
-														<form action="getDateServlet" method="get">
-															<input type="hidden" value="" class="Sunday_date"
-																name="Date"> <input type="hidden" value="14:00:00"
-																name="Time">
-															<button type="submit" class="btn btn-pink"
-																onclick="goInvoice(value)" disabled>
-																<strong>14.00-15.00</strong>
-															</button>
-														</form>
-													</td>
-													<td>
-														<form action="getDateServlet" method="get">
-															<input type="hidden" value="1" class="Monday_date"
-																name="Date"> <input type="hidden" value="14:00:00"
-																name="Time">
-															<button type="button" class="btn btn-light-blue"
-																onclick="goInvoice(value)">
-																<strong>14.00-15.00</strong>
-															</button>
-														</form>
-													</td>
-													<td>
-														<form action="getDateServlet" method="get">
-															<input type="hidden" value="2" class="Tuesday_date"
-																name="Date"> <input type="hidden" value="14:00:00"
-																name="Time">
-															<button type="button" class="btn btn-light-blue"
-																onclick="goInvoice(value)">
-																<strong>14.00-15.00</strong>
-															</button>
-														</form>
-													</td>
-													<td>
-														<form action="getDateServlet" method="get">
-															<input type="hidden" value="3" class="Wednesday_date"
-																name="Date"> <input type="hidden" value="14:00:00"
-																name="Time">
-															<button type="button" class="btn btn-light-blue"
-																onclick="goInvoice(value)">
-																<strong>14.00-15.00</strong>
-															</button>
-														</form>
-													</td>
-													<td>
-														<form action="getDateServlet" method="get">
-															<input type="hidden" value="4" class="Thursday_date"
-																name="Date"> <input type="hidden" value="14:00:00"
-																name="Time">
-															<button type="button" class="btn btn-light-blue"
-																onclick="goInvoice(value)">
-																<strong>14.00-15.00</strong>
-															</button>
-														</form>
-													</td>
-													<td>
-														<form action="getDateServlet" method="get">
-															<input type="hidden" value="5" class="Friday_date"
-																name="Date"> <input type="hidden" value="14:00:00"
-																name="Time">
-															<button type="button" class="btn btn-light-blue"
-																onclick="goInvoice(value)">
-																<strong>14.00-15.00</strong>
-															</button>
-														</form>
-													</td>
-													<td>
-														<form action="getDateServlet" method="get">
-															<input type="hidden" value="6" class="Saturday_date"
-																name="Date"> <input type="hidden" value="14:00:00"
-																name="Time">
-															<button type="submit" class="btn btn-pink"
-																onclick="goInvoice(value)" disabled>
-																<strong>14.00-15.00</strong>
-															</button>
-														</form>
-													</td>
-
-												</tr>
-												<tr>
-													<td>
-														<form action="getDateServlet" method="get">
-															<input type="hidden" value="" class="Sunday_date"
-																name="Date"> <input type="hidden" value="15:00:00"
-																name="Time">
-															<button type="submit" class="btn btn-pink"
-																onclick="goInvoice(value)" disabled>
-																<strong>15.00-16.00</strong>
-															</button>
-														</form>
-													</td>
-													<td>
-														<form action="getDateServlet" method="get">
-															<input type="hidden" value="1" class="Monday_date"
-																name="Date"> <input type="hidden" value="15:00:00"
-																name="Time">
-															<button type="button" class="btn btn-light-blue"
-																onclick="goInvoice(value)">
-																<strong>15.00-16.00</strong>
-															</button>
-														</form>
-													</td>
-													<td>
-														<form action="getDateServlet" method="get">
-															<input type="hidden" value="2" class="Tuesday_date"
-																name="Date"> <input type="hidden" value="15:00:00"
-																name="Time">
-															<button type="button" class="btn btn-light-blue"
-																onclick="goInvoice(value)">
-																<strong>15.00-16.00</strong>
-															</button>
-														</form>
-													</td>
-													<td>
-														<form action="getDateServlet" method="get">
-															<input type="hidden" value="3" class="Wednesday_date"
-																name="Date"> <input type="hidden" value="15:00:00"
-																name="Time">
-															<button type="button" class="btn btn-light-blue"
-																onclick="goInvoice(value)">
-																<strong>15.00-16.00</strong>
-															</button>
-														</form>
-													</td>
-													<td>
-														<form action="getDateServlet" method="get">
-															<input type="hidden" value="4" class="Thursday_date"
-																name="Date"> <input type="hidden" value="15:00:00"
-																name="Time">
-															<button type="button" class="btn btn-light-blue"
-																onclick="goInvoice(value)">
-																<strong>15.00-16.00</strong>
-															</button>
-														</form>
-													</td>
-													<td>
-														<form action="getDateServlet" method="get">
-															<input type="hidden" value="5" class="Friday_date"
-																name="Date"> <input type="hidden" value="15:00:00"
-																name="Time">
-															<button type="button" class="btn btn-light-blue"
-																onclick="goInvoice(value)">
-																<strong>15.00-16.00</strong>
-															</button>
-														</form>
-													</td>
-													<td>
-														<form action="getDateServlet" method="get">
-															<input type="hidden" value="6" class="Saturday_date"
-																name="Date"> <input type="hidden" value="15:00:00"
-																name="Time">
-															<button type="submit" class="btn btn-pink"
-																onclick="goInvoice(value)" disabled>
-																<strong>15.00-16.00</strong>
-															</button>
-														</form>
-													</td>
-
-												</tr>
-												<tr>
-													<td>
-														<form action="getDateServlet" method="get">
-															<input type="hidden" value="" class="Sunday_date"
-																name="Date"> <input type="hidden" value="16:00:00"
-																name="Time">
-															<button type="submit" class="btn btn-pink"
-																onclick="goInvoice(value)" disabled>
-																<strong>16.00-17.00</strong>
-															</button>
-														</form>
-													</td>
-													<td>
-														<form action="getDateServlet" method="get">
-															<input type="hidden" value="1" class="Monday_date"
-																name="Date"> <input type="hidden" value="16:00:00"
-																name="Time">
-															<button type="button" class="btn btn-light-blue"
-																onclick="goInvoice(value)">
-																<strong>16.00-17.00</strong>
-															</button>
-														</form>
-													</td>
-													<td>
-														<form action="getDateServlet" method="get">
-															<input type="hidden" value=""2 class="Tuesday_date"
-																name="Date"> <input type="hidden" value="16:00:00"
-																name="Time">
-															<button type="button" class="btn btn-light-blue"
-																onclick="goInvoice(value)">
-																<strong>16.00-17.00</strong>
-															</button>
-														</form>
-													</td>
-													<td>
-														<form action="getDateServlet" method="get">
-															<input type="hidden" value="3" class="Wednesday_date"
-																name="Date"> <input type="hidden" value="16:00:00"
-																name="Time">
-															<button type="button" class="btn btn-light-blue"
-																onclick="goInvoice(value)">
-																<strong>16.00-17.00</strong>
-															</button>
-														</form>
-													</td>
-													<td>
-														<form action="getDateServlet" method="get">
-															<input type="hidden" value="4" class="Thursday_date"
-																name="Date"> <input type="hidden" value="16:00:00"
-																name="Time">
-															<button type="button" class="btn btn-light-blue"
-																onclick="goInvoice(value)">
-																<strong>16.00-17.00</strong>
-															</button>
-														</form>
-													</td>
-													<td>
-														<form action="getDateServlet" method="get">
-															<input type="hidden" value="5" class="Friday_date"
-																name="Date"> <input type="hidden" value="16:00:00"
-																name="Time">
-															<button type="button" class="btn btn-light-blue"
-																onclick="goInvoice(value)">
-																<strong>16.00-17.00</strong>
-															</button>
-														</form>
-													</td>
-													<td>
-														<form action="getDateServlet" method="get">
-															<input type="hidden" value="6" class="Saturday_date"
-																name="Date"> <input type="hidden" value="16:00:00"
-																name="Time">
-															<button type="submit" class="btn btn-pink"
-																onclick="goInvoice(value)" disabled>
-																<strong>16.00-17.00</strong>
-															</button>
-														</form>
-													</td>
-
-												</tr>
+												
 
 											</tbody>
 										</table>
@@ -2048,6 +1410,7 @@
 	<!--Mahen js-->
 	<script src="js/Mahen/SendRequest.js"></script>
 	<!--end of the Mahen js-->
+	
 
 
 </body>

@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.oop.model.AppointmentModel;
 import com.oop.model.NewMechModel;
+import com.oop.model.UserAppointmentModel;
 import com.oop.service.AppointmentServices;
 import com.oop.service.AppointmentServicesImpl;
 import com.oop.service.ImechanicServices;
@@ -42,8 +43,10 @@ public class PendingRequestsServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		PrintWriter out = response.getWriter();
+		List<UserAppointmentModel> userAndAppointment = new ArrayList<UserAppointmentModel>();
 		List<AppointmentModel> newAppointments = new ArrayList<AppointmentModel>();
 		List<NewMechModel> allMechanics = new ArrayList<NewMechModel>();
+		userAndAppointment = pendingAppointments.getUserWithAppointment();
 		newAppointments = pendingAppointments.getPendingAppointments();
 		allMechanics = mechanics.getAllMechanics();
 		

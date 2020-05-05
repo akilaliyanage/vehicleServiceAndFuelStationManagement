@@ -19,7 +19,7 @@ public class getMechanicDAOImpl implements IgetMechanicDAO{
 		connection = DatabaseConnection.getConnection();
 		List<NewMechModel> allMechanics = new ArrayList<NewMechModel>();
 		try {
-			Statement = connection.prepareStatement("SELECT * FROM mechanic");
+			Statement = connection.prepareStatement("SELECT * FROM mechanic m , user u WHERE u.regNo = m.regNo");
 			ResultSet result = Statement.executeQuery();
 			allMechanics = getMechList(result);
 		} catch (SQLException e) {
@@ -46,6 +46,9 @@ public class getMechanicDAOImpl implements IgetMechanicDAO{
 				NewMechModel mechModel = new NewMechModel();
 				mechModel.setUserregNoString(result.getString("regNo"));
 				mechModel.setSal(result.getFloat("basicSalary"));
+				mechModel.setFullnameString(result.getString("userFullName"));
+				mechModel.setFullnameString(result.getString("userFullName"));
+				mechModel.setSpecString(result.getString("speciality"));
 				
 				MechList.add(mechModel);
 			}

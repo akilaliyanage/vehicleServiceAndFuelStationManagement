@@ -4,13 +4,19 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import java.sql.Connection;
 import com.oop.database.DatabaseConnection;
 import com.oop.model.*;
+import com.oop.service.IPackageAccess;
+import com.oop.service.IServiceAccess;
+import com.oop.service.PackageAccessImpl;
+import com.oop.service.ServiceAccessImpl;
 
 
 public class AppointmentDAOImpl implements IAppointmentDAO{
-	
+	private static final Logger LOGGER = Logger.getLogger(AppointmentDAOImpl.class.getName());
 	private  Connection connection;
 	private  PreparedStatement prepStatement;
 	private  PreparedStatement prepStatement2;
@@ -22,11 +28,17 @@ public class AppointmentDAOImpl implements IAppointmentDAO{
 		
 		connection = DatabaseConnection.getConnection();
 		String appId = ( "APP" + RandomString.getAlphaNumericString());
-		AppointmentModel newAppointment = new AppointmentModel(appId, packID, userId, raelAppointmentDate, appointTime, serviceID , vehi_NO);
+		IPackageAccess pack = new PackageAccessImpl();
+		IServiceAccess service = new ServiceAccessImpl();
+		PackageForAppoint pacageDetails = pack.getPackageByPackId(packID); 
+		VehicalServices serviceObj = service.getServiceDetailServices(serviceID);
+		double amount = calcAmount(pacageDetails.getPrice() , serviceObj.getServicePrice());
+		
+		AppointmentModel newAppointment = new AppointmentModel(appId, packID, userId, raelAppointmentDate, appointTime, serviceID , vehi_NO , amount );
 		VehicleModel vehicleOfAppointment = new VehicleModel(vehi_NO, userId, vehiModel, vehiBrand, vehiYear, vehEngine, vehiTransmission, vehiFuel, appId);
 		
 		try {
-			prepStatement = connection.prepareStatement("INSERT INTO appointment (appId , packID , userRegNo , prefDate , prefTime , service_id , vehicleI_No) VALUES(?,?,?,?,?,?,?)");
+			prepStatement = connection.prepareStatement("INSERT INTO appointment (appId , packID , userRegNo , prefDate , prefTime , service_id , vehicleI_No , amount) VALUES(?,?,?,?,?,?,?,?)");
 			prepStatement.setString(1, newAppointment.getAppId());
 			prepStatement.setString(2, newAppointment.getPackID());
 			prepStatement.setString(3, newAppointment.getUserRegNo());
@@ -34,6 +46,7 @@ public class AppointmentDAOImpl implements IAppointmentDAO{
 			prepStatement.setString(5, newAppointment.getPrefTime());
 			prepStatement.setString(6, newAppointment.getService_id());
 			prepStatement.setString(7, newAppointment.getVehicleI_No());
+			prepStatement.setDouble(8, newAppointment.getAmmount());
 			
 			
 			prepStatement2 = connection.prepareStatement("INSERT INTO vehicle (vehicleId , userRegNo , model , brand , manuYear , engineCap , transmission , fuelType , appointment_id)\r\n" + 
@@ -48,23 +61,19 @@ public class AppointmentDAOImpl implements IAppointmentDAO{
 			prepStatement2.setString(8, vehicleOfAppointment.getFuelType());
 			prepStatement2.setString(9, vehicleOfAppointment.getAppointment_id());
 			
-			int AffectedRows_qury1 = prepStatement.executeUpdate();
-			int AffectedRows_qury2 = prepStatement2.executeUpdate();
-			System.out.println(AffectedRows_qury1);
-			System.out.println(AffectedRows_qury2);
  		} 
 		catch (SQLException e) {
+			LOGGER.log(Level.SEVERE, e.getSQLState());
+			LOGGER.log(Level.SEVERE, e.getMessage());
 			e.printStackTrace();
-			System.out.println(e);
 		}
 		finally {
 			if (connection != null) {
 				try {
 					connection.close();
-				} catch (SQLException e) {
-					
-					e.printStackTrace();
-					System.out.println(e);
+				} catch (Exception e) {
+
+					LOGGER.log(Level.SEVERE, e.getMessage());
 				}
 			}
 		}
@@ -73,6 +82,21 @@ public class AppointmentDAOImpl implements IAppointmentDAO{
 
 
 	
+	private double calcAmount(Double price, String servicePrice) {
+		double amount = 0.00;
+		try {
+			double total = price + Double.parseDouble(servicePrice);
+			double tax = (0.05 * total);
+			amount = total - tax;
+		} catch (NullPointerException | NumberFormatException e) {
+			LOGGER.log(Level.SEVERE, e.getMessage());
+		}
+		System.out.println("Ammount is printed in servlet : " + amount);
+		return amount;
+	}
+
+
+
 	/*
 	 * Implementation of getServicePrice to get the
 	 * Service price from a given Service ID
@@ -105,17 +129,16 @@ public class AppointmentDAOImpl implements IAppointmentDAO{
 			
 			UdatedApointment = getAppointmentById(appoint_No);
 		} catch (SQLException e) {
-			e.printStackTrace();
-			System.out.println(e);
+			LOGGER.log(Level.SEVERE, e.getSQLState());
+			LOGGER.log(Level.SEVERE, e.getMessage());
 		}
 		finally {
 			if (connection != null) {
 				try {
 					connection.close();
 				} catch (SQLException e) {
-					
-					e.printStackTrace();
-					System.out.println(e);
+					LOGGER.log(Level.SEVERE, e.getSQLState());
+					LOGGER.log(Level.SEVERE, e.getMessage());
 				}
 			}
 		}
@@ -136,17 +159,16 @@ public class AppointmentDAOImpl implements IAppointmentDAO{
 			ResultSet result = prepStatement.executeQuery();
 			PendingReruests = getPendingRequestList(result);
 		}  catch (SQLException e) {
-			e.printStackTrace();
-			System.out.println(e);
+			LOGGER.log(Level.SEVERE, e.getSQLState());
+			LOGGER.log(Level.SEVERE, e.getMessage());
 		}
 		finally {
 			if (connection != null) {
 				try {
 					connection.close();
 				} catch (SQLException e) {
-					
-					e.printStackTrace();
-					System.out.println(e);
+					LOGGER.log(Level.SEVERE, e.getSQLState());
+					LOGGER.log(Level.SEVERE, e.getMessage());
 				}
 			}
 		}
@@ -176,15 +198,14 @@ public class AppointmentDAOImpl implements IAppointmentDAO{
 				requestList.add(appointmentPending);
 			}
 		} catch (SQLException e) {
-			e.printStackTrace();
-			System.out.println(e);
+			LOGGER.log(Level.SEVERE, e.getMessage());
 		}
 		return requestList;
 	}
 
 
 
-	private AppointmentModel getAppointmentById(String appoint_No) {
+	public AppointmentModel getAppointmentById(String appoint_No) {
 		// TODO Auto-generated method stub
 		connection = DatabaseConnection.getConnection();
 		AppointmentModel appointment = new AppointmentModel();
@@ -195,17 +216,16 @@ public class AppointmentDAOImpl implements IAppointmentDAO{
 			ResultSet result = prepStatement.executeQuery();
 			appointment = getAppointmentObject(result);
 		} catch (SQLException e) {
-			e.printStackTrace();
-			System.out.println(e);
+			LOGGER.log(Level.SEVERE, e.getSQLState());
+			LOGGER.log(Level.SEVERE, e.getMessage());
 		}
 		finally {
 			if (connection != null) {
 				try {
 					connection.close();
 				} catch (SQLException e) {
-					
-					e.printStackTrace();
-					System.out.println(e);
+					LOGGER.log(Level.SEVERE, e.getSQLState());
+					LOGGER.log(Level.SEVERE, e.getMessage());
 				}
 			}
 		}
@@ -234,8 +254,8 @@ public class AppointmentDAOImpl implements IAppointmentDAO{
 				
 			}
 		} catch (SQLException e) {
-			e.printStackTrace();
-			System.out.println(e);
+			LOGGER.log(Level.SEVERE, e.getSQLState());
+			LOGGER.log(Level.SEVERE, e.getMessage());
 		}		
 		return appoinrObject;
 	}
@@ -251,12 +271,10 @@ public class AppointmentDAOImpl implements IAppointmentDAO{
 			prepStatement.setString(1, appId);
 			ResultSet result = prepStatement.executeQuery();
 			vehicle = getVehicleObject(result);
-			System.out.println(vehicle.getVehicleId());
-			System.out.println(vehicle.getBrand());
+			
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-			System.out.println(e);
+			LOGGER.log(Level.SEVERE, e.getSQLState());
+			LOGGER.log(Level.SEVERE, e.getMessage());
 		}
 		finally {
 			try {
@@ -264,8 +282,8 @@ public class AppointmentDAOImpl implements IAppointmentDAO{
 					connection.close();
 				}
 			} catch (SQLException e2) {
-				e2.printStackTrace();
-				System.out.println(e2);
+				LOGGER.log(Level.SEVERE, e2.getSQLState());
+				LOGGER.log(Level.SEVERE, e2.getMessage());
 			}
 		}
 		
@@ -286,12 +304,11 @@ public class AppointmentDAOImpl implements IAppointmentDAO{
 				vehicleObject.setManuYear(result.getInt("manuYear"));
 				vehicleObject.setEngineCap(result.getString("engineCap"));
 				vehicleObject.setTransmission(result.getString("transmission"));
-				vehicleObject.setAppointment_id(result.getString("fuelType"));
+				vehicleObject.setFuelType(result.getString("fuelType"));
 				vehicleObject.setAppointment_id(result.getString("appointment_id"));
 			}
 		} catch (Exception e) {
-			// TODO: handle exception
-			System.out.println(e);
+			LOGGER.log(Level.SEVERE, e.getMessage());
 		}
 		return vehicleObject;
 	}
@@ -309,8 +326,8 @@ public class AppointmentDAOImpl implements IAppointmentDAO{
 			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
-			System.out.println(e);
+			LOGGER.log(Level.SEVERE, e.getSQLState());
+			LOGGER.log(Level.SEVERE, e.getMessage());
 		}
 		finally {
 			try {
@@ -318,8 +335,8 @@ public class AppointmentDAOImpl implements IAppointmentDAO{
 					connection.close();
 				}
 			} catch (SQLException e2) {
-				e2.printStackTrace();
-				System.out.println(e2);
+				LOGGER.log(Level.SEVERE, e2.getSQLState());
+				LOGGER.log(Level.SEVERE, e2.getMessage());
 			}
 		}
 		
@@ -349,8 +366,8 @@ public class AppointmentDAOImpl implements IAppointmentDAO{
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
-			System.out.println(e);
+			LOGGER.log(Level.SEVERE, e.getSQLState());
+			LOGGER.log(Level.SEVERE, e.getMessage());
 		}
 		return userModel;
 	}
@@ -374,8 +391,7 @@ public class AppointmentDAOImpl implements IAppointmentDAO{
 			System.out.println(ServPrice);
 			
 		} catch (Exception e) {
-			e.printStackTrace();
-			System.out.println(e);
+			LOGGER.log(Level.SEVERE, e.getMessage());
 		}
 		finally {
 			try {
@@ -383,8 +399,8 @@ public class AppointmentDAOImpl implements IAppointmentDAO{
 					connection.close();
 				}
 			} catch (SQLException e2) {
-				e2.printStackTrace();
-				System.out.println(e2);
+				LOGGER.log(Level.SEVERE, e2.getSQLState());
+				LOGGER.log(Level.SEVERE, e2.getMessage());
 			}
 		}
 
@@ -409,11 +425,9 @@ public class AppointmentDAOImpl implements IAppointmentDAO{
 			ResultSet rsSet = prepStatement.executeQuery();
 			rsSet.next();
 			PackPrice = rsSet.getDouble(1);
-			System.out.println(PackPrice);
 			
 		} catch (Exception e) {
-			e.printStackTrace();
-			System.out.println(e);
+			LOGGER.log(Level.SEVERE, e.getMessage());
 		}
 		finally {
 			try {
@@ -421,8 +435,8 @@ public class AppointmentDAOImpl implements IAppointmentDAO{
 					connection.close();
 				}
 			} catch (SQLException e2) {
-				e2.printStackTrace();
-				System.out.println(e2);
+				LOGGER.log(Level.SEVERE, e2.getSQLState());
+				LOGGER.log(Level.SEVERE, e2.getMessage());
 			}
 		}
 		return PackPrice;
@@ -441,8 +455,7 @@ public class AppointmentDAOImpl implements IAppointmentDAO{
 			prepStatement.setString(2, appointment);
 			prepStatement.executeUpdate();
 		} catch (Exception e) {
-			e.printStackTrace();
-			System.out.println(e);
+			LOGGER.log(Level.SEVERE, e.getMessage());
 		}
 		finally {
 			try {
@@ -450,8 +463,8 @@ public class AppointmentDAOImpl implements IAppointmentDAO{
 					connection.close();
 				}
 			} catch (SQLException e2) {
-				e2.printStackTrace();
-				System.out.println(e2);
+				LOGGER.log(Level.SEVERE, e2.getSQLState());
+				LOGGER.log(Level.SEVERE, e2.getMessage());
 			}
 		}
 		
@@ -469,8 +482,8 @@ public class AppointmentDAOImpl implements IAppointmentDAO{
 			prepStatement.setString(2, appointment);
 			prepStatement.executeUpdate();
 		} catch (Exception e) {
+			LOGGER.log(Level.SEVERE, e.getMessage());
 			e.printStackTrace();
-			System.out.println(e);
 		}
 		finally {
 			try {
@@ -478,8 +491,8 @@ public class AppointmentDAOImpl implements IAppointmentDAO{
 					connection.close();
 				}
 			} catch (SQLException e2) {
-				e2.printStackTrace();
-				System.out.println(e2);
+				LOGGER.log(Level.SEVERE, e2.getSQLState());
+				LOGGER.log(Level.SEVERE, e2.getMessage());
 			}
 		}
 		
@@ -497,8 +510,8 @@ public class AppointmentDAOImpl implements IAppointmentDAO{
 			prepStatement.setString(2, appointment);
 			prepStatement.executeUpdate();
 		} catch (Exception e) {
+			LOGGER.log(Level.SEVERE, e.getMessage());
 			e.printStackTrace();
-			System.out.println(e);
 		}
 		finally {
 			try {
@@ -506,8 +519,8 @@ public class AppointmentDAOImpl implements IAppointmentDAO{
 					connection.close();
 				}
 			} catch (SQLException e2) {
-				e2.printStackTrace();
-				System.out.println(e2);
+				LOGGER.log(Level.SEVERE, e2.getSQLState());
+				LOGGER.log(Level.SEVERE, e2.getMessage());
 			}
 		}
 		
@@ -521,18 +534,16 @@ public class AppointmentDAOImpl implements IAppointmentDAO{
 		try {
 			prepStatement = connection.prepareStatement("DELETE FROM vehicle WHERE vehicleId= ?");
 			prepStatement.setString(1, vehicle);
-			System.out.println("VehicleModel Deleted");
 			
 			if (prepStatement.executeUpdate() != 0) {
 				prepStatement2 = connection.prepareStatement("DELETE FROM appointment WHERE appId= ? ");
 				prepStatement2.setString(1, appointment);
 				prepStatement2.executeUpdate();
-				System.out.println("Appointment Deleted");
 			}
 			
 		} catch (Exception e) {
+			LOGGER.log(Level.SEVERE, e.getMessage());
 			e.printStackTrace();
-			System.out.println(e);
 		}
 		finally {
 			try {
@@ -540,8 +551,9 @@ public class AppointmentDAOImpl implements IAppointmentDAO{
 					connection.close();
 				}
 			} catch (SQLException e2) {
+				LOGGER.log(Level.SEVERE, e2.getSQLState());
+				LOGGER.log(Level.SEVERE, e2.getMessage());
 				e2.printStackTrace();
-				System.out.println(e2);
 			}
 		}
 	}
@@ -557,7 +569,8 @@ public class AppointmentDAOImpl implements IAppointmentDAO{
 			ResultSet result = prepStatement.executeQuery();
 			AllappointmentList = getAppointmentList(result);
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
+			LOGGER.log(Level.SEVERE, e.getSQLState());
+			LOGGER.log(Level.SEVERE, e.getMessage());
 			e.printStackTrace();
 		}
 		return AllappointmentList;
@@ -585,10 +598,89 @@ public class AppointmentDAOImpl implements IAppointmentDAO{
 				appointmentList.add(appointmentObject);
 			}
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
+			LOGGER.log(Level.SEVERE, e.getSQLState());
+			LOGGER.log(Level.SEVERE, e.getMessage());
 			e.printStackTrace();
 		}
 		return appointmentList;
+	}
+
+
+
+	@Override
+	public List<AppointmentModel> AdvanceAppointmentSearch(String userRegNo, String vehicleI_No, String amount,
+			String service_id, String status, String prefDate) {
+		List<AppointmentModel> resultingList = new ArrayList<AppointmentModel>();
+		String query = "";
+		query = createQuery(userRegNo , vehicleI_No , amount , service_id , status , prefDate);
+		connection = DatabaseConnection.getConnection();
+		try {
+			prepStatement = connection.prepareStatement(query);
+			ResultSet result = prepStatement.executeQuery();
+			resultingList = getAppointmentList(result);
+		} catch (Exception e) {
+			LOGGER.log(Level.SEVERE, e.getMessage());
+			e.printStackTrace();
+		}
+		finally {
+			try {
+				if (connection != null) {
+					connection.close();
+				}
+			} catch (SQLException e2) {
+				LOGGER.log(Level.SEVERE, e2.getSQLState());
+				LOGGER.log(Level.SEVERE, e2.getMessage());
+				e2.printStackTrace();
+			}
+		}
+		
+		return resultingList;
+	}
+
+
+
+	private String createQuery(String userRegNo, String vehicleI_No, String amount, String service_id, String status,
+			String prefDate) {
+		String sQLString = "SELECT * FROM appointment WHERE";
+		if (userRegNo != "") {
+			sQLString = sQLString + " userRegNo = '" + userRegNo + "' AND" ;
+		}
+		if (vehicleI_No != "") {
+			sQLString = sQLString + " vehicleI_No = '" + vehicleI_No + "' AND" ;
+		}
+		if (amount != "") {
+			sQLString = sQLString + " amount = '" + amount + "' AND" ;
+		}
+		if (service_id != "") {
+			sQLString = sQLString + " service_id = '" + service_id + "' AND" ;
+		}
+		if (status != null) {
+			sQLString = sQLString + " status = '" + status + "' AND" ;
+		}
+		if (prefDate != "") {
+			sQLString = sQLString + " prefDate = '" + prefDate + "' AND" ;
+		}
+		
+		
+		String queryString = sQLString.substring(0, sQLString.length() -3 );
+		
+		return queryString;
+	}
+
+
+
+	@Override
+	public List<UserAppointmentModel> getUserAndAppointment() {
+		connection = DatabaseConnection.getConnection();
+		List<UserAppointmentModel> userAndApp = new ArrayList<UserAppointmentModel>();
+		try {
+			prepStatement = connection.prepareStatement("SELECT * FROM appointment a , user u WHERE a.userRegNo = u.regNo AND a.status = 'Pending'");
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;
 	}
 
 
