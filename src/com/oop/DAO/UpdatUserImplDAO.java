@@ -13,6 +13,7 @@ import java.util.List;
 import com.oop.database.DatabaseConnection;
 import com.oop.model.AppointmentDetailsModel;
 import com.oop.model.BillDetailsModel;
+import com.oop.model.PurchaseFuelModel;
 
 /**
  * @author mlaki
@@ -291,6 +292,59 @@ public class UpdatUserImplDAO implements IUpdateUserDAO {
 		}
 		
 		return pend;
+	}
+	
+	@Override
+	public ArrayList<String> disId() {
+	
+		ArrayList<String> idArrayList = new ArrayList<String>();
+		
+		try {
+			
+			connection = DatabaseConnection.getConnection();
+			pStatement = connection.prepareStatement("SELECT dispenserId FROM vehicleserviceandfuelstationmanagement.fueldispenser");
+			
+			ResultSet resultSet = pStatement.executeQuery();
+			
+			while(resultSet.next()) {
+				idArrayList.add(resultSet.getString("dispenserId"));
+			}
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		
+		return idArrayList;
+	}
+
+	@Override
+		public ArrayList<PurchaseFuelModel> returnPurchase(String regnoString){
+		
+		ArrayList<PurchaseFuelModel> user = new ArrayList<PurchaseFuelModel>();
+		
+		try {
+			
+			connection = DatabaseConnection.getConnection();
+			pStatement = connection.prepareStatement("SELECT PurchaseID, amount FROM vehicleserviceandfuelstationmanagement.user_dispenser where userId = ?");
+			pStatement.setString(1, regnoString);
+			ResultSet resultSet = pStatement.executeQuery();
+			
+			while(resultSet.next()) {
+				
+				PurchaseFuelModel objFuelModel = new PurchaseFuelModel();
+				objFuelModel.setPuridString(resultSet.getString("PurchaseID"));
+				objFuelModel.setAmount(resultSet.getFloat("amount"));
+				
+				user.add(objFuelModel);
+				
+			}
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		
+		return user;
+		
 	}
 
 }

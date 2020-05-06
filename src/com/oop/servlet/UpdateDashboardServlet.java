@@ -18,6 +18,7 @@ import com.oop.DAO.UpdateDashboardImplDAO;
 import com.oop.model.DashboardPaymentsDAO;
 import com.oop.model.DashboardRequestModel;
 import com.oop.model.NewMechModel;
+import com.oop.model.PurchaseFuelModel;
 import com.oop.model.RequestModel;
 import com.oop.model.UpdateUserModel;
 
@@ -48,35 +49,49 @@ public class UpdateDashboardServlet extends HttpServlet {
 			
 			//fetching appointment details from UpdateDashboardImplDAO
 			int totalCustomes = dashbordMethods.totCustomers();
+			
 			//setting the attribute to the request object
 			request.setAttribute("totCustomers", totalCustomes);
 			
+			//fetching the total paid amount of the system
 			int paid = dashbordMethods.paidAmm();
 			request.setAttribute("paid", paid);
 			
+			//fetching the total pending amount of the system
 			int pending = dashbordMethods.pendingAmm();
 			request.setAttribute("pending", pending);
 			
+			//fetching the total appointments of the system
 			int totApps = dashbordMethods.totApps();
 			request.setAttribute("apps", totApps);
+			
 			
 			int totPay = dashbordMethods.totPay();
 			request.setAttribute("totpay", totPay);
 			
+			//fetching the total number of pacages of the system
 			int totPack = dashbordMethods.totPack();
 			request.setAttribute("pack", totPack);
 			
+			//containd array of objects which has data about pending requirmnts
 			ArrayList<RequestModel> req = dashbordMethods.req();
 			request.setAttribute("req", req);
 			
+			//payment details
 			ArrayList<DashboardPaymentsDAO> payment = dashbordMethods.pay();
 			request.setAttribute("pay", payment);
 			
+			//mechanic details
 			ArrayList<NewMechModel> mech = dashbordMethods.mech();
 			request.setAttribute("mech", mech);
 			
+			//user details
 			ArrayList<UpdateUserModel> user = dashbordMethods.user();
 			request.setAttribute("user", user);
+			
+			//fetch the fuel usage of the system
+			ArrayList<PurchaseFuelModel> usageArrayList = dashbordMethods.adminusageArrayList();
+			request.setAttribute("usage", usageArrayList);
 			
 			
 			RequestDispatcher requestDispatcher = request.getRequestDispatcher("dashboard.jsp");

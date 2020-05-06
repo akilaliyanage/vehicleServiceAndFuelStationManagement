@@ -19,7 +19,7 @@
     <!--end of the bootstrap-->
 
     <!--akila css-->
-    <link rel="stylesheet" href="css/akila/dashboard.css" />
+    <link rel="stylesheet" href="css/akila/dashboard.css"/>
     <!--end of the akila css-->
     <title>Admin</title>
   </head>
@@ -506,9 +506,9 @@
                     <td>${use.phoneString }</td>
                     <td>${use.emailString }</td>
                     <td>${use.genderString }</td>
-                    <td>${use.userIdString }</td>
+                    <td>${use.userregNoString }</td>
                     <td>
-                       <a class="btn btn-primary" href="UserDelServlet?id=${use.userIdString }">DEL</a>
+                       <a class="btn btn-primary" href="UserDelServlet?id=${use.userregNoString }">DEL</a>
                     </td>
                   </tr>
                  	
@@ -792,25 +792,18 @@ let bar = new Chart(req, {
         type: "line",
         data: {
           labels: [
-            "Sunday",
-            "Monday",
-            "Tuesday",
-            "Wednsday",
-            "Thursday",
-            "Friday",
-            "Saturday",
-            "Sunday",
-            "Monday",
-            "Tuesday",
-            "Wednsday",
-            "Thursday",
-            "Friday",
-            "Saturday"
+        	  <c:forEach items="${usage}" var="use">
+    			"${use.puridString}",
+    			</c:forEach>
           ],
           datasets: [
             {
               label: "Liters",
-              data: [10, 30, 1, 30, 50, 70, 60,10, 30, 1, 30, 50, 70, 90],
+              data: [
+            	  <c:forEach items="${usage}" var="use">
+     				"${use.amount}",
+     			 </c:forEach>
+              ],
              
               //borderColor : '#FFFF',
               borderWidth: "3",          

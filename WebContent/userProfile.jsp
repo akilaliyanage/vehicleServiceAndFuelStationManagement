@@ -176,6 +176,40 @@
                 </div>
                 </div>
                 
+                 <div class="card-footer text-muted text-center">
+                
+                 	<form class="border border-light my-3 mx-3" action="FuelDisServlet" method="post">
+
+    					<p class="h4 mb-4 text-center">Fuel Dispenser</p>
+
+
+	                    <input type="text" id="defaultSaveFormFirstName" class="form-control mb-4" name="fuelam" placeholder="Fuel Amount">
+						
+						<select class="browser-default custom-select mb-4" name="type">
+							  <option selected>Dispenecer ID</option>
+							 
+							 <c:forEach items="${dis }" var="dis">
+							 
+							  <option><c:out value="${dis }"></c:out></option>
+							 
+							 </c:forEach>
+							 
+						</select>
+							
+							<!-- <select class="browser-default custom-select" name="dis">
+							  <option selected>Type</option>
+							  <option value="Petrol">Petrol</option>
+							  <option value="Diesel">Diesel</option>
+							</select>
+ -->	
+	                    
+	
+    					<button class="btn btn-info btn-block" type="submit">Save</button>
+    					
+					</form>
+                
+                </div>
+                
                 
 
               
@@ -460,7 +494,15 @@
                 </table>
                 <!--Table-->
               </div>
-
+					
+				
+				 <div class="bill-table">
+                <div class="alert alert-warning" role="alert">
+                  Fuel Purchase History
+                </div>
+               		<canvas id="lineChart"></canvas>
+              </div>
+	
              
 
             </div>
@@ -571,21 +613,25 @@
           var myLineChart = new Chart(ctxL, {
             type: 'line',
             data: {
-              labels: ["January", "February", "March", "April", "May", "June", "July"],
+              labels: [
+            	  
+            	  <c:forEach items="${usage}" var="use">
+          			"${use.puridString}",
+          			</c:forEach>
+            	  
+              ],
               datasets: [{
-                label: "Service",
-                data: [65, 59, 80, 81, 56, 55, 40],
+                label: "Amount 'ml' ",
+                data: [
+                	 <c:forEach items="${usage}" var="use">
+           				"${use.amount}",
+           			 </c:forEach>
+                ],
                 backgroundColor: ['rgba(105, 0, 132, .2)',],
                 borderColor: ['rgba(200, 99, 132, .7)',],
                 borderWidth: 2
-              },
-              {
-                label: "Fuel",
-                data: [28, 48, 40, 19, 86, 27, 90],
-                backgroundColor: ['rgba(0, 137, 132, .2)',],
-                borderColor: ['rgba(0, 10, 130, .7)',],
-                borderWidth: 2
               }
+              
               ]
             },
             options: {

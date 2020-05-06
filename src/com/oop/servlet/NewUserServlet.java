@@ -22,15 +22,11 @@ import com.oop.model.RandomString;
 //@WebServlet(urlPatterns = { "/NewUserServlet" })
 public class NewUserServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	
+	//logger implementation
     private static final Logger LOGGER = Logger.getLogger(NewUserServlet.class.getName());   
    
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public NewUserServlet() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
+    
 
 
 	/**
@@ -39,6 +35,7 @@ public class NewUserServlet extends HttpServlet {
 	@SuppressWarnings({ "static-access", "unused" })
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		//fetching the data from the request object
 		String newUsernameString = request.getParameter("signusername");
 		String newUsweEailString = request.getParameter("signemail");
 		String newUserPasswordString = request.getParameter("signpass");
@@ -48,7 +45,7 @@ public class NewUserServlet extends HttpServlet {
 		
 		try {
 			
-			RandomString randonString = new RandomString();
+			RandomString randonString = new RandomString();		//this random string method will create alphanumeric values of 7 digits which will be used as the ID
 			newUserRegNoString = "REG" + randonString.getAlphaNumericString();
 			NewUserModel newUserModelObject = new NewUserModel(newUsernameString,newUsweEailString,newUserPasswordString,newUserRegNoString);
 			NewUserDAO newUserDAOObject = new NewUserDAO();

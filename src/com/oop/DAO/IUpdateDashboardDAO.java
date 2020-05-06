@@ -39,4 +39,8 @@ public interface IUpdateDashboardDAO {
 	public ArrayList<NewMechModel> mech();
 	
 	public ArrayList<UpdateUserModel> user();
+	
+	public ArrayList<PurchaseFuelModel> adminusageArrayList();
+	
+	
 }

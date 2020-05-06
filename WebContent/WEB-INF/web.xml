@@ -240,6 +240,15 @@
 		<url-pattern>/ReplyServlet</url-pattern>
 	</servlet-mapping>
 	
+	<servlet>
+		<servlet-name>FuelDisServlet</servlet-name>
+		<servlet-class>com.oop.servlet.FuelDisServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>FuelDisServlet</servlet-name>
+		<url-pattern>/FuelDisServlet</url-pattern>
+	</servlet-mapping>
+	
 
 	
 	

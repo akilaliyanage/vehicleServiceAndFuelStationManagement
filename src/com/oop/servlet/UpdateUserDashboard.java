@@ -17,6 +17,7 @@ import com.oop.DAO.IUpdateUserDAO;
 import com.oop.DAO.UpdatUserImplDAO;
 import com.oop.model.AppointmentDetailsModel;
 import com.oop.model.BillDetailsModel;
+import com.oop.model.PurchaseFuelModel;
 
 /**
  * Servlet implementation class UpdateUserDashboard
@@ -83,11 +84,18 @@ public class UpdateUserDashboard extends HttpServlet {
 				float pend = userMethods.pending(regNoString);
 				request.setAttribute("pend", pend);
 				
+				//get the dispence id
+				ArrayList<String> idArrayList = userMethods.disId();
+				request.setAttribute("dis", idArrayList);
 				
+				ArrayList<PurchaseFuelModel> returnPurchase = userMethods.returnPurchase(regNoString);
+				request.setAttribute("usage", returnPurchase);
 				
 				
 				RequestDispatcher requestDispatcher = request.getRequestDispatcher("userProfile.jsp");
 				requestDispatcher.forward(request, response);
+				
+				
 				
 				
 			} catch (Exception e) {

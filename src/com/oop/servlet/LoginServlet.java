@@ -24,6 +24,8 @@ import java.util.regex.*;
 //@WebServlet(description = "This controler is used to controll the user login of the system", urlPatterns = { "/LoginServlet" })
 public class LoginServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	
+	//logger implementation
     private static final Logger LOGGER = Logger.getLogger(LoginServlet.class.getName());   
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -45,18 +47,22 @@ public class LoginServlet extends HttpServlet {
 			
 			if(isSubmitString.equals("signin") && loginModel.getUsernameString() != null && loginModel.getPassworString() != null) {
 				
-					HttpSession sHttpSession = request.getSession();
+				//if the user is in the system, navigates to the homepageredirect servlet.
+				
+					HttpSession sHttpSession = request.getSession();	//setting attributes to the session object
 					sHttpSession.setAttribute("regno", loginModel.getRegNoString());
 					response.sendRedirect("HomePageRedirectServlet");			
 			}
 			else {
+				//if the username and password is incorrect, navigate to the index.jsp page
+				
 				request.setAttribute("error", "Invalid username or password");
 				request.getRequestDispatcher("index.jsp").forward(request, response);
 			}
 			
 		} catch (Exception e) {
 			// TODO: handle exception
-			
+			//logger message
 			LOGGER.log(Level.SEVERE, e.getMessage());
 		}
 		

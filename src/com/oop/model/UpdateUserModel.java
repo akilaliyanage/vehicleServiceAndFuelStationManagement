@@ -5,20 +5,26 @@ package com.oop.model;
 
 import java.io.InputStream;
 
+import com.oop.servlet.NewUserServlet;
+
 /**
  * @author mlaki
  *
  */
-public class UpdateUserModel {
+public class UpdateUserModel extends NewUserModel{
 	
+	public UpdateUserModel(String usernameString, String emailString, String passwordString, String userregNoString) {
+		super(usernameString, emailString, passwordString, userregNoString);
+		// TODO Auto-generated constructor stub
+	}
 	private String nameString;
 	private String phoneString;
 	private String genderString;
 	private String descriptionString;
-	private String userIdString;
-	private String emailString;
-	private String usernameString;
-	private String passworString;
+	//private String userIdString;
+	//private String emailString;
+	//private String usernameString;
+	//private String passworString;
 	
 	
 	
@@ -46,30 +52,7 @@ public class UpdateUserModel {
 	public void setUsernameString(String usernameString) {
 		this.usernameString = usernameString;
 	}
-	/**
-	 * @return the passworString
-	 */
-	public String getPassworString() {
-		return passworString;
-	}
-	/**
-	 * @param passworString the passworString to set
-	 */
-	public void setPassworString(String passworString) {
-		this.passworString = passworString;
-	}
-	/**
-	 * @return the userIdString
-	 */
-	public String getUserIdString() {
-		return userIdString;
-	}
-	/**
-	 * @param userIdString the userIdString to set
-	 */
-	public void setUserIdString(String userIdString) {
-		this.userIdString = userIdString;
-	}
+	
 	/**
 	 * @return the nameString
 	 */
@@ -121,10 +104,12 @@ public class UpdateUserModel {
 	@Override
 	public String toString() {
 		return "UpdateUserModel [nameString=" + nameString + ", phoneString=" + phoneString + ", genderString="
-				+ genderString + ", descriptionString=" + descriptionString + ", userIdString=" + userIdString
-				+ ", emailString=" + emailString + ", usernameString=" + usernameString + ", passworString="
-				+ passworString + "]";
+				+ genderString + ", descriptionString=" + descriptionString + ", usernameString=" + usernameString
+				+ ", emailString=" + emailString + ", passwordString=" + passwordString + ", userregNoString="
+				+ userregNoString + "]";
 	}
+	
+	
 	
 	
 	

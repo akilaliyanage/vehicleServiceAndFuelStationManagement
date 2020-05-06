@@ -37,8 +37,8 @@ public class UpdateUserDAO {
 			pStatement.setString(4, user.getDescriptionString());
 			pStatement.setString(5, user.getEmailString());
 			pStatement.setString(6, user.getUsernameString());
-			pStatement.setString(7, user.getPassworString());
-			pStatement.setString(8, user.getUserIdString());
+			pStatement.setString(7, user.getPasswordString());
+			pStatement.setString(8, user.getUserregNoString());
 
 			status = pStatement.executeUpdate();
 			

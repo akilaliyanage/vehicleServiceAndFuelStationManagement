@@ -7,6 +7,7 @@ import java.util.ArrayList;
 
 import com.oop.model.AppointmentDetailsModel;
 import com.oop.model.BillDetailsModel;
+import com.oop.model.PurchaseFuelModel;
 
 /**
  * @author mlaki
@@ -39,5 +40,9 @@ public interface IUpdateUserDAO {
 		
 		public float pending(String regnoString);
 		
-
+		//return the fuel dispenser id
+		public ArrayList<String> disId();
+		
+		//return the fuel usage
+		public ArrayList<PurchaseFuelModel> returnPurchase(String regnoString);
 }

@@ -18,6 +18,7 @@ import com.oop.model.DashboardPaymentsDAO;
 import com.oop.model.DashboardRequestModel;
 import com.oop.model.NewMechModel;
 import com.oop.model.NewUserModel;
+import com.oop.model.PurchaseFuelModel;
 import com.oop.model.RequestModel;
 import com.oop.model.UpdateUserModel;
 //import com.sun.tools.javap.TryBlockWriter;
@@ -354,12 +355,10 @@ public class UpdateDashboardImplDAO implements IUpdateDashboardDAO {
 				
 				while(resultSet.next()) {
 					
-					UpdateUserModel update = new UpdateUserModel();
+					UpdateUserModel update = new UpdateUserModel(resultSet.getString("userName"), resultSet.getString("userEmail"), null, resultSet.getString("regNo"));
 					update.setNameString(resultSet.getString("userFullName"));
-					update.setEmailString(resultSet.getString("userEmail"));
 					update.setPhoneString(resultSet.getString("userPhone"));
 					update.setGenderString(resultSet.getString("gender"));
-					update.setUserIdString(resultSet.getString("regNo"));
 					
 					userModels.add(update);
 					
@@ -372,5 +371,40 @@ public class UpdateDashboardImplDAO implements IUpdateDashboardDAO {
 			return userModels;
 			
 		}
+
+
+
+		@Override
+		public ArrayList<PurchaseFuelModel> adminusageArrayList() {
+			// TODO Auto-generated method stub
+			
+			ArrayList<PurchaseFuelModel> usageArrayList = new ArrayList<PurchaseFuelModel>();
+			
+			try {
+				
+				connection = DatabaseConnection.getConnection();
+				pStatement = connection.prepareStatement("SELECT PurchaseID, amount FROM vehicleserviceandfuelstationmanagement.user_dispenser");
+				ResultSet resultSet = pStatement.executeQuery();
+				
+				while(resultSet.next()) {
+					
+					PurchaseFuelModel objFuelModel = new PurchaseFuelModel();
+					objFuelModel.setPuridString(resultSet.getString("PurchaseID"));
+					objFuelModel.setAmount(resultSet.getFloat("amount"));
+					
+					usageArrayList.add(objFuelModel);
+					
+				}
+				
+			} catch (Exception e) {
+				// TODO: handle exception
+			}
+			
+			return usageArrayList;
+		}
+
+
+
+		
 
 }

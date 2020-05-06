@@ -70,28 +70,22 @@ public class UpdateUserServlet extends HttpServlet {
 
 		// creating the model and dao objects
 
-		UpdateUserModel updateModel = new UpdateUserModel();
+		
 		UpdateUserDAO updatedao = new UpdateUserDAO();
 		int status;
 
 		try {
-
+			UpdateUserModel updateModel = new UpdateUserModel(usernameString,emailString,passwordString,userIdString);
 			updateModel.setNameString(nameString);
 			updateModel.setPhoneString(phoneString);
 			updateModel.setGenderString(genderString);
 			updateModel.setDescriptionString(massegeString);
-			updateModel.setUserIdString(userIdString);
-			updateModel.setEmailString(emailString);
-			updateModel.setUsernameString(usernameString);
-			updateModel.setPassworString(passwordString);
+			
 
 			status = updatedao.updateUser(updateModel);
 		
 			if(status == 1) {
-//				request.setAttribute("msg", "Updating user details successful!!");
-//				request.setAttribute("col", "warning");
-//				RequestDispatcher rd = request.getRequestDispatcher("UpdateUserDashboard");
-//				rd.forward(request, response);
+				
 				response.sendRedirect("UpdateUserDashboard");
 				
 			}

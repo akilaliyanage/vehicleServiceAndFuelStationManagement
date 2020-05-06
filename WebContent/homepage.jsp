@@ -30,16 +30,19 @@
 </head>
 <body>
 	    <% 
-	
-		String unameString = session.getAttribute("regno").toString();
-		if(session.getAttribute("regno") == null){
-			response.sendRedirect("index.jsp");
+			//this will check wether the user is logges or not by using the session variable
+			
+		String unameString = (String)session.getAttribute("regno");
+		if(session.getAttribute("regno").equals(null)){
+			RequestDispatcher dispatcher = request.getRequestDispatcher("index.jsp");
 		}
 	%>
 	
 
     <div class="section-1" id="section-1">
+    
         <!--Navbar -->
+        
         <nav class="mb-1 navbar navbar-expand-lg navbar-dark transparent lighten-1" style="box-shadow: none;font-weight: bolder; border: none;">
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-555"
                 aria-controls="navbarSupportedContent-555" aria-expanded="false" aria-label="Toggle navigation">
@@ -72,6 +75,7 @@
                 
             </div>
         </nav>
+        
         <!--/.Navbar -->
 
         <div class="row">
@@ -93,7 +97,7 @@
                         <!-- Text -->
                         <p class="card-text">Make an appointment as your wish. We will cover up everything for you!!</p>
 
-                    <a href="NewAppointmentServlet" class="btn btn-success">New Appointment</a>
+                    <a href="NewAppointmentServlet" class="btn btn-success">New Appointment</a>  <!-- this link will navigate to make a new appointment -->
                     <a href="userProfile.jsp" class="btn btn-info">My Appointments</a>
                         <!-- Button -->
                    
@@ -147,6 +151,8 @@
 		<div class="container">
 			<div class="swiper-container">
 				<div class="swiper-wrapper">
+
+				<!-- for each loop to display the available packages in the system -->
 
 					<c:forEach items="${packageList}" var="ServicePackage">
 

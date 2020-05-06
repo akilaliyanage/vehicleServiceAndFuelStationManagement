@@ -15,11 +15,10 @@ import com.oop.model.NewUserModel;
  * @author mlaki
  *
  */
-public class UpdateUserImageDAO {
+public  class UpdateUserImageDAO {
 	
 	static Connection connection;
 	static PreparedStatement pStatement;
-	
 	public int updateImage(String regNo, String imgPathString) {
 		int status = 0;
 		
@@ -42,4 +41,8 @@ public class UpdateUserImageDAO {
 		}
 		return status;
 	}
+	
+
+	
+	
 }
