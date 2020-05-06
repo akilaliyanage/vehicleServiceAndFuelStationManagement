@@ -1,4 +1,7 @@
 <!DOCTYPE html>
+<%@page import="java.util.ArrayList"%>
+<%@page import="com.oop.model.NewMechModel"%>
+<%@page import="java.util.List"%>
 <%@page import="com.oop.model.VehicleModel"%>
 <%@page import="com.oop.model.AppointmentModel"%>
 <%@page import="com.oop.model.VehicalServices"%>
@@ -22,11 +25,14 @@
   <link rel="stylesheet" href="css/Mahen/FullDetails.css" />
   <!--end of the Mahen css-->
 
-  <title>SendRequest</title>
+  <title>FullRequestDetails</title>
 </head>
 
 <body>
 	<%
+		List<NewMechModel> 	Mechanics = (ArrayList<NewMechModel>) request.getAttribute("Mechanics");
+		
+	
 		UserModel Customer = (UserModel) request.getAttribute("Customer");
 		PackageForAppoint Package = (PackageForAppoint) request.getAttribute("Package");
 		VehicalServices Service = (VehicalServices) request.getAttribute("Service");
@@ -337,7 +343,7 @@
                       <p class="text-right">MAC454855</p>
                     </div>
                   </div>
-                  <a href="" class="text-center" data-toggle="modal" data-target="#MachenicChanger">Click to change
+                  <a href="" class="text-center" data-toggle="modal" data-target="#<%=Appointment.getAppId()%>">Click to change
                     the Machenic</a>
                   <hr class="my-3" style="border-width: 3px; border-color: #0d47a1;">
 
@@ -470,13 +476,13 @@
                   <h3 style="color: #4285F4;" class="mt-4"> <i class="fas fa-edit"></i> Add Remarks</h3>
                   <hr style="border-width: 5px; border-color: #0d47a1;">
 
-                  <form action="" class=" mt-1 text-left">
+                  <form action="PlaceRemarkServlet" class=" mt-1 text-left">
                     
                       <label>
                         <h6>Add your text here</h6>
                       </label>
-                      <textarea class="form-control" rows="3"></textarea>
-                    
+                      <textarea class="form-control" rows="3" name="remark"></textarea>
+                      <input type="hidden" value="<%=Appointment.getAppId() %>" name="appointment1">
                     <div class="d-flex justify-content-end">
                       <input type="submit" value="Place Remark" class="mt-2 btn btn-primary">
                     </div>
@@ -497,28 +503,62 @@
       </div>
 
 
-      <!--Start Mechanic Changing Model-->
-      <div class="modal fade" id="MachenicChanger" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
-        aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalCenterTitle">Assign Machenic</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div class="modal-body">
-              ...
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-              <button type="button" class="btn btn-primary">Save changes</button>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!--End Mechanic Changing Model-->
+      <!-- Start of Mechanic Changing model -->
+			<div class="modal fade conferm_assigning" id="<%=Appointment.getAppId()%>"
+				tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+				aria-hidden="true">
+				<div class="modal-dialog" role="document">
+					<div class="modal-content">
+						<!--Header-->
+						<div class="modal-header">
+							<h4 class="modal-title" id="myModalLabel">Select A mechanic</h4>
+							<button type="button" class="close" data-dismiss="modal"
+								aria-label="Close">
+								<span aria-hidden="true">×</span>
+							</button>
+						</div>
+						<!--Body-->
+						<div class="modal-body">
+
+							<table class="table table-hover btn-table">
+								<thead>
+									<tr>
+										<th>Mechanic name</th>
+										<th>Mechanic Id</th>
+										<th>Select</th>
+									</tr>
+								</thead>
+								<tbody>
+									<%
+										for (NewMechModel mech : Mechanics) {
+									%>
+									<tr>
+										<td><%=mech.getFullnameString()%></td>
+										<td><%=mech.getUserregNoString()%></td>
+										<td>
+											<form action="AssignMechServelet" method="get">
+												<input type="hidden" value="<%=mech.getUserregNoString()%>"
+													name="AssignrdMec"> <input type="hidden"
+													value="<%=Appointment.getAppId()%>" name="appointment">
+												<button type="submit" class="btn btn-primary btn-sm m-0" data-toggle="modal" data-target="#SuccessfullyAssigned"
+												 onclick="AssignConfermation('<%=mech.getFullnameString()%>')" > Assign </button>
+											</form>
+
+										</td>
+									</tr>
+									<%
+										}
+									%>
+								</tbody>
+							</table>
+
+						</div>
+						<!--Footer-->
+
+					</div>
+				</div>
+			</div>
+		<!-- End of Mechanic Changing model -->
 
       <!--Start Status Changing Model-->
       <div class="modal fade" id="StatusChanger" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
@@ -532,19 +572,34 @@
               </button>
             </div>
             <div class="modal-body">
-              <button type="button" class="btn btn-success mr-2 mt-2"><i class="fas fa-clipboard-check"></i>
+            	<form action="ChangeStatusServlet" method="get">
+            		<input type="hidden" value="<%=Appointment.getAppId()%>" name="appointment2"> 
+					<input type="hidden" name="Status" value="Pending">
+					<input type="hidden" name="Page" value="Fullrequest"> 
+              		<button type="submit" class="btn btn-success mr-2 mt-2"><i class="fas fa-clipboard-check"></i>
                 Pending</button>
-              <button type="button" class="btn btn-warning mr-2 mt-2"><i class="far fa-window-close"></i>
-                Accepted</button>
-              <button type="button" class="btn btn-danger mr-2 mt-2"><i class="far fa-trash-alt"></i> Payment
-                Pending</button>
-              <button type="button" class="btn btn-danger mr-2 mt-2"><i class="far fa-trash-alt"></i> Finished</button>
-              <button type="button" class="btn btn-secondary mr-2 mt-2"><i
-                  class="fas fa-info-circle"></i>Reject</button>
+                </form>
+                
+                <form action="ChangeStatusServlet" method="get">
+                <input type="hidden" value="<%=Appointment.getAppId()%>" name="appointment2"> 
+				<input type="hidden" name="Status" value="Accepted">
+				<input type="hidden" name="Page" value="Fullrequest">
+              		<button type="submit" class="btn btn-warning mr-2 mt-2"><i class="far fa-window-close"></i>
+                Accept</button>
+                </form>
+                
+                <form action="ChangeStatusServlet" method="get">
+                	<input type="hidden" value="<%=Appointment.getAppId()%>" name="appointment2">
+                    <input type="hidden" name="Status" value="Rejected">
+                    <input type="hidden" name="Page" value="Fullrequest">
+              		<button type="submit" class="btn btn-danger mr-2 mt-2"><i class="far fa-trash-alt"></i>
+                Reject</button>
+                </form>
+                
+              
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-              <button type="button" class="btn btn-primary">Save changes</button>
             </div>
           </div>
         </div>
@@ -690,191 +745,7 @@
   <script src="https://cdn.jsdelivr.net/npm/chart.js@2/dist/Chart.min.js"></script>
   <!--end of the chart.js-->
 
-  <!--charts-->
-  <script>
-    let user = document.getElementById("user").getContext("2d");
-
-    let lineOne = new Chart(user, {
-      type: "line",
-      data: {
-        labels: [
-          "Sunday",
-          "Monday",
-          "Tuesday",
-          "Wednsday",
-          "Thursday",
-          "Friday",
-          "Saturday"
-        ],
-        datasets: [{
-          label: "Count",
-          data: [10, 30, 1, 30, 50, 70, 90],
-          backgroundColor: ["#fa163f"],
-          borderColor: "#FFFF",
-          borderWidth: "3px"
-        }]
-      },
-      options: {
-        scales: {
-          xAxes: [{
-            gridLines: {
-              color: "rgba(0, 0, 0, 0)",
-            }
-          }],
-          yAxes: [{
-            gridLines: {
-              display: true
-            }
-          }]
-        }
-      }
-    });
-
-    let imcome = document.getElementById("income").getContext("2d");
-
-    let pieOne = new Chart(income, {
-      type: "doughnut",
-      data: {
-        labels: [
-          "Sunday",
-          "Monday",
-          "Tuesday",
-          "Wednsday",
-          "Thursday",
-          "Friday",
-          "Saturday"
-        ],
-        datasets: [{
-          label: "Count",
-          data: [10, 30, 1, 30, 50, 70, 90],
-          backgroundColor: [
-            "#fa163f",
-            "#f0134d",
-            "#40bfc1",
-            "#1b262c",
-            "#52de97",
-            "#3e206d",
-            "#12cad6"
-          ],
-          //borderColor : '#FFFF',
-          borderWidth: "3px"
-        }]
-      },
-      options: {
-        cutoutPercentage: 50,
-        scales: {
-          xAxes: false,
-          yAxes: false,
-        },
-        legend: {
-          display: true,
-          position: 'right',
-          labels: {
-            fontColor: 'rgb(255, 99, 132)'
-          }
-        }
-      }
-    });
-
-    let req = document.getElementById("req").getContext("2d");
-
-    let bar = new Chart(req, {
-      type: "bar",
-      data: {
-        labels: [
-          "Sunday",
-          "Monday",
-          "Tuesday",
-          "Wednsday",
-          "Thursday",
-          "Friday",
-          "Saturday"
-        ],
-        datasets: [{
-          label: "Count",
-          data: [10, 30, 1, 30, 50, 70, 90],
-          backgroundColor: [
-            "#fa163f",
-            "#f0134d",
-            "#40bfc1",
-            "#1b262c",
-            "#52de97",
-            "#3e206d",
-            "#12cad6"
-          ],
-          //borderColor : '#FFFF',
-          borderWidth: "3px"
-        }]
-      },
-      options: {
-        cutoutPercentage: 50,
-        scales: {
-          xAxes: [{
-            gridLines: {
-              color: "rgba(0, 0, 0, 0)",
-            }
-          }],
-          yAxes: [{
-            gridLines: {
-              display: true
-            }
-          }]
-        }
-      }
-    });
-
-    let tank = document.getElementById("tank").getContext("2d");
-
-    let statOne = new Chart(tank, {
-      type: "line",
-      data: {
-        labels: [
-          "Sunday",
-          "Monday",
-          "Tuesday",
-          "Wednsday",
-          "Thursday",
-          "Friday",
-          "Saturday",
-          "Sunday",
-          "Monday",
-          "Tuesday",
-          "Wednsday",
-          "Thursday",
-          "Friday",
-          "Saturday"
-        ],
-        datasets: [{
-          label: "Liters",
-          data: [10, 30, 1, 30, 50, 70, 60, 10, 30, 1, 30, 50, 70, 90],
-
-          //borderColor : '#FFFF',
-          borderWidth: "3",
-          borderColor: "red",
-          fill: false,
-          pointBackgroundColor: 'red',
-          pointBorderWidth: '5'
-          //backgroundColor: 'red'
-        }],
-
-      },
-      options: {
-        cutoutPercentage: 50,
-        scales: {
-          xAxes: [{
-            gridLines: {
-              color: "rgba(0, 0, 0, 0)",
-            }
-          }],
-          yAxes: [{
-            gridLines: {
-              display: true
-            }
-          }]
-        }
-      }
-    });
-  </script>
+ 
   <!--end of the charts-->
 </body>
 

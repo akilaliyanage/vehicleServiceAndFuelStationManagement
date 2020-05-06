@@ -53,7 +53,8 @@ public class PendingRequestsServlet extends HttpServlet {
 		if (newAppointments != null) {
 
 			String origin = "";
-			request.setAttribute("PendingRequests", newAppointments);
+			request.setAttribute("PendingRequests", userAndAppointment);
+			//request.setAttribute("PendingRequests", newAppointments);
 			request.setAttribute("Mechanics", allMechanics);
 			request.setAttribute("origin", origin);
 		       

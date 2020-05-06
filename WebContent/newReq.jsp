@@ -1,3 +1,4 @@
+<%@page import="com.oop.model.UserAppointmentModel"%>
 <%@page import="java.io.PrintWriter"%>
 <%@page import="com.oop.model.NewMechModel"%>
 <%@page import="java.util.ArrayList"%>
@@ -26,13 +27,24 @@
 <link rel="stylesheet" href="css/akila/dashboard.css" />
 <!--end of the akila css-->
 <link rel="stylesheet" href="css/Mahen/New_req.css" />
+<style type="text/css">
+.my-4{
+
+	border-style: solid;
+	border-width: 2px;
+	border-color: #0099CC;
+	color: #0099CC;
+	background-color: #0099CC;
+}
+</style>
 
 <title>AllRequests</title>
 </head>
 <body>
 
 	<%
-	List<AppointmentModel> PendingRequests = (ArrayList<AppointmentModel>) request.getAttribute("PendingRequests");
+	List<UserAppointmentModel> PendingRequests = (ArrayList<UserAppointmentModel>) request.getAttribute("PendingRequests");
+	//List<AppointmentModel> PendingRequests = (ArrayList<AppointmentModel>) request.getAttribute("PendingRequests");
 	List<NewMechModel> Mechanics = (ArrayList<NewMechModel>) request.getAttribute("Mechanics");
 	String origin = (String) request.getAttribute("origin");
 	String Affectedappointment = (String) request.getAttribute("Affectedappointment");
@@ -69,13 +81,11 @@
 	if (origin.equals("Rejected")) {
 	%>
 	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-	<script
-		src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 	<script>
 		$(document).ready(function () {
 			swal({
-				  title: "You Have Rejected The Request <%=Affectedappointment%>
-		",
+				  title: "You Have Rejected The Request <%=Affectedappointment%>",
 								icon : "warning",
 							});
 						});
@@ -231,7 +241,7 @@
 			
 
 			<%
-				for (AppointmentModel Appointment : PendingRequests) {
+				for (UserAppointmentModel Appointment : PendingRequests) {
 			%>
 
 			<div class="Act_new_req m-4">
@@ -246,10 +256,10 @@
 						</div>
 						<div class="col-md-3  text-left">
 							<h3>
-								<i class="fas fa-user-check"></i> <u> Stacy V. Pearson </u>
+								<i class="fas fa-user-check"></i> <u> <%=Appointment.getUserFullName() %> </u>
 							</h3>
-							<p class="mt-3">944 Meadow LaneOakland, CA 94612</p>
-							<p class="mt-3" style="color: #4285F4">LeahRJoshi@dayrep.com</p>
+							<p class="mt-3"><%=Appointment.getAddress_line_1() %></p>
+							<p class="mt-3" style="color: #4285F4"><%=Appointment.getUserEmail() %></p>
 						</div>
 						<div class="col-md-6 text-right">
 							<h3>Appointment No</h3>
@@ -287,7 +297,7 @@
 							</div>
 							<div class="requ_inf">
 								<strong>Mechanic : </strong>
-								<p class="text-right">Not yet Assigned</p>
+								<p class="text-right" id="MacAssignStatus">Not yet Assigned</p>
 							</div>
 						</div>
 
@@ -337,7 +347,7 @@
 								<input type="hidden" value="<%=Appointment.getAppId()%>"
 									name="appointment2"> <input type="hidden" name="Status"
 									value="Accepted">
-
+									<input type="hidden" name="Page" value="Newrequest">
 								<button type="submit" class="btn btn-success mr-4">
 									<i class="fas fa-clipboard-check"></i> Accept Job Request
 								</button>
@@ -347,6 +357,7 @@
 								<input type="hidden" value="<%=Appointment.getAppId()%>"
 									name="appointment2"> <input type="hidden" name="Status"
 									value="Rejected">
+								<input type="hidden" name="Page" value="Newrequest">
 								<button type="submit" class="btn btn-warning mr-4">
 									<i class="far fa-window-close"></i> Reject Job Request
 								</button>
@@ -363,7 +374,8 @@
 								</button>
 							</form>
 
-							<form action="" method="get">
+							<form action="FullRequestservlet" method="get">
+								<input type="hidden" value="<%=Appointment.getAppId()%>" name="Id_Of_Appointment">
 								<button type="submit" class="btn btn-secondary mr-4">
 									<i class="fas fa-info-circle"></i> More Details
 								</button>
@@ -382,11 +394,11 @@
 			%>
 
 			<%
-				for (AppointmentModel Appointment : PendingRequests) {
+				for (UserAppointmentModel Appointment : PendingRequests) {
 			%>
 
 			<!-- Modal: modalCart -->
-			<div class="modal fade" id="<%=Appointment.getAppId()%>"
+			<div class="modal fade conferm_assigning" id="<%=Appointment.getAppId()%>"
 				tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
 				aria-hidden="true">
 				<div class="modal-dialog" role="document">
@@ -422,7 +434,8 @@
 												<input type="hidden" value="<%=mech.getUserregNoString()%>"
 													name="AssignrdMec"> <input type="hidden"
 													value="<%=Appointment.getAppId()%>" name="appointment">
-												<button type="submit" class="btn btn-primary btn-sm m-0" data-toggle="modal" data-target="#SuccessfullyAssigned" > Assign </button>
+												<button type="submit" class="btn btn-primary btn-sm m-0" data-toggle="modal" data-target="#SuccessfullyAssigned"
+												 onclick="AssignConfermation('<%=mech.getFullnameString()%>')" > Assign </button>
 											</form>
 
 										</td>
@@ -441,6 +454,12 @@
 			</div>
 
 			<!-- Modal: modalCart -->
+			<script type="text/javascript">
+			
+				function AssignConfermation(appID) {
+					 document.getElementById("MacAssignStatus").innerHTML = appID;
+				}
+			</script>
 
 			<%
 				}
@@ -453,8 +472,8 @@
 					<!--Content-->
 					<div class="modal-content">
 						<!--Header-->
-						<div class="modal-header">
-							<p class="heading lead">Modal Success</p>
+						<div class="modal-header" style="background-color: #28a745;">
+							<p class="heading lead center">Mechanic Assigned</p>
 
 							<button type="button" class="close" data-dismiss="modal"
 								aria-label="Close">
@@ -465,19 +484,16 @@
 						<!--Body-->
 						<div class="modal-body">
 							<div class="text-center">
-								<i class="fas fa-check fa-4x mb-3 animated rotateIn"></i>
-								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-									Impedit iusto nulla aperiam blanditiis ad consequatur in
-									dolores culpa, dignissimos, eius non possimus fugiat. Esse
-									ratione fuga, enim, ab officiis totam.</p>
+								<i class="fas fa-check fa-4x mb-3 animated rotateIn"  style="color: #28a745"></i>
+								<h3>Mechanic Assigned Successfully</h3>
 							</div>
 						</div>
 
 						<!--Footer-->
-						<div class="modal-footer justify-content-center">
+						<div class="d-flex justify-content-center">
 						 <a type="button"
 								class="btn btn-outline-success waves-effect"
-								data-dismiss="modal">No, thanks
+								data-dismiss="modal">OK
 						</a>
 						</div>
 					</div>
@@ -609,147 +625,7 @@
 	<!--chart.js-->
 	<script src="https://cdn.jsdelivr.net/npm/chart.js@2/dist/Chart.min.js"></script>
 	<!--end of the chart.js-->
+	
 
-	<!--charts-->
-	<script>
-		let user = document.getElementById("user").getContext("2d");
-
-		let lineOne = new Chart(user, {
-			type : "line",
-			data : {
-				labels : [ "Sunday", "Monday", "Tuesday", "Wednsday",
-						"Thursday", "Friday", "Saturday" ],
-				datasets : [ {
-					label : "Count",
-					data : [ 10, 30, 1, 30, 50, 70, 90 ],
-					backgroundColor : [ "#fa163f" ],
-					borderColor : "#FFFF",
-					borderWidth : "3px"
-				} ]
-			},
-			options : {
-				scales : {
-					xAxes : [ {
-						gridLines : {
-							color : "rgba(0, 0, 0, 0)",
-						}
-					} ],
-					yAxes : [ {
-						gridLines : {
-							display : true
-						}
-					} ]
-				}
-			}
-		});
-
-		let imcome = document.getElementById("income").getContext("2d");
-
-		let pieOne = new Chart(income, {
-			type : "doughnut",
-			data : {
-				labels : [ "Sunday", "Monday", "Tuesday", "Wednsday",
-						"Thursday", "Friday", "Saturday" ],
-				datasets : [ {
-					label : "Count",
-					data : [ 10, 30, 1, 30, 50, 70, 90 ],
-					backgroundColor : [ "#fa163f", "#f0134d", "#40bfc1",
-							"#1b262c", "#52de97", "#3e206d", "#12cad6" ],
-					//borderColor : '#FFFF',
-					borderWidth : "3px"
-				} ]
-			},
-			options : {
-				cutoutPercentage : 50,
-				scales : {
-					xAxes : false,
-					yAxes : false,
-				},
-				legend : {
-					display : true,
-					position : 'right',
-					labels : {
-						fontColor : 'rgb(255, 99, 132)'
-					}
-				}
-			}
-		});
-
-		let req = document.getElementById("req").getContext("2d");
-
-		let bar = new Chart(req, {
-			type : "bar",
-			data : {
-				labels : [ "Sunday", "Monday", "Tuesday", "Wednsday",
-						"Thursday", "Friday", "Saturday" ],
-				datasets : [ {
-					label : "Count",
-					data : [ 10, 30, 1, 30, 50, 70, 90 ],
-					backgroundColor : [ "#fa163f", "#f0134d", "#40bfc1",
-							"#1b262c", "#52de97", "#3e206d", "#12cad6" ],
-					//borderColor : '#FFFF',
-					borderWidth : "3px"
-				} ]
-			},
-			options : {
-				cutoutPercentage : 50,
-				scales : {
-					xAxes : [ {
-						gridLines : {
-							color : "rgba(0, 0, 0, 0)",
-						}
-					} ],
-					yAxes : [ {
-						gridLines : {
-							display : true
-						}
-					} ]
-				}
-			}
-		});
-
-		let tank = document.getElementById("tank").getContext("2d");
-
-		let statOne = new Chart(tank,
-				{
-					type : "line",
-					data : {
-						labels : [ "Sunday", "Monday", "Tuesday", "Wednsday",
-								"Thursday", "Friday", "Saturday", "Sunday",
-								"Monday", "Tuesday", "Wednsday", "Thursday",
-								"Friday", "Saturday" ],
-						datasets : [ {
-							label : "Liters",
-							data : [ 10, 30, 1, 30, 50, 70, 60, 10, 30, 1, 30,
-									50, 70, 90 ],
-
-							//borderColor : '#FFFF',
-							borderWidth : "3",
-							borderColor : "red",
-							fill : false,
-							pointBackgroundColor : 'red',
-							pointBorderWidth : '5'
-						//backgroundColor: 'red'
-						} ],
-
-					},
-					options : {
-						cutoutPercentage : 50,
-						scales : {
-							xAxes : [ {
-								gridLines : {
-									color : "rgba(0, 0, 0, 0)",
-								}
-							} ],
-							yAxes : [ {
-								gridLines : {
-									display : true
-								}
-							} ]
-						}
-					}
-				});
-	</script>
-	<!--end of the charts-->
 </body>
 </html>

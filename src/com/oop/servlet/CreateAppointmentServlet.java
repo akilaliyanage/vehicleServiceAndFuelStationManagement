@@ -67,7 +67,7 @@ public class CreateAppointmentServlet extends HttpServlet {
 		int vehiYear  = Integer.parseInt(request.getParameter("year"));
 		String serviceID = null;
 		int appointDay = 1;
-		
+		System.out.println("check for veho No "  + vehi_nameString);
 		String packID = null;
 		
 		

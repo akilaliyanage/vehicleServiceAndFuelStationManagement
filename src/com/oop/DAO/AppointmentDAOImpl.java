@@ -2,6 +2,7 @@ package com.oop.DAO;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.SQLTimeoutException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
@@ -49,8 +50,7 @@ public class AppointmentDAOImpl implements IAppointmentDAO{
 			prepStatement.setDouble(8, newAppointment.getAmmount());
 			
 			
-			prepStatement2 = connection.prepareStatement("INSERT INTO vehicle (vehicleId , userRegNo , model , brand , manuYear , engineCap , transmission , fuelType , appointment_id)\r\n" + 
-					"values (? , ? , ? , ? , ? , ? , ? , ? , ?)");
+			prepStatement2 = connection.prepareStatement("INSERT INTO vehicle (vehicleId , userRegNo , model , brand , manuYear , engineCap , transmission , fuelType , appointment_id) values (? , ? , ? , ? , ? , ? , ? , ? , ?)");
 			prepStatement2.setString(1, vehicleOfAppointment.getVehicleId());
 			prepStatement2.setString(2, vehicleOfAppointment.getUserRegNo());
 			prepStatement2.setString(3, vehicleOfAppointment.getModel());
@@ -60,6 +60,10 @@ public class AppointmentDAOImpl implements IAppointmentDAO{
 			prepStatement2.setString(7, vehicleOfAppointment.getTransmission());
 			prepStatement2.setString(8, vehicleOfAppointment.getFuelType());
 			prepStatement2.setString(9, vehicleOfAppointment.getAppointment_id());
+			
+			prepStatement.executeUpdate();
+			System.out.println("prepstatement executed");
+			prepStatement2.executeUpdate();
 			
  		} 
 		catch (SQLException e) {
@@ -675,12 +679,66 @@ public class AppointmentDAOImpl implements IAppointmentDAO{
 		List<UserAppointmentModel> userAndApp = new ArrayList<UserAppointmentModel>();
 		try {
 			prepStatement = connection.prepareStatement("SELECT * FROM appointment a , user u WHERE a.userRegNo = u.regNo AND a.status = 'Pending'");
-			
+			ResultSet result = prepStatement.executeQuery();
+			userAndApp = getUserAppointmentList(result);
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
+			LOGGER.log(Level.SEVERE, e.getMessage());
+			LOGGER.log(Level.SEVERE, e.getSQLState());
 			e.printStackTrace();
 		}
-		return null;
+		finally {
+			try {
+				if (connection != null) {
+					connection.close();
+				}
+			} catch (SQLException e2) {
+				LOGGER.log(Level.SEVERE, e2.getSQLState());
+				LOGGER.log(Level.SEVERE, e2.getMessage());
+				e2.printStackTrace();
+			}
+		}
+		return userAndApp;
+	}
+
+
+
+	public static List<UserAppointmentModel> getUserAppointmentList(ResultSet result) {
+		List<UserAppointmentModel> userAppointmentList = new ArrayList<UserAppointmentModel>();
+		try {
+			while (result.next()) {
+				UserAppointmentModel userAppointmentObject = new UserAppointmentModel();
+				userAppointmentObject.setRegNo(result.getString("regNo"));
+				userAppointmentObject.setUserName(result.getString("userName"));
+				userAppointmentObject.setUserPassword(result.getString("userPassword"));
+				userAppointmentObject.setUserPhone(result.getString("userPhone"));
+				userAppointmentObject.setUserEmail(result.getString("userEmail"));
+				userAppointmentObject.setUserFullName(result.getString("userFullName"));
+				userAppointmentObject.setGender(result.getString("gender"));
+				userAppointmentObject.setUserdescription(result.getString("Userdescription"));
+				userAppointmentObject.setUserImage(result.getString("userImage"));
+				userAppointmentObject.setAddress_line_1(result.getString("address_line_1"));
+				userAppointmentObject.setAddress_line_2(result.getString("address_line_2"));
+				userAppointmentObject.setAppId(result.getString("appId"));
+				userAppointmentObject.setPackID(result.getString("packID"));
+				userAppointmentObject.setUserRegNo(result.getString("userRegNo"));
+				userAppointmentObject.setStatus(result.getString("status"));
+				userAppointmentObject.setRating(result.getString("rating"));
+				userAppointmentObject.setLocation(result.getString("location"));
+				userAppointmentObject.setPrefDate(result.getString("prefDate"));
+				userAppointmentObject.setPrefTime(result.getString("prefTime"));
+				userAppointmentObject.setRemarks(result.getString("remarks"));
+				userAppointmentObject.setService_id(result.getString("service_id"));
+				userAppointmentObject.setVehicleI_No(result.getString("vehicleI_No"));
+				userAppointmentObject.setAmmount(result.getDouble("amount"));
+				userAppointmentList.add(userAppointmentObject);
+				
+			}
+		} catch (SQLException e) {
+			LOGGER.log(Level.SEVERE, e.getMessage());
+			LOGGER.log(Level.SEVERE, e.getSQLState());
+			e.printStackTrace();
+		}
+		return userAppointmentList;
 	}
 
 

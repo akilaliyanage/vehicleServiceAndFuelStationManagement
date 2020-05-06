@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.oop.model.AppointmentModel;
 import com.oop.model.NewMechModel;
+import com.oop.model.UserAppointmentModel;
 import com.oop.service.AppointmentServices;
 import com.oop.service.AppointmentServicesImpl;
 import com.oop.service.ImechanicServices;
@@ -44,40 +45,42 @@ public class ChangeStatusServlet extends HttpServlet {
 		String Status = request.getParameter("Status");
 		String Vehicle = request.getParameter("Vehicle_to_dele");
 		String Origin = "Accepted";
+		String Page = request.getParameter("Page") ;
 		
-		
-		System.out.println(appointment +"  "+ Status);
+
 		
 		if (Status.equals("Delete")){
 			Origin = "Deleted";
-			System.out.println("Entered to delete");
 			statusChanger.delelteRequest(appointment , Vehicle);
 		}
 		
 		else{
 			Origin = Status;
-			System.out.println("Not Entered to delete");
 			statusChanger.Changestatus(appointment , Status);
-			System.out.println("origin is : " +  Origin);
 		}
 		
 		
-		
+		List<UserAppointmentModel> appUserList = new ArrayList<UserAppointmentModel>();
 		List<AppointmentModel> newAppointments = new ArrayList<AppointmentModel>();
 		List<NewMechModel> allMechanics = new ArrayList<NewMechModel>();
-		newAppointments = statusChanger.getPendingAppointments();
+		appUserList = statusChanger.getUserWithAppointment();
+		//newAppointments = statusChanger.getPendingAppointments();
 		allMechanics = mechanics.getAllMechanics();
 		
-		if (newAppointments != null) {
+		if (appUserList != null && Page.equals("Newrequest")) {
 
-			
-			request.setAttribute("PendingRequests", newAppointments);
+			request.setAttribute("PendingRequests", appUserList);
+			//request.setAttribute("PendingRequests", newAppointments);
 			request.setAttribute("Mechanics", allMechanics);
 			request.setAttribute("origin", Origin);
 			request.setAttribute("Affectedappointment", appointment);
 		       
 			request.getRequestDispatcher("newReq.jsp").forward(request, response);
 	
+		}
+		
+		else if (appUserList != null && Page.equals("Fullrequest")) {
+			response.setStatus(HttpServletResponse.SC_NO_CONTENT);
 		}
 		
 		
