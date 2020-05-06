@@ -1,11 +1,15 @@
 package com.oop.service;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
+
 import com.oop.DAO.AppointmentDAOImpl;
 import com.oop.DAO.IAppointmentDAO;
 import com.oop.model.AppointmentModel;
+import com.oop.model.UserAppointmentModel;
 import com.oop.model.UserModel;
 import com.oop.model.VehicleModel;
 
@@ -13,6 +17,12 @@ import com.oop.model.VehicleModel;
 public class AppointmentServicesImpl implements AppointmentServices{
 
 	IAppointmentDAO apppointData = new AppointmentDAOImpl();
+
+	@Override
+	public void assignMechanic(String appointment, String assignrdMec) {
+		apppointData.AssignMechanic(appointment , assignrdMec);
+		
+	}
 
 	@Override
 	public AppointmentModel createAppointment(String userId, String vehi_NO, Date AppointDate, String vehiBrand, String vehiModel,
@@ -64,5 +74,60 @@ public class AppointmentServicesImpl implements AppointmentServices{
 		AppointmentModel updatedAppointment = apppointData.UpdateAppointmentbyID(appoint_No , vehi_no , brand , model , transmission , fuel , date , time , pack , Service);
 		return updatedAppointment;
 	}
+
+	@Override
+	public List<AppointmentModel> getPendingAppointments() {
+		List<AppointmentModel> pendingAppointments = apppointData.getAllPendingAppointments();
+		return pendingAppointments;
+	}
+
+	@Override
+	public void SetRemarksToAppointment(String appointment, String remark) {
+		apppointData.SetRemarks(appointment , remark);
+		
+	}
+
+	@Override
+	public void Changestatus(String appointment, String status) {
+		apppointData.setRequestStatus(appointment , status);
+		
+	}
+
+	@Override
+	public void delelteRequest(String appointment, String vehicle) {
+		apppointData.DeleteAppointment(appointment , vehicle);
+		
+	}
+
+	@Override
+	public List<AppointmentModel> getAllAppointments() {
+		List<AppointmentModel> allRequests = new ArrayList<AppointmentModel>();
+		allRequests = apppointData.getAllAppointmentsData();
+		return allRequests;
+	}
+
+	@Override
+	public List<AppointmentModel> SearchAdvanceAppointments(String userRegNo, String vehicleI_No, String amount,
+			String service_id, String status, String prefDate) {
+		List<AppointmentModel> filteredappoint = new ArrayList<AppointmentModel>();
+		filteredappoint = apppointData.AdvanceAppointmentSearch(userRegNo , vehicleI_No , amount , service_id , status , prefDate);
+		return filteredappoint;
+	}
+
+	@Override
+	public AppointmentModel getAppointmentByAppID(String appointmentID) {
+		AppointmentModel appointment = new AppointmentModel();
+		appointment = apppointData.getAppointmentById(appointmentID);
+		return appointment;
+	}
+
+	@Override
+	public List<UserAppointmentModel> getUserWithAppointment() {
+		List<UserAppointmentModel> userWithapp = new ArrayList<UserAppointmentModel>();
+		userWithapp = apppointData.getUserAndAppointment();
+		return userWithapp;
+	}
+	
+	
 
 }

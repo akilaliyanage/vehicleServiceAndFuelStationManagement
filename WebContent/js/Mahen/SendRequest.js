@@ -10,6 +10,13 @@ document.getElementById("btn_newReq").addEventListener("click", function () {
     
 });
 
+$(document).ready(function(){
+	$('#Vehicle_year').datetimepicker({
+	    format      :   "YYYY",
+	    viewMode    :   "years", 
+	});
+});
+
 
 
 function weekpick() {
@@ -116,9 +123,16 @@ function goTime(value){
 			document.getElementById("Vehicle_model").style.borderColor = "red"
 			return false;
 		}
-		else if(document.getElementById("Vehicle_year").value == ""){
+		else if(document.getElementById("Vehicle_year").value ==  ""){
 			//document.getElementById("frameModalTop").style.visibility = "visible";
 			alert("Vehicle Year is Required... Please enter Vehicle Year");
+			document.getElementById("Vehicle_year").style.borderStyle = "solid"
+			document.getElementById("Vehicle_year").style.borderColor = "red"
+			return false;
+		}
+		else if(isNaN(document.getElementById("Vehicle_year").value)){
+			//document.getElementById("frameModalTop").style.visibility = "visible";
+			alert("Please enter a Valid Vehicle Year");
 			document.getElementById("Vehicle_year").style.borderStyle = "solid"
 			document.getElementById("Vehicle_year").style.borderColor = "red"
 			return false;
@@ -205,21 +219,6 @@ function PackageImgSetter(path) {
 		document.getElementById("PackageSelectionImg").src = path;
 }
 
-	
-$(function() {
-    $('#Vehiyearpick').datepicker({
-        changeYear: true,
-        showButtonPanel: true,
-        dateFormat: 'yy',
-        onClose: function(dateText, inst) { 
-            var year = $("#ui-datepicker-div .ui-datepicker-year :selected").val();
-            $(this).datepicker('setDate', new Date(year, 1));
-        }
-    });
- $(".date-picker-year").focus(function () {
-        $(".ui-datepicker-month").hide();
-    });
-});
 
 
 

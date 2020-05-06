@@ -7,6 +7,8 @@ public class NewMechModel extends NewUserModel {
 		// TODO Auto-generated constructor stub
 	}
 	
+	
+
 	private String fullnameString;
 	private String genderString;
 	private String phoneString;
@@ -17,6 +19,10 @@ public class NewMechModel extends NewUserModel {
 	/**
 	 * @return the fullnameString
 	 */
+	public NewMechModel() {
+		super();
+	}
+	
 	public String getFullnameString() {
 		return fullnameString;
 	}

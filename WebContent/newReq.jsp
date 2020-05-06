@@ -1,5 +1,11 @@
+<%@page import="java.io.PrintWriter"%>
+<%@page import="com.oop.model.NewMechModel"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="com.oop.model.AppointmentModel"%>
+<%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1" errorPage="error.jsp"%> 
+	pageEncoding="ISO-8859-1" errorPage="error.jsp"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -12,6 +18,8 @@
 	integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
 	crossorigin="anonymous" />
 <!-- <link href="css/bootstrap-dropdownhover.min.css" rel="stylesheet" /> -->
+
+
 <!--end of the bootstrap-->
 
 <!--akila css-->
@@ -22,6 +30,60 @@
 <title>AllRequests</title>
 </head>
 <body>
+
+	<%
+	List<AppointmentModel> PendingRequests = (ArrayList<AppointmentModel>) request.getAttribute("PendingRequests");
+	List<NewMechModel> Mechanics = (ArrayList<NewMechModel>) request.getAttribute("Mechanics");
+	String origin = (String) request.getAttribute("origin");
+	String Affectedappointment = (String) request.getAttribute("Affectedappointment");
+	if (origin == "Deleted") {
+	%>
+	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script>
+		$(document).ready(function () {
+			swal({
+				  title: "You Have Deleted The Request",
+				  icon: "error",
+				});
+		});
+		</script>
+	<%
+		}
+	if (origin.equals("Accepted")) {
+	%>
+	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script>
+		$(document).ready(function () {
+			swal({
+				  title: "You Have Accepted The Request <%=Affectedappointment%> ",
+				  icon: "success",
+				});
+		});
+		</script>
+	<%
+		}
+	if (origin.equals("Rejected")) {
+	%>
+	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script>
+		$(document).ready(function () {
+			swal({
+				  title: "You Have Rejected The Request <%=Affectedappointment%>
+		",
+								icon : "warning",
+							});
+						});
+	</script>
+	<%
+		}
+	%>
+
 	<nav
 		class="navbar menu sticky-top navbar-expand-lg navbar-light bg-light"
 		id="mynav">
@@ -48,13 +110,11 @@
 						<div class="dropdown-divider"></div>
 						<a class="dropdown-item" href="#"><i
 							class="far fa-envelope-open"></i> Incomming Mail</a> <a
-							class="dropdown-item" href="#"><i
-							class="fas fa-id-card-alt"></i> Profile Details</a> <a
-							class="dropdown-item" href="#"><i
+							class="dropdown-item" href="#"><i class="fas fa-id-card-alt"></i>
+							Profile Details</a> <a class="dropdown-item" href="#"><i
 							class="far fa-money-bill-alt"></i> Billing Status</a> <a
-							class="dropdown-item" href="#"><i
-							class="fas fa-bullhorn"></i> Notifications <span
-							class="badge badge-danger">1</span></a>
+							class="dropdown-item" href="#"><i class="fas fa-bullhorn"></i>
+							Notifications <span class="badge badge-danger">1</span></a>
 						<div class="dropdown-divider"></div>
 						<a class="dropdown-item" href="#">Log Out</a>
 					</div></li>
@@ -147,9 +207,8 @@
 
 			<h6 class="dropdown-header">Vehicle Service Center</h6>
 
-			<a href="" class="btn btn-light"><i
-				class="fas fa-flag-checkered"></i>&nbsp;&nbsp; Pending Requests</a> <a
-				href="" class="btn btn-light"><i
+			<a href="" class="btn btn-light"><i class="fas fa-flag-checkered"></i>&nbsp;&nbsp;
+				Pending Requests</a> <a href="" class="btn btn-light"><i
 				class="fas fa-file-word"></i>&nbsp;&nbsp; Reports</a> <a href=""
 				class="btn btn-light"><i class="fas fa-reply"></i>&nbsp;&nbsp;
 				User Feedback</a> <a href="" class="btn btn-light"><i
@@ -159,26 +218,273 @@
 
 			<h6 class="dropdown-header">Fuel Station</h6>
 
-			<a href="" class="btn btn-light"><i
-				class="fas fa-briefcase"></i>&nbsp;&nbsp; Employees</a> <a href=""
-				class="btn btn-light"><i
+			<a href="" class="btn btn-light"><i class="fas fa-briefcase"></i>&nbsp;&nbsp;
+				Employees</a> <a href="" class="btn btn-light"><i
 				class="fas fa-parachute-box"></i>&nbsp;&nbsp; Suppliers</a> <a href=""
-				class="btn btn-light"><i
-				class="fas fa-thermometer-quarter"></i>&nbsp;&nbsp; Status</a>
+				class="btn btn-light"><i class="fas fa-thermometer-quarter"></i>&nbsp;&nbsp;
+				Status</a>
 		</div>
 		<!--end of the side bar-->
 
 		<!--Start middle part-->
 		<div class="col-10 ">
+			
 
-			<jsp:include page="/WEB-INF/views/Mahen/new_req_Compo_1.jsp"></jsp:include>
+			<%
+				for (AppointmentModel Appointment : PendingRequests) {
+			%>
+
+			<div class="Act_new_req m-4">
+
+				<div class="jumbotron" style="background-color: white; border-style: solid; border-color: black;">
+
+					<div class="row row-cols-3 d-flex align-items-center">
+
+						<div
+							class="col-md-3 d-flex align-items-center justify-content-center">
+							<img src="img/akila/big.jpg" class="img-circle">
+						</div>
+						<div class="col-md-3  text-left">
+							<h3>
+								<i class="fas fa-user-check"></i> <u> Stacy V. Pearson </u>
+							</h3>
+							<p class="mt-3">944 Meadow LaneOakland, CA 94612</p>
+							<p class="mt-3" style="color: #4285F4">LeahRJoshi@dayrep.com</p>
+						</div>
+						<div class="col-md-6 text-right">
+							<h3>Appointment No</h3>
+							<h4 style="color: gray;"><%=Appointment.getAppId()%></h4>
+						</div>
+
+					</div>
+
+					<hr class="my-4">
+
+
+					<div class="row row-cols-3">
+
+
+						<div class="col-md-4 text-left border-right ">
+							<h4 class="text-center">Request Details</h4>
+							<hr class="my-4">
+							<div class="requ_inf">
+								<strong>Requested Service : </strong>
+								<p class="text-right"><%=Appointment.getService_id()%></p>
+							</div>
+
+							<div class="requ_inf">
+								<strong>Vehicle NO : </strong>
+								<p class="text-right"><%=Appointment.getVehicleI_No()%></p>
+							</div>
+							<div class="requ_inf">
+								<strong>Total Amount : </strong>
+								<p class="text-right"><%=Appointment.getAmmount()%></p>
+							</div>
+							<div class="requ_inf">
+								<strong>Service Date & Time : </strong>
+								<p class="text-right"><%=Appointment.getPrefDate()%></p>
+								<p class="text-right"><%=Appointment.getPrefTime()%></p>
+							</div>
+							<div class="requ_inf">
+								<strong>Mechanic : </strong>
+								<p class="text-right">Not yet Assigned</p>
+							</div>
+						</div>
+
+						<div class="col-md-7 text-right ml-4">
+							<div
+								class="alert alert-danger alert-dismissible fade show text-center"
+								role="alert">
+								<strong>Mechanics are not assigned to this job</strong>
+								<p>Please Assign a mechanic first.</p>
+								<button type="button" class="close" data-dismiss="alert"
+									aria-label="Close">
+									<span aria-hidden="true">&times;</span>
+								</button>
+							</div>
+
+
+							<button type="button" data-toggle="modal"
+								data-target="#<%=Appointment.getAppId()%>"
+								class="btn btn btn-outline-primary btn-lg btn-block">
+								<i class="fas fa-cogs"></i> Assign Mechanic
+							</button>
+
+							<form action="PlaceRemarkServlet" method="get"
+								class="border border-primary rounded p-4 mt-4 text-left">
+								<div class="form-group ">
+									<label><h3>Add Remarks</h3></label>
+									<textarea class="form-control" rows="3" name="remark"></textarea>
+								</div>
+								<input type="hidden" value="<%=Appointment.getAppId()%>"
+									name="appointment1">
+								<div class="d-flex justify-content-end">
+									<input type="submit" value="Place Remark"
+										class="btn btn-primary">
+								</div>
+
+							</form>
+						</div>
+
+
+					</div>
+
+					<hr class="my-4">
+
+					<div class="">
+						<div class="row mt-4 d-flex justify-content-center">
+							<form action="ChangeStatusServlet" method="get">
+								<input type="hidden" value="<%=Appointment.getAppId()%>"
+									name="appointment2"> <input type="hidden" name="Status"
+									value="Accepted">
+
+								<button type="submit" class="btn btn-success mr-4">
+									<i class="fas fa-clipboard-check"></i> Accept Job Request
+								</button>
+							</form>
+
+							<form action="ChangeStatusServlet" method="get">
+								<input type="hidden" value="<%=Appointment.getAppId()%>"
+									name="appointment2"> <input type="hidden" name="Status"
+									value="Rejected">
+								<button type="submit" class="btn btn-warning mr-4">
+									<i class="far fa-window-close"></i> Reject Job Request
+								</button>
+							</form>
+
+							<form action="ChangeStatusServlet" method="get">
+								<input type="hidden" value="<%=Appointment.getAppId()%>"
+									name="appointment2"> <input type="hidden" name="Status"
+									value="Delete"> <input type="hidden"
+									name="Vehicle_to_dele"
+									value="<%=Appointment.getVehicleI_No()%>">
+								<button type="submit" class="btn btn-danger mr-4">
+									<i class="far fa-trash-alt"></i> Delete Job Request
+								</button>
+							</form>
+
+							<form action="" method="get">
+								<button type="submit" class="btn btn-secondary mr-4">
+									<i class="fas fa-info-circle"></i> More Details
+								</button>
+							</form>
+
+						</div>
+					</div>
 
 
 
+				</div>
 
+			</div>
+			<%
+				}
+			%>
 
+			<%
+				for (AppointmentModel Appointment : PendingRequests) {
+			%>
 
+			<!-- Modal: modalCart -->
+			<div class="modal fade" id="<%=Appointment.getAppId()%>"
+				tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+				aria-hidden="true">
+				<div class="modal-dialog" role="document">
+					<div class="modal-content">
+						<!--Header-->
+						<div class="modal-header">
+							<h4 class="modal-title" id="myModalLabel">Select A mechanic</h4>
+							<button type="button" class="close" data-dismiss="modal"
+								aria-label="Close">
+								<span aria-hidden="true">×</span>
+							</button>
+						</div>
+						<!--Body-->
+						<div class="modal-body">
 
+							<table class="table table-hover btn-table">
+								<thead>
+									<tr>
+										<th>Mechanic name</th>
+										<th>Mechanic Id</th>
+										<th>Select</th>
+									</tr>
+								</thead>
+								<tbody>
+									<%
+										for (NewMechModel mech : Mechanics) {
+									%>
+									<tr>
+										<td><%=mech.getFullnameString()%></td>
+										<td><%=mech.getUserregNoString()%></td>
+										<td>
+											<form action="AssignMechServelet" method="get">
+												<input type="hidden" value="<%=mech.getUserregNoString()%>"
+													name="AssignrdMec"> <input type="hidden"
+													value="<%=Appointment.getAppId()%>" name="appointment">
+												<button type="submit" class="btn btn-primary btn-sm m-0" data-toggle="modal" data-target="#SuccessfullyAssigned" > Assign </button>
+											</form>
+
+										</td>
+									</tr>
+									<%
+										}
+									%>
+								</tbody>
+							</table>
+
+						</div>
+						<!--Footer-->
+
+					</div>
+				</div>
+			</div>
+
+			<!-- Modal: modalCart -->
+
+			<%
+				}
+			%>
+
+			<!-- Mechanic Assigning confermation Model -->
+			<div class="modal fade" id="SuccessfullyAssigned" tabindex="-1"
+				role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+				<div class="modal-dialog modal-notify modal-success" role="document">
+					<!--Content-->
+					<div class="modal-content">
+						<!--Header-->
+						<div class="modal-header">
+							<p class="heading lead">Modal Success</p>
+
+							<button type="button" class="close" data-dismiss="modal"
+								aria-label="Close">
+								<span aria-hidden="true" class="white-text">&times;</span>
+							</button>
+						</div>
+
+						<!--Body-->
+						<div class="modal-body">
+							<div class="text-center">
+								<i class="fas fa-check fa-4x mb-3 animated rotateIn"></i>
+								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+									Impedit iusto nulla aperiam blanditiis ad consequatur in
+									dolores culpa, dignissimos, eius non possimus fugiat. Esse
+									ratione fuga, enim, ab officiis totam.</p>
+							</div>
+						</div>
+
+						<!--Footer-->
+						<div class="modal-footer justify-content-center">
+						 <a type="button"
+								class="btn btn-outline-success waves-effect"
+								data-dismiss="modal">No, thanks
+						</a>
+						</div>
+					</div>
+					<!--/.Content-->
+				</div>
+			</div>
+			<!-- Mechanic Assigning confermation Model-->
 
 
 
@@ -290,6 +596,7 @@
 		crossorigin="anonymous"></script>
 	<!--end of the bootstrap-->
 
+
 	<!--akila js-->
 	<script src="js/akila/dashboard.js"></script>
 	<!--end of the akila js-->
@@ -305,198 +612,144 @@
 
 	<!--charts-->
 	<script>
-      let user = document.getElementById("user").getContext("2d");
+		let user = document.getElementById("user").getContext("2d");
 
-      let lineOne = new Chart(user, {
-        type: "line",
-        data: {
-          labels: [
-            "Sunday",
-            "Monday",
-            "Tuesday",
-            "Wednsday",
-            "Thursday",
-            "Friday",
-            "Saturday"
-          ],
-          datasets: [
-            {
-              label: "Count",
-              data: [10, 30, 1, 30, 50, 70, 90],
-              backgroundColor: ["#fa163f"],
-              borderColor: "#FFFF",
-              borderWidth: "3px"
-            }
-          ]
-        },
-        options: {
-          scales: {
-        xAxes: [{
-            gridLines: {
-                color: "rgba(0, 0, 0, 0)",
-            }
-        }],
-        yAxes: [{
-            gridLines: {
-               display : true
-            }   
-        }]
-    }
-        }
-      });
+		let lineOne = new Chart(user, {
+			type : "line",
+			data : {
+				labels : [ "Sunday", "Monday", "Tuesday", "Wednsday",
+						"Thursday", "Friday", "Saturday" ],
+				datasets : [ {
+					label : "Count",
+					data : [ 10, 30, 1, 30, 50, 70, 90 ],
+					backgroundColor : [ "#fa163f" ],
+					borderColor : "#FFFF",
+					borderWidth : "3px"
+				} ]
+			},
+			options : {
+				scales : {
+					xAxes : [ {
+						gridLines : {
+							color : "rgba(0, 0, 0, 0)",
+						}
+					} ],
+					yAxes : [ {
+						gridLines : {
+							display : true
+						}
+					} ]
+				}
+			}
+		});
 
-      let imcome = document.getElementById("income").getContext("2d");
+		let imcome = document.getElementById("income").getContext("2d");
 
-      let pieOne = new Chart(income, {
-        type: "doughnut",
-        data: {
-          labels: [
-            "Sunday",
-            "Monday",
-            "Tuesday",
-            "Wednsday",
-            "Thursday",
-            "Friday",
-            "Saturday"
-          ],
-          datasets: [
-            {
-              label: "Count",
-              data: [10, 30, 1, 30, 50, 70, 90],
-              backgroundColor: [
-                "#fa163f",
-                "#f0134d",
-                "#40bfc1",
-                "#1b262c",
-                "#52de97",
-                "#3e206d",
-                "#12cad6"
-              ],
-              //borderColor : '#FFFF',
-              borderWidth: "3px"
-            }
-          ]
-        },
-        options: {
-          cutoutPercentage: 50,
-          scales: {
-        xAxes: false,
-        yAxes: false,
-    },
-    legend: {
-                display: true,
-                position: 'right',
-                labels: {
-                    fontColor: 'rgb(255, 99, 132)'
-                }
-            }
-        }
-      });
+		let pieOne = new Chart(income, {
+			type : "doughnut",
+			data : {
+				labels : [ "Sunday", "Monday", "Tuesday", "Wednsday",
+						"Thursday", "Friday", "Saturday" ],
+				datasets : [ {
+					label : "Count",
+					data : [ 10, 30, 1, 30, 50, 70, 90 ],
+					backgroundColor : [ "#fa163f", "#f0134d", "#40bfc1",
+							"#1b262c", "#52de97", "#3e206d", "#12cad6" ],
+					//borderColor : '#FFFF',
+					borderWidth : "3px"
+				} ]
+			},
+			options : {
+				cutoutPercentage : 50,
+				scales : {
+					xAxes : false,
+					yAxes : false,
+				},
+				legend : {
+					display : true,
+					position : 'right',
+					labels : {
+						fontColor : 'rgb(255, 99, 132)'
+					}
+				}
+			}
+		});
 
-      let req = document.getElementById("req").getContext("2d");
+		let req = document.getElementById("req").getContext("2d");
 
-let bar = new Chart(req, {
-  type: "bar",
-  data: {
-    labels: [
-      "Sunday",
-      "Monday",
-      "Tuesday",
-      "Wednsday",
-      "Thursday",
-      "Friday",
-      "Saturday"
-    ],
-    datasets: [
-      {
-        label: "Count",
-        data: [10, 30, 1, 30, 50, 70, 90],
-        backgroundColor: [
-          "#fa163f",
-          "#f0134d",
-          "#40bfc1",
-          "#1b262c",
-          "#52de97",
-          "#3e206d",
-          "#12cad6"
-        ],
-        //borderColor : '#FFFF',
-        borderWidth: "3px"
-      }
-    ]
-  },
-  options: {
-    cutoutPercentage: 50,
-    scales: {
-  xAxes: [{
-      gridLines: {
-          color: "rgba(0, 0, 0, 0)",
-      }
-  }],
-  yAxes: [{
-      gridLines: {
-          display: true
-      }   
-  }]
-}
-  }
-});
+		let bar = new Chart(req, {
+			type : "bar",
+			data : {
+				labels : [ "Sunday", "Monday", "Tuesday", "Wednsday",
+						"Thursday", "Friday", "Saturday" ],
+				datasets : [ {
+					label : "Count",
+					data : [ 10, 30, 1, 30, 50, 70, 90 ],
+					backgroundColor : [ "#fa163f", "#f0134d", "#40bfc1",
+							"#1b262c", "#52de97", "#3e206d", "#12cad6" ],
+					//borderColor : '#FFFF',
+					borderWidth : "3px"
+				} ]
+			},
+			options : {
+				cutoutPercentage : 50,
+				scales : {
+					xAxes : [ {
+						gridLines : {
+							color : "rgba(0, 0, 0, 0)",
+						}
+					} ],
+					yAxes : [ {
+						gridLines : {
+							display : true
+						}
+					} ]
+				}
+			}
+		});
 
-       let tank = document.getElementById("tank").getContext("2d");
+		let tank = document.getElementById("tank").getContext("2d");
 
-      let statOne = new Chart(tank, {
-        type: "line",
-        data: {
-          labels: [
-            "Sunday",
-            "Monday",
-            "Tuesday",
-            "Wednsday",
-            "Thursday",
-            "Friday",
-            "Saturday",
-            "Sunday",
-            "Monday",
-            "Tuesday",
-            "Wednsday",
-            "Thursday",
-            "Friday",
-            "Saturday"
-          ],
-          datasets: [
-            {
-              label: "Liters",
-              data: [10, 30, 1, 30, 50, 70, 60,10, 30, 1, 30, 50, 70, 90],
-             
-              //borderColor : '#FFFF',
-              borderWidth: "3",          
-              borderColor: "red",
-              fill: false,
-              pointBackgroundColor : 'red',
-              pointBorderWidth : '5'
-              //backgroundColor: 'red'
-            }
-          ],
+		let statOne = new Chart(tank,
+				{
+					type : "line",
+					data : {
+						labels : [ "Sunday", "Monday", "Tuesday", "Wednsday",
+								"Thursday", "Friday", "Saturday", "Sunday",
+								"Monday", "Tuesday", "Wednsday", "Thursday",
+								"Friday", "Saturday" ],
+						datasets : [ {
+							label : "Liters",
+							data : [ 10, 30, 1, 30, 50, 70, 60, 10, 30, 1, 30,
+									50, 70, 90 ],
 
-        },
-        options: {
-          cutoutPercentage: 50,
-          scales: {
-        xAxes: [{
-            gridLines: {
-                color: "rgba(0, 0, 0, 0)",
-            }
-        }],
-        yAxes: [{
-            gridLines: {
-                display: true
-            }   
-        }]
-    }
-        }
-      });
-      
-    </script>
+							//borderColor : '#FFFF',
+							borderWidth : "3",
+							borderColor : "red",
+							fill : false,
+							pointBackgroundColor : 'red',
+							pointBorderWidth : '5'
+						//backgroundColor: 'red'
+						} ],
+
+					},
+					options : {
+						cutoutPercentage : 50,
+						scales : {
+							xAxes : [ {
+								gridLines : {
+									color : "rgba(0, 0, 0, 0)",
+								}
+							} ],
+							yAxes : [ {
+								gridLines : {
+									display : true
+								}
+							} ]
+						}
+					}
+				});
+	</script>
 	<!--end of the charts-->
 </body>
 </html>

@@ -1,6 +1,7 @@
 package com.oop.model;
 
 public class UserModel {
+	
 	protected String regNo;
 	protected String userName;
 	protected String userPassword;

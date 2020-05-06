@@ -1,4 +1,9 @@
 <!DOCTYPE html>
+<%@page import="com.oop.model.VehicleModel"%>
+<%@page import="com.oop.model.AppointmentModel"%>
+<%@page import="com.oop.model.VehicalServices"%>
+<%@page import="com.oop.model.PackageForAppoint"%>
+<%@page import="com.oop.model.UserModel"%>
 <html lang="en">
 
 <head>
@@ -21,6 +26,14 @@
 </head>
 
 <body>
+	<%
+		UserModel Customer = (UserModel) request.getAttribute("Customer");
+		PackageForAppoint Package = (PackageForAppoint) request.getAttribute("Package");
+		VehicalServices Service = (VehicalServices) request.getAttribute("Service");
+		AppointmentModel Appointment = (AppointmentModel) request.getAttribute("Appointment");
+		VehicleModel Vehicle = (VehicleModel) request.getAttribute("Vehicle");
+	%>
+
   <nav class="navbar menu sticky-top navbar-expand-lg navbar-light bg-light" id="mynav">
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
       aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -150,11 +163,6 @@
 
     <div class="col-10 ">
 
-      <jsp:include page="/WEB-INF/views/Mahen/FullRequestDetaila_compo.jsp"></jsp:include>
-
-
-
-
       <div class="All_request row row row-cols-2">
 
         <div class="All_request_left col-3 d-flex justify-content-center m-4 pt-4">
@@ -166,11 +174,11 @@
                 style="width: 100%; border-radius: 0px">Contact</button>
             </div>
             <div class="card-body">
-              <h2 class="card-title"> Stacy V. Pearson </h2><br />
+              <h2 class="card-title"> <%=Customer.getUserFullName() %> </h2><br />
               <p class="FullReq_1stText">Request NO:</p>
-              <p class="text-right FullReq_1stText" style="color: #4285F4;"> ABC4545454<p>
+              <p class="text-right FullReq_1stText" style="color: #4285F4;"><%=Appointment.getAppId() %><p>
                   <p class="card-text FullReq_1stText">Request for : </p>
-                  <p class="text-right FullReq_1stText" style="color: #4285F4;">Interior detailing</p>
+                  <p class="text-right FullReq_1stText" style="color: #4285F4;"><%= Package.getPackName() %></p>
             </div>
             <ul class="list-group list-group-flush">
 
@@ -181,16 +189,20 @@
                   <tr>
                     <th scope="row">Status</th>
                     <td class="d-flex justify-content-end">
-                      <span class="badge badge-primary" style="height:25px;"> Approved </span>
+                      <span class="badge badge-primary" style="height:25px;"><%= Appointment.getStatus() %></span>
                     </td>
                   </tr>
                   <tr>
                     <th scope="row">Job Rating</th>
                     <td class="d-flex justify-content-end">
+                    <%
+                    	
+                    	for(int i = 0 ; i < Integer.parseInt(Appointment.getRating()) ; i++){
+                    %>
                       <i class="fas fa-star " style="color: #f0b505;"></i>
-                      <i class="fas fa-star " style="color: #f0b505;"></i>
-                      <i class="fas fa-star " style="color: #f0b505;"></i>
-                      <i class="fas fa-star " style="color: #f0b505;"></i>
+                      <%
+                    	}
+                      %>
                     </td>
                   </tr>
                 </tbody>
@@ -235,10 +247,8 @@
                     <img src="img/Mahen/carWash_Card.jpg" class="card-img-top" alt="...">
 
                     <div class="card-body">
-                      <h5 class="card-title">Wash Car</h5>
-                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of
-                        the
-                        card's content.</p>
+                      <h5 class="card-title"><%=Service.getServiceName() %></h5>
+                      <p class="card-text"><%=Service.getDescription() %></p>
 
                       <h6 class="card-title"> <u class="mt-2">Basic Service Detatis</u> </h6>
 
@@ -250,7 +260,7 @@
                           </p>
                         </div>
                         <div class="col-5">
-                          <p class="text-right">Wash Car</p>
+                          <p class="text-right"><%=Service.getServiceName() %></p>
                         </div>
                       </div>
                       <div class="row">
@@ -273,7 +283,7 @@
                           </p>
                         </div>
                         <div class="col-5">
-                          <p class="text-right">4000.00 Rs</p>
+                          <p class="text-right"><%=Service.getServicePrice() %>Rs</p>
                         </div>
                       </div>
                     </div>
@@ -287,7 +297,7 @@
                       <p> <strong> Request No : </strong> </p>
                     </div>
                     <div class="col-5">
-                      <p class="text-right">ABC151155</p>
+                      <p class="text-right"><%=Appointment.getAppId() %></p>
                     </div>
                   </div>
 
@@ -296,7 +306,7 @@
                       <p> <strong> Customer Name : </strong> </p>
                     </div>
                     <div class="col-5">
-                      <p class="text-right">Stacy V. Pearson</p>
+                      <p class="text-right"><%=Customer.getUserFullName()%></p>
                     </div>
                   </div>
                   <div class="row mt-3">
@@ -304,7 +314,7 @@
                       <p> <strong> Service date : </strong> </p>
                     </div>
                     <div class="col-5">
-                      <p class="text-right">06-06-2020</p>
+                      <p class="text-right"><%=Appointment.getPrefDate()%></p>
                     </div>
                   </div>
 
@@ -313,7 +323,7 @@
                       <p> <strong> Service Time : </strong> </p>
                     </div>
                     <div class="col-5">
-                      <p class="text-right">09:00 To 10.00</p>
+                      <p class="text-right"><%=Appointment.getPrefTime() %></p>
                     </div>
                   </div>
 
@@ -336,7 +346,7 @@
                       <p> <strong> Status : </strong> </p>
                     </div>
                     <div class="col-5 d-flex justify-content-end">
-                      <span class="badge badge-primary" style="height:25px;"> Approved </span>
+                      <span class="badge badge-primary" style="height:25px;"> <%=Appointment.getStatus() %> </span>
                     </div>
                   </div>
                   <a href="" class="text-center" data-toggle="modal" data-target="#StatusChanger">Click to change the
@@ -348,8 +358,7 @@
                       <p> <strong> Remarks : </strong> </p>
                     </div>
                     <div class="col-9">
-                      <p class="text-right">Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat, delectus.
-                      </p>
+                      <p class="text-right"><%=Appointment.getRemarks() %></p>
                     </div>
                   </div>
 
@@ -368,31 +377,28 @@
                   <div class="row">
                     <div class="col-5 mt-4 border-right border-primary ml-4">
                       <p> <i class="fas fa-car"></i> <strong> Vehicle No : </strong> </p>
-                      <p class="text-right Blue_text"> WP AFG 4512</p>
+                      <p class="text-right Blue_text"><%=Vehicle.getVehicleId() %></p>
 
                       <p> <i class="fab fa-bootstrap"></i> <strong> Brand : </strong> </p>
-                      <p class="text-right Blue_text">Toyota</p>
+                      <p class="text-right Blue_text"><%=Vehicle.getBrand() %></p>
 
                       <p> <i class="fab fa-medium-m"></i> <strong> Model: </strong> </p>
-                      <p class="text-right Blue_text">CHR</p>
+                      <p class="text-right Blue_text"><%=Vehicle.getModel() %></p>
 
                       <p> <i class="far fa-calendar-alt"></i> <strong> Year : </strong> </p>
-                      <p class="text-right Blue_text">2020</p>
+                      <p class="text-right Blue_text"><%=Vehicle.getManuYear() %></p>
 
                     </div>
 
                     <div class="col-5 mt-4 ">
                       <p> <i class="fas fa-cogs"></i> <strong> Transmission : </strong> </p>
-                      <p class="text-right Blue_text">Auto</p>
+                      <p class="text-right Blue_text"><%=Vehicle.getTransmission() %></p>
 
                       <p> <i class="fas fa-gas-pump"></i> <strong> Fuel Type : </strong> </p>
-                      <p class="text-right Blue_text">Petrol</p>
+                      <p class="text-right Blue_text"><%=Vehicle.getFuelType() %></p>
 
                       <p> <i class="fas fa-oil-can"></i> <strong> Engine Capacity : </strong> </p>
-                      <p class="text-right Blue_text">1200 CC</p>
-
-                      <p> <i class="fas fa-tachometer-alt"></i> <strong> Milage: </strong> </p>
-                      <p class="text-right Blue_text">40000 Km</p>
+                      <p class="text-right Blue_text"><%=Vehicle.getEngineCap() %></p>
 
                     </div>
                   </div>
@@ -408,7 +414,7 @@
                       <p class="text-right Blue_text"> Not Available</p>
 
                       <p> <i class="fas fa-hand-holding-usd"></i> <strong> Total Payment : </strong> </p>
-                      <p class="text-right Blue_text">4150.00 Rs</p>
+                      <p class="text-right Blue_text"><%=Appointment.getAmmount() %>Rs</p>
 
                       <p> <i class="fas fa-calendar-alt"></i> <strong> Bill Date: </strong> </p>
                       <p class="text-right Blue_text">Not Available</p>
@@ -442,13 +448,14 @@
                   <h3 style="color: #4285F4;" class="mt-4"> <i class="fab fa-angellist"></i> Job Ratings</h3>
                   <hr style="border-width: 5px; border-color: #0d47a1;">
                   <div class="row m-4">
+                  	<%
+                    	
+                    	for(int i = 0 ; i < Integer.parseInt(Appointment.getRating()) ; i++){
+                    %>
                     <i class="fas fa-star fa-3x" style="color: #ffc107;"></i>
-                    <i class="fas fa-star fa-3x" style="color: #ffc107;"></i>
-                    <i class="fas fa-star fa-3x" style="color: #ffc107;"></i>
-                    <i class="fas fa-star fa-3x" style="color: #ffc107;"></i>
-                    <i class="fas fa-star fa-3x" style="color: #ffc107;"></i>
+                    <%} %>
                     
-                      <h1 class="mr-4 " style="font-size: 60px; position: relative; top: -15px;left: 44px;" >5</h1>
+                      <h1 class="mr-4 " style="font-size: 60px; position: relative; top: -15px;left: 44px;" ><%=Appointment.getRating() %></h1>
                       <h5 class="mr-4 pl-4 d-flex align-items-center" style="color: gray;">/5</h5>
                     
                   </div>
