@@ -381,7 +381,7 @@ This page used JSTL
 								<!-- Card image -->
 								<div class="view overlay">
 									<img class="card-img-top"
-										src="img/Mahen/bronze-package-720x940.png"
+										src="${Package.getPackImage()} "
 										alt="Card image cap"> <a>
 										<div class="mask rgba-white-slight"></div>
 									</a>

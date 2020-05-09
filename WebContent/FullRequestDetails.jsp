@@ -758,7 +758,7 @@ IT No : IT19120362  -->
   <!--end of the body part-->
 
   <!--footer-->
-    <jsp:include page="/WEB-INF/views/akila/footer.jsp"></jsp:include>
+    <jsp:include page="/WEB-INF/views/akila/footer2.jsp"></jsp:include>
    <!--end of the footer-->
 
   <!--bootstrap-->

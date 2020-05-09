@@ -1,7 +1,8 @@
-<!-- Created by D.H.M.M.P.Thammita
-IT No : IT19120362  -->
+
 
 <!DOCTYPE html>
+<!-- Created by D.H.M.M.P.Thammita
+IT No : IT19120362  -->
 <%-- <%@page import="org.apache.jasper.tagplugins.jstl.core.ForEach"%> --%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="java.util.List"%>
@@ -850,9 +851,8 @@ IT No : IT19120362  -->
     </div>
 
 
-    <!--footer-->
-    <jsp:include page="/WEB-INF/views/akila/footer.jsp"></jsp:include>
-   <!--end of the footer-->
+	
+   
 
 	<script type="text/javascript">
 
@@ -907,8 +907,9 @@ IT No : IT19120362  -->
     <script type="text/javascript" src="js/Mahen/RequestDetailsFrontend.js"></script>
     <!--end of the Mahen js-->
     
-    
+     
 
 </body>
+	
 
 </html>
