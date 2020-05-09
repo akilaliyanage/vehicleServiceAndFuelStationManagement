@@ -1,6 +1,9 @@
 package com.oop.servlet;
 
 import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -18,6 +21,7 @@ import com.oop.model.RandomString;
 //@WebServlet("/FuelDisServlet")
 public class FuelDisServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	 private static final Logger LOGGER = Logger.getLogger(FuelDisServlet.class.getName());  
        
     //let#doPost(HttpServletRequest request, HttpServletResponse response)
 	
@@ -36,6 +40,7 @@ public class FuelDisServlet extends HttpServlet {
 			PurchaseFuelModel fuelModel = new PurchaseFuelModel();
 			PurchaseFuelDAO fuelDao = new PurchaseFuelDAO();
 			RandomString rs = new RandomString();
+			@SuppressWarnings("static-access")
 			String puridString = "PUR" + rs.getAlphaNumericString();
 			fuelModel.setAmount(amount);
 			fuelModel.setDisidString(disString);
@@ -51,8 +56,14 @@ public class FuelDisServlet extends HttpServlet {
 				response.sendRedirect("UpdateUserDashboard");
 			}
 			
-		} catch (Exception e) {
+			
+		} 
+		catch (IOException ex) {
+			LOGGER.log(Level.SEVERE, ex.getMessage());
 			// TODO: handle exception
+		}catch (Exception e) {
+			// TODO: handle exception
+			LOGGER.log(Level.SEVERE, e.getMessage());
 		}
 		
 		

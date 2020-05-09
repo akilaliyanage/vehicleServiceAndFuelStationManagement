@@ -97,7 +97,11 @@ public class UpdateDashboardServlet extends HttpServlet {
 			RequestDispatcher requestDispatcher = request.getRequestDispatcher("dashboard.jsp");
 			requestDispatcher.forward(request, response);
 			
-		} catch (Exception e) {
+		} 
+		catch (IOException ex) {
+			// TODO: handle exception
+			LOGGER.log(Level.SEVERE, ex.getMessage());
+		}catch (Exception e) {
 			// TODO: handle exception
 			LOGGER.log(Level.SEVERE, e.getMessage());
 		}

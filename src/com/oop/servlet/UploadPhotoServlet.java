@@ -78,7 +78,11 @@ public class UploadPhotoServlet extends HttpServlet {
 				System.out.println(url);
 				
 			}
-		} catch (Exception e) {
+		} 
+		catch (IOException e) {
+			// TODO: handle exception
+			LOGGER.log(Level.SEVERE, e.getMessage());
+		}catch (Exception e) {
 			// TODO Auto-generated catch block
 			LOGGER.log(Level.SEVERE, e.getMessage());
 		}
