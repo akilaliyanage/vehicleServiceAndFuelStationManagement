@@ -381,7 +381,7 @@ This page used JSTL
 								<!-- Card image -->
 								<div class="view overlay">
 									<img class="card-img-top"
-										src="img/Mahen/bronze-package-720x940.png"
+										src="${Package.getPackImage()} "
 										alt="Card image cap"> <a>
 										<div class="mask rgba-white-slight"></div>
 									</a>
@@ -927,10 +927,10 @@ This page used JSTL
 								<div class="col-4">
 									<p class="text-muted">Billed to</p>
 									<strong>
-										<p>Akila Liyanage</p>
-										<p>Street name</p>
-										<p>City, State , Province</p>
-										<p>akilaliyanage@gmail.com</p>
+										<p>${User.getUserFullName() }</p>
+										<p>${User.getAddress_line_1() }</p>
+										<p>${User.getAddress_line_2() }</p>
+										<p>${User.getUserEmail() }</p>
 									</strong>
 								</div>
 								<div class="col-4">
