@@ -107,7 +107,7 @@
 							<td>{{member.itemname}}</td>
 							<td>{{member.price}}</td>
 							<td>{{member.quantity}}</td>
-							<td>{{member.itemType}}</td>
+							<td>{{member.totPrice}}</td>
 							<td><button type="button" data-toggle="modal"
 									data-target="#update_member" ng-click="selectMember(member)"
 									class="btn btn-sm btn-warning">

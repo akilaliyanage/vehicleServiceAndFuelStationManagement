@@ -35,44 +35,50 @@ var app = angular
 					;
 
 					$scope.checkoutItems = function() {
-					
-						var dataObject = new Object();
-		
-						dataObject.items = $scope.items;
-						var content = JSON.stringify(dataObject);
-						console.log("########## "+content);
-						var data = $.param({
-							cart_items : content
-						});
+							var random = Math.random( );
+							var content = JSON.stringify($scope.items);
+							console.log("########## " + content);
+							var data = $.param({
+								package_info : content
+							});
 
-						var config = {
-							headers : {
-								'Content-Type' : 'application/x-www-form-urlencoded;charset=utf-8;'
+							var config = {
+								headers : {
+									'Content-Type' : 'application/x-www-form-urlencoded;charset=utf-8;'
+								}
 							}
-						}
 
-						$http
-								.post(
-										'PurchaseItemsServlet?method=save',
-										data, config)
-								.then(
-										function successCallback(response) {
-											console.log(response.data);
-											refreshPage();
-											$scope.newMember = {};
-										},
-										function errorCallback(response) {
-											alert("Error. while creating user Try Again!");
+							$http
+									.post('PurchaseItemsServlet?cartNo='+random+'',
+											data, config)
+									.then(
+											function successCallback(response) {
+												console.log(response.data);
+												refreshPage();
+												$scope.newMember = {};
+											},
+											function errorCallback(response) {
+												alert("Error. while creating user Try Again!");
 
-										});
+											});
 					
+					};
 
+					$scope.SelectFile = function(e) {
+						var reader = new FileReader();
+						reader.onload = function(e) {
+							$scope.PreviewImage = e.target.result;
+							$scope.$apply();
+						};
+
+						reader.readAsDataURL(e.target.files[0]);
+						$scope.pimage = (e.target.files[0]).name;
 					};
 
 					$scope.addItem = function(pickedItem) {
 						pickedItem.quantity = document
 								.getElementById(pickedItem.itemId).value;
-						pickedItem.itemType = pickedItem.price
+						pickedItem.totPrice = pickedItem.price
 								* pickedItem.quantity;
 						$scope.items.push(pickedItem);
 						console.log($scope.items);

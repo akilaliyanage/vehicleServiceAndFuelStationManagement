@@ -133,7 +133,7 @@
                 <h1 class="font-weight-bold">SHOP WITH TECHNOLOGY<br></h1> <br>
                 <p>" We make it possible for anyone with drive <br>
 																to operate a successful business! "</p>
-                <a href="#section-1" class="btn btn-success">Purshase<strong> Items</strong></a>
+                <a href="PurchaseItemsServlet" class="btn btn-success">Purshase<strong> Items</strong></a>
             </div>
             
             <div class="col-lg-6 col-md-6 col-sm-6 d-none d-md-block sec2-left">

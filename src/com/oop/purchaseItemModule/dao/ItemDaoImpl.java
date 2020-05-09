@@ -7,8 +7,10 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.mysql.jdbc.Statement;
 import com.oop.database.DatabaseConnection;
 import com.oop.purchaseItemModule.model.Item;
+import com.oop.purchaseItemModule.model.RegUserItem;
 
 public class ItemDaoImpl implements ItemDao {
 
@@ -53,6 +55,31 @@ public class ItemDaoImpl implements ItemDao {
 			e.printStackTrace();
 		}
 		return items;
+	}
+
+	@Override
+	public void savePurchasedItems(RegUserItem userItem) {
+		Connection connection = DatabaseConnection.getConnection();
+		String sql = "INSERT INTO `reguser_item`(`itemId`, `custId`, `cartNo`, `qty`) VALUES (?,?,?,?)";
+		try {
+			PreparedStatement statement = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+			statement.setString(1, userItem.getItemId());
+			statement.setString(2, userItem.getCustId());
+			statement.setString(3, userItem.getCartNo());
+			statement.setInt(4, userItem.getQuantity());
+			statement.executeUpdate();
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (connection != null) {
+					connection.close();
+				}
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
 	}
 
 }

@@ -2,6 +2,9 @@ package com.oop.purchaseItemModule.servlet;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Iterator;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -10,10 +13,13 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.gson.Gson;
 import com.oop.packageModule.model.ServicePackage;
 import com.oop.packageModule.service.PackageExploreService;
 import com.oop.packageModule.service.PackageExploreServiceImpl;
+import com.oop.purchaseItemModule.model.CartItem;
+import com.oop.purchaseItemModule.model.RegUserItem;
 import com.oop.purchaseItemModule.service.ItemService;
 import com.oop.purchaseItemModule.service.ItemServiceImpl;
 
@@ -36,7 +42,8 @@ public class PurchaseItemsServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
 	 *      response)
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		if (("getall").equalsIgnoreCase(request.getParameter("id"))) {
 			Gson gson = new Gson();
 			String employeeJsonString = gson.toJson(itemService.getAllItems());
@@ -57,7 +64,22 @@ public class PurchaseItemsServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-	request.getParameter("cart-items");
+		List<RegUserItem> userItems = new ArrayList<RegUserItem>();
+		String user = (String) request.getSession().getAttribute("regno");
+		String packageData = request.getParameter("package_info");
+		String cartNo = request.getParameter("cartNo");
+		request.getSession().setAttribute("cartNo", cartNo);
+		ObjectMapper mapper = new ObjectMapper();
+		List<CartItem> items = Arrays.asList(mapper.readValue(packageData, CartItem[].class));
+		for (CartItem cartItem : items) {
+			RegUserItem userItem = new RegUserItem();
+			userItem.setItemId(cartItem.getItemId());
+			userItem.setCustId(user);
+			userItem.setQuantity(Integer.parseInt(cartItem.getQuantity()));
+			userItem.setCartNo(cartNo);
+			userItems.add(userItem);
+		}
+		itemService.savePurchasedItems(userItems);
 	}
 
 }
