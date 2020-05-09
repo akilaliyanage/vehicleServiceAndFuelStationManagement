@@ -1,3 +1,6 @@
+//Created by D.H.M.M.P.Thammita
+//IT No : IT19120362
+
 package com.oop.servlet;
 
 import java.io.IOException;
@@ -13,6 +16,8 @@ import com.oop.DAO.IAppointmentDAO;
 
 /**
  * Servlet implementation class SelectPackServlet
+ * this gets the package id selected by user in the SendRequest.jsp
+ * then it creates creates cookies for further us in CreateAppointment Servlet
  */
 @WebServlet("/SelectPackServlet")
 public class SelectPackServlet extends HttpServlet {
@@ -32,7 +37,7 @@ public class SelectPackServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		String selectedPack = request.getParameter("SelectedPackgeNo");
-		
+		//creates cookies for further us in CreateAppointment Servlet
 		Cookie packId = new Cookie("packId", selectedPack);
 		
 		response.addCookie(packId);

@@ -1,3 +1,6 @@
+//Created by D.H.M.M.P.Thammita
+//IT No : IT19120362
+
 package com.oop.servlet;
 
 import java.io.IOException;
@@ -10,6 +13,8 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  * Servlet implementation class getVehiDetailsServlet
+ * This servelet accept parameters from SendRequest.jsp and  creates
+ * cookies for further use i create appointment servlet. 
  */
 @WebServlet("/getVehiDetailsServlet")
 public class getVehiDetailsServlet extends HttpServlet {

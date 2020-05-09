@@ -32,6 +32,7 @@ import javax.servlet.http.Cookie;
 
 /**
  * Servlet implementation class CreateAppointmentServlet
+ * This servlet acepts parametes from SendRequest.jsp and process them and creates appointment objects.
  */
 @WebServlet("/CreateAppointmentServlet")
 public class CreateAppointmentServlet extends HttpServlet {
@@ -50,12 +51,14 @@ public class CreateAppointmentServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+	
+		
+		//used sessions to know the logged user
 		HttpSession session = request.getSession();
 		String userId = (String) session.getValue("regno");
 		Date AppointDate = null;	
 		String appointTime = null;
-		
+		String succesMsg = "Success";
 		
 		
 		String vehi_nameString  = request.getParameter("vehi_No");
@@ -71,6 +74,11 @@ public class CreateAppointmentServlet extends HttpServlet {
 		String packID = null;
 		
 		
+		
+		/*
+		 * getting the values in the cookies generated in getDateServlet , getVehicleDetailsServlet
+		 * and
+		 * */
 		Cookie otherValues[] = request.getCookies();
 		for (Cookie cookie : otherValues) {
 			if (cookie.getName().equals("Service")) {
@@ -87,7 +95,8 @@ public class CreateAppointmentServlet extends HttpServlet {
 			}
 		}
 		
-		//Date SelectedTime = null;
+		//Date is in tho cookie is not in a proper format.before sending it to the service level
+		//this will turn it into a proper format.
 		try {
 			AppointDate = new SimpleDateFormat("yyyy-MM-dd").parse(request.getParameter("AppDate"));
 			//SelectedTime = new SimpleDateFormat("hh:mm:ss").parse(request.getParameter(appointTime));
@@ -122,6 +131,8 @@ public class CreateAppointmentServlet extends HttpServlet {
 			request.setAttribute("Package", selectedpack);
 			request.setAttribute("Allpacks", Allpacks);
 			request.setAttribute("AllvehiServices", AllvehiServices);
+			request.setAttribute("succesMsg", succesMsg);
+			System.out.println("suuccess msg is : " + succesMsg);
 			
 			request.getRequestDispatcher("RequestDetailsFrontend.jsp").forward(request, response);
 		}

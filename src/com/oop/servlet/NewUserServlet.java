@@ -58,7 +58,11 @@ public class NewUserServlet extends HttpServlet {
 				response.sendRedirect("HomePageRedirectServlet");		
 			}
 			
-		} catch (Exception e) {
+		} 
+		catch (IOException ex) {
+			// TODO: handle exception
+			LOGGER.log(Level.SEVERE, ex.getMessage());
+		}catch (Exception e) {
 			// TODO: handle exception
 			
 			LOGGER.log(Level.SEVERE, e.getMessage());

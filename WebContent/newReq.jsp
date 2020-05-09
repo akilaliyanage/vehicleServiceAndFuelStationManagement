@@ -1,3 +1,5 @@
+<!-- Created by D.H.M.M.P.Thammita
+IT No : IT19120362  -->
 <%@page import="com.oop.model.UserAppointmentModel"%>
 <%@page import="java.io.PrintWriter"%>
 <%@page import="com.oop.model.NewMechModel"%>
@@ -28,8 +30,7 @@
 <!--end of the akila css-->
 <link rel="stylesheet" href="css/Mahen/New_req.css" />
 <style type="text/css">
-.my-4{
-
+.my-4 {
 	border-style: solid;
 	border-width: 2px;
 	border-color: #0099CC;
@@ -43,6 +44,12 @@
 <body>
 
 	<%
+		//Checking the session variable before accessing the page
+		if(session.getAttribute("regno") == null){
+		request.getRequestDispatcher("index.jsp").forward(request, response);
+		}
+	
+	
 	List<UserAppointmentModel> PendingRequests = (ArrayList<UserAppointmentModel>) request.getAttribute("PendingRequests");
 	//List<AppointmentModel> PendingRequests = (ArrayList<AppointmentModel>) request.getAttribute("PendingRequests");
 	List<NewMechModel> Mechanics = (ArrayList<NewMechModel>) request.getAttribute("Mechanics");
@@ -81,7 +88,8 @@
 	if (origin.equals("Rejected")) {
 	%>
 	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 	<script>
 		$(document).ready(function () {
 			swal({
@@ -218,10 +226,11 @@
 			<h6 class="dropdown-header">Vehicle Service Center</h6>
 
 			<a href="" class="btn btn-light"><i class="fas fa-flag-checkered"></i>&nbsp;&nbsp;
-				Pending Requests</a> <a href="" class="btn btn-light"><i
-				class="fas fa-file-word"></i>&nbsp;&nbsp; Reports</a> <a href=""
-				class="btn btn-light"><i class="fas fa-reply"></i>&nbsp;&nbsp;
-				User Feedback</a> <a href="" class="btn btn-light"><i
+				Pending Requests</a> 
+				<a href="AdvanceSearchServlet" class="btn btn-light"><i class="fas fa-flag-checkered"></i>&nbsp;&nbsp; All requests</a>
+				<a href="" class="btn btn-light"><i
+				class="fas fa-file-word"></i>&nbsp;&nbsp; Reports</a> <a href="InquieryNavigateServlet" class="btn btn-light"><i class="fas fa-reply"></i>&nbsp;&nbsp; User Feedback</a> 
+				<a href="PackageManagerServlet" class="btn btn-light"><i
 				class="fas fa-box"></i>&nbsp;&nbsp; Packages</a> <a href=""
 				class="btn btn-light"><i class="fas fa-receipt"></i>&nbsp;&nbsp;
 				Bill</a>
@@ -238,7 +247,7 @@
 
 		<!--Start middle part-->
 		<div class="col-10 ">
-			
+
 
 			<%
 				for (UserAppointmentModel Appointment : PendingRequests) {
@@ -246,17 +255,22 @@
 
 			<div class="Act_new_req m-4">
 
-				<div class="jumbotron" style="background-color: white; border-style: solid; border-color: black;">
+				<div class="jumbotron"
+					style="background-color: white; border-style: solid; border-color: black;">
 
 					<div class="row row-cols-3 d-flex align-items-center">
 
 						<div
 							class="col-md-3 d-flex align-items-center justify-content-center">
-							<img src="img/akila/big.jpg" class="img-circle">
+							<img src="img/Mahen/newapp.gif"
+								style="width: 120px; height: 120px; position: relative; top: -100px; left: -60px">
+							<img src="img/userImages/<%=Appointment.getUserImage() %>"
+								class="img-circle">
 						</div>
 						<div class="col-md-3  text-left">
 							<h3>
-								<i class="fas fa-user-check"></i> <u> <%=Appointment.getUserFullName() %> </u>
+								<i class="fas fa-user-check"></i> <u> <%=Appointment.getUserFullName() %>
+								</u>
 							</h3>
 							<p class="mt-3"><%=Appointment.getAddress_line_1() %></p>
 							<p class="mt-3" style="color: #4285F4"><%=Appointment.getUserEmail() %></p>
@@ -343,43 +357,25 @@
 
 					<div class="">
 						<div class="row mt-4 d-flex justify-content-center">
-							<form action="ChangeStatusServlet" method="get">
-								<input type="hidden" value="<%=Appointment.getAppId()%>"
-									name="appointment2"> <input type="hidden" name="Status"
-									value="Accepted">
-									<input type="hidden" name="Page" value="Newrequest">
-								<button type="submit" class="btn btn-success mr-4">
-									<i class="fas fa-clipboard-check"></i> Accept Job Request
-								</button>
-							</form>
 
-							<form action="ChangeStatusServlet" method="get">
-								<input type="hidden" value="<%=Appointment.getAppId()%>"
-									name="appointment2"> <input type="hidden" name="Status"
-									value="Rejected">
-								<input type="hidden" name="Page" value="Newrequest">
-								<button type="submit" class="btn btn-warning mr-4">
-									<i class="far fa-window-close"></i> Reject Job Request
-								</button>
-							</form>
+							<a type="button"
+								href="ChangeStatusServlet?appointment2=<%=Appointment.getAppId()%>&Status=Accepted&Page=Newrequest"
+								class="btn btn-success mr-4"> <i
+								class="fas fa-clipboard-check"></i> Accept Job Request
+							</a> <a type="button"
+								href="ChangeStatusServlet?appointment2=<%=Appointment.getAppId()%>&Status=Rejected&Page=Newrequest"
+								class="btn btn-warning mr-4"> <i class="far fa-window-close"></i>
+								Reject Job Request
+							</a> <a type="button"
+								href="ChangeStatusServlet?appointment2=<%=Appointment.getAppId()%>&Status=Delete&Page=Newrequest&Vehicle_to_dele=<%=Appointment.getVehicleI_No()%>"
+								class="btn btn-danger mr-4" class="btn btn-danger mr-4"> <i
+								class="far fa-trash-alt"></i> Delete Job Request
+							</a> <a type="button"
+								href="FullRequestservlet?Id_Of_Appointment=<%=Appointment.getAppId()%>"
+								class="btn btn-secondary mr-4"> <i
+								class="fas fa-info-circle"></i> More Details
+							</a>
 
-							<form action="ChangeStatusServlet" method="get">
-								<input type="hidden" value="<%=Appointment.getAppId()%>"
-									name="appointment2"> <input type="hidden" name="Status"
-									value="Delete"> <input type="hidden"
-									name="Vehicle_to_dele"
-									value="<%=Appointment.getVehicleI_No()%>">
-								<button type="submit" class="btn btn-danger mr-4">
-									<i class="far fa-trash-alt"></i> Delete Job Request
-								</button>
-							</form>
-
-							<form action="FullRequestservlet" method="get">
-								<input type="hidden" value="<%=Appointment.getAppId()%>" name="Id_Of_Appointment">
-								<button type="submit" class="btn btn-secondary mr-4">
-									<i class="fas fa-info-circle"></i> More Details
-								</button>
-							</form>
 
 						</div>
 					</div>
@@ -398,9 +394,9 @@
 			%>
 
 			<!-- Modal: modalCart -->
-			<div class="modal fade conferm_assigning" id="<%=Appointment.getAppId()%>"
-				tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-				aria-hidden="true">
+			<div class="modal fade conferm_assigning"
+				id="<%=Appointment.getAppId()%>" tabindex="0" role="dialog"
+				aria-labelledby="exampleModalLabel">
 				<div class="modal-dialog" role="document">
 					<div class="modal-content">
 						<!--Header-->
@@ -434,9 +430,16 @@
 												<input type="hidden" value="<%=mech.getUserregNoString()%>"
 													name="AssignrdMec"> <input type="hidden"
 													value="<%=Appointment.getAppId()%>" name="appointment">
-												<button type="submit" class="btn btn-primary btn-sm m-0" data-toggle="modal" data-target="#SuccessfullyAssigned"
-												 onclick="AssignConfermation('<%=mech.getFullnameString()%>')" > Assign </button>
-											</form>
+												<button type="submit" class="btn btn-primary btn-sm m-0"
+													data-toggle="modal" data-target="#SuccessfullyAssigned"
+													onclick="AssignConfermation('<%=mech.getFullnameString()%>')">
+													Assign</button>
+											</form> <script type="text/javascript">
+											function AssignConfermation(appID) {
+												 document.getElementById("MacAssignStatus").innerHTML = appID;
+												 $('.conferm_assigning').modal('hide'); 
+											}
+											</script>
 
 										</td>
 									</tr>
@@ -455,9 +458,9 @@
 
 			<!-- Modal: modalCart -->
 			<script type="text/javascript">
-			
-				function AssignConfermation(appID) {
-					 document.getElementById("MacAssignStatus").innerHTML = appID;
+				
+				function CloseallMods() {
+					  $(".conferm_assigning .close").click(); 	 
 				}
 			</script>
 
@@ -465,8 +468,11 @@
 				}
 			%>
 
+
+
+
 			<!-- Mechanic Assigning confermation Model -->
-			<div class="modal fade" id="SuccessfullyAssigned" tabindex="-1"
+			<div class="modal fade " id="SuccessfullyAssigned" tabindex="1"
 				role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 				<div class="modal-dialog modal-notify modal-success" role="document">
 					<!--Content-->
@@ -484,24 +490,22 @@
 						<!--Body-->
 						<div class="modal-body">
 							<div class="text-center">
-								<i class="fas fa-check fa-4x mb-3 animated rotateIn"  style="color: #28a745"></i>
+								<img src="img/Mahen/success_png_gif.gif">
 								<h3>Mechanic Assigned Successfully</h3>
 							</div>
 						</div>
 
 						<!--Footer-->
 						<div class="d-flex justify-content-center">
-						 <a type="button"
-								class="btn btn-outline-success waves-effect"
-								data-dismiss="modal">OK
-						</a>
+							<button type="button"
+								class="btn btn-outline-success waves-effect mb-4"
+								data-dismiss="modal" onclick="CloseallMods()">OK</button>
 						</div>
 					</div>
 					<!--/.Content-->
 				</div>
 			</div>
 			<!-- Mechanic Assigning confermation Model-->
-
 
 
 
@@ -515,88 +519,8 @@
 	<!--end of the body part-->
 
 	<!--footer-->
-
-
-	<footer class="new_footer_area bg_color">
-		<div class="new_footer_top">
-			<div class="container">
-				<div class="row">
-					<div class="col-lg-3 col-md-6">
-						<div class="f_widget company_widget wow fadeInLeft"
-							data-wow-delay="0.2s"
-							style="visibility: visible; animation-delay: 0.2s; animation-name: fadeInLeft;">
-							<h3 class="f-title f_600 t_color f_size_18">Get in Touch</h3>
-							<p>Don’t miss any updates of our new templates and
-								extensions.!</p>
-							<form action="#" class="f_subscribe_two mailchimp" method="post"
-								novalidate="true" _lpchecked="1">
-								<input type="text" name="EMAIL" class="form-control memail"
-									placeholder="Email">
-								<button class="btn btn_get btn_get_two" type="submit">Subscribe</button>
-								<p class="mchimp-errmessage" style="display: none;"></p>
-								<p class="mchimp-sucmessage" style="display: none;"></p>
-							</form>
-						</div>
-					</div>
-					<div class="col-lg-3 col-md-6">
-						<div class="f_widget about-widget pl_70 wow fadeInLeft"
-							data-wow-delay="0.4s"
-							style="visibility: visible; animation-delay: 0.4s; animation-name: fadeInLeft;">
-							<h3 class="f-title f_600 t_color f_size_18">Services</h3>
-							<ul class="list-unstyled f_list">
-								<li><a href="#">Packages</a></li>
-								<li><a href="#">Requexts App</a></li>
-								<li><a href="#">Status</a></li>
-								<li><a href="#">Reports</a></li>
-								<li><a href="#">Bills</a></li>
-								<li><a href="#">Notifications</a></li>
-							</ul>
-						</div>
-					</div>
-					<div class="col-lg-3 col-md-6">
-						<div class="f_widget about-widget pl_70 wow fadeInLeft"
-							data-wow-delay="0.6s"
-							style="visibility: visible; animation-delay: 0.6s; animation-name: fadeInLeft;">
-							<h3 class="f-title f_600 t_color f_size_18">Navigate to
-								other pages</h3>
-							<ul class="list-unstyled f_list">
-								<li><a href="#">FAQ</a></li>
-								<li><a href="#">Login</a></li>
-								<li><a href="#">User Admin</a></li>
-							</ul>
-						</div>
-					</div>
-					<div class="col-lg-3 col-md-6">
-						<div class="f_widget social-widget pl_70 wow fadeInLeft"
-							data-wow-delay="0.8s"
-							style="visibility: visible; animation-delay: 0.8s; animation-name: fadeInLeft;">
-							<h3 class="f-title f_600 t_color f_size_18">Social Media</h3>
-							<div class="f_social_icon">
-								<a href="#" class="fab fa-facebook"></a> <a href="#"
-									class="fab fa-twitter"></a> <a href="#" class="fab fa-linkedin"></a>
-								<a href="#" class="fab fa-pinterest"></a>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="footer_bg">
-				<div class="footer_bg_one"></div>
-				<div class="footer_bg_two"></div>
-			</div>
-		</div>
-		<div class="footer_bottom">
-			<div class="container">
-				<div class="row align-items-center">
-					<div class="col-lg-6 col-sm-7">
-						<p class="mb-0 f_400">© CarCare System Solutions All rights
-							reserved.</p>
-					</div>
-				</div>
-			</div>
-		</div>
-	</footer>
-	<!--end of the footer-->
+    <jsp:include page="/WEB-INF/views/akila/footer.jsp"></jsp:include>
+   <!--end of the footer-->
 
 	<!--bootstrap-->
 	<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
@@ -625,7 +549,7 @@
 	<!--chart.js-->
 	<script src="https://cdn.jsdelivr.net/npm/chart.js@2/dist/Chart.min.js"></script>
 	<!--end of the chart.js-->
-	
+
 
 </body>
 </html>

@@ -3,6 +3,7 @@ package com.oop.DAO;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -48,7 +49,11 @@ public class LoginDao {
 			}
 			
 			
-		} catch (Exception e) {
+		} 
+		catch (SQLException e) {
+			// TODO: handle exception
+			LOGGER.log(Level.SEVERE, e.getMessage());
+		}catch (Exception e) {
 			// TODO: handle exception
 			
 			LOGGER.log(Level.SEVERE, e.getMessage());

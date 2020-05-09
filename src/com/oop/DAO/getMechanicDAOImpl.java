@@ -14,6 +14,11 @@ import com.oop.model.NewMechModel;
 public class getMechanicDAOImpl implements IgetMechanicDAO{
 	private  Connection connection;
 	private  PreparedStatement Statement;
+	
+	/*
+	 * This method will accept No arguments and returns the List of all mechanics That are available
+	 * in the system 
+	 * */
 	@Override
 	public List<NewMechModel> getAllMechanics() {
 		connection = DatabaseConnection.getConnection();

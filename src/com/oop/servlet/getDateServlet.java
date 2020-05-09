@@ -1,3 +1,6 @@
+//Created by D.H.M.M.P.Thammita
+//IT No : IT19120362
+
 package com.oop.servlet;
 
 import java.io.IOException;
@@ -10,6 +13,8 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  * Servlet implementation class getDateServlet
+ * This servlet is used to get the date and time to the server side when user
+ * is creating an appointment
  */
 @WebServlet("/getDateServlet")
 public class getDateServlet extends HttpServlet {
@@ -36,6 +41,9 @@ public class getDateServlet extends HttpServlet {
 		Cookie prefDayCookie = new Cookie("PrefDay", AppDate);
 		Cookie prefTimeCookie = new Cookie("PrefTime", AppTime);
 		
+		/*
+		 * these cookies are used in CreateAppointment Servlet when creating the appointment.
+		 * */
 		response.addCookie(prefDayCookie);
 		response.addCookie(prefTimeCookie);
 		response.setStatus(HttpServletResponse.SC_NO_CONTENT);

@@ -159,7 +159,8 @@ function goTime(value){
 		    $(".Jumbo2").show();
 		    $("#Vehicle_details_Demo").show();
 		    document.getElementById("land_M_3").style.visibility = "visible";
-		    alert("please enter the phone number again" + document.getElementsById("Vehicle_Nosa").value);
+		    var vehinoo = document.getElementById("Vehicle_Nosa").value;
+		    document.getElementById("Vehicle_no_temperory").innerHTML = "mahendra";
 		}
 	   	
 		

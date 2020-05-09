@@ -1,3 +1,6 @@
+<!-- Created by D.H.M.M.P.Thammita
+IT No : IT19120362  -->
+
 <!DOCTYPE html>
 <%-- <%@page import="org.apache.jasper.tagplugins.jstl.core.ForEach"%> --%>
 <%@page import="java.util.ArrayList"%>
@@ -13,7 +16,8 @@
     <meta charset="UTF-8">
     <link rel="shortcut icon" href="img/akila/Reddy Roadster (1).png" type="image/x-icon" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+    
+	
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
     <!-- Google Fonts -->
@@ -27,22 +31,47 @@
     <link rel="stylesheet" href="css/akila/dashboard.css" />
     <!--Mahen css-->
     <link rel="stylesheet" href="css/Mahen/sendrequest.css" />
-
+	<link rel="stylesheet" href="css/Mahen/FrontenedRequestDetailsCss.css" />
     <title>Frontend Template</title>
 </head>
 
 <body>
 
 	<%
+	
+		//Checking the session variable before accessing the page
+		if(session.getAttribute("regno") == null){
+			request.getRequestDispatcher("index.jsp").forward(request, response);
+		}
+	
 		UserModel User = (UserModel) request.getAttribute("User");
 		AppointmentModel Appointment = (AppointmentModel) request.getAttribute("Appointment");
 		VehicleModel Vehicle = (VehicleModel) request.getAttribute("Vehicle");
 		VehicalServices Service = (VehicalServices) request.getAttribute("Service");
 		PackageForAppoint Package = (PackageForAppoint)request.getAttribute("Package");
-		
+		String succesMsg = (String) request.getAttribute("succesMsg");
 		
 		List<PackageForAppoint> Allpacks = (ArrayList<PackageForAppoint>) request.getAttribute("Allpacks");
 		List<VehicalServices> AllvehiServices = (ArrayList<VehicalServices>) request.getAttribute("AllvehiServices");
+	%>
+	<%
+	if (succesMsg.equals("Success")) {
+	%>
+	
+	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script>
+		$(document).ready(function () {
+			swal({
+				  title: "You Have Created Appointment Successfully!!!",
+				  icon: "success",
+				});
+		});
+		
+		
+		</script>
+	<%
+		}
 	%>
 
     <div class="section-1" id="section-1">
@@ -57,18 +86,23 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent-555">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item active">
-                        <a class="nav-link" href="homepage.html">Home
+                        <a class="nav-link" href="HomePageRedirectServlet">Home
                             <span class="sr-only">(current)</span>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="userProfile.jsp">My profile</a>
+                        <a class="nav-link" href="UpdateUserDashboard">My profile</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="userProfile.jsp">Make payment</a>
+                        <a class="nav-link" href="UpdatePaymentServlet">Make payment</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Log out</a>
+                        <a class="nav-link" href="inquiry.jsp">Make Inquiry</a>
+                    </li>
+                    <li class="nav-item">
+                        <form action="LogoutServlet">
+                        	<button class="nav-link" type="submit" style="background: transparent;border: none;font-weight: bolder;">Log out</button>
+                        </form>
                     </li>
                     <!-- Dropdown -->
 
@@ -125,14 +159,12 @@
                         <!--Grid column-->
 
                         <!--Grid column-->
-                        <div class="col-md-6 mb-4 mb-md-0">
+                        <div class="col-md-6 mt-0">
 
                             <!--Image-->
-                            <div class="view overlay z-depth-1-half">
-                                <img src="<%=Service.getServiceImg() %>" class="img-fluid" alt="">
-                                <a href="#">
-                                    <div class="mask rgba-white-light"></div>
-                                </a>
+                            <div class=" overlay">
+                                <img src="img/Mahen/fda002cc266234fd368a91929ba95423.gif" class="img-fluid" id="fullTopImg" >
+                                
                             </div>
 
                         </div>
@@ -179,7 +211,7 @@
                             data-target="#ContactUsModal">Contact Us
                         </button>
                         <button type="button" class="btn btn-lg btn-block btn-success ml-0"data-toggle="modal"
-                            data-target="#FeedbackModal">Feedback
+                            data-target="#FeedkModal">Feedback
                         </button>
                         <button type="button" class="btn btn-lg btn-block btn-danger ml-0" data-toggle="modal"
                             data-target="#ConfirmDelete">Delete Request
@@ -304,7 +336,7 @@
                             <div class="row row row-cols-3">
                                   <div class="col-xl-3 col-md-1 ml-4 mb-3 text-center">
 
-                                      <img src="https://mdbootstrap.com/img/Photos/Avatars/img(31).jpg"
+                                      <img src="img/userImages/<%=User.getUserImage() %>"
                                           class="img-fluid z-depth-1 rounded-circle" alt="Responsive image">
 
                                   </div>
@@ -384,10 +416,11 @@
                                     <div class="form-group col-md-3 ml-4">
                                         <label for="inputState"> <i class="fas fa-gas-pump grey-text fa-2x"></i> fuel type</label>
                                         <select id="inputState" class="form-control ml-3" name="Edit_fuel">
-                                            <option selected>Choose...</option>
-                                            <option value="1">Petrol</option>
-                                            <option value="2">Diesel</option>
-                                            <option value="3">Gasoline</option>
+                                            <option selected disabled="disabled">Choose...</option>
+                                            <option>Petrol</option>
+                                            <option>Diesel</option>
+                                            <option>Gasoline</option>
+                                            <option>Electric</option>
                                         </select>
                                     </div>
                                 </div>
@@ -442,7 +475,7 @@
         <!--Start of modal Confirm Delete-->
         <div class="modal fade" id="ConfirmDelete" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
             aria-hidden="true">
-            <div class="modal-dialog modal-sm modal-notify modal-danger" role="document">
+            <div class="modal-dialog modal-md modal-notify modal-danger" role="document">
                 <!--Content-->
                 <div class="modal-content text-center">
                     <!--Header-->
@@ -452,14 +485,14 @@
         
                     <!--Body-->
                     <div class="modal-body">
-        
-                        <i class="fas fa-times fa-4x animated rotateIn"></i>
+                        <img src="img/Mahen/Danger2.gif" style="width: 100px ; height: 100px;">
+                        <h3>Do you really need to delete appointment <%=Appointment.getAppId() %></h3>
         
                     </div>
         
                     <!--Footer-->
                     <div class="modal-footer flex-center">
-                        <a href="" class="btn  btn-outline-danger">Yes</a>
+                        <a type="button" href="DeleteRequest?AppointmentID=<%=Appointment.getAppId() %>&vehicleNo=<%=Appointment.getVehicleI_No() %>&page=FullDetails" class="btn  btn-outline-danger">Yes</a>
                         <a type="button" class="btn  btn-danger waves-effect" data-dismiss="modal">No</a>
                     </div>
                 </div>
@@ -526,12 +559,13 @@
             </div>
         </div>
         <!-- End of contact US modal -->
-
+        
         <!--Start of feedback Modal-->
-        <div class="modal fade" id="FeedbackModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        <div class="modal fade FeedbackModelClass" id="FeedkModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
             aria-hidden="true">
             <div class="modal-dialog modal-notify modal-success" role="document">
                 <!--Content-->
+                <form action="FeedbackServlet" method="get">
                 <div class="modal-content text-center">
                     <!--Header-->
                     <div class="modal-header d-flex justify-content-center">
@@ -540,59 +574,109 @@
         
                     <!--Body-->
                     <div class="modal-body">
+                    
                         <h4 class="text-center mb-4">We would like your feedback to improve our services</h4>
                         <h5 class="text-center">What would your openion of our service ? </h5>
                         <div class="row d-flex justify-content-center text-center">
+                            
+                            
                             <div class="col-2">
-                                <a onclick="setRating(1)"><i class="far fa-tired fa-3x"></i></a>
+                                <a class="FeedbackSigns" href="AddRatingServlet?Rating=1&appId=<%=Appointment.getAppId() %>" onclick="setRating(1)" >
+                                <i class="far fa-tired fa-3x FeedFaces" id="face1"></i></a>
                                 <p>Very Poor</p>
+                                
                             </div>
                             <div class="col-2">
-                                <a onclick="setRating(2)"><i class="far fa-frown fa-3x"></i></a>
+                                <a href="AddRatingServlet?Rating=2&appId=<%=Appointment.getAppId() %>" onclick="setRating(2)">
+                                <i class="far fa-frown fa-3x FeedFaces" id="face2"></i></a>
                                 <p>Poor</p>
                             </div>
                             <div class="col-2">
-                                <a onclick="setRating(3)"><i class="far fa-meh fa-3x"></i></a>
+                                <a href="AddRatingServlet?Rating=3&appId=<%=Appointment.getAppId() %>" onclick="setRating(3)">
+                                <i class="far fa-meh fa-3x FeedFaces" id="face3"></i></a>
                                 <p>Fair</p>
                             </div>
                             <div class="col-2">
-                                <a onclick="setRating(4)"><i class="far fa-smile fa-3x"></i></a>
+                                <a href="AddRatingServlet?Rating=4&appId=<%=Appointment.getAppId() %>" onclick="setRating(4)">
+                                <i class="far fa-smile fa-3x FeedFaces" id="face4"></i></a>
                                 <p>Good</p>
                             </div>
                             <div class="col-2">
-                                <a onclick="setRating(5)"><i class="far fa-laugh fa-3x"></i></a>
+                                <a href="AddRatingServlet?Rating=5&appId=<%=Appointment.getAppId() %>" onclick="setRating(5)">
+                                <i class="far fa-laugh fa-3x FeedFaces" id="face5"></i></a>
                                 <p>Very Good</p>
                             </div>
                         </div>
                         <hr class="my-4">
 
                         <label>Please select your feedback category below</label>
-                        <select class="browser-default custom-select mb-4">
-                            <option value="" disabled>Choose option</option>
-                            <option value="1">Suggestion</option>
-                            <option value="2">Something is nor quite right</option>
-                            <option value="3">Compliment</option>
-                            <option value="4">Other</option>
+                        <select class="browser-default custom-select mb-4" name="TypeOfFeed">
+                            <option disabled>Choose option</option>
+                            <option >Suggestion</option>
+                            <option >Something is nor quite right</option>
+                            <option >Compliment</option>
+                            <option >Other</option>
                         </select>
                         <hr class="my-2">
                         <!-- Message -->
+                        <input type="hidden" name="AppointmentID" value="<%=Appointment.getAppId()%>">
                         <label>Please leave your feedback below</label>
                         <div class="form-group">
-                            <textarea class="form-control rounded-0" id="exampleFormControlTextarea2" rows="3" placeholder="Message"></textarea>
+                            <textarea class="form-control rounded-0" name="feedDiscription" id="exampleFormControlTextarea2" rows="3" placeholder="Message"></textarea>
                         </div>
-        
+        				
                     </div>
         
                     <!--Footer-->
                     <div class="modal-footer flex-center">
-                        <a href="https://mdbootstrap.com/products/jquery-ui-kit/" class="btn btn-success">Yes</a>
-                        <a type="button" class="btn btn-outline-success waves-effect" data-dismiss="modal">No</a>
+                        <button type="submit" class="btn btn-success" data-toggle="modal"
+                            data-target="#ThankingFeedback" onclick="ThanksForFeedback()">Submit</button>
+                        <a type="button" class="btn btn-outline-success waves-effect" data-dismiss="modal">Close</a>
                     </div>
                 </div>
+                </form>
                 <!--/.Content-->
             </div>
         </div>
         <!--End of feedback Modal-->
+        
+        <!-- Start of Feedback thanking Model-->
+			<div class="modal fade" id="ThankingFeedback" tabindex="1"
+				role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+				<div class="modal-dialog modal-notify modal-success" role="document">
+					<!--Content-->
+					<div class="modal-content">
+						<!--Header-->
+						<div class="modal-header">
+							<p class="heading lead center">ThankYou For Your Feedback</p>
+
+							<button type="button" class="close" data-dismiss="modal"
+								aria-label="Close">
+								<span aria-hidden="true" class="white-text">&times;</span>
+							</button>
+						</div>
+
+						<!--Body-->
+						<div class="modal-body thankindModel">
+							<div class="text-center">
+								<!--  <img class="thankImg" src="img/Mahen/feedbackThanking.gif"> -->
+								<h3 id="ThankingTop">Thank You for your Feedback</h3>
+								<h3 class="d-flex align-self-end" id="Thankingbottom">Improvement begins with Your Feedback...</h3>
+							</div>
+						</div>
+
+						<!--Footer-->
+						<div class="d-flex justify-content-center">
+						 <button type="button"
+								class="btn btn-outline-success waves-effect mb-4"
+								onclick="CloseprevModel()" data-dismiss="modal" >OK
+						</button>
+						</div>
+					</div>
+					<!--/.Content-->
+				</div>
+			</div>
+			<!-- End of Feedback thanking Model-->
 
 
 
@@ -767,99 +851,64 @@
 
 
     <!--footer-->
+    <jsp:include page="/WEB-INF/views/akila/footer.jsp"></jsp:include>
+   <!--end of the footer-->
 
+	<script type="text/javascript">
 
-    <footer class="new_footer_area bg_color">
-        <div class="new_footer_top">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-3 col-md-6">
-                        <div class="f_widget company_widget wow fadeInLeft" data-wow-delay="0.2s"
-                            style="visibility: visible; animation-delay: 0.2s; animation-name: fadeInLeft;">
-                            <h3 class="f-title f_600 t_color f_size_18">Get in Touch</h3>
-                            <p>Don’t miss any updates of our new templates and extensions.!</p>
-                            <form action="#" class="f_subscribe_two mailchimp" method="post" novalidate="true"
-                                _lpchecked="1">
-                                <input type="text" name="EMAIL" class="form-control memail" placeholder="Email">
-                                <button class="btn btn_get btn_get_two" type="submit">Subscribe</button>
-                                <p class="mchimp-errmessage" style="display: none;"></p>
-                                <p class="mchimp-sucmessage" style="display: none;"></p>
-                            </form>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6">
-                        <div class="f_widget about-widget pl_70 wow fadeInLeft" data-wow-delay="0.4s"
-                            style="visibility: visible; animation-delay: 0.4s; animation-name: fadeInLeft;">
-                            <h3 class="f-title f_600 t_color f_size_18">Services</h3>
-                            <ul class="list-unstyled f_list">
-                                <li><a href="#">Packages</a></li>
-                                <li><a href="#">Requexts App</a></li>
-                                <li><a href="#">Status</a></li>
-                                <li><a href="#">Reports</a></li>
-                                <li><a href="#">Bills</a></li>
-                                <li><a href="#">Notifications</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6">
-                        <div class="f_widget about-widget pl_70 wow fadeInLeft" data-wow-delay="0.6s"
-                            style="visibility: visible; animation-delay: 0.6s; animation-name: fadeInLeft;">
-                            <h3 class="f-title f_600 t_color f_size_18">Navigate to other pages</h3>
-                            <ul class="list-unstyled f_list">
-                                <li><a href="#">FAQ</a></li>
-                                <li><a href="#">Login</a></li>
-                                <li><a href="#">User Admin</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6">
-                        <div class="f_widget social-widget pl_70 wow fadeInLeft" data-wow-delay="0.8s"
-                            style="visibility: visible; animation-delay: 0.8s; animation-name: fadeInLeft;">
-                            <h3 class="f-title f_600 t_color f_size_18">Social Media</h3>
-                            <div class="f_social_icon">
-                                <a href="#" class="fab fa-facebook"></a>
-                                <a href="#" class="fab fa-twitter"></a>
-                                <a href="#" class="fab fa-linkedin"></a>
-                                <a href="#" class="fab fa-pinterest"></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="footer_bg">
-                <div class="footer_bg_one"></div>
-                <div class="footer_bg_two"></div>
-            </div>
-        </div>
-        <div class="footer_bottom">
-            <div class="container">
-                <div class="row align-items-center">
-                    <div class="col-lg-6 col-sm-7">
-                        <p class="mb-0 f_400">© CarCare System Solutions All rights reserved.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </footer>
-    <!--end of the footer-->
-
-
+        function setRating(val) {
+        	document.getElementById("face"+val).style.background = "#ffea00 ";
+        	document.getElementById("face"+val).style.borderRadius = '1em';
+        }
+        
+        
+        
+        function ThanksForFeedback() {
+			 $('.FeedbackModelClass').modal('hide'); 
+		}
+        
+        function CloseprevModel() {
+        	
+			//$(".FeedbackModelClass").modal({backdrop: false});
+			$(".FeedbackModelClass.close").click();
+		}
+      
+       
+        </script>
+	
 
 
     <!-- JQuery -->
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+   	<!--bootstrap-->
+	<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+		integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+		crossorigin="anonymous"></script>
+   
+    <!-- Bootstrap core JavaScript -->
+    <!-- <script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/js/bootstrap.min.js"></script> -->
     <!-- Bootstrap tooltips -->
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js">
     </script>
-    <!-- Bootstrap core JavaScript -->
-    <script type="text/javascript"
-        src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    
     <!-- MDB core JavaScript -->
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.16.0/js/mdb.min.js">
     </script>
+    
+	
+	<script
+		src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+		integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+		crossorigin="anonymous"></script>
+	<!--end of the bootstrap-->
+   <!--   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script> -->
     <!--Mahen js-->
-    <script src="js/Mahen/RequestDetailsFrontend.js"></script>
+    <script type="text/javascript" src="js/Mahen/RequestDetailsFrontend.js"></script>
     <!--end of the Mahen js-->
+    
+    
+
 </body>
 
 </html>

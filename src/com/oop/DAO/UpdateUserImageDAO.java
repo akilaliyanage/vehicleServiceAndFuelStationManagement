@@ -6,6 +6,9 @@ package com.oop.DAO;
 import java.io.InputStream;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import com.oop.database.DatabaseConnection;
 import com.oop.model.NewUserModel;
@@ -19,6 +22,11 @@ public  class UpdateUserImageDAO {
 	
 	static Connection connection;
 	static PreparedStatement pStatement;
+	
+	/** Initialize logger */
+	private static final Logger LOGGER = Logger.getLogger(UpdateUserImageDAO.class.getName());
+	
+	
 	public int updateImage(String regNo, String imgPathString) {
 		int status = 0;
 		
@@ -35,10 +43,15 @@ public  class UpdateUserImageDAO {
 			
 			System.out.println(status);
 			
-		} catch (Exception e) {
+		} catch (SQLException e) {
 			// TODO: handle exception
-			System.out.println(e);
-		}
+			LOGGER.log(Level.SEVERE,e.getMessage());
+		} 
+		catch (Exception e) {
+			// TODO: handle exception 
+			LOGGER.log(Level.SEVERE,e.getMessage());
+			
+		}		
 		return status;
 	}
 	

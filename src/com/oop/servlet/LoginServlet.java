@@ -60,7 +60,11 @@ public class LoginServlet extends HttpServlet {
 				request.getRequestDispatcher("index.jsp").forward(request, response);
 			}
 			
-		} catch (Exception e) {
+		} 
+		catch (IOException ex) {
+			// TODO: handle exception
+			LOGGER.log(Level.SEVERE, ex.getMessage());
+		}catch (Exception e) {
 			// TODO: handle exception
 			//logger message
 			LOGGER.log(Level.SEVERE, e.getMessage());

@@ -32,12 +32,16 @@ public interface AppointmentServices {
 
 	public List<AppointmentModel> getAllAppointments();
 
-	public List<AppointmentModel> SearchAdvanceAppointments(String userRegNo, String vehicleI_No, String amount,
+	public List<AppointmentModel> SearchAdvanceAppointments( String appId , String userRegNo, String vehicleI_No, String amount,
 			String service_id, String status, String prefDate);
 
 	public AppointmentModel getAppointmentByAppID(String appointmentID);
 
 	public List<UserAppointmentModel> getUserWithAppointment();
+
+	public void Setrating(int rating, String appointmentID);
+
+	public void Addfeedback(String fullFeed, String appointID);
 
 	
 }

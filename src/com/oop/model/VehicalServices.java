@@ -1,3 +1,10 @@
+//Created by D.H.M.M.P.Thammita
+//IT No : IT19120362
+
+/*
+ * This Model class represents a vehicle Service(ex: car wash , Interior detailing) in the system
+ * */
+
 package com.oop.model;
 
 public class VehicalServices {

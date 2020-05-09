@@ -1,3 +1,13 @@
+//Created by D.H.M.M.P.Thammita
+//IT No : IT19120362
+
+/*
+ * This class is a combination of appointment model and UserModel
+ * this class contains all the details of a appointment and the customer details that
+ * placed that appointment
+ * This class Inhrtits UserModel
+ * */
+
 package com.oop.model;
 
 public class UserAppointmentModel extends UserModel {

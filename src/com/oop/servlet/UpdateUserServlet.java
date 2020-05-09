@@ -91,7 +91,11 @@ public class UpdateUserServlet extends HttpServlet {
 			}
 			
 
-		} catch (Exception e) {
+		} 
+		catch (IOException e) {
+			// TODO: handle exception
+			LOGGER.log(Level.SEVERE, e.getMessage());
+		}catch (Exception e) {
 			// TODO: handle exception
 			LOGGER.log(Level.SEVERE, e.getMessage());
 		}
