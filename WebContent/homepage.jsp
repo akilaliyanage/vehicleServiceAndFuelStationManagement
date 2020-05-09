@@ -69,6 +69,7 @@
                         	<button class="nav-link" type="submit" style="background: transparent;border: none;font-weight: bolder;">Log out</button>
                         </form>
                     </li>
+                    
                     <!-- Dropdown -->
                    
                 </ul>

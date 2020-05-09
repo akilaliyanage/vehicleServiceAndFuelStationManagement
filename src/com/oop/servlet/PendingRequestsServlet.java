@@ -22,6 +22,8 @@ import com.oop.service.mechanicServicesImpl;
 
 /**
  * Servlet implementation class PendingRequestsServlet
+ * this servlet is associates with the newReq.jsp
+ * this servlet returns all the pending appointhments with other details associates with that appointments.
  */
 @WebServlet("/PendingRequestsServlet")
 public class PendingRequestsServlet extends HttpServlet {

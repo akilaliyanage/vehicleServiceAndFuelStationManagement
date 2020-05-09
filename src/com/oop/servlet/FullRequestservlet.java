@@ -1,3 +1,7 @@
+//Created by D.H.M.M.P.Thammita
+//IT No : IT19120362
+
+
 package com.oop.servlet;
 
 import java.io.IOException;
@@ -28,6 +32,8 @@ import com.oop.service.mechanicServicesImpl;
 
 /**
  * Servlet implementation class FullRequestservlet
+ * This servelet is used to get all the details associate with appointment by ony giving its appointment id.
+ * 
  */
 @WebServlet("/FullRequestservlet")
 public class FullRequestservlet extends HttpServlet {
@@ -55,7 +61,7 @@ public class FullRequestservlet extends HttpServlet {
 		
 		AppointmentModel appointment = appServices.getAppointmentByAppID(AppointmentID);
 		VehicleModel vehicle = appServices.getVehicleByAppointmentId(appointment.getAppId());
-		UserModel customer = appServices.GetUserById(userId);
+		UserModel customer = appServices.GetUserById(appointment.getUserRegNo());
 		PackageForAppoint appointedPack = pack.getPackageByPackId(appointment.getPackID());
 		VehicalServices appointedServic = service.getServiceDetailServices(appointment.getService_id());
 		List<NewMechModel> listOfMech = new ArrayList<NewMechModel>();

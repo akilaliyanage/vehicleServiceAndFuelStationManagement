@@ -57,6 +57,7 @@ public class EditAppointmentServlet extends HttpServlet {
 		String time = request.getParameter("Edit_time");
 		String pack = request.getParameter("Edit_pack");
 		String Service = request.getParameter("Edit_Service");
+		String updareMsg = "Updated";
 		
 		System.out.println(Service);
 		System.out.println(pack);
@@ -90,6 +91,7 @@ public class EditAppointmentServlet extends HttpServlet {
 			request.setAttribute("Package", selectedpack);
 			request.setAttribute("Allpacks", Allpacks);
 			request.setAttribute("AllvehiServices", AllvehiServices);
+			request.setAttribute("succesMsg", updareMsg);
 			
 			request.getRequestDispatcher("RequestDetailsFrontend.jsp").forward(request, response);
 		}

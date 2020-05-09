@@ -1,3 +1,5 @@
+//Created by D.H.M.M.P.Thammita
+//IT No : IT19120362
 package com.oop.servlet;
 
 import java.io.IOException;
@@ -16,7 +18,9 @@ import com.oop.model.VehicalServices;
 
 
 /**
- * Servlet implementation class SelectPackServelet
+ * Servlet implementation class SelectPackServlet
+ * this gets the service id selected by user in the SendRequest.jsp
+ * then it creates creates cookies for further us in CreateAppointment Servlet
  */
 @WebServlet("/SelectServiceServelet")
 public class SelectServiceServelet extends HttpServlet {
@@ -37,10 +41,9 @@ public class SelectServiceServelet extends HttpServlet {
 		// TODO Auto-generated method stub
 		String selectedService = request.getParameter("ServiceID");
 		
-		//IServiceAccess service = new ServiceAccessImpl();
-		//VehicalServices vehicleService = service.getServiceDetailServices(selectedService);
 		
 		
+		//creates creates cookies for further us in CreateAppointment Servlet
 		Cookie serviceCookie = new Cookie("Service", selectedService);
 		
 		response.addCookie(serviceCookie);

@@ -559,7 +559,7 @@
                     <td>${obj.remarkString}</td>
                     <td>${obj.sernameString}</td>
                     
-                    <td><a href="RequestDetailsFrontend.html" class="btn btn-dark">Full Details</a></td>
+                    <td><a href="FullAppointDetailsServlet?appId=${obj.appidString}" class="btn btn-dark">Full Details</a></td>
                   </tr>
                  
                  </c:forEach>

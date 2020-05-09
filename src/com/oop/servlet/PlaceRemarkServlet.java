@@ -12,6 +12,8 @@ import com.oop.service.AppointmentServicesImpl;
 
 /**
  * Servlet implementation class PlaceRemarkServlet
+ * this servelet places remarks in the appointments.
+ * this servlet is addressed in both newReq.jsp And FullRequestDetails.jsp
  */
 @WebServlet("/PlaceRemarkServlet")
 public class PlaceRemarkServlet extends HttpServlet {

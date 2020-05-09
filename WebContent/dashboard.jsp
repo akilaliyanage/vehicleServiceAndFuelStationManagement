@@ -131,7 +131,7 @@
         <a href="PendingRequestsServlet" class="btn btn-light"
           ><i class="fas fa-flag-checkered"></i>&nbsp;&nbsp; Pending Requests</a
         >
-         <a href="AllrequestsServlet" class="btn btn-light"
+         <a href="AdvanceSearchServlet" class="btn btn-light"
           ><i class="fas fa-flag-checkered"></i>&nbsp;&nbsp; All requests</a
         >
         <a href="reports.html" class="btn btn-light"
