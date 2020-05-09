@@ -927,10 +927,10 @@ This page used JSTL
 								<div class="col-4">
 									<p class="text-muted">Billed to</p>
 									<strong>
-										<p>Akila Liyanage</p>
-										<p>Street name</p>
-										<p>City, State , Province</p>
-										<p>akilaliyanage@gmail.com</p>
+										<p>${User.getUserFullName() }</p>
+										<p>${User.getAddress_line_1() }</p>
+										<p>${User.getAddress_line_2() }</p>
+										<p>${User.getUserEmail() }</p>
 									</strong>
 								</div>
 								<div class="col-4">

@@ -54,7 +54,7 @@ public class NewAppointmentServlet extends HttpServlet {
 		packs = packages.getAllPackages();
 		vehiServices = sevices.getAllServices();
 		
-		
+			request.setAttribute("User", User);
 			request.setAttribute("AllPackages", packs);
 			request.setAttribute("AllServices", vehiServices);
 			
