@@ -780,7 +780,11 @@ let bar = new Chart(req, {
   yAxes: [{
       gridLines: {
           display: true
-      }   
+      },
+      ticks: {
+          beginAtZero: true
+        }
+      
   }]
 }
   }

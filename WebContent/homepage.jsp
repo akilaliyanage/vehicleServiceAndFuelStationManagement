@@ -43,7 +43,7 @@
     
         <!--Navbar -->
         
-        <nav class="mb-1 navbar navbar-expand-lg navbar-dark transparent lighten-1" style="box-shadow: none;font-weight: bolder; border: none;">
+        <nav class="mb-1 navbar navbar-expand-lg fixed-top  navbar-dark transparent lighten-1" style="box-shadow: none;font-weight: bolder; border: none;">
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-555"
                 aria-controls="navbarSupportedContent-555" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
