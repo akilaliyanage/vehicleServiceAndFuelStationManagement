@@ -9,6 +9,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import com.oop.database.DatabaseConnection;
 import com.oop.model.AppointmentDetailsModel;
@@ -23,6 +25,10 @@ public class UpdatUserImplDAO implements IUpdateUserDAO {
 
 	static Connection connection;
 	static PreparedStatement pStatement;
+	
+	/** Initialize logger */
+	private static final Logger LOGGER = Logger.getLogger(UpdatUserImplDAO.class.getName());
+	
 
 	@Override
 	public ArrayList<String> getUserDetails(String regNoString) {
@@ -49,9 +55,15 @@ public class UpdatUserImplDAO implements IUpdateUserDAO {
 				detailsArrayList.add(resultset.getString("userImage"));
 			}
 
-		} catch (Exception e) {
+		} catch (SQLException e) {
 			// TODO: handle exception
-		}
+			LOGGER.log(Level.SEVERE,e.getMessage());
+		} 
+		catch (Exception e) {
+			// TODO: handle exception 
+			LOGGER.log(Level.SEVERE,e.getMessage());
+			
+		}		
 
 		return detailsArrayList;
 	}
@@ -82,9 +94,15 @@ public class UpdatUserImplDAO implements IUpdateUserDAO {
 				bill.add(details);
 
 			}
-		} catch (Exception e) {
+		} catch (SQLException e) {
 			// TODO: handle exception
-		}
+			LOGGER.log(Level.SEVERE,e.getMessage());
+		} 
+		catch (Exception e) {
+			// TODO: handle exception 
+			LOGGER.log(Level.SEVERE,e.getMessage());
+			
+		}		
 
 		return (ArrayList<BillDetailsModel>) bill;
 	}
@@ -121,10 +139,15 @@ public class UpdatUserImplDAO implements IUpdateUserDAO {
 				System.out.println(app.getAppidString());
 
 			}
-		} catch (Exception e) {
+		} catch (SQLException e) {
 			// TODO: handle exception
-			System.out.println(e);
-		}
+			LOGGER.log(Level.SEVERE,e.getMessage());
+		} 
+		catch (Exception e) {
+			// TODO: handle exception 
+			LOGGER.log(Level.SEVERE,e.getMessage());
+			
+		}		
 		return det;
 	}
 
@@ -151,9 +174,15 @@ public class UpdatUserImplDAO implements IUpdateUserDAO {
 				
 			}
 			
-		} catch (Exception e) {
+		} catch (SQLException e) {
 			// TODO: handle exception
-		}
+			LOGGER.log(Level.SEVERE,e.getMessage());
+		} 
+		catch (Exception e) {
+			// TODO: handle exception 
+			LOGGER.log(Level.SEVERE,e.getMessage());
+			
+		}		
 		
 		return totVehicles;
 	}
@@ -180,9 +209,15 @@ public class UpdatUserImplDAO implements IUpdateUserDAO {
 				
 			}
 			
-		} catch (Exception e) {
+		} catch (SQLException e) {
 			// TODO: handle exception
-		}
+			LOGGER.log(Level.SEVERE,e.getMessage());
+		} 
+		catch (Exception e) {
+			// TODO: handle exception 
+			LOGGER.log(Level.SEVERE,e.getMessage());
+			
+		}		
 		
 		return totApps;
 	}
@@ -209,9 +244,15 @@ public class UpdatUserImplDAO implements IUpdateUserDAO {
 				
 			}
 			
-		} catch (Exception e) {
+		} catch (SQLException e) {
 			// TODO: handle exception
-		}
+			LOGGER.log(Level.SEVERE,e.getMessage());
+		} 
+		catch (Exception e) {
+			// TODO: handle exception 
+			LOGGER.log(Level.SEVERE,e.getMessage());
+			
+		}		
 		
 		return totPay;
 	}
@@ -239,9 +280,15 @@ public class UpdatUserImplDAO implements IUpdateUserDAO {
 				
 			}
 			
-		} catch (Exception e) {
+		} catch (SQLException e) {
 			// TODO: handle exception
-		}
+			LOGGER.log(Level.SEVERE,e.getMessage());
+		} 
+		catch (Exception e) {
+			// TODO: handle exception 
+			LOGGER.log(Level.SEVERE,e.getMessage());
+			
+		}		
 		
 		return totItems;
 	}
@@ -263,9 +310,15 @@ public class UpdatUserImplDAO implements IUpdateUserDAO {
 				System.out.println(paid);
 				
 			}
-		} catch (Exception e) {
+		}catch (SQLException e) {
 			// TODO: handle exception
-		}
+			LOGGER.log(Level.SEVERE,e.getMessage());
+		} 
+		catch (Exception e) {
+			// TODO: handle exception 
+			LOGGER.log(Level.SEVERE,e.getMessage());
+			
+		}		
 		
 		return paid;
 	}
@@ -287,9 +340,15 @@ public class UpdatUserImplDAO implements IUpdateUserDAO {
 				
 				
 			}
-		} catch (Exception e) {
+		} catch (SQLException e) {
 			// TODO: handle exception
-		}
+			LOGGER.log(Level.SEVERE,e.getMessage());
+		} 
+		catch (Exception e) {
+			// TODO: handle exception 
+			LOGGER.log(Level.SEVERE,e.getMessage());
+			
+		}		
 		
 		return pend;
 	}
@@ -310,10 +369,15 @@ public class UpdatUserImplDAO implements IUpdateUserDAO {
 				idArrayList.add(resultSet.getString("dispenserId"));
 			}
 			
-		} catch (Exception e) {
+		} catch (SQLException e) {
 			// TODO: handle exception
-		}
-		
+			LOGGER.log(Level.SEVERE,e.getMessage());
+		} 
+		catch (Exception e) {
+			// TODO: handle exception 
+			LOGGER.log(Level.SEVERE,e.getMessage());
+			
+		}		
 		return idArrayList;
 	}
 
@@ -339,9 +403,15 @@ public class UpdatUserImplDAO implements IUpdateUserDAO {
 				
 			}
 			
-		} catch (Exception e) {
+		} catch (SQLException e) {
 			// TODO: handle exception
-		}
+			LOGGER.log(Level.SEVERE,e.getMessage());
+		} 
+		catch (Exception e) {
+			// TODO: handle exception 
+			LOGGER.log(Level.SEVERE,e.getMessage());
+			
+		}		
 		
 		return user;
 		

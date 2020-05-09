@@ -5,6 +5,9 @@ package com.oop.DAO;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.http.HttpSession;
@@ -21,6 +24,9 @@ public class UpdateUserDAO {
 	
 	static Connection connection;
 	static PreparedStatement pStatement;
+	
+	/** Initialize logger */
+	private static final Logger LOGGER = Logger.getLogger(PurchaseFuelDAO.class.getName());
 
 	public int updateUser(UpdateUserModel user) {
 		int status = 0;
@@ -48,9 +54,13 @@ public class UpdateUserDAO {
 
 			//connection.close();
 
-		} catch (Exception e) {
+		} 
+		catch (SQLException e) {
 			// TODO: handle exception
-			System.out.println(e);
+			LOGGER.log(Level.SEVERE,e.getMessage());
+		}catch (Exception e) {
+			// TODO: handle exception
+			LOGGER.log(Level.SEVERE,e.getMessage());
 		}
 
 		return status;

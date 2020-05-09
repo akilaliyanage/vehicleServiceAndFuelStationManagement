@@ -2,6 +2,7 @@ package com.oop.DAO;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -27,7 +28,11 @@ public class DeleteUserDAO {
 			
 			rslt = preparedStatement.executeUpdate();
 			
-		} catch (Exception e) {
+		} 
+		catch (SQLException e) {
+			// TODO: handle exception
+			LOGGER.log(Level.SEVERE, e.getMessage());
+		}catch (Exception e) {
 			// TODO: handle exception
 			LOGGER.log(Level.SEVERE, e.getMessage());
 		}

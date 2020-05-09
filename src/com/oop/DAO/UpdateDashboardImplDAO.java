@@ -6,9 +6,12 @@ package com.oop.DAO;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import javax.print.attribute.TextSyntax;
 
@@ -33,6 +36,9 @@ public class UpdateDashboardImplDAO implements IUpdateDashboardDAO {
 	
 	static Connection connection;
 	static PreparedStatement pStatement;
+	
+	/** Initialize logger */
+	private static final Logger LOGGER = Logger.getLogger(UpdateDashboardImplDAO.class.getName());
 	
 	//gets the request details of the user
 		@SuppressWarnings("unused")
@@ -64,9 +70,14 @@ public class UpdateDashboardImplDAO implements IUpdateDashboardDAO {
 				
 				connection.close();
 				
-			} catch (Exception e) {
+			}catch (SQLException e) {
+				// TODO: handle exception
+				LOGGER.log(Level.SEVERE,e.getMessage());
+			} 
+			catch (Exception e) {
 				// TODO: handle exception 
-				System.out.println(e);
+				LOGGER.log(Level.SEVERE,e.getMessage());
+				
 			}			
 			//returns the details in the string format
 			return details;
@@ -91,12 +102,17 @@ public class UpdateDashboardImplDAO implements IUpdateDashboardDAO {
 					tot = resultSet.getInt("tot");
 				}
 				
-			} catch (Exception e) {
+			}catch (SQLException e) {
 				// TODO: handle exception
+				LOGGER.log(Level.SEVERE,e.getMessage());
+			} 
+			catch (Exception e) {
+				// TODO: handle exception 
+				LOGGER.log(Level.SEVERE,e.getMessage());
+				
 			}
 			
-			System.out.println(tot);
-			
+		
 			return tot;
 		}
 
@@ -114,11 +130,17 @@ public class UpdateDashboardImplDAO implements IUpdateDashboardDAO {
 				
 				while(rSet.next()) {
 					paid = rSet.getInt("paid");
-					System.out.println(paid);
+					
 				}
 				
-			} catch (Exception e) {
+			} catch (SQLException e) {
 				// TODO: handle exception
+				LOGGER.log(Level.SEVERE,e.getMessage());
+			} 
+			catch (Exception e) {
+				// TODO: handle exception 
+				LOGGER.log(Level.SEVERE,e.getMessage());
+				
 			}
 			
 			
@@ -140,11 +162,17 @@ public class UpdateDashboardImplDAO implements IUpdateDashboardDAO {
 				
 				while(rSet.next()) {
 					pending = rSet.getInt("tot");
-					System.out.println(pending);
+					
 				}
 				
-			} catch (Exception e) {
+			} catch (SQLException e) {
 				// TODO: handle exception
+				LOGGER.log(Level.SEVERE,e.getMessage());
+			} 
+			catch (Exception e) {
+				// TODO: handle exception 
+				LOGGER.log(Level.SEVERE,e.getMessage());
+				
 			}
 			
 			
@@ -169,12 +197,18 @@ public class UpdateDashboardImplDAO implements IUpdateDashboardDAO {
 				
 				while(rSet.next()) {
 					totApps = rSet.getInt("tot");
-					System.out.println(totApps);
+					
 				}
 				
-			} catch (Exception e) {
+			}catch (SQLException e) {
 				// TODO: handle exception
-			}
+				LOGGER.log(Level.SEVERE,e.getMessage());
+			} 
+			catch (Exception e) {
+				// TODO: handle exception 
+				LOGGER.log(Level.SEVERE,e.getMessage());
+				
+			} 
 			
 			
 			return totApps;
@@ -196,11 +230,17 @@ public class UpdateDashboardImplDAO implements IUpdateDashboardDAO {
 				
 				while(rSet.next()) {
 					totpay = rSet.getInt("tot");
-					System.out.println(totpay);
+					
 				}
 				
-			} catch (Exception e) {
+			} catch (SQLException e) {
 				// TODO: handle exception
+				LOGGER.log(Level.SEVERE,e.getMessage());
+			} 
+			catch (Exception e) {
+				// TODO: handle exception 
+				LOGGER.log(Level.SEVERE,e.getMessage());
+				
 			}
 			
 			
@@ -224,11 +264,17 @@ public class UpdateDashboardImplDAO implements IUpdateDashboardDAO {
 				
 				while(rSet.next()) {
 					totPack = rSet.getInt("tot");
-					System.out.println(totPack);
+					
 				}
 				
-			} catch (Exception e) {
+			} catch (SQLException e) {
 				// TODO: handle exception
+				LOGGER.log(Level.SEVERE,e.getMessage());
+			} 
+			catch (Exception e) {
+				// TODO: handle exception 
+				LOGGER.log(Level.SEVERE,e.getMessage());
+				
 			}
 			
 			
@@ -258,8 +304,14 @@ public class UpdateDashboardImplDAO implements IUpdateDashboardDAO {
 					requestModels.add(obj);
 				}
 				
-			} catch (Exception e) {
+			} catch (SQLException e) {
 				// TODO: handle exception
+				LOGGER.log(Level.SEVERE,e.getMessage());
+			} 
+			catch (Exception e) {
+				// TODO: handle exception 
+				LOGGER.log(Level.SEVERE,e.getMessage());
+				
 			}
 			// TODO Auto-generated method stub
 			return requestModels;
@@ -294,8 +346,14 @@ public class UpdateDashboardImplDAO implements IUpdateDashboardDAO {
 				}
 				
 				
-			} catch (Exception e) {
+			} catch (SQLException e) {
 				// TODO: handle exception
+				LOGGER.log(Level.SEVERE,e.getMessage());
+			} 
+			catch (Exception e) {
+				// TODO: handle exception 
+				LOGGER.log(Level.SEVERE,e.getMessage());
+				
 			}
 			
 			return paymentsDAOs;
@@ -331,8 +389,14 @@ public class UpdateDashboardImplDAO implements IUpdateDashboardDAO {
 				}
 				
 				
-			} catch (Exception e) {
+			} catch (SQLException e) {
 				// TODO: handle exception
+				LOGGER.log(Level.SEVERE,e.getMessage());
+			} 
+			catch (Exception e) {
+				// TODO: handle exception 
+				LOGGER.log(Level.SEVERE,e.getMessage());
+				
 			}
 			
 			return mech;
@@ -364,8 +428,14 @@ public class UpdateDashboardImplDAO implements IUpdateDashboardDAO {
 					
 				}
 				
-			} catch (Exception e) {
+			} catch (SQLException e) {
 				// TODO: handle exception
+				LOGGER.log(Level.SEVERE,e.getMessage());
+			} 
+			catch (Exception e) {
+				// TODO: handle exception 
+				LOGGER.log(Level.SEVERE,e.getMessage());
+				
 			}
 			
 			return userModels;
@@ -396,8 +466,14 @@ public class UpdateDashboardImplDAO implements IUpdateDashboardDAO {
 					
 				}
 				
-			} catch (Exception e) {
+			} catch (SQLException e) {
 				// TODO: handle exception
+				LOGGER.log(Level.SEVERE,e.getMessage());
+			} 
+			catch (Exception e) {
+				// TODO: handle exception 
+				LOGGER.log(Level.SEVERE,e.getMessage());
+				
 			}
 			
 			return usageArrayList;
