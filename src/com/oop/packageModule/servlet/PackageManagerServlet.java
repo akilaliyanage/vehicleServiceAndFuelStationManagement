@@ -59,7 +59,7 @@ public class PackageManagerServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException {
 		String packageData = request.getParameter("package_info");
 		String method = request.getParameter("method");
-		
+		//request.getSession().getAttribute("regno");
 		try {
 			ServicePackage servicePackage = (ServicePackage) new ObjectMapper().readValue(packageData,ServicePackage.class);
 			if(("save").equalsIgnoreCase(method)) {

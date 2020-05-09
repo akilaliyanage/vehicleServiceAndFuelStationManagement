@@ -127,7 +127,7 @@
 					</div>
 					<div class="modal-footer">
 						<button class="btn btn-success" data-dismiss="modal"
-							ng-click="updateMember()">
+							ng-click="checkoutItems()">
 							<span class="glyphicon glyphicon-edit"></span> Checkout
 						</button>
 					</div>
