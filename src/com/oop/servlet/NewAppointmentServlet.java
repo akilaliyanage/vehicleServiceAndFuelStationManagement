@@ -12,7 +12,10 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.oop.model.PackageForAppoint;
+import com.oop.model.UserModel;
 import com.oop.model.VehicalServices;
+import com.oop.service.AppointmentServices;
+import com.oop.service.AppointmentServicesImpl;
 import com.oop.service.IPackageAccess;
 import com.oop.service.IServiceAccess;
 import com.oop.service.PackageAccessImpl;
@@ -20,6 +23,8 @@ import com.oop.service.ServiceAccessImpl;
 
 /**
  * Servlet implementation class NewAppointmentServlet
+ * this servlet all gets data from the database that needed for SendRequest.jsp
+ * and dispatchs to it.
  */
 @WebServlet("/NewAppointmentServlet")
 public class NewAppointmentServlet extends HttpServlet {
@@ -39,6 +44,8 @@ public class NewAppointmentServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession();
 		String userId = (String)session.getValue("regno");
+		AppointmentServices appointmentServices = new AppointmentServicesImpl();
+		UserModel User = appointmentServices.GetUserById(userId);
 		IPackageAccess packages = new PackageAccessImpl();
 		IServiceAccess sevices = new ServiceAccessImpl();
 		
@@ -47,10 +54,12 @@ public class NewAppointmentServlet extends HttpServlet {
 		packs = packages.getAllPackages();
 		vehiServices = sevices.getAllServices();
 		
-		request.setAttribute("AllPackages", packs);
-		request.setAttribute("AllServices", vehiServices);
 		
-		request.getRequestDispatcher("SendRequest.jsp").forward(request, response);
+			request.setAttribute("AllPackages", packs);
+			request.setAttribute("AllServices", vehiServices);
+			
+			request.getRequestDispatcher("SendRequest.jsp").forward(request, response);
+		
 		
 	}
 

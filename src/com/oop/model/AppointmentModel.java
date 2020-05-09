@@ -1,3 +1,12 @@
+//Created by D.H.M.M.P.Thammita
+//IT No : IT19120362
+
+
+/*
+ * This modeclass represents a appointment.
+ * 
+ * */
+
 package com.oop.model;
 
 public class AppointmentModel {
@@ -14,8 +23,17 @@ public class AppointmentModel {
 	protected String service_id;
 	protected String vehicleI_No;
 	private double Ammount;
+	protected String FeedbackDescription;
 	
 	
+	public String getFeedbackDescription() {
+		return FeedbackDescription;
+	}
+
+	public void setFeedbackDescription(String feedbackDescription) {
+		FeedbackDescription = feedbackDescription;
+	}
+
 	public AppointmentModel() {
 		super();
 	}
@@ -58,6 +76,22 @@ public class AppointmentModel {
 		this.service_id = service_id;
 		this.vehicleI_No = vehicleI_No;
 		this.Ammount = Ammount;
+	}
+	
+	
+
+	public AppointmentModel(String appId, String packID, String userRegNo, String status, String prefDate,
+			String prefTime, String service_id, String vehicleI_No, double ammount) {
+		super();
+		this.appId = appId;
+		this.packID = packID;
+		this.userRegNo = userRegNo;
+		this.status = status;
+		this.prefDate = prefDate;
+		this.prefTime = prefTime;
+		this.service_id = service_id;
+		this.vehicleI_No = vehicleI_No;
+		Ammount = ammount;
 	}
 
 	public String getVehicleI_No() {

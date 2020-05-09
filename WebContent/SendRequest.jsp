@@ -1,3 +1,8 @@
+<!-- Created by D.H.M.M.P.Thammita
+IT No : IT19120362  
+This page used JSTL
+-->
+
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1" errorPage="error.jsp"%>
 
@@ -36,6 +41,15 @@
 </head>
 <body>
 
+
+	<%
+		//Checking the session variable before accessing the page
+		if(session.getAttribute("regno") == null){
+			request.getRequestDispatcher("index.jsp").forward(request, response);
+		}
+		
+	%>
+
 	<div class="section-1" id="section-1">
 		<!--Navbar -->
 		<nav
@@ -50,13 +64,13 @@
 			<div class="collapse navbar-collapse" id="navbarSupportedContent-555">
 				<ul class="navbar-nav mr-auto">
 					<li class="nav-item active"><a class="nav-link"
-						href="homepage.html">Home <span class="sr-only">(current)</span>
+						href="HomePageRedirectServlet">Home <span class="sr-only">(current)</span>
 					</a></li>
 					<li class="nav-item"><a class="nav-link"
-						href="userProfile.jsp">My profile</a></li>
+						href="UpdateUserDashboard">My profile</a></li>
 					<li class="nav-item"><a class="nav-link"
-						href="userProfile.jsp">Make payment</a></li>
-					<li class="nav-item"><a class="nav-link" href="#">Log out</a>
+						href="UpdatePaymentServlet">Make payment</a></li>
+					<li class="nav-item"><a class="nav-link" href="LogoutServlet">Log out</a>
 					</li>
 					<!-- Dropdown -->
 
@@ -180,8 +194,7 @@
 										<div class="media p-3 mb-4" style="background-color: skyblue;">
 											<div class="media-body mr-3">
 												<h5 class="mt-0 text-right">Vehicle Wash</h5>
-												<p class="text-right">Enim est reprehenderit commodo
-													aute magna cillum sunt veniam esse ex esse officia.</p>
+												<p class="text-right">If your car is not becoming to you, you should be coming to us..</p>
 											</div>
 											<img src="img/Mahen/wash_car.jpg" class="mr-3" alt="">
 										</div>
@@ -190,7 +203,7 @@
 											<img src="img/Mahen/interior.jpg" class="mr-3" alt="">
 											<div class="media-body ">
 												<h5 class="mt-0">Interior Detailing</h5>
-												Dolor voluptate magna labore reprehenderit officia.
+												Interior detailing involves cleaning the inner parts of a vehicle.
 											</div>
 										</div>
 
@@ -199,8 +212,7 @@
 										<div class="media p-3 mb-4" style="background-color: magenta;">
 											<div class="media-body mr-3">
 												<h5 class="mt-0  text-right">Exterior Detailing</h5>
-												<p class="text-right">Enim est reprehenderit commodo
-													aute magna cillum sunt veniam esse ex esse officia.</p>
+												<p class="text-right">It involves vacuuming, restoring, and surpassing the  exterior constituents.</p>
 											</div>
 											<img src="img/Mahen/exterior.jpg" class="mr-3" alt="...">
 										</div>
@@ -209,8 +221,7 @@
 											<img src="img/Mahen/hybrid.jpg" class="mr-3" alt="...">
 											<div class="media-body">
 												<h5 class="mt-0">Hybrid services</h5>
-												Deserunt adipisicing elit dolor deserunt cillum sint veniam
-												magna esse eu.
+												Our experts carry out all the hybrid specific checks your car needs.
 											</div>
 										</div>
 
@@ -230,8 +241,7 @@
 											<img src="img/Mahen/engine_tune.jpg" class="mr-3" alt="...">
 											<div class="media-body">
 												<h5 class="mt-0">Engine tune-up</h5>
-												Consectetur sint ut amet cupidatat nulla non occaecat velit
-												veniam velit nisi mollit adipisicing.
+												Regular engine tune-ups bring power and efficiency back to your car.We Complete Auto Care.
 											</div>
 										</div>
 
@@ -302,36 +312,33 @@
 
 						<div class="card col-2 mr-5 ml-5 mb-0 mt-0 p-0"
 							id="Vehicle_details_Demo">
-							<img class="card-img-top" src="img/Mahen/gettinf_details.jpg"
+							<img class="card-img-top" src="img/Mahen/rotatingCar.gif"
 								alt="Card image cap">
 							<div class="card-body">
-								<h5 class="card-title text-center">ASD 4512</h5>
+								<h5 class="card-title text-center" id="Vehicle_no_temperory">ASD 4512</h5>
 								<p class="card-text">
 									<i class="fab fa-bootstrap"></i> Brand : Toyota
 								</p>
-								<p class="card-text">
+								<p class="card-text" id="Vehicle_model_temperory">
 									<i class="fab fa-maxcdn"></i> Model : CHR
 								</p>
-								<p class="card-text">
+								<p class="card-text" id="Vehicle_Year_temperory">
 									<i class="far fa-calendar-alt"></i> Year : 2018
 								</p>
-								<div class="d-flex justify-content-center align-self-center">
-
-								</div>
 							</div>
 						</div>
 
 						<div class="card col-2 mr-5 ml-5 mt-0 p-0" id="Time_dimo">
-							<img class="card-img-top" src="img/Mahen/clock.jpg"
+							<img class="card-img-top" src="img/Mahen/TimingWatchGif.gif"
 								alt="Card image cap">
 							<div class="card-body">
-								<h5 class="card-title">Your Time</h5>
+								<h5 class="card-title" >Your Time</h5>
 								<p class="card-text">
-								<p class="card-text">
+								<p class="card-text" id="app_date_temperory">
 									<i class="far fa-calendar-alt"></i> 25-03-2020
 								</p>
 								<p class="card-text">
-								<p class="card-text">
+								<p class="card-text" id="app_time_temperory">
 									<i class="far fa-clock"></i> 9.00
 								</p>
 								<div class="d-flex justify-content-center align-self-center">
@@ -408,76 +415,7 @@
 							</div>
 						</c:forEach>
 
-						<div class="card col-3 m-3 p-0">
 
-							<!-- Card image -->
-							<div class="view overlay">
-								<img class="card-img-top" src="img/Mahen/silver-package_S.png"
-									alt="Card image cap"> <a>
-									<div class="mask rgba-white-slight"></div>
-								</a>
-							</div>
-
-							<!-- Card content -->
-							<div class="card-body elegant-color white-text rounded-bottom">
-
-
-								<!-- Title -->
-								<h4 class="card-title text-center">
-									<i class="fas fa-box-open"></i> Silver Package
-								</h4>
-								<hr class="hr-light">
-								<!-- Text -->
-								<p class="card-text white-text mb-4">Some quick example text
-									to build on the card title and make up the bulk of the card's
-									content.</p>
-								<!-- Link -->
-								<button type="submit" class="btn btn-light btn-lg pcg_btn"
-									onclick="goService(25)" value="sample" name="pack">Select</button>
-
-
-
-							</div>
-
-						</div>
-
-
-
-						<!-- Card Dark -->
-						<div class="card col-3 m-3 p-0">
-
-							<!-- Card image -->
-							<div class="view overlay">
-								<img class="card-img-top"
-									src="img/Mahen/gold-package-720x940.png" alt="Card image cap">
-								<a>
-									<div class="mask rgba-white-slight"></div>
-								</a>
-							</div>
-
-							<!-- Card content -->
-							<div class="card-body elegant-color white-text rounded-bottom">
-
-
-								<!-- Title -->
-								<h4 class="card-title text-center">
-									<i class="fas fa-box-open"></i> Gold Package
-								</h4>
-								<hr class="hr-light">
-								<!-- Text -->
-								<p class="card-text white-text mb-4">Some quick example text
-									to build on the card title and make up the bulk of the card's
-									content.</p>
-								<!-- Link -->
-								<button type="submit" class="btn btn-light btn-lg pcg_btn"
-									onclick="goService(25)" value="sample" name="pack">Select</button>
-
-
-
-							</div>
-
-						</div>
-						<!-- Card Dark -->
 
 
 
@@ -645,159 +583,117 @@
 				<form action="CreateAppointmentServlet" method="get">
 				
 					<div class="Vehi_Details mb-2 mt-2 pb-0">
-						<div class="jumbotron jombo_sec_3 m-0 p-5">
-							<h1 class="display-4 text-center" style="font-weight: 700;">Vehicle
-								Details</h1>
-							<hr class="my-4">
+					
+					
+					
+					<!-- Start new vehi Details Model -->
+					                    <div class="jumbotron jombo_sec_3 d-flex justify-content-end p-0 m-0">
+                        <div class="col-6">
+                            <img src="img/Mahen/fillingGif.gif" style="width: 100%; height: 100%;">
 
-							
-							<div class="form-row d-flex justify-content-center ">
-								<div class="form-group col-md-5">
-									<label for="inputState">
-										<h4>Vehicle No</h4>
-									</label>
-									<div class="input-group mb-2 mr-sm-2">
-										<div class="input-group-prepend">
-											<div class="input-group-text">
-												<img src="img/Mahen/vehical_no.png" alt="">
-											</div>
-										</div>
-										<input type="text" id="Vehicle_Nosa" class="form-control" required
-											name="vehi_No" value="">
-									</div>
-								</div>
-							</div>
-							<hr class="my-4">
-							<div class="form-row ">
-								<div class="form-group col-md-6 ">
-									<label for="inputState">
-										<h4>Brand</h4>
-									</label>
-									<div class="input-group mb-2 mr-sm-2">
-										<div class="input-group-prepend">
-											<div class="input-group-text">
-												<img src="img/Mahen/brand.png" alt="">
-											</div>
-										</div>
-										<input type="text" class="form-control" id="Vehicle_brand" required name="brand"
-											placeholder="" required value="">
+                        </div>
+                        <div class="col-6 ">
 
-									</div>
-								</div>
-								<div class="form-group col-md-6 ">
-									<label for="inputState">
-										<h4>Model</h4>
-									</label>
-									<div class="input-group mb-2 mr-sm-2">
-										<div class="input-group-prepend">
-											<div class="input-group-text">
-												<img src="img/Mahen/model2.png" alt=""></i>
-											</div>
-										</div>
-										<input type="text" id="Vehicle_model" class="form-control" required name="model"
-											placeholder="" name="Model" value="">
+                           
+                           
 
-									</div>
-								</div>
-								<div class="form-group col-md-4">
-									<label for="inputState">
-										<h4>Year</h4>
-									</label>
-									<div class="input-group mb-2 mr-sm-2">
-										<div class="input-group-prepend">
-											<div class="input-group-text">
-												<img src="img/Mahen/calender.png" alt=""></i>
-											</div>
-										</div>
-										  
-										<input type="text" id="Vehicle_year" class="form-control" required name="year"
-											placeholder="" name="year" required value="">
-											
-									</div>
-								</div>
-								<div class="form-group col-md-4">
-									<label for="inputState">
-										<h4>Transmission</h4>
-									</label>
-									<div class="input-group mb-2 mr-sm-2">
-										<div class="input-group-prepend">
-											<div class="input-group-text">
-												<img src="img/Mahen/transmission.png" alt=""></i>
-											</div>
-										</div>
-										<select id="Vehicle_trans" class="form-control form-control-lg"
-											name="Transmission" required >
-											<option selected>Choose...</option>
-											<option>Auto</option>
-											<option>Manual</option>
-											<option>Tiptronic</option>
-										</select>
-									</div>
-								</div>
-								<div class="form-group col-md-4">
-									<label for="inputState">
-										<h4>Fuel Type</h4>
-									</label>
-									<div class="input-group mb-2 mr-sm-2">
-										<div class="input-group-prepend">
-											<div class="input-group-text">
-												<img src="img/Mahen/fuel.png" alt=""></i>
-											</div>
-										</div>
-										<select id="Vehicle_fuel" class="form-control form-control-lg"
-											name="Fuel" required>
-											<option selected>Choose...</option>
-											<option value="Petrol">Petrol</option>
-											<option value="Diesel">Diesel</option>
-											<option value="Gasoline">Gasoline</option>
-											<option value="Electric">Electric</option>
-										</select>
-									</div>
-								</div>
-								<div class="form-group col-md-4">
-									<label for="inputState">
-										<h4>Engine Capacity</h4>
-									</label>
-									<div class="input-group mb-2 mr-sm-2">
-										<div class="input-group-prepend">
-											<div class="input-group-text">
-												<img src="img/Mahen/engine_capacity.jpg" alt=""></i>
-											</div>
-										</div>
-										<input type="text" class="form-control"  name="Engine"
-											placeholder="" name="Engine">
-									</div>
-								</div>
-								<div class="form-group col-md-4">
-									<label for="inputState">
-										<h4>Milage</h4>
-									</label>
-									<div class="input-group mb-2 mr-sm-2">
-										<div class="input-group-prepend">
-											<div class="input-group-text">
-												<img src="img/Mahen/milage.png" alt=""></i>
-											</div>
-										</div>
-										<input type="text" class="form-control" name="Milage"
-											placeholder="" name="Milage" value="">
-									</div>
-								</div>
-							</div>
+                                <h5 class="text-center py-4">
+                                    <strong>Vehicle Details</strong>
+                                </h5>
 
-							<button type="button" onclick="goTime(60)"
-								class="btn btn-warning">
-								<i class="far fa-hand-point-right fa-2x"><strong>
-										Next </strong></i>
+                                <!--Card content-->
+                                <div class="card-body px-lg-5 pt-0">
+
+                                   
+
+                                        <div class="md-form input-with-pre-icon">
+                                            <i class="fas fa-car-alt input-prefix"></i>
+                                            <input type="text" id="Vehicle_Nosa" class="form-control"
+                                            name="vehi_No" value="" required>
+                                            <label for="Vehicle_Nosa">Vehicle No</label>
+                                        </div>
+
+                                        <div class="md-form input-with-pre-icon">
+                                            <i class="fab fa-bootstrap input-prefix"></i>
+                                            <input type="text" id="Vehicle_brand" class="form-control" required
+                                                name="brand" placeholder="" required value="">
+                                            <label for="Vehicle_brand">Vehicle Brand </label>
+                                        </div>
+
+                                        <div class="md-form input-with-pre-icon">
+                                            <i class="fab fa-medium-m input-prefix"></i>
+                                            <input type="text" id="Vehicle_model" class="form-control" required
+                                                name="model" placeholder="" name="Model" value="">
+                                            <label for="Vehicle_model">Vehicle Model </label>
+                                        </div>
+                                        
+                                        
+
+                                        <div class="md-form input-with-pre-icon">
+                                            <i class="far fa-calendar-alt input-prefix"></i>
+                                            <input type="text" id="Vehicle_year" class="form-control" required
+                                                name="year" placeholder="" name="year" required value="">
+                                            <label for="Vehicle_year">Manufactured Year </label>
+                                        </div>
+                                        
+                                        <div class="form-row">
+                                       
+                                        
+                                        <div class="form-group col-6">
+                                            <label for="Vehicle_trans" class="SelectingLabels">
+                                                <i class="fas fa-cogs"></i>Transmission
+                                            </label>
+                                            <select id="Vehicle_trans" class="browser-default custom-select"
+                                                name="Transmission" required>
+                                                <option selected>Choose...</option>
+                                                <option>Auto</option>
+                                                <option>Manual</option>
+                                                <option>Tiptronic</option>
+                                            </select>
+                                        </div>
+
+                                        
+                                        
+                                        <div class="form-group col-6">
+                                            <label for="Vehicle_fuel" class="SelectingLabels">
+                                                <i class="fas fa-gas-pump"></i>Fuel Type
+                                            </label>
+                                            <select id="Vehicle_fuel" class="browser-default custom-select" name="Fuel"
+                                                required>
+                                                <option selected>Choose...</option>
+                                                <option value="Petrol">Petrol</option>
+                                                <option value="Diesel">Diesel</option>
+                                                <option value="Gasoline">Gasoline</option>
+                                                <option value="Electric">Electric</option>
+                                            </select>
+                                        </div>
+                                        </div>
+
+                                        
+                                        <div class="md-form input-with-pre-icon">
+                                            <i class="fas fa-cog input-prefix"></i>
+                                            <input type="text" class="form-control" name="Engine" placeholder=""
+                                                id="prefixInside" name="Engine">
+                                            <label for="prefixInside">Engine CApacity </label>
+                                        </div>
+
+                                        <div class="d-flex justify-content-start vehiclefrmsbmtBtn">
+                                            
+                                            <button type="button" onclick="goTime(60)"
+                                                class="btn btn-info btn-rounded btn-block my-4 waves-effect z-depth-0">
+                                                <i class="far fa-hand-point-right fa-2x"><strong>
+                                                        Next </strong></i>
 
 
-							</button>
-							
+                                            </button>
+                                        </div>
 
+                            </div>
 
+                        </div>
+                    </div>
+					<!-- End of new vehi Details Model -->
 
-							
-							
-						</div>
 					
 					</div>
 					
@@ -1309,88 +1205,8 @@
 
 
 	<!--footer-->
-
-
-	<footer class="new_footer_area bg_color">
-		<div class="new_footer_top">
-			<div class="container">
-				<div class="row">
-					<div class="col-lg-3 col-md-6">
-						<div class="f_widget company_widget wow fadeInLeft"
-							data-wow-delay="0.2s"
-							style="visibility: visible; animation-delay: 0.2s; animation-name: fadeInLeft;">
-							<h3 class="f-title f_600 t_color f_size_18">Get in Touch</h3>
-							<p>Don’t miss any updates of our new templates and
-								extensions.!</p>
-							<form action="#" class="f_subscribe_two mailchimp" method="post"
-								novalidate="true" _lpchecked="1">
-								<input type="text" name="EMAIL" class="form-control memail"
-									placeholder="Email">
-								<button class="btn btn_get btn_get_two" type="submit">Subscribe</button>
-								<p class="mchimp-errmessage" style="display: none;"></p>
-								<p class="mchimp-sucmessage" style="display: none;"></p>
-							</form>
-						</div>
-					</div>
-					<div class="col-lg-3 col-md-6">
-						<div class="f_widget about-widget pl_70 wow fadeInLeft"
-							data-wow-delay="0.4s"
-							style="visibility: visible; animation-delay: 0.4s; animation-name: fadeInLeft;">
-							<h3 class="f-title f_600 t_color f_size_18">Services</h3>
-							<ul class="list-unstyled f_list">
-								<li><a href="#">Packages</a></li>
-								<li><a href="#">Requexts App</a></li>
-								<li><a href="#">Status</a></li>
-								<li><a href="#">Reports</a></li>
-								<li><a href="#">Bills</a></li>
-								<li><a href="#">Notifications</a></li>
-							</ul>
-						</div>
-					</div>
-					<div class="col-lg-3 col-md-6">
-						<div class="f_widget about-widget pl_70 wow fadeInLeft"
-							data-wow-delay="0.6s"
-							style="visibility: visible; animation-delay: 0.6s; animation-name: fadeInLeft;">
-							<h3 class="f-title f_600 t_color f_size_18">Navigate to
-								other pages</h3>
-							<ul class="list-unstyled f_list">
-								<li><a href="#">FAQ</a></li>
-								<li><a href="#">Login</a></li>
-								<li><a href="#">User Admin</a></li>
-							</ul>
-						</div>
-					</div>
-					<div class="col-lg-3 col-md-6">
-						<div class="f_widget social-widget pl_70 wow fadeInLeft"
-							data-wow-delay="0.8s"
-							style="visibility: visible; animation-delay: 0.8s; animation-name: fadeInLeft;">
-							<h3 class="f-title f_600 t_color f_size_18">Social Media</h3>
-							<div class="f_social_icon">
-								<a href="#" class="fab fa-facebook"></a> <a href="#"
-									class="fab fa-twitter"></a> <a href="#" class="fab fa-linkedin"></a>
-								<a href="#" class="fab fa-pinterest"></a>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="footer_bg">
-				<div class="footer_bg_one"></div>
-				<div class="footer_bg_two"></div>
-			</div>
-		</div>
-		<div class="footer_bottom">
-			<div class="container">
-				<div class="row align-items-center">
-					<div class="col-lg-6 col-sm-7">
-						<p class="mb-0 f_400">© CarCare System Solutions All rights
-							reserved.</p>
-					</div>
-				</div>
-			</div>
-		</div>
-	</footer>
-	<!--end of the footer-->
+    <jsp:include page="/WEB-INF/views/akila/footer.jsp"></jsp:include>
+   <!--end of the footer-->
 
 
 

@@ -1,3 +1,10 @@
+//Created by D.H.M.M.P.Thammita
+//IT No : IT19120362
+
+/*
+ * This Model class represents a Vehicle that associated with an appointment in the system
+ * */
+
 package com.oop.model;
 
 public class VehicleModel {

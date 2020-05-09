@@ -1,0 +1,36 @@
+@charset "ISO-8859-1";
+
+.FeedFaces:hover{
+	background-color: #ffbb33;
+	border-radius: 50px;
+}
+.thankImg{
+	width: 200px;
+	height: 200px;
+}
+.thankindModel{
+  background-image: url("../../img/Mahen/feedbackThanking.gif");
+  background-color: #cccccc;
+  height: 400px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+#ThankingTop{
+	font-size: xx-large;
+	font-weight: bold;
+}
+
+#Thankingbottom{
+	position:relative;
+	top: 250px;
+}
+
+#fullTopImg{
+	position: relative;
+	top : -10px;
+	left: 110px;
+	width: 900px;
+	height: 400px;
+}

@@ -97,9 +97,7 @@
 }
 .Vehi_Details{
     display: none;
-    background-image: url(../../img/Mahen/Jeep_Many_537805_1920x1080.jpg);
-    margin: 80px;
-    border-radius: 5px;
+   
     
 }
 .Vehi_Details .card-header{
@@ -257,3 +255,8 @@
     display: none;
 }
 /*------------------------------------------------------------------*/
+.vehiclefrmsbmtBtn{
+    position: relative;
+    left: -210px;
+    top: -30px;
+}

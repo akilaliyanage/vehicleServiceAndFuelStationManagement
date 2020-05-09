@@ -1,4 +1,7 @@
-<!DOCTYPE html>
+
+ <!DOCTYPE html>
+ <!-- Created by D.H.M.M.P.Thammita
+IT No : IT19120362  -->
 <%@page import="java.util.ArrayList"%>
 <%@page import="com.oop.model.NewMechModel"%>
 <%@page import="java.util.List"%>
@@ -30,6 +33,11 @@
 
 <body>
 	<%
+	//Checking the session variable before accessing the page
+		if(session.getAttribute("regno") == null){
+			request.getRequestDispatcher("index.jsp").forward(request, response);
+		}	
+	
 		List<NewMechModel> 	Mechanics = (ArrayList<NewMechModel>) request.getAttribute("Mechanics");
 		
 	
@@ -151,10 +159,11 @@
 
       <h6 class="dropdown-header">Vehicle Service Center</h6>
 
-      <a href="" class="btn btn-light"><i class="fas fa-flag-checkered"></i>&nbsp;&nbsp; Pending Requests</a>
+      <a href="PendingRequestsServlet" class="btn btn-light"><i class="fas fa-flag-checkered"></i>&nbsp;&nbsp; Pending Requests</a>
+      <a href="AdvanceSearchServlet" class="btn btn-light"><i class="fas fa-flag-checkered"></i>&nbsp;&nbsp; All requests</a>
       <a href="" class="btn btn-light"><i class="fas fa-file-word"></i>&nbsp;&nbsp; Reports</a>
-      <a href="" class="btn btn-light"><i class="fas fa-reply"></i>&nbsp;&nbsp; User Feedback</a>
-      <a href="" class="btn btn-light"><i class="fas fa-box"></i>&nbsp;&nbsp; Packages</a>
+      <a href="InquieryNavigateServlet" class="btn btn-light"><i class="fas fa-reply"></i>&nbsp;&nbsp; User Feedback</a>
+      <a href="PackageManagerServlet" class="btn btn-light"><i class="fas fa-box"></i>&nbsp;&nbsp; Packages</a>
       <a href="" class="btn btn-light"><i class="fas fa-receipt"></i>&nbsp;&nbsp; Bill</a>
 
       <h6 class="dropdown-header">Fuel Station</h6>
@@ -175,7 +184,7 @@
 
           <div class="card m-3 pt-2" style="width: 18rem; border: none;">
             <div>
-              <img src="img/akila/big.jpg" class="card-img-top" alt="">
+              <img src="img/userImages/<%=Customer.getUserImage()%>" class="card-img-top" alt="">
               <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#ContactCustomer"
                 style="width: 100%; border-radius: 0px">Contact</button>
             </div>
@@ -195,7 +204,7 @@
                   <tr>
                     <th scope="row">Status</th>
                     <td class="d-flex justify-content-end">
-                      <span class="badge badge-primary" style="height:25px;"><%= Appointment.getStatus() %></span>
+                      <span class="badge badge-primary" style="height:25px;" id = "Statusright"><%= Appointment.getStatus() %></span>
                     </td>
                   </tr>
                   <tr>
@@ -250,7 +259,7 @@
                   <div class="card" style="width: 18rem;">
 
 
-                    <img src="img/Mahen/carWash_Card.jpg" class="card-img-top" alt="...">
+                    <img src="<%=Service.getServiceImg() %>" class="card-img-top" alt="...">
 
                     <div class="card-body">
                       <h5 class="card-title"><%=Service.getServiceName() %></h5>
@@ -340,7 +349,7 @@
                       <p> <strong> Machenic ID : </strong> </p>
                     </div>
                     <div class="col-5">
-                      <p class="text-right">MAC454855</p>
+                      <p class="text-right" id="mecNameDidplay" ></p>
                     </div>
                   </div>
                   <a href="" class="text-center" data-toggle="modal" data-target="#<%=Appointment.getAppId()%>">Click to change
@@ -352,7 +361,7 @@
                       <p> <strong> Status : </strong> </p>
                     </div>
                     <div class="col-5 d-flex justify-content-end">
-                      <span class="badge badge-primary" style="height:25px;"> <%=Appointment.getStatus() %> </span>
+                      <span class="badge badge-primary" style="height:25px;" id="StatusLeft"> <%=Appointment.getStatus() %> </span>
                     </div>
                   </div>
                   <a href="" class="text-center" data-toggle="modal" data-target="#StatusChanger">Click to change the
@@ -364,7 +373,7 @@
                       <p> <strong> Remarks : </strong> </p>
                     </div>
                     <div class="col-9">
-                      <p class="text-right"><%=Appointment.getRemarks() %></p>
+                      <p class="text-right" id="DispRemark"><%=Appointment.getRemarks() %></p>
                     </div>
                   </div>
 
@@ -469,9 +478,7 @@
                   <hr style="border-width: 5px; border-color: #0d47a1;">
                   
                   <div class="">
-                    <p class="text-right">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Explicabo minus culpa nam itaque! Earum
-                      accusantium quisquam quasi iste. Sapiente unde alias nostrum perferendis commodi, asperiores eum
-                      ducimus veritatis beatae ea, non ex provident cum quis! vitae.</p>
+                    <p class="text-right"><%=Appointment.getFeedbackDescription() %></p>
                   </div>
                   <h3 style="color: #4285F4;" class="mt-4"> <i class="fas fa-edit"></i> Add Remarks</h3>
                   <hr style="border-width: 5px; border-color: #0d47a1;">
@@ -481,10 +488,10 @@
                       <label>
                         <h6>Add your text here</h6>
                       </label>
-                      <textarea class="form-control" rows="3" name="remark"></textarea>
+                      <textarea class="form-control" rows="3" name="remark" id="remarksText"></textarea>
                       <input type="hidden" value="<%=Appointment.getAppId() %>" name="appointment1">
                     <div class="d-flex justify-content-end">
-                      <input type="submit" value="Place Remark" class="mt-2 btn btn-primary">
+                      <input type="submit" value="Place Remark" class="mt-2 btn btn-primary" onclick="RemarkChanger()">
                     </div>
 
                   </form>
@@ -559,6 +566,32 @@
 				</div>
 			</div>
 		<!-- End of Mechanic Changing model -->
+		
+		<script type="text/javascript">
+		
+		function AssignConfermation(MechName) {
+			document.getElementById("mecNameDidplay").innerHTML = MechName;
+			 $('#<%=Appointment.getAppId()%>').modal('hide'); 
+		}
+		
+		function Affectstatus(Status){
+			document.getElementById("StatusLeft").innerHTML = Status;
+			document.getElementById("Statusright").innerHTML = Status;
+			 $('#StatusChanger').modal('hide'); 
+		}
+		
+		function CloseallMods() {
+			  $("#StatusChanger.close").click(); 	 
+		}
+		
+		function CloseallMods2() {
+			  $("#<%=Appointment.getAppId()%>.close").click(); 	 
+		}
+		
+		function RemarkChanger() {
+			document.getElementById("DispRemark").innerHTML = document.getElementById("remarksText").value;
+		}
+		</script>
 
       <!--Start Status Changing Model-->
       <div class="modal fade" id="StatusChanger" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
@@ -572,11 +605,13 @@
               </button>
             </div>
             <div class="modal-body">
+            <div class="row d-flex justify-content-center">
             	<form action="ChangeStatusServlet" method="get">
             		<input type="hidden" value="<%=Appointment.getAppId()%>" name="appointment2"> 
 					<input type="hidden" name="Status" value="Pending">
 					<input type="hidden" name="Page" value="Fullrequest"> 
-              		<button type="submit" class="btn btn-success mr-2 mt-2"><i class="fas fa-clipboard-check"></i>
+              		<button type="submit" class="btn btn-success mr-4 mt-2" data-toggle="modal" data-target="#SuccessfullyChanged"
+              		onclick="Affectstatus('pending')"><i class="fas fa-clipboard-check"></i>
                 Pending</button>
                 </form>
                 
@@ -584,7 +619,8 @@
                 <input type="hidden" value="<%=Appointment.getAppId()%>" name="appointment2"> 
 				<input type="hidden" name="Status" value="Accepted">
 				<input type="hidden" name="Page" value="Fullrequest">
-              		<button type="submit" class="btn btn-warning mr-2 mt-2"><i class="far fa-window-close"></i>
+              		<button type="submit" class="btn btn-warning mr-4 mt-2" data-toggle="modal" data-target="#SuccessfullyChanged"
+              		onclick="Affectstatus('Accepted')"><i class="far fa-window-close"></i>
                 Accept</button>
                 </form>
                 
@@ -592,11 +628,12 @@
                 	<input type="hidden" value="<%=Appointment.getAppId()%>" name="appointment2">
                     <input type="hidden" name="Status" value="Rejected">
                     <input type="hidden" name="Page" value="Fullrequest">
-              		<button type="submit" class="btn btn-danger mr-2 mt-2"><i class="far fa-trash-alt"></i>
+              		<button type="submit" class="btn btn-danger mr-4 mt-2" data-toggle="modal" data-target="#SuccessfullyChanged"
+              		onclick="Affectstatus('Rejected')"><i class="far fa-trash-alt"></i>
                 Reject</button>
                 </form>
                 
-              
+              </div>
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -605,6 +642,81 @@
         </div>
       </div>
       <!--End Status Changing Model-->
+      
+      <!-- Status changing confermation Model -->
+			<div class="modal fade" id="SuccessfullyChanged" tabindex="1"
+				role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+				<div class="modal-dialog modal-notify modal-success" role="document">
+					<!--Content-->
+					<div class="modal-content">
+						<!--Header-->
+						<div class="modal-header" style="background-color: #28a745;">
+							<p class="heading lead center">Mechanic Assigned</p>
+
+							<button type="button" class="close" data-dismiss="modal"
+								aria-label="Close">
+								<span aria-hidden="true" class="white-text">&times;</span>
+							</button>
+						</div>
+
+						<!--Body-->
+						<div class="modal-body">
+							<div class="text-center">
+								<img alt="" src="img/Mahen/success_png_gif.gif">
+								<h3>Status Changed Successfully</h3>
+							</div>
+						</div>
+
+						<!--Footer-->
+						<div class="d-flex justify-content-center">
+						 <button type="button"
+								class="btn btn-outline-success waves-effect mb-4"
+								data-dismiss="modal" onclick="CloseallMods()">OK
+						</button>
+						</div>
+					</div>
+					<!--/.Content-->
+				</div>
+			</div>
+			<!-- End of Status changing confermation Model-->
+			
+			<!-- Start of mechanicAssigning confermation Model -->
+			<div class="modal fade" id="SuccessfullyAssigned" tabindex="1"
+				role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+				<div class="modal-dialog modal-notify modal-success" role="document">
+					<!--Content-->
+					<div class="modal-content">
+						<!--Header-->
+						<div class="modal-header" style="background-color: #28a745;">
+							<p class="heading lead center">Mechanic Assigned</p>
+
+							<button type="button" class="close" data-dismiss="modal"
+								aria-label="Close">
+								<span aria-hidden="true" class="white-text">&times;</span>
+							</button>
+						</div>
+
+						<!--Body-->
+						<div class="modal-body">
+							<div class="text-center">
+								<img alt="" src="img/Mahen/success_png_gif.gif">
+								<h3>Mechanic Assigned Successfully</h3>
+							</div>
+						</div>
+
+						<!--Footer-->
+						<div class="d-flex justify-content-center">
+						 <button type="button"
+								class="btn btn-outline-success waves-effect mb-4"
+								data-dismiss="modal" onclick="CloseallMods2()">OK
+						</button>
+						</div>
+					</div>
+					<!--/.Content-->
+				</div>
+			</div>
+			<!-- Mechanic Assigning confermation Model-->
+			
 
       <!--Start Customer contact Model-->
       <div class="modal fade" id="ContactCustomer" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
@@ -646,80 +758,8 @@
   <!--end of the body part-->
 
   <!--footer-->
-
-
-  <footer class="new_footer_area bg_color">
-    <div class="new_footer_top">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-3 col-md-6">
-            <div class="f_widget company_widget wow fadeInLeft" data-wow-delay="0.2s"
-              style="visibility: visible; animation-delay: 0.2s; animation-name: fadeInLeft;">
-              <h3 class="f-title f_600 t_color f_size_18">Get in Touch</h3>
-              <p>Don’t miss any updates of our new templates and extensions.!</p>
-              <form action="#" class="f_subscribe_two mailchimp" method="post" novalidate="true" _lpchecked="1">
-                <input type="text" name="EMAIL" class="form-control memail" placeholder="Email">
-                <button class="btn btn_get btn_get_two" type="submit">Subscribe</button>
-                <p class="mchimp-errmessage" style="display: none;"></p>
-                <p class="mchimp-sucmessage" style="display: none;"></p>
-              </form>
-            </div>
-          </div>
-          <div class="col-lg-3 col-md-6">
-            <div class="f_widget about-widget pl_70 wow fadeInLeft" data-wow-delay="0.4s"
-              style="visibility: visible; animation-delay: 0.4s; animation-name: fadeInLeft;">
-              <h3 class="f-title f_600 t_color f_size_18">Services</h3>
-              <ul class="list-unstyled f_list">
-                <li><a href="#">Packages</a></li>
-                <li><a href="#">Requexts App</a></li>
-                <li><a href="#">Status</a></li>
-                <li><a href="#">Reports</a></li>
-                <li><a href="#">Bills</a></li>
-                <li><a href="#">Notifications</a></li>
-              </ul>
-            </div>
-          </div>
-          <div class="col-lg-3 col-md-6">
-            <div class="f_widget about-widget pl_70 wow fadeInLeft" data-wow-delay="0.6s"
-              style="visibility: visible; animation-delay: 0.6s; animation-name: fadeInLeft;">
-              <h3 class="f-title f_600 t_color f_size_18">Navigate to other pages</h3>
-              <ul class="list-unstyled f_list">
-                <li><a href="#">FAQ</a></li>
-                <li><a href="#">Login</a></li>
-                <li><a href="#">User Admin</a></li>
-              </ul>
-            </div>
-          </div>
-          <div class="col-lg-3 col-md-6">
-            <div class="f_widget social-widget pl_70 wow fadeInLeft" data-wow-delay="0.8s"
-              style="visibility: visible; animation-delay: 0.8s; animation-name: fadeInLeft;">
-              <h3 class="f-title f_600 t_color f_size_18">Social Media</h3>
-              <div class="f_social_icon">
-                <a href="#" class="fab fa-facebook"></a>
-                <a href="#" class="fab fa-twitter"></a>
-                <a href="#" class="fab fa-linkedin"></a>
-                <a href="#" class="fab fa-pinterest"></a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="footer_bg">
-        <div class="footer_bg_one"></div>
-        <div class="footer_bg_two"></div>
-      </div>
-    </div>
-    <div class="footer_bottom">
-      <div class="container">
-        <div class="row align-items-center">
-          <div class="col-lg-6 col-sm-7">
-            <p class="mb-0 f_400">© CarCare System Solutions All rights reserved.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </footer>
-  <!--end of the footer-->
+    <jsp:include page="/WEB-INF/views/akila/footer.jsp"></jsp:include>
+   <!--end of the footer-->
 
   <!--bootstrap-->
   <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"

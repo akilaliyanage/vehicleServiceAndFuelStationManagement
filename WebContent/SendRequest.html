@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <link rel="shortcut icon" href="img/akila/Reddy Roadster (1).png" type="image/x-icon" />
@@ -21,13 +22,16 @@
 
     <title>Frontend Template</title>
 </head>
+
 <body>
 
     <div class="section-1" id="section-1">
         <!--Navbar -->
-        <nav class="mb-1 navbar navbar-expand-lg navbar-dark transparent lighten-1" style="box-shadow: none;font-weight: bolder; border: none;">
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-555"
-                aria-controls="navbarSupportedContent-555" aria-expanded="false" aria-label="Toggle navigation">
+        <nav class="mb-1 navbar navbar-expand-lg navbar-dark transparent lighten-1"
+            style="box-shadow: none;font-weight: bolder; border: none;">
+            <button class="navbar-toggler" type="button" data-toggle="collapse"
+                data-target="#navbarSupportedContent-555" aria-controls="navbarSupportedContent-555"
+                aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent-555">
@@ -47,13 +51,13 @@
                         <a class="nav-link" href="#">Log out</a>
                     </li>
                     <!-- Dropdown -->
-                   
+
                 </ul>
                 <ul class="navbar-nav ml-auto nav-flex-icons">
                     <li class="nav-item avatar">
                         <a class="nav-link p-0" href="#">
-                            <img src="https://mdbootstrap.com/img/Photos/Avatars/avatar-5.jpg" class="rounded-circle z-depth-0"
-                                alt="avatar image" height="35">
+                            <img src="https://mdbootstrap.com/img/Photos/Avatars/avatar-5.jpg"
+                                class="rounded-circle z-depth-0" alt="avatar image" height="35">
                         </a>
                     </li>
                 </ul>
@@ -66,12 +70,13 @@
 
             <div class="jumbotron col-10 p-0 pb-2 m-0 mb-4 ">
                 <!---------------------------------------------------------------------------------------------------->
-                      
-                
+
+
                 <div class="col-12 d-flex justify-content-center embed-responsive-1by1m-0 p-0">
-                    <img class="embed-responsive-item" src="img/Mahen/carFront.png" style="width: 2000px; height: 25rem;">
+                    <img class="embed-responsive-item" src="img/Mahen/carFront.png"
+                        style="width: 2000px; height: 25rem;">
                     <div class="card-img-overlay d-flex align-items-center justify-content-center">
-                        
+
                         <div class="row ">
                             <div class="col-lg-12 ">
                                 <button type="button" class="btn btn-success btn-lg btn-block" id="btn_newReq">New
@@ -432,367 +437,381 @@
 
                 <!--Start of  row 1 Section 3-->
                 <div class="Vehi_Details mb-2 mt-2 pb-0">
-                    <div class="jumbotron jombo_sec_3 m-0 p-5">
-                        <h1 class="display-4 text-center" style="font-weight: 700;">Vehicle Details</h1>
-                        <hr class="my-4">
+                    <div class="jumbotron jombo_sec_3 d-flex justify-content-end p-0 m-0">
+                        <div class="col-6">
+                            <img src="img/Mahen/fillingGif.gif" style="width: 100%; height: 100%;">
 
-                        <form action="">
-                            <div class="form-row d-flex justify-content-center ">
-                                <div class="form-group col-md-5">
-                                    <label for="inputState">
-                                        <h4>Vehicle No</h4>
-                                    </label>
-                                    <div class="input-group mb-2 mr-sm-2">
-                                        <div class="input-group-prepend">
-                                            <div class="input-group-text"><img src="img/Mahen/vehical_no.png"
-                                                    alt=""></i></div>
+                        </div>
+                        <div class="col-6 ">
+
+                            <!-- Material form login -->
+                           
+
+                                <h5 class="text-center py-4">
+                                    <strong>Vehicle Details</strong>
+                                </h5>
+
+                                <!--Card content-->
+                                <div class="card-body px-lg-5 pt-0">
+
+                                    <!-- Form -->
+                                    <form class="text-center" style="color: #757575;" action="#!">
+
+                                        <div class="md-form input-with-pre-icon">
+                                            <i class="fas fa-car-alt input-prefix"></i>
+                                            <input type="text" id="Vehicle_Nosa" class="form-control"
+                                            name="vehi_No" value="" required>
+                                            <label for="Vehicle_Nosa">Vehicle No</label>
                                         </div>
-                                        <input type="text" class="form-control " required name="" id="">
-                                    </div>
-                                </div>
+
+                                        <div class="md-form input-with-pre-icon">
+                                            <i class="fab fa-bootstrap input-prefix"></i>
+                                            <input type="text" id="Vehicle_brand" class="form-control" required
+                                                name="brand" placeholder="" required value="">
+                                            <label for="Vehicle_brand">Vehicle Brand </label>
+                                        </div>
+
+                                        <div class="md-form input-with-pre-icon">
+                                            <i class="fab fa-medium-m input-prefix"></i>
+                                            <input type="text" id="Vehicle_model" class="form-control" required
+                                                name="model" placeholder="" name="Model" value="">
+                                            <label for="Vehicle_model">Vehicle Model </label>
+                                        </div>
+                                        
+                                        
+
+                                        <div class="md-form input-with-pre-icon">
+                                            <i class="far fa-calendar-alt input-prefix"></i>
+                                            <input type="text" id="Vehicle_year" class="form-control" required
+                                                name="year" placeholder="" name="year" required value="">
+                                            <label for="Vehicle_year">Manufactured Year </label>
+                                        </div>
+                                        
+                                        <div class="form-row">
+                                        <!-- Password -->
+                                        
+                                        <div class="form-group col-6">
+                                            <label for="Vehicle_trans" class="SelectingLabels">
+                                                <i class="fas fa-cogs"></i>Transmission
+                                            </label>
+                                            <select id="Vehicle_trans" class="browser-default custom-select"
+                                                name="Transmission" required>
+                                                <option selected>Choose...</option>
+                                                <option>Auto</option>
+                                                <option>Manual</option>
+                                                <option>Tiptronic</option>
+                                            </select>
+                                        </div>
+
+                                        <!-- Password -->
+                                        
+                                        <div class="form-group col-6">
+                                            <label for="Vehicle_fuel" class="SelectingLabels">
+                                                <i class="fas fa-gas-pump"></i>Fuel Type
+                                            </label>
+                                            <select id="Vehicle_fuel" class="browser-default custom-select" name="Fuel"
+                                                required>
+                                                <option selected>Choose...</option>
+                                                <option value="Petrol">Petrol</option>
+                                                <option value="Diesel">Diesel</option>
+                                                <option value="Gasoline">Gasoline</option>
+                                                <option value="Electric">Electric</option>
+                                            </select>
+                                        </div>
+                                        </div>
+
+                                        <!-- Password -->
+                                        <div class="md-form input-with-pre-icon">
+                                            <i class="fas fa-cog input-prefix"></i>
+                                            <input type="text" class="form-control" name="Engine" placeholder=""
+                                                id="prefixInside" name="Engine">
+                                            <label for="prefixInside">Engine CApacity </label>
+                                        </div>
+
+                                        <div class="d-flex justify-content-start vehiclefrmsbmtBtn">
+                                            
+                                            <button type="button" onclick="goTime(60)"
+                                                class="btn btn-info btn-rounded btn-block my-4 waves-effect z-depth-0">
+                                                <i class="far fa-hand-point-right fa-2x"><strong>
+                                                        Next </strong></i>
+
+
+                                            </button>
+                                        </div>
+                                        
+
+                                        
+
+                                    </form>
+                                    <!-- Form -->
+
+                                
+
                             </div>
-                            <hr class="my-4">
-                            <div class="form-row ">
-                                <div class="form-group col-md-6 ">
-                                    <label for="inputState">
-                                        <h4>Brand</h4>
-                                    </label>
-                                    <div class="input-group mb-2 mr-sm-2">
-                                        <div class="input-group-prepend">
-                                            <div class="input-group-text"><img src="img/Mahen/brand.png" alt=""></i>
-                                            </div>
-                                        </div>
-                                        <select id="inputState" class="form-control form-control-lg" required>
-                                            <option selected>Choose...</option>
-                                            <option>...</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="form-group col-md-6 ">
-                                    <label for="inputState">
-                                        <h4>Model</h4>
-                                    </label>
-                                    <div class="input-group mb-2 mr-sm-2">
-                                        <div class="input-group-prepend">
-                                            <div class="input-group-text"><img src="img/Mahen/model2.png" alt=""></i>
-                                            </div>
-                                        </div>
-                                        <select id="inputState" class="form-control form-control-lg">
-                                            <option selected>Choose...</option>
-                                            <option>...</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="form-group col-md-4">
-                                    <label for="inputState">
-                                        <h4>year</h4>
-                                    </label>
-                                    <div class="input-group mb-2 mr-sm-2">
-                                        <div class="input-group-prepend">
-                                            <div class="input-group-text"><img src="img/Mahen/calender.png" alt=""></i>
-                                            </div>
-                                        </div>
-                                        <select id="inputState" class="form-control form-control-lg">
-                                            <option selected>Choose...</option>
-                                            <option>...</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="form-group col-md-4">
-                                    <label for="inputState">
-                                        <h4>Transmission</h4>
-                                    </label>
-                                    <div class="input-group mb-2 mr-sm-2">
-                                        <div class="input-group-prepend">
-                                            <div class="input-group-text"><img src="img/Mahen/transmission.png"
-                                                    alt=""></i></div>
-                                        </div>
-                                        <select id="inputState" class="form-control form-control-lg">
-                                            <option selected>Choose...</option>
-                                            <option>...</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="form-group col-md-4">
-                                    <label for="inputState">
-                                        <h4>Fuel Type</h4>
-                                    </label>
-                                    <div class="input-group mb-2 mr-sm-2">
-                                        <div class="input-group-prepend">
-                                            <div class="input-group-text"><img src="img/Mahen/fuel.png" alt=""></i>
-                                            </div>
-                                        </div>
-                                        <select id="inputState" class="form-control form-control-lg">
-                                            <option selected>Choose...</option>
-                                            <option>...</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="form-group col-md-4">
-                                    <label for="inputState">
-                                        <h4>Engine Capacity</h4>
-                                    </label>
-                                    <div class="input-group mb-2 mr-sm-2">
-                                        <div class="input-group-prepend">
-                                            <div class="input-group-text"><img src="img/Mahen/engine_capacity.jpg"
-                                                    alt=""></i></div>
-                                        </div>
-                                        <select id="inputState" class="form-control form-control-lg">
-                                            <option selected>Choose...</option>
-                                            <option>...</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="form-group col-md-4">
-                                    <label for="inputState">
-                                        <h4>Milage</h4>
-                                    </label>
-                                    <div class="input-group mb-2 mr-sm-2">
-                                        <div class="input-group-prepend">
-                                            <div class="input-group-text"><img src="img/Mahen/milage.png" alt=""></i>
-                                            </div>
-                                        </div>
-                                        <select id="inputState" class="form-control form-control-lg">
-                                            <option selected>Choose...</option>
-                                            <option>...</option>
-                                        </select>
-                                    </div>
-                                </div>
-                            </div>
-                            <a class="btn btn-warning  align-self-center" href="#" role="button" type="submit"
-                                onclick="goTime(60)"><strong class="align-self-center">Next
-                                </strong><i class="far fa-hand-point-right fa-2x"></i></a>
-                        </form>
+                            <!-- Material form login -->
 
 
+                        </div>
                     </div>
                 </div>
                 <!--End of  row 1 Section 3-->
-<!--Start of  row 1 Section 4-->
+                <!--Start of  row 1 Section 4-->
 
-<div class="Jumbo2">
-    <div class="row d-flex justify-content-between">
+                <div class="Jumbo2">
+                    <div class="row d-flex justify-content-between">
 
-        <div class="ml-4"><i class="fas fa-arrow-circle-left fa-3x"></i><br>Previous Week</div>
-        <button type="button" class="btn btn-success" style="width: 350px;">
-            <h5>24-03-2020 - 30-03-2020</h5>
-        </button>
-        <div class="mr-4"><i class="fas fa-arrow-circle-right fa-3x"></i><br>Next Week</div>
+                        <div class="ml-4"><i class="fas fa-arrow-circle-left fa-3x"></i><br>Previous Week</div>
+                        <button type="button" class="btn btn-success" style="width: 350px;">
+                            <h5>24-03-2020 - 30-03-2020</h5>
+                        </button>
+                        <div class="mr-4"><i class="fas fa-arrow-circle-right fa-3x"></i><br>Next Week</div>
 
-    </div>
-    <h3 class="text-center">Select Your time</h3>
-    <p class="text-left ml-3"> <i class="fas fa-circle" style="color: #03a9f4; line-height: 0px;"></i> Available times</p>
-    <p class="text-left ml-3"> <i class="fas fa-circle" style="color: #ec407a;line-height: 0px;"></i> Unavailable times</p>
-    <hr class="my-4">
-
-
-    <!-- Editable table -->
-    <div class="card">
-        
-        <div class="card-body">
-            <div id="table" class="table-editable table-borderless">
-                
-                <table class="table table-borderless table-responsive-md  text-center">
-                    <thead>
-                        <tr>
-                            <th class="center">
-                                <div class="table_head_class">
-                                    <p class="font-weight-light">Mar 24</p>
-                                    <hr class="m-0 p-0">
-                                    <p>MON</p>
-                                </div>
-                            </th>
-                            <th>
-                                <div class="table_head_class">
-                                    <p class="font-weight-light">Mar 25</p>
-                                    <hr class="m-0 p-0">
-                                    <p>TUE</p>
-                                </div>
-                            </th>
-                            <th>
-                                <div class="table_head_class">
-                                    <p class="font-weight-light">Mar 26</p>
-                                    <hr class="m-0 p-0">
-                                    <p>TUE</p>
-                                </div>
-                            </th>
-                            <th class="center">
-                                <div class="table_head_class">
-                                    <p class="font-weight-light">Mar 27</p>
-                                    <hr class="m-0 p-0">
-                                    <p>THU</p>
-                                </div>
-                            </th>
-                            <th class="center">
-                                <div class="table_head_class">
-                                    <p class="font-weight-light">Mar 28</p>
-                                    <hr class="m-0 p-0">
-                                    <p>FRI</p>
-                                </div>
-                            </th>
-                            <th class="center">
-                                <div class="table_head_class">
-                                    <p class="font-weight-light">Mar 29</p>
-                                    <hr class="m-0 p-0">
-                                    <p>SAT</p>
-                                </div>
-                            </th>
-                            <th class="center">
-                                <div class="table_head_class">
-                                    <p class="font-weight-light">Mar 30</p>
-                                    <hr class="m-0 p-0">
-                                    <p>SUN</p>
-                                </div>
-                            </th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                         <tr>
-                             <td><button type="button" class="btn btn-light-blue"
-                                     onclick="goInvoice(value)"><strong>8.00-9.00</strong></button></td>
-                             <td><button type="button" class="btn btn-light-blue"
-                                     onclick="goInvoice(value)"><strong>8.00-9.00</strong></button></td>
-                             <td><button type="button" class="btn btn-light-blue"
-                                     onclick="goInvoice(value)"><strong>8.00-9.00</strong></button></td>
-                             <td><button type="button" class="btn btn-light-blue"
-                                     onclick="goInvoice(value)"><strong>8.00-9.00</strong></button></td>
-                             <td><button type="button" class="btn btn-light-blue"
-                                     onclick="goInvoice(value)"><strong>8.00-9.00</strong></button></td>
-                             <td><button type="button" class="btn btn-pink" onclick="goInvoice(value)"
-                                     disabled><strong>8.00-9.00</strong></button></td>
-                             <td><button type="button" class="btn btn-pink" onclick="goInvoice(value)"
-                                     disabled><strong>8.00-9.00</strong></button></td>
-                         </tr>
-                        <!-- This is our clonable table line -->
-                        <tr>
-                            <td><button type="button" class="btn btn-light-blue"
-                                    onclick="goInvoice(value)"><strong>9.00-10.00</strong></button></td>
-                            <td><button type="button" class="btn btn-light-blue"
-                                    onclick="goInvoice(value)"><strong>9.00-10.00</strong></button></td>
-                            <td><button type="button" class="btn btn-light-blue"
-                                    onclick="goInvoice(value)"><strong>9.00-10.00</strong></button></td>
-                            <td><button type="button" class="btn btn-light-blue"
-                                    onclick="goInvoice(value)"><strong>9.00-10.00</strong></button></td>
-                            <td><button type="button" class="btn btn-light-blue"
-                                    onclick="goInvoice(value)"><strong>9.00-10.00</strong></button></td>
-                            <td><button type="button" class="btn btn-pink" onclick="goInvoice(value)"
-                                    disabled><strong>9.00-10.00</strong></button></td>
-                            <td><button type="button" class="btn btn-pink" onclick="goInvoice(value)"
-                                    disabled><strong>9.00-10.00</strong></button></td>
-                        </tr>
-                        <!-- This is our clonable table line -->
-                         <tr>
-                             <td><button type="button" class="btn btn-light-blue"
-                                     onclick="goInvoice(value)"><strong>10.00-11.00</strong></button></td>
-                             <td><button type="button" class="btn btn-light-blue"
-                                     onclick="goInvoice(value)"><strong>10.00-11.00</strong></button></td>
-                             <td><button type="button" class="btn btn-light-blue"
-                                     onclick="goInvoice(value)"><strong>10.00-11.00</strong></button></td>
-                             <td><button type="button" class="btn btn-light-blue"
-                                     onclick="goInvoice(value)"><strong>10.00-11.00</strong></button></td>
-                             <td><button type="button" class="btn btn-light-blue"
-                                     onclick="goInvoice(value)"><strong>10.00-11.00</strong></button></td>
-                             <td><button type="button" class="btn btn-pink" onclick="goInvoice(value)"
-                                     disabled><strong>10.00-11.00</strong></button></td>
-                             <td><button type="button" class="btn btn-pink" onclick="goInvoice(value)"
-                                     disabled><strong>10.00-11.00</strong></button></td>
-                         </tr>
-                         
-
-                        <!-- This is our clonable table line -->
-                         <tr>
-                             <td><button type="button" class="btn btn-light-blue"
-                                     onclick="goInvoice(value)"><strong>11.00-12.00</strong></button></td>
-                             <td><button type="button" class="btn btn-light-blue"
-                                     onclick="goInvoice(value)"><strong>11.00-12.00</strong></button></td>
-                             <td><button type="button" class="btn btn-light-blue"
-                                     onclick="goInvoice(value)"><strong>11.00-12.00</strong></button></td>
-                             <td><button type="button" class="btn btn-light-blue"
-                                     onclick="goInvoice(value)"><strong>11.00-12.00</strong></button></td>
-                             <td><button type="button" class="btn btn-light-blue"
-                                     onclick="goInvoice(value)"><strong>11.00-12.00</strong></button></td>
-                             <td><button type="button" class="btn btn-pink" onclick="goInvoice(value)"
-                                     disabled><strong>11.00-12.00</strong></button></td>
-                             <td><button type="button" class="btn btn-pink" onclick="goInvoice(value)"
-                                     disabled><strong>11.00-12.00</strong></button></td>
-                         </tr>
-                         <tr>
-                             <td><button type="button"class="btn btn-light-blue"
-                                     onclick="goInvoice(value)"><strong>12.00-13.00</strong></button></td>
-                             <td><button type="button" class="btn btn-light-blue"
-                                     onclick="goInvoice(value)"><strong>12.00-13.00</strong></button></td>
-                             <td><button type="button" class="btn btn-light-blue"
-                                     onclick="goInvoice(value)"><strong>12.00-13.00</strong></button></td>
-                             <td><button type="button" class="btn btn-light-blue"
-                                     onclick="goInvoice(value)"><strong>12.00-13.00</strong></button></td>
-                             <td><button type="button" class="btn btn-light-blue"
-                                     onclick="goInvoice(value)"><strong>12.00-13.00</strong></button></td>
-                             <td><button type="button" class="btn btn-pink" onclick="goInvoice(value)"
-                                     disabled><strong>12.00-13.00</strong></button></td>
-                             <td><button type="button" class="btn btn-pink" onclick="goInvoice(value)"
-                                     disabled><strong>12.00-13.00</strong></button></td>
-                         </tr>
-                         <tr>
-                             <td><button type="button" class="btn btn-light-blue"
-                                     onclick="goInvoice(value)"><strong>13.00-14.00</strong></button></td>
-                             <td><button type="button" class="btn btn-light-blue"
-                                     onclick="goInvoice(value)"><strong>13.00-14.00</strong></button></td>
-                             <td><button type="button" class="btn btn-light-blue"
-                                     onclick="goInvoice(value)"><strong>13.00-14.00</strong></button></td>
-                             <td><button type="button" class="btn btn-light-blue"
-                                     onclick="goInvoice(value)"><strong>13.00-14.00</strong></button></td>
-                             <td><button type="button" class="btn btn-light-blue"
-                                     onclick="goInvoice(value)"><strong>13.00-14.00</strong></button></td>
-                             <td><button type="button" class="btn btn-pink" onclick="goInvoice(value)"
-                                     disabled><strong>13.00-14.00</strong></button></td>
-                             <td><button type="button" class="btn btn-pink" onclick="goInvoice(value)"
-                                     disabled><strong>13.00-14.00</strong></button></td>
-                         </tr>
-                         <tr>
-                             <td><button type="button" class="btn btn-light-blue"
-                                     onclick="goInvoice(value)"><strong>15.00-16.00</strong></button></td>
-                             <td><button type="button" class="btn btn-light-blue"
-                                     onclick="goInvoice(value)"><strong>15.00-16.00</strong></button></td>
-                             <td><button type="button" class="btn btn-light-blue"
-                                     onclick="goInvoice(value)"><strong>15.00-16.00</strong></button></td>
-                             <td><button type="button"class="btn btn-light-blue"
-                                     onclick="goInvoice(value)"><strong>15.00-16.00</strong></button></td>
-                             <td><button type="button" class="btn btn-light-blue"
-                                     onclick="goInvoice(value)"><strong>15.00-16.00</strong></button></td>
-                             <td><button type="button" class="btn btn-pink" onclick="goInvoice(value)"
-                                     disabled><strong>15.00-16.00</strong></button></td>
-                             <td><button type="button" class="btn btn-pink" onclick="goInvoice(value)"
-                                     disabled><strong>15.00-16.00</strong></button></td>
-                         </tr>
-                         <tr>
-                             
-                             <td><button type="button" class="btn btn-light-blue"
-                                     onclick="goInvoice(value)"><strong>16.00-17.00</strong></button></td>
-                             <td><button type="button" class="btn btn-light-blue"
-                                     onclick="goInvoice(value)"><strong>16.00-17.00</strong></button></td>
-                             <td><button type="button" class="btn btn-light-blue"
-                                     onclick="goInvoice(value)"><strong>16.00-17.00</strong></button></td>
-                             <td><button type="button" class="btn btn-light-blue"
-                                     onclick="goInvoice(value)"><strong>16.00-17.00</strong></button></td>
-                             <td><button type="button" class="btn btn-light-blue"
-                                     onclick="goInvoice(value)"><strong>16.00-17.00</strong></button></td>
-                             <td><button type="button" class="btn btn-pink" onclick="goInvoice(value)"
-                                     disabled><strong>16.00-17.00</strong></button></td>
-                             <td><button type="button" class="btn btn-pink" onclick="goInvoice(value)"
-                                     disabled><strong>16.00-17.00</strong></button></td>
-                         </tr>
-
-                    </tbody>
-                </table>
-            </div>
-        </div>
-    </div>
-    <!-- Editable table -->
+                    </div>
+                    <h3 class="text-center">Select Your time</h3>
+                    <p class="text-left ml-3"> <i class="fas fa-circle" style="color: #03a9f4; line-height: 0px;"></i>
+                        Available times</p>
+                    <p class="text-left ml-3"> <i class="fas fa-circle" style="color: #ec407a;line-height: 0px;"></i>
+                        Unavailable times</p>
+                    <hr class="my-4">
 
 
+                    <!-- Editable table -->
+                    <div class="card">
 
-</div>
-<!--Start of  row 1 Section 4-->
+                        <div class="card-body">
+                            <div id="table" class="table-editable table-borderless">
+
+                                <table class="table table-borderless table-responsive-md  text-center">
+                                    <thead>
+                                        <tr>
+                                            <th class="center">
+                                                <div class="table_head_class">
+                                                    <p class="font-weight-light">Mar 24</p>
+                                                    <hr class="m-0 p-0">
+                                                    <p>MON</p>
+                                                </div>
+                                            </th>
+                                            <th>
+                                                <div class="table_head_class">
+                                                    <p class="font-weight-light">Mar 25</p>
+                                                    <hr class="m-0 p-0">
+                                                    <p>TUE</p>
+                                                </div>
+                                            </th>
+                                            <th>
+                                                <div class="table_head_class">
+                                                    <p class="font-weight-light">Mar 26</p>
+                                                    <hr class="m-0 p-0">
+                                                    <p>TUE</p>
+                                                </div>
+                                            </th>
+                                            <th class="center">
+                                                <div class="table_head_class">
+                                                    <p class="font-weight-light">Mar 27</p>
+                                                    <hr class="m-0 p-0">
+                                                    <p>THU</p>
+                                                </div>
+                                            </th>
+                                            <th class="center">
+                                                <div class="table_head_class">
+                                                    <p class="font-weight-light">Mar 28</p>
+                                                    <hr class="m-0 p-0">
+                                                    <p>FRI</p>
+                                                </div>
+                                            </th>
+                                            <th class="center">
+                                                <div class="table_head_class">
+                                                    <p class="font-weight-light">Mar 29</p>
+                                                    <hr class="m-0 p-0">
+                                                    <p>SAT</p>
+                                                </div>
+                                            </th>
+                                            <th class="center">
+                                                <div class="table_head_class">
+                                                    <p class="font-weight-light">Mar 30</p>
+                                                    <hr class="m-0 p-0">
+                                                    <p>SUN</p>
+                                                </div>
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td><button type="button" class="btn btn-light-blue"
+                                                    onclick="goInvoice(value)"><strong>8.00-9.00</strong></button></td>
+                                            <td><button type="button" class="btn btn-light-blue"
+                                                    onclick="goInvoice(value)"><strong>8.00-9.00</strong></button></td>
+                                            <td><button type="button" class="btn btn-light-blue"
+                                                    onclick="goInvoice(value)"><strong>8.00-9.00</strong></button></td>
+                                            <td><button type="button" class="btn btn-light-blue"
+                                                    onclick="goInvoice(value)"><strong>8.00-9.00</strong></button></td>
+                                            <td><button type="button" class="btn btn-light-blue"
+                                                    onclick="goInvoice(value)"><strong>8.00-9.00</strong></button></td>
+                                            <td><button type="button" class="btn btn-pink" onclick="goInvoice(value)"
+                                                    disabled><strong>8.00-9.00</strong></button></td>
+                                            <td><button type="button" class="btn btn-pink" onclick="goInvoice(value)"
+                                                    disabled><strong>8.00-9.00</strong></button></td>
+                                        </tr>
+                                        <!-- This is our clonable table line -->
+                                        <tr>
+                                            <td><button type="button" class="btn btn-light-blue"
+                                                    onclick="goInvoice(value)"><strong>9.00-10.00</strong></button></td>
+                                            <td><button type="button" class="btn btn-light-blue"
+                                                    onclick="goInvoice(value)"><strong>9.00-10.00</strong></button></td>
+                                            <td><button type="button" class="btn btn-light-blue"
+                                                    onclick="goInvoice(value)"><strong>9.00-10.00</strong></button></td>
+                                            <td><button type="button" class="btn btn-light-blue"
+                                                    onclick="goInvoice(value)"><strong>9.00-10.00</strong></button></td>
+                                            <td><button type="button" class="btn btn-light-blue"
+                                                    onclick="goInvoice(value)"><strong>9.00-10.00</strong></button></td>
+                                            <td><button type="button" class="btn btn-pink" onclick="goInvoice(value)"
+                                                    disabled><strong>9.00-10.00</strong></button></td>
+                                            <td><button type="button" class="btn btn-pink" onclick="goInvoice(value)"
+                                                    disabled><strong>9.00-10.00</strong></button></td>
+                                        </tr>
+                                        <!-- This is our clonable table line -->
+                                        <tr>
+                                            <td><button type="button" class="btn btn-light-blue"
+                                                    onclick="goInvoice(value)"><strong>10.00-11.00</strong></button>
+                                            </td>
+                                            <td><button type="button" class="btn btn-light-blue"
+                                                    onclick="goInvoice(value)"><strong>10.00-11.00</strong></button>
+                                            </td>
+                                            <td><button type="button" class="btn btn-light-blue"
+                                                    onclick="goInvoice(value)"><strong>10.00-11.00</strong></button>
+                                            </td>
+                                            <td><button type="button" class="btn btn-light-blue"
+                                                    onclick="goInvoice(value)"><strong>10.00-11.00</strong></button>
+                                            </td>
+                                            <td><button type="button" class="btn btn-light-blue"
+                                                    onclick="goInvoice(value)"><strong>10.00-11.00</strong></button>
+                                            </td>
+                                            <td><button type="button" class="btn btn-pink" onclick="goInvoice(value)"
+                                                    disabled><strong>10.00-11.00</strong></button></td>
+                                            <td><button type="button" class="btn btn-pink" onclick="goInvoice(value)"
+                                                    disabled><strong>10.00-11.00</strong></button></td>
+                                        </tr>
+
+
+                                        <!-- This is our clonable table line -->
+                                        <tr>
+                                            <td><button type="button" class="btn btn-light-blue"
+                                                    onclick="goInvoice(value)"><strong>11.00-12.00</strong></button>
+                                            </td>
+                                            <td><button type="button" class="btn btn-light-blue"
+                                                    onclick="goInvoice(value)"><strong>11.00-12.00</strong></button>
+                                            </td>
+                                            <td><button type="button" class="btn btn-light-blue"
+                                                    onclick="goInvoice(value)"><strong>11.00-12.00</strong></button>
+                                            </td>
+                                            <td><button type="button" class="btn btn-light-blue"
+                                                    onclick="goInvoice(value)"><strong>11.00-12.00</strong></button>
+                                            </td>
+                                            <td><button type="button" class="btn btn-light-blue"
+                                                    onclick="goInvoice(value)"><strong>11.00-12.00</strong></button>
+                                            </td>
+                                            <td><button type="button" class="btn btn-pink" onclick="goInvoice(value)"
+                                                    disabled><strong>11.00-12.00</strong></button></td>
+                                            <td><button type="button" class="btn btn-pink" onclick="goInvoice(value)"
+                                                    disabled><strong>11.00-12.00</strong></button></td>
+                                        </tr>
+                                        <tr>
+                                            <td><button type="button" class="btn btn-light-blue"
+                                                    onclick="goInvoice(value)"><strong>12.00-13.00</strong></button>
+                                            </td>
+                                            <td><button type="button" class="btn btn-light-blue"
+                                                    onclick="goInvoice(value)"><strong>12.00-13.00</strong></button>
+                                            </td>
+                                            <td><button type="button" class="btn btn-light-blue"
+                                                    onclick="goInvoice(value)"><strong>12.00-13.00</strong></button>
+                                            </td>
+                                            <td><button type="button" class="btn btn-light-blue"
+                                                    onclick="goInvoice(value)"><strong>12.00-13.00</strong></button>
+                                            </td>
+                                            <td><button type="button" class="btn btn-light-blue"
+                                                    onclick="goInvoice(value)"><strong>12.00-13.00</strong></button>
+                                            </td>
+                                            <td><button type="button" class="btn btn-pink" onclick="goInvoice(value)"
+                                                    disabled><strong>12.00-13.00</strong></button></td>
+                                            <td><button type="button" class="btn btn-pink" onclick="goInvoice(value)"
+                                                    disabled><strong>12.00-13.00</strong></button></td>
+                                        </tr>
+                                        <tr>
+                                            <td><button type="button" class="btn btn-light-blue"
+                                                    onclick="goInvoice(value)"><strong>13.00-14.00</strong></button>
+                                            </td>
+                                            <td><button type="button" class="btn btn-light-blue"
+                                                    onclick="goInvoice(value)"><strong>13.00-14.00</strong></button>
+                                            </td>
+                                            <td><button type="button" class="btn btn-light-blue"
+                                                    onclick="goInvoice(value)"><strong>13.00-14.00</strong></button>
+                                            </td>
+                                            <td><button type="button" class="btn btn-light-blue"
+                                                    onclick="goInvoice(value)"><strong>13.00-14.00</strong></button>
+                                            </td>
+                                            <td><button type="button" class="btn btn-light-blue"
+                                                    onclick="goInvoice(value)"><strong>13.00-14.00</strong></button>
+                                            </td>
+                                            <td><button type="button" class="btn btn-pink" onclick="goInvoice(value)"
+                                                    disabled><strong>13.00-14.00</strong></button></td>
+                                            <td><button type="button" class="btn btn-pink" onclick="goInvoice(value)"
+                                                    disabled><strong>13.00-14.00</strong></button></td>
+                                        </tr>
+                                        <tr>
+                                            <td><button type="button" class="btn btn-light-blue"
+                                                    onclick="goInvoice(value)"><strong>15.00-16.00</strong></button>
+                                            </td>
+                                            <td><button type="button" class="btn btn-light-blue"
+                                                    onclick="goInvoice(value)"><strong>15.00-16.00</strong></button>
+                                            </td>
+                                            <td><button type="button" class="btn btn-light-blue"
+                                                    onclick="goInvoice(value)"><strong>15.00-16.00</strong></button>
+                                            </td>
+                                            <td><button type="button" class="btn btn-light-blue"
+                                                    onclick="goInvoice(value)"><strong>15.00-16.00</strong></button>
+                                            </td>
+                                            <td><button type="button" class="btn btn-light-blue"
+                                                    onclick="goInvoice(value)"><strong>15.00-16.00</strong></button>
+                                            </td>
+                                            <td><button type="button" class="btn btn-pink" onclick="goInvoice(value)"
+                                                    disabled><strong>15.00-16.00</strong></button></td>
+                                            <td><button type="button" class="btn btn-pink" onclick="goInvoice(value)"
+                                                    disabled><strong>15.00-16.00</strong></button></td>
+                                        </tr>
+                                        <tr>
+
+                                            <td><button type="button" class="btn btn-light-blue"
+                                                    onclick="goInvoice(value)"><strong>16.00-17.00</strong></button>
+                                            </td>
+                                            <td><button type="button" class="btn btn-light-blue"
+                                                    onclick="goInvoice(value)"><strong>16.00-17.00</strong></button>
+                                            </td>
+                                            <td><button type="button" class="btn btn-light-blue"
+                                                    onclick="goInvoice(value)"><strong>16.00-17.00</strong></button>
+                                            </td>
+                                            <td><button type="button" class="btn btn-light-blue"
+                                                    onclick="goInvoice(value)"><strong>16.00-17.00</strong></button>
+                                            </td>
+                                            <td><button type="button" class="btn btn-light-blue"
+                                                    onclick="goInvoice(value)"><strong>16.00-17.00</strong></button>
+                                            </td>
+                                            <td><button type="button" class="btn btn-pink" onclick="goInvoice(value)"
+                                                    disabled><strong>16.00-17.00</strong></button></td>
+                                            <td><button type="button" class="btn btn-pink" onclick="goInvoice(value)"
+                                                    disabled><strong>16.00-17.00</strong></button></td>
+                                        </tr>
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Editable table -->
+
+
+
+                </div>
+                <!--Start of  row 1 Section 4-->
                 <!--Start of  row 1 Section 5-->
                 <div class="invoice">
                     <div class="jumbotron">
@@ -906,7 +925,7 @@
 
         </div>
 
-        
+
 
         <!--End of Middle Part -->
     </div>
@@ -916,10 +935,16 @@
             <div class="col-lg-6 col-md-6 col-sm-6 d-none d-md-block sec2-left">
                 <img src="img/akila/wait.gif" alt="">
             </div>
-            
+
             <div class="col-lg-6 col-md-6 col-sm-6 col-sm-12 col-xs-12 sec2-right">
                 <h1 class="font-weight-bold">STOP WAITING....... <br> SCHEDULE AND GO</h1> <br>
-                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolor qui porro totam explicabo quam, aspernatur maxime. Accusantium magnam vel fugit maxime magni, aspernatur ad adipisci dolor dolore nisi! Eligendi, quod. Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt nulla omnis ex placeat, tenetur dolorum quia atque voluptates quasi neque explicabo voluptatibus ut eveniet voluptatum iure culpa saepe vel. Culpa? Lorem ipsum dolor sit amet consectetur, adipisicing elit. Molestiae laborum corporis delectus placeat cum quis beatae, nisi ab totam corrupti in architecto, amet nesciunt dolorem quasi error harum perferendis porro.</p>
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolor qui porro totam explicabo quam,
+                    aspernatur maxime. Accusantium magnam vel fugit maxime magni, aspernatur ad adipisci dolor dolore
+                    nisi! Eligendi, quod. Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt nulla omnis
+                    ex placeat, tenetur dolorum quia atque voluptates quasi neque explicabo voluptatibus ut eveniet
+                    voluptatum iure culpa saepe vel. Culpa? Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                    Molestiae laborum corporis delectus placeat cum quis beatae, nisi ab totam corrupti in architecto,
+                    amet nesciunt dolorem quasi error harum perferendis porro.</p>
                 <a href="#section-1" class="btn btn-success">Shedule an <strong>Apponitment</strong></a>
                 <a href="#section-3" class="btn btn-danger">See the <strong>Packages</strong></a>
             </div>
@@ -927,29 +952,30 @@
     </div>
 
     <div class="section-3" id="section-3">
-       <div class="row">
-           <div class="col" style="padding: 30px;">
+        <div class="row">
+            <div class="col" style="padding: 30px;">
                 <h1>Packages Available</h1>
-           </div>
-       </div>
+            </div>
+        </div>
         <div class="row ">
             <div class="col-lg-12 flex">
-               
+
                 <!-- Card -->
                 <div class="card" style="width: 300px;">
-                
+
                     <!-- Card image -->
                     <div class="view overlay">
-                        <img class="card-img-top" src="https://mdbootstrap.com/img/Mockups/Lightbox/Thumbnail/img%20(67).jpg"
+                        <img class="card-img-top"
+                            src="https://mdbootstrap.com/img/Mockups/Lightbox/Thumbnail/img%20(67).jpg"
                             alt="Card image cap">
                         <a href="#!">
                             <div class="mask rgba-white-slight"></div>
                         </a>
                     </div>
-                
+
                     <!-- Card content -->
                     <div class="card-body">
-                
+
                         <!-- Title -->
                         <h4 class="card-title">Package #1</h4>
                         <!-- Text -->
@@ -960,27 +986,28 @@
                         </ul>
                         <!-- Button -->
                         <a href="#section-1" class="btn btn-primary">SCHEDULE</a>
-                
+
                     </div>
-                
+
                 </div>
                 <!-- Card -->
 
                 <!-- Card -->
                 <div class="card" style="width: 300px;">
-                
+
                     <!-- Card image -->
                     <div class="view overlay">
-                        <img class="card-img-top" src="https://mdbootstrap.com/img/Mockups/Lightbox/Thumbnail/img%20(67).jpg"
+                        <img class="card-img-top"
+                            src="https://mdbootstrap.com/img/Mockups/Lightbox/Thumbnail/img%20(67).jpg"
                             alt="Card image cap">
                         <a href="#!">
                             <div class="mask rgba-white-slight"></div>
                         </a>
                     </div>
-                
+
                     <!-- Card content -->
                     <div class="card-body">
-                
+
                         <!-- Title -->
                         <h4 class="card-title">Package #1</h4>
                         <!-- Text -->
@@ -991,27 +1018,28 @@
                         </ul>
                         <!-- Button -->
                         <a href="#section-1" class="btn btn-primary">SCHEDULE</a>
-                
+
                     </div>
-                
+
                 </div>
                 <!-- Card -->
 
                 <!-- Card -->
                 <div class="card" style="width: 300px;">
-                
+
                     <!-- Card image -->
                     <div class="view overlay">
-                        <img class="card-img-top" src="https://mdbootstrap.com/img/Mockups/Lightbox/Thumbnail/img%20(67).jpg"
+                        <img class="card-img-top"
+                            src="https://mdbootstrap.com/img/Mockups/Lightbox/Thumbnail/img%20(67).jpg"
                             alt="Card image cap">
                         <a href="#!">
                             <div class="mask rgba-white-slight"></div>
                         </a>
                     </div>
-                
+
                     <!-- Card content -->
                     <div class="card-body">
-                
+
                         <!-- Title -->
                         <h4 class="card-title">Package #1</h4>
                         <!-- Text -->
@@ -1022,27 +1050,28 @@
                         </ul>
                         <!-- Button -->
                         <a href="#section-1" class="btn btn-primary">SCHEDULE</a>
-                
+
                     </div>
-                
+
                 </div>
                 <!-- Card -->
 
                 <!-- Card -->
                 <div class="card" style="width: 300px;">
-                
+
                     <!-- Card image -->
                     <div class="view overlay">
-                        <img class="card-img-top" src="https://mdbootstrap.com/img/Mockups/Lightbox/Thumbnail/img%20(67).jpg"
+                        <img class="card-img-top"
+                            src="https://mdbootstrap.com/img/Mockups/Lightbox/Thumbnail/img%20(67).jpg"
                             alt="Card image cap">
                         <a href="#!">
                             <div class="mask rgba-white-slight"></div>
                         </a>
                     </div>
-                
+
                     <!-- Card content -->
                     <div class="card-body">
-                
+
                         <!-- Title -->
                         <h4 class="card-title">Package #1</h4>
                         <!-- Text -->
@@ -1053,24 +1082,24 @@
                         </ul>
                         <!-- Button -->
                         <a href="#section-1" class="btn btn-primary">SCHEDULE</a>
-                
+
                     </div>
-                
+
                 </div>
                 <!-- Card -->
 
 
-               
+
             </div>
 
-            
+
         </div>
     </div>
 
 
     <!--footer-->
-    
-    
+
+
     <footer class="new_footer_area bg_color">
         <div class="new_footer_top">
             <div class="container">
@@ -1144,21 +1173,24 @@
         </div>
     </footer>
     <!--end of the footer-->
-    
+
 
 
 
     <!-- JQuery -->
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <!-- Bootstrap tooltips -->
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js">
+    </script>
     <!-- Bootstrap core JavaScript -->
     <script type="text/javascript"
         src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/js/bootstrap.min.js"></script>
     <!-- MDB core JavaScript -->
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.16.0/js/mdb.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.16.0/js/mdb.min.js">
+    </script>
     <!--Mahen js-->
     <script src="js/Mahen/SendRequest.js"></script>
     <!--end of the Mahen js-->
 </body>
+
 </html>
