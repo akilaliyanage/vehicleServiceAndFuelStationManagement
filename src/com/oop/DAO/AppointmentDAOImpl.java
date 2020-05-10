@@ -181,7 +181,7 @@ public class AppointmentDAOImpl implements IAppointmentDAO{
 		connection = DatabaseConnection.getConnection();
 		List<AppointmentModel> PendingReruests = new ArrayList<AppointmentModel>();
 		try {
-			prepStatement = connection.prepareStatement("SELECT * FROM appointment WHERE status = ?");
+			prepStatement = connection.prepareStatement("SELECT * FROM appointment WHERE status = ? ORDER BY prefDate DESC");
 			prepStatement.setString(1, "Pending");
 			ResultSet result = prepStatement.executeQuery();
 			/*
