@@ -206,7 +206,7 @@ IT No : IT19120362  -->
                         </div>
 
                         <button type="button" class="btn btn-lg btn-block btn-primary ml-0" data-toggle="modal"
-                            data-target="#Edit_requestModel">EditRequest
+                            data-target="#Edit_requestModel">Edit Request
                         </button>
                         <button type="button" class="btn btn-lg btn-block btn-warning ml-0" data-toggle="modal" 
                             data-target="#ContactUsModal">Contact Us
