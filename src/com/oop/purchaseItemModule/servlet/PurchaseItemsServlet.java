@@ -62,8 +62,7 @@ public class PurchaseItemsServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
 	 *      response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException {
 		List<RegUserItem> userItems = new ArrayList<RegUserItem>();
 		String user = (String) request.getSession().getAttribute("regno");
 		String packageData = request.getParameter("package_info");

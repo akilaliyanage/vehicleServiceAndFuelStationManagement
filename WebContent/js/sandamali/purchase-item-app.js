@@ -11,6 +11,7 @@ var app = angular
 					$scope.selectedMember = {};
 					$scope.pimage = "";
 					$scope.qty = "";
+					$scope.cartTot = 0;
 
 					refreshPage();
 
@@ -81,6 +82,7 @@ var app = angular
 						pickedItem.totPrice = pickedItem.price
 								* pickedItem.quantity;
 						$scope.items.push(pickedItem);
+						$scope.cartTot =$scope.cartTot + pickedItem.totPrice;
 						console.log($scope.items);
 
 					};

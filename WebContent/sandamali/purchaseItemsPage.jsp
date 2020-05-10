@@ -99,6 +99,7 @@
 							<th>Unit Price</th>
 							<th>Qty</th>
 							<th>Amount</th>
+							<th>Total:<h1 style="color:green;font-size:24px">{{cartTot}}</h1></th> 
 						</tr>
 					</thead>
 					<tbody>
@@ -108,16 +109,6 @@
 							<td>{{member.price}}</td>
 							<td>{{member.quantity}}</td>
 							<td>{{member.totPrice}}</td>
-							<td><button type="button" data-toggle="modal"
-									data-target="#update_member" ng-click="selectMember(member)"
-									class="btn btn-sm btn-warning">
-									<span class="glyphicon glyphicon-edit"></span> Update
-								</button> |
-								<button type="button" data-toggle="modal"
-									data-target="#delete_member" ng-click="selectMember(member)"
-									class="btn btn-sm btn-danger">
-									<span class="glyphicon glyphicon-trash"></span> Delete
-								</button></td>
 						</tr>
 					</tbody>
 				</table>
