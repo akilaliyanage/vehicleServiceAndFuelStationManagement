@@ -508,7 +508,7 @@
                     <td>${use.genderString }</td>
                     <td>${use.userregNoString }</td>
                     <td>
-                       <a class="btn btn-primary" href="UserDelServlet?id=${use.userregNoString }">DEL</a>
+                       <a class="btn btn-primary" href="UserDelServlet?id=${use.userregNoString }" onclick="del()">DEL</a>
                     </td>
                   </tr>
                  	
@@ -632,6 +632,7 @@
       integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
       crossorigin="anonymous"
     ></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <!--end of the bootstrap-->
 
     <!--akila js-->
@@ -650,7 +651,14 @@
     <!--end of the chart.js-->
 
     <!--charts-->
+    
+    <script type="text/javascript">
+    function del() {
+  		swal("Good job!", "You have succesfully deleted the selected user!", "success");
+	}
+    </script>
     <script>
+    
     
   //bar
     var ctxB = document.getElementById("user").getContext('2d');

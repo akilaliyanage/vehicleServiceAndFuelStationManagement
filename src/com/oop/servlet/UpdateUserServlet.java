@@ -86,6 +86,12 @@ public class UpdateUserServlet extends HttpServlet {
 		
 			if(status == 1) {
 				
+				try {
+					Thread.sleep(2000);
+				} catch (Exception e) {
+					// TODO: handle exception
+				}
+				
 				response.sendRedirect("UpdateUserDashboard");
 				
 			}

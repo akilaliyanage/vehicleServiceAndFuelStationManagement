@@ -32,6 +32,13 @@ public class UserDelServlet extends HttpServlet {
 			int result = userDAO.removeUser(userString);
 			
 			if(result == 1) {
+				
+				try {
+					Thread.sleep(2000);
+				} catch (Exception e) {
+					// TODO: handle exception
+				}
+				
 				response.sendRedirect("UpdateDashboardServlet");
 			}
 			

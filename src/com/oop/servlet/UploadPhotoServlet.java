@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
 
@@ -71,8 +71,13 @@ public class UploadPhotoServlet extends HttpServlet {
 				status = updateImage.updateImage(regno, item.getName());
 				
 				 
-				
+				try {
+					Thread.sleep(2000);
+				} catch (Exception e) {
+					// TODO: handle exception
+				}
 				response.sendRedirect("UpdateUserDashboard");
+				
 				
 				System.out.println("file uploded");
 				System.out.println(url);
