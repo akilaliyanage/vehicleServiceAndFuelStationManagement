@@ -32,6 +32,7 @@ public class AppointmentDAOImpl implements IAppointmentDAO{
 //this will returns an appointment object.
 //this method updates both vehicle and appointment tables .
 //Also this method is responsible for Calculating the total amount.
+	
 	@Override
 	public AppointmentModel createNewAppointment(String userId, String vehi_NO, String raelAppointmentDate, String vehiBrand,
 			String vehiModel, String vehiTransmission, String vehiFuel, String vehEngine, int vehiYear,
@@ -103,7 +104,7 @@ public class AppointmentDAOImpl implements IAppointmentDAO{
 	//This method is used to calculate the total amount of The customer;
 	//this accepts packager price and service price.
 	//this will add 5% tax to the total amount and creates the final amount.
-	private double calcAmount(Double price, String servicePrice) {
+	public static double calcAmount(Double price, String servicePrice) {
 		double amount = 0.00;
 		try {
 			double total = price + Double.parseDouble(servicePrice);
