@@ -182,7 +182,7 @@
 									</ul>
 									<!-- Button -->
 									<a href="PackageExplore?id=${ServicePackage.packId}"
-										class="btn btn-primary">SCHEDULE</a>
+										class="btn btn-primary">Read More</a>
 
 								</div>
 

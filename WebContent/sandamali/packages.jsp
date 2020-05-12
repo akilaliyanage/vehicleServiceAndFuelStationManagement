@@ -1,3 +1,5 @@
+<!-- IT19120058 -->
+<!-- Geethika L.W.S -->
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
@@ -62,8 +64,7 @@ footer a {
 					Our Packages</button>
 			</li>
 			<li id="b4" class="nav-item li-border">
-				<button class="btn btn-outline-info my-2 my-sm-0" type="submit">Package
-					Types</button>
+				<button class="btn btn-outline-info my-2 my-sm-0" type="submit">Explore More</button>
 			</li>
 		</ul>
 		<form class="form-inline my-2 my-lg-0">
@@ -168,7 +169,7 @@ footer a {
 									</ul>
 									<!-- Button -->
 									<a href="PackageExplore?id=${ServicePackage.packId}"
-										class="btn btn-primary">SCHEDULE</a>
+										class="btn btn-primary">Read More</a>
 
 								</div>
 
@@ -190,7 +191,9 @@ footer a {
 	<div id="section4" class="container-fluid div4"
 		style="padding-top: 60px; padding-bottom: 60px">
 		<h1>Explore More Our Packages</h1>
-
+<p align="justify">
+Once one component starts to fail to adds more stress on connecting components, shortening their life. It’s a vicious cycle that just gets bigger the longer you leave problems unattended. That is why we include visual inspections with all of our service packages. It gives us the opportunity to identify problems early and sending you out the door with the peace of mind that all is well. Even if you are the type of person that likes surprises, no one likes to be surprised by being stranded on the side of the road or with a repair bill that means you have to take out a second mortgage. These are just some of the benefits of regular maintenance and taking advantage of our services packages. Seasonal based, you will not go wrong.
+</p>
 
 	</div>
 	<!-- Footer -->
@@ -323,7 +326,7 @@ footer a {
 	</div>
 	<!-- Footer Links --> <!-- Copyright -->
 	<div style="color: white" class="footer-copyright text-center py-3">
-		� 2020 Copyright: <a href="https://mdbootstrap.com/"> www.SLIIT.lk</a>
+		© 2020 Copyright: <a href="https://mdbootstrap.com/"> www.SLIIT.lk</a>
 	</div>
 	<!-- Copyright --> </footer>
 	<!-- Footer -->

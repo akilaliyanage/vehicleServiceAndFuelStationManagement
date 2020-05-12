@@ -1,3 +1,6 @@
+//IT19120058
+//Geethika L.W.S
+
 $("#b1").click(function() {
 	$('html, body').animate({
 		scrollTop : $("#section1").offset().top

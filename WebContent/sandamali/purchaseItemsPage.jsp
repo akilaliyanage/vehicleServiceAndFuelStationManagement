@@ -1,3 +1,5 @@
+<!-- IT19120058 -->
+<!-- Geethika L.W.S -->
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
@@ -45,8 +47,8 @@
 
 					</ul>
 					<ul class="info">
-						<li>{{member.price}}0</li>
-						<li style="text-decoration: line-through;" class="right-text">$195.00</li>
+						<li>LKR {{member.price}}</li>
+						<li style="text-decoration: line-through;" class="right-text">LKR {{member.price+200}}</li>
 
 					</ul>
 					<form>
@@ -84,7 +86,7 @@
 							aria-label="Close">
 							<span aria-hidden="true">&times;</span>
 						</button>
-						<h4 class="modal-title text-info" id="myModalLabel">Checkout
+						<h4 class="modal-title text-info" id="myModalLabel">My
 							Cart</h4>
 					</div>
 					<div class="modal-body">					

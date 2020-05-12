@@ -1,4 +1,6 @@
 package com.oop.packageModule.dao;
+//IT19120058
+//Geethika L.W.S
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -50,14 +52,11 @@ public class PackageExploreDaoImpl implements PackageExploreDao {
 	public ServicePackage updateServicePackage(ServicePackage servicePackage) {
 
 		Connection connection = DatabaseConnection.getConnection();
-		String sql = "UPDATE `package` SET "
-				+ "`adminRegNo`= '" + servicePackage.getAdminRegNo() 
-				+ "',`packType`= '" + servicePackage.getPackType() 
-				+ "' ,`packName`= '" + servicePackage.getPackName() 
-				+ "' ,`price`= '" + servicePackage.getPrice() 
-				+ "' ,`packDescription`= '" + servicePackage.getPackDescription()
-				+ "' ,`packImage`= '" + servicePackage.getPackImage()
-				+ "' WHERE `packId`= '" + servicePackage.getPackId() + "' ";
+		String sql = "UPDATE `package` SET " + "`adminRegNo`= '" + servicePackage.getAdminRegNo() + "',`packType`= '"
+				+ servicePackage.getPackType() + "' ,`packName`= '" + servicePackage.getPackName() + "' ,`price`= '"
+				+ servicePackage.getPrice() + "' ,`packDescription`= '" + servicePackage.getPackDescription()
+				+ "' ,`packImage`= '" + servicePackage.getPackImage() + "' WHERE `packId`= '"
+				+ servicePackage.getPackId() + "' ";
 		try {
 			PreparedStatement statement = connection.prepareStatement(sql);
 			statement.executeUpdate();

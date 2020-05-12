@@ -1,3 +1,6 @@
+//IT19120058
+//Geethika L.W.S
+
 var app = angular
 		.module("myModule", [])
 		.controller(
@@ -12,6 +15,14 @@ var app = angular
 					$scope.pimage = "";
 					$scope.qty = "";
 					$scope.cartTot = 0;
+					$scope.capacity = 250;
+					
+					$scope.rand = 10;
+
+					$scope.getRandomSpan = function(){
+						$scope.rand = $scope.rand + 50;
+						return $scope.rand;
+					}
 
 					refreshPage();
 
@@ -37,6 +48,7 @@ var app = angular
 
 					$scope.checkoutItems = function() {
 							var random = Math.random( );
+							if($scope.items.length > 0){
 							var content = JSON.stringify($scope.items);
 							console.log("########## " + content);
 							var data = $.param({
@@ -62,7 +74,9 @@ var app = angular
 												alert("Error. while creating user Try Again!");
 
 											});
-					
+							}else{
+								alert("Please add items to your cart before checkout");
+							}
 					};
 
 					$scope.SelectFile = function(e) {
