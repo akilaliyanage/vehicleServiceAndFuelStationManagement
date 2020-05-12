@@ -11,10 +11,7 @@ import java.util.ArrayList;
 import com.oop.database.DatabaseConnection;
 import com.oop.model.NewMechModel;
 
-/**
- * @author mlaki
- *
- */
+
 public class UpdateMechDAO {
 	
 	static Connection connection;

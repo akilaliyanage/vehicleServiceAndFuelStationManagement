@@ -169,7 +169,7 @@
                   <!-- Button trigger modal -->
                   <form action="UploadPhotoServlet" method="post" enctype="multipart/form-data">
                   	<input type="file" name="file" accept="image/jpg"/>
-                  	<button type="submit" class="btn btn-primary" data-toggle="modal" data-target="#fullHeightModalRight">
+                  	<button type="submit" class="btn btn-primary" data-toggle="modal" data-target="#fullHeightModalRight" onclick="success()">
                     Upload Profile Photo
                   </button>
                   </form>
@@ -204,7 +204,7 @@
  -->	
 	                    
 	
-    					<button class="btn btn-info btn-block" type="submit">Save</button>
+    					<button class="btn btn-info btn-block" type="submit" onclick="fuel()">Save</button>
     					
 					</form>
                 
@@ -299,7 +299,7 @@
                                     <div class="container-contact100-form-btn">
                                       <div class="wrap-contact100-form-btn">
                                         <div class="contact100-form-bgbtn"></div>
-                                        <button class="contact100-form-btn" type="submit">
+                                        <button class="contact100-form-btn" type="submit" onclick="update()">
                                           <span>
                                             Submit
                                             <i class="fa fa-long-arrow-right m-l-7" aria-hidden="true"></i>
@@ -598,6 +598,23 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
   <!--custom js-->
   <script src="js/akila/userProfile.js"></script>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  
+  
+  <script type="text/javascript">
+  
+  	function success() {
+  		swal("Good job!", "You have succesfully updated the user Profile image!", "success");
+	}
+  	
+  	function fuel() {
+  		swal("Good job!", "You have succesfully purchased fuel", "success");
+	}
+  	
+  	function update() {
+  		swal("Good job!", "Congratulations! user profile has been successfully updated", "success");
+	}
+  </script>
     <!--request table-->
     <script>
      $(document).ready(function () {

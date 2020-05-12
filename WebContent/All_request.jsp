@@ -277,7 +277,7 @@ IT No : IT19120362  -->
 						</div>
 
 						<div class="col-md-4 d-flex justify-content-center">
-							<input type="text" placeholder="User Name"
+							<input type="text" placeholder="Amount"
 								class="serch_in Text_val" name="Search_by_amount">
 						</div>
 

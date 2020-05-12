@@ -289,7 +289,7 @@ This page used JSTL
 							<div class="card-body">
 								<h5 class="card-title text-center" id="SelectedPackName"></h5>
 								<p class="card-text">
-								<p class="card-text" id="SelectedPackDescription"></p>
+								<p class="card-text" id="SelectedPackDescription" style="font-size: 12px"></p>
 
 								<div class="d-flex justify-content-center align-self-center">
 
@@ -302,7 +302,7 @@ This page used JSTL
 								alt="Card image cap" id="ServiceSelectionImg">
 							<div class="card-body">
 								<h5 class="card-title" id="SelectedServiceName"></h5>
-								<p class="card-text" id="SelectedServiceDescription"></p>
+								<p class="card-text" id="SelectedServiceDescription" style="font-size: 12px"></p>
 								<div class="d-flex justify-content-center align-self-center">
 
 								</div>
@@ -323,7 +323,7 @@ This page used JSTL
 									<i class="fab fa-maxcdn"></i> Model : CHR
 								</p>
 								<p class="card-text" id="Vehicle_Year_temperory">
-									<i class="far fa-calendar-alt"></i> Year : 2018
+									<i class="far fa-calendar-alt"></i> Year : 2011
 								</p>
 							</div>
 						</div>
@@ -335,11 +335,11 @@ This page used JSTL
 								<h5 class="card-title" >Your Time</h5>
 								<p class="card-text">
 								<p class="card-text" id="app_date_temperory">
-									<i class="far fa-calendar-alt"></i> 25-03-2020
+									<i class="far fa-calendar-alt"></i> 15-05-2020
 								</p>
 								<p class="card-text">
 								<p class="card-text" id="app_time_temperory">
-									<i class="far fa-clock"></i> 9.00
+									<i class="far fa-clock"></i> 10.00
 								</p>
 								<div class="d-flex justify-content-center align-self-center">
 
@@ -609,21 +609,21 @@ This page used JSTL
                                         <div class="md-form input-with-pre-icon">
                                             <i class="fas fa-car-alt input-prefix"></i>
                                             <input type="text" id="Vehicle_Nosa" class="form-control"
-                                            name="vehi_No" value="" required>
+                                            name="vehi_No" value="" required  autocomplete="on">
                                             <label for="Vehicle_Nosa">Vehicle No</label>
                                         </div>
 
                                         <div class="md-form input-with-pre-icon">
                                             <i class="fab fa-bootstrap input-prefix"></i>
                                             <input type="text" id="Vehicle_brand" class="form-control" required
-                                                name="brand" placeholder="" required value="">
+                                                name="brand" placeholder="" required value=""  autocomplete="on">
                                             <label for="Vehicle_brand">Vehicle Brand </label>
                                         </div>
 
                                         <div class="md-form input-with-pre-icon">
                                             <i class="fab fa-medium-m input-prefix"></i>
                                             <input type="text" id="Vehicle_model" class="form-control" required
-                                                name="model" placeholder="" name="Model" value="">
+                                                name="model" placeholder="" name="Model" value=""  autocomplete="on">
                                             <label for="Vehicle_model">Vehicle Model </label>
                                         </div>
                                         
@@ -632,7 +632,7 @@ This page used JSTL
                                         <div class="md-form input-with-pre-icon">
                                             <i class="far fa-calendar-alt input-prefix"></i>
                                             <input type="text" id="Vehicle_year" class="form-control" required
-                                                name="year" placeholder="" name="year" required value="">
+                                                name="year" placeholder="" name="year" required value=""  autocomplete="on">
                                             <label for="Vehicle_year">Manufactured Year </label>
                                         </div>
                                         

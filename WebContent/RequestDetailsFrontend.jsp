@@ -206,7 +206,7 @@ IT No : IT19120362  -->
                         </div>
 
                         <button type="button" class="btn btn-lg btn-block btn-primary ml-0" data-toggle="modal"
-                            data-target="#Edit_requestModel">EditRequest
+                            data-target="#Edit_requestModel">Edit Request
                         </button>
                         <button type="button" class="btn btn-lg btn-block btn-warning ml-0" data-toggle="modal" 
                             data-target="#ContactUsModal">Contact Us
@@ -395,19 +395,19 @@ IT No : IT19120362  -->
                                     
                                     <div class="form-group col-md-3 ml-4">
                                         <label for="inputState"><i class="fab fa-bootstrap grey-text fa-2x"></i> Brand</label>
-                                        <input id="inputState" class="form-control ml-3" name="Edit_brand">
+                                        <input id="inputState" class="form-control ml-3" name="Edit_brand" value="<%=Vehicle.getBrand()%>">
                                     </div>     
                                         
                                     <div class="form-group col-md-3 ml-4">
                                         <label for="inputState"> <i class="fab fa-medium-m grey-text fa-2x"></i> Model</label>
-                                        <input id="inputState" class="form-control ml-3" name = "Edit_model">
+                                        <input id="inputState" class="form-control ml-3" name = "Edit_model" value="<%=Vehicle.getModel()%>">
                                             
                                     </div>
 
                                     <div class="form-group col-md-3 ml-4">
                                         <label for="inputState"> <i class="fas fa-cogs grey-text fa-2x"></i> Transmission</label>
                                         <select id="inputState" class="form-control ml-3" name="Edit_transmission">
-                                            <option selected>Choose...</option>
+                                            <option selected><%=Vehicle.getTransmission()%></option>
                                             <option value="Auto">Auto</option>
                                             <option value="Manual">Manual</option>
                                             <option value="Tiptronic">Tiptronic</option>
@@ -417,7 +417,7 @@ IT No : IT19120362  -->
                                     <div class="form-group col-md-3 ml-4">
                                         <label for="inputState"> <i class="fas fa-gas-pump grey-text fa-2x"></i> fuel type</label>
                                         <select id="inputState" class="form-control ml-3" name="Edit_fuel">
-                                            <option selected disabled="disabled">Choose...</option>
+                                            <option selected disabled="disabled"><%=Vehicle.getTransmission()%></option>
                                             <option>Petrol</option>
                                             <option>Diesel</option>
                                             <option>Gasoline</option>

@@ -53,6 +53,11 @@ public class FuelDisServlet extends HttpServlet {
 			//System.out.println(result);
 			
 			if (result == 1) {
+				try {
+					Thread.sleep(2000);
+				} catch (Exception e) {
+					// TODO: handle exception
+				}
 				response.sendRedirect("UpdateUserDashboard");
 			}
 			

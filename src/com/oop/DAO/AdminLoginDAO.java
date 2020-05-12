@@ -14,10 +14,7 @@ import com.oop.database.DatabaseConnection;
 import com.oop.model.LoginAdminModel;
 import com.oop.servlet.AdminLoginServlet;
 
-/**
- * @author mlaki
- *
- */
+
 public class AdminLoginDAO {
 	
 	/** Initialize logger */

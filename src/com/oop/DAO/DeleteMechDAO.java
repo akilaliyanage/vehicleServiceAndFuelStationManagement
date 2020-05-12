@@ -11,10 +11,7 @@ import java.util.logging.Logger;
 import com.oop.database.DatabaseConnection;
 import com.oop.servlet.AdminLoginServlet;
 
-/**
- * @author mlaki
- *
- */
+
 public class DeleteMechDAO {
 	
 	/** Initialize logger */
