@@ -1,6 +1,7 @@
 package com.oop.servlet;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -32,7 +33,8 @@ public class UserDelServlet extends HttpServlet {
 			int result = userDAO.removeUser(userString);
 			
 			if(result == 1) {
-				
+				PrintWriter writer = response.getWriter();
+				writer.println("<html><body><script> alert('success'); </sctipt></body></html>");
 				try {
 					Thread.sleep(2000);
 				} catch (Exception e) {
