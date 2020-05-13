@@ -43,7 +43,8 @@ public  class UpdateUserImageDAO {
 			
 			System.out.println(status);
 			
-			//logger and exceptions
+			//logger and exception handling
+			
 		} catch (SQLException e) {
 			// TODO: handle exception
 			LOGGER.log(Level.SEVERE,e.getMessage());
