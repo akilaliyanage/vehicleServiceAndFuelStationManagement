@@ -33,7 +33,7 @@ public  class UpdateUserImageDAO {
 		
 		
 		try {
-			
+			//sql connection
 			connection = DatabaseConnection.getConnection();
 			pStatement = connection.prepareStatement("update User set userImage = ? where regNo = ?");
 			pStatement.setString(1, imgPathString);
@@ -43,6 +43,7 @@ public  class UpdateUserImageDAO {
 			
 			System.out.println(status);
 			
+			//logger and exceptions
 		} catch (SQLException e) {
 			// TODO: handle exception
 			LOGGER.log(Level.SEVERE,e.getMessage());
