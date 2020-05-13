@@ -20,13 +20,14 @@ public class ItemDaoImpl implements ItemDao {
 	@Override
 	public List<Item> getAllItems() {
 		Connection connection = DatabaseConnection.getConnection();
-		String sql = "SELECT * FROM `item`";
+		String sql = "SELECT * FROM `item`"; //Select query to select al items from item table
 		List<Item> items = new ArrayList<>();
 
 		try {
+			//passing the query string to a prepared statement
 			PreparedStatement statement = connection.prepareStatement(sql);
-			ResultSet result = statement.executeQuery(sql);
-			items = getItems(result);
+			ResultSet result = statement.executeQuery(sql);//execute the query and retrieve the result set
+			items = getItems(result);// function call to map all the rows to objects and add to list of item objects
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
@@ -41,10 +42,10 @@ public class ItemDaoImpl implements ItemDao {
 		return items;
 	}
 
-	private List<Item> getItems(ResultSet result) {
+	private List<Item> getItems(ResultSet result) {// function which map all the rows to objects and add to list of item objects
 		List<Item> items = new ArrayList<>();
 		try {
-			while (result.next()) {
+			while (result.next()) {// loop through the results and map each rows to objects
 				Item item = new Item();
 				item.setItemId(result.getString("itemId"));
 				item.setItemImage(result.getString("itemImage"));
@@ -62,11 +63,12 @@ public class ItemDaoImpl implements ItemDao {
 
 	@Override
 	public void savePurchasedItems(RegUserItem userItem) {
-		Connection connection = DatabaseConnection.getConnection();
+		Connection connection = DatabaseConnection.getConnection();//get database connection
+		//Sql insert query to save items in the reguser_item table
 		String sql = "INSERT INTO `reguser_item`(`itemId`, `custId`, `cartNo`, `qty`) VALUES (?,?,?,?)";
-		try {
+		try {//pass the query string to the prepared statement
 			PreparedStatement statement = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
-			statement.setString(1, userItem.getItemId());
+			statement.setString(1, userItem.getItemId());//set query parameters to the prepared statement
 			statement.setString(2, userItem.getCustId());
 			statement.setString(3, userItem.getCartNo());
 			statement.setInt(4, userItem.getQuantity());

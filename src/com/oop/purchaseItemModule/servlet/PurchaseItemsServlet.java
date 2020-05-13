@@ -29,7 +29,7 @@ import com.oop.purchaseItemModule.service.ItemServiceImpl;
 /**
  * Servlet implementation class PurchaseItemsServlet
  */
-@WebServlet("/PurchaseItemsServlet")
+@WebServlet("/PurchaseItemsServlet")//URL mapping to access the servlet
 public class PurchaseItemsServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	ItemService itemService = new ItemServiceImpl();
@@ -45,6 +45,7 @@ public class PurchaseItemsServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
 	 *      response)
 	 */
+	//HTTP GET method to serve the GET requests comes through this servlet 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		if (("getall").equalsIgnoreCase(request.getParameter("id"))) {
@@ -65,6 +66,7 @@ public class PurchaseItemsServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
 	 *      response)
 	 */
+	//HTTP POST method to serve the POST requests comes through this servlet 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException {
 		List<RegUserItem> userItems = new ArrayList<RegUserItem>();
 		String user = (String) request.getSession().getAttribute("regno");
@@ -72,6 +74,9 @@ public class PurchaseItemsServlet extends HttpServlet {
 		String cartNo = request.getParameter("cartNo");
 		request.getSession().setAttribute("cartNo", cartNo);
 		ObjectMapper mapper = new ObjectMapper();
+		
+		//Read Cart items sent from the front end and loop through each objects using a 
+		//for loop to create separate cart items objects to save in the database
 		List<CartItem> items = Arrays.asList(mapper.readValue(packageData, CartItem[].class));
 		for (CartItem cartItem : items) {
 			RegUserItem userItem = new RegUserItem();

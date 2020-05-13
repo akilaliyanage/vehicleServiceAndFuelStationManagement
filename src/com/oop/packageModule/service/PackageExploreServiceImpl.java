@@ -11,9 +11,10 @@ import com.oop.packageModule.model.ServicePackage;
 
 public class PackageExploreServiceImpl implements PackageExploreService {
 
+	//Create Package Explorer DAO instance to access methods implemented in it.
 	PackageExploreDao packageExploreDao = new PackageExploreDaoImpl();
 
-	@Override
+	@Override //call each methods implemented in the DAO class from the service class
 	public int addServicePackage(ServicePackage servicePackage) {
 		return packageExploreDao.addServicePackage(servicePackage);
 	}

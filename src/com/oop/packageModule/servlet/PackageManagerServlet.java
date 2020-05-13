@@ -22,7 +22,7 @@ import com.oop.packageModule.service.PackageExploreServiceImpl;
 /**
  * Servlet implementation class PackageManageServlet
  */
-@WebServlet("/PackageManagerServlet")
+@WebServlet("/PackageManagerServlet")//Servlet URL Mapping
 public class PackageManagerServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	PackageExploreService packageExploreService = new PackageExploreServiceImpl();
@@ -39,14 +39,16 @@ public class PackageManagerServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
 	 *      response)
 	 */
+	//HTTP Getter method to Serve the GET Requests which are coming through this servlet
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException {
 		if (("getall").equalsIgnoreCase(request.getParameter("id"))) {
 			Gson gson = new Gson();
-			String employeeJsonString = gson.toJson(packageExploreService.getAllServicePackagesS());
+			//Retriveve all the Service packages from the database and set to the response
+			String packagesJsonString = gson.toJson(packageExploreService.getAllServicePackagesS());
 			PrintWriter out = response.getWriter();
 			response.setContentType("application/json");
 			response.setCharacterEncoding("UTF-8");
-			out.print(employeeJsonString);
+			out.print(packagesJsonString);
 			out.flush();
 		} else {
 			request.setAttribute("Massage", "Hello");
@@ -59,18 +61,19 @@ public class PackageManagerServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
 	 *      response)
 	 */
+	//HTTP POST method to Serve the POST Requests which are coming through this servlet
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException {
-		String packageData = request.getParameter("package_info");
-		String method = request.getParameter("method");
+		String packageData = request.getParameter("package_info");//get package details from the requset and asign to the package data variable
+		String method = request.getParameter("method");//read the request method from the request through a parameter and assign it to a variable
 		//request.getSession().getAttribute("regno");
-		try {
+		try {//Read Package details and map the data to the corresponding Package entity object through the Object Mapper 
 			ServicePackage servicePackage = (ServicePackage) new ObjectMapper().readValue(packageData,ServicePackage.class);
 			if(("save").equalsIgnoreCase(method)) {
-				packageExploreService.addServicePackage(servicePackage);	
+				packageExploreService.addServicePackage(servicePackage);	//Save package details
 			}else if(("update").equalsIgnoreCase(method)) {
-				packageExploreService.updateServicePackage(servicePackage);
+				packageExploreService.updateServicePackage(servicePackage); //Update package details
 			}else if(("delete").equalsIgnoreCase(method)) {
-				packageExploreService.removeServicePackage(servicePackage.getPackId());
+				packageExploreService.removeServicePackage(servicePackage.getPackId()); // Delete package details
 			}
 			
 		} catch (JsonMappingException e) {

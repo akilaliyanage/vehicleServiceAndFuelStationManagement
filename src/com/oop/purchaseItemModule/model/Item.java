@@ -9,7 +9,7 @@ import javax.persistence.Entity;
 @Entity
 public class Item {
 
-	private String itemId;
+	private String itemId; // private attributes or the instance variables declared
 	private String itemname;
 	private String itemType;
 	private float quantity;
@@ -17,11 +17,11 @@ public class Item {
 	private String itemImage;
 
 	@Column(name = "packId", unique = true, nullable = false)
-	public String getItemId() {
+	public String getItemId() {// getter methods to access the instance variables
 		return itemId;
 	}
 
-	public void setItemId(String itemId) {
+	public void setItemId(String itemId) {//setter methods to set values to instance variables
 		this.itemId = itemId;
 	}
 

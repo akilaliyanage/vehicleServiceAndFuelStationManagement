@@ -6,7 +6,7 @@ import javax.persistence.Entity;
 
 @Entity
 public class ServicePackage {
-	private String packId;
+	private String packId;	//private attributes
 	private String adminRegNo;
 	private String packType;
 	private String packName;
@@ -14,9 +14,10 @@ public class ServicePackage {
 	private String packDescription;
 	private String packImage;
 
-	public ServicePackage() {
+	public ServicePackage() {//default constructor
 	}
 
+	//parameterised Constructor
 	public ServicePackage(String packId, String adminRegNo, String packType, String packName, float price,
 			String packDescription) {
 		this.packId = packId;
@@ -27,12 +28,12 @@ public class ServicePackage {
 		this.packDescription = packDescription;
 	}
 
-	@Column(name = "packId", unique = true, nullable = false)
+	@Column(name = "packId", unique = true, nullable = false) //Getters
 	public String getPackId() {
 		return packId;
 	}
 
-	public void setPackId(String packId) {
+	public void setPackId(String packId) { //Setters
 		this.packId = packId;
 	}
 
@@ -91,7 +92,7 @@ public class ServicePackage {
 	}
 
 	@Override
-	public String toString() {
+	public String toString() {//overridden toString Method to this class
 		return "ServicePackage [packId=" + packId + ", adminRegNo=" + adminRegNo + ", packType=" + packType
 				+ ", packName=" + packName + ", price=" + price + ", packDescription=" + packDescription
 				+ ", packImage=" + packImage + "]";

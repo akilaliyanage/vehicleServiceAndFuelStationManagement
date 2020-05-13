@@ -15,12 +15,12 @@ public class ItemServiceImpl implements ItemService {
 	ItemDao itemdao = new ItemDaoImpl();
 
 	@Override
-	public List<Item> getAllItems() {
+	public List<Item> getAllItems() {//Service Function implementation to retrieve all the items from the dao class function
 		return itemdao.getAllItems();
 	}
 
 	@Override
-	public void savePurchasedItems(List<RegUserItem> userItems) {
+	public void savePurchasedItems(List<RegUserItem> userItems) { //Service Function implementation to save all the purchased items through the dao class function
 		for (RegUserItem regUserItem : userItems) {
 			itemdao.savePurchasedItems(regUserItem);
 		}

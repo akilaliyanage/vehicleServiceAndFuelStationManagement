@@ -21,9 +21,11 @@ import com.oop.packageModule.service.PackageExploreServiceImpl;
 /**
  * Servlet implementation class PackageExploreServlet
  */
-@WebServlet("/PackageExplore")
+@WebServlet("/PackageExplore")// Servlet URL Mapping
 public class PackageExploreServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	
+	//Created an instance of PackageExploreService to access the methods in it
 	PackageExploreService packageExploreService = new PackageExploreServiceImpl();
 
 	/**
@@ -38,17 +40,13 @@ public class PackageExploreServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
 	 *      response)
 	 */
+	//Do Get Method to manage and serve all the HTTP GET request comes to the servlet
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		String id = request.getParameter("id");
-		ServicePackage servicePackage = packageExploreService.getServicePackageById(id);
-		List<ServicePackage> packages =  packageExploreService.getAllServicePackagesS(); 
-		JSONObject object=new JSONObject();
-		object.put("name","simerpreet");
-		object.put("mark1",new Integer(100));
-		object.put("mark2",new Double(40));
-		object.put("Scored",new Double(66.67));
-		object.put("nickname","simer");
+		String id = request.getParameter("id");//Read a parameter sent through in the request
+		ServicePackage servicePackage = packageExploreService.getServicePackageById(id); //Retrieve a Service Package using its ID
+		List<ServicePackage> packages =  packageExploreService.getAllServicePackagesS(); //Retrieve all the service packages
+		JSONObject object=new JSONObject();// Initialize a JSON object to use in the front end
 
 		String output=object.toString();
 		request.setAttribute("servicePackage",servicePackage);

@@ -4,17 +4,17 @@ package com.oop.purchaseItemModule.model;
 //Geethika L.W.S
 
 public class RegUserItem {
-	private String itemId;
+	private String itemId; // private attributes or the instance variables declared
 	private int quantity;
 	private double totPrice;
 	private String cartNo;
 	private String custId;
 
-	public String getItemId() {
+	public String getItemId() { // getter methods to access the instance variables
 		return itemId;
 	}
 
-	public void setItemId(String itemId) {
+	public void setItemId(String itemId) {//setter methods to set values to instance variables
 		this.itemId = itemId;
 	}
 

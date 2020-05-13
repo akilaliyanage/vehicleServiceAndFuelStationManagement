@@ -9,7 +9,7 @@ import com.oop.purchaseItemModule.model.Item;
 import com.oop.purchaseItemModule.model.RegUserItem;
 
 public interface ItemService {
-	public List<Item> getAllItems();
+	public List<Item> getAllItems();//Retrieve all items Service Function definition
 
-	public void savePurchasedItems(List<RegUserItem> userItems);
+	public void savePurchasedItems(List<RegUserItem> userItems);//Save purchased items Service Function definition
 }
