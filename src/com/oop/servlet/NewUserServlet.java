@@ -46,19 +46,19 @@ public class NewUserServlet extends HttpServlet {
 		try {
 			
 			RandomString randonString = new RandomString();		//this random string method will create alphanumeric values of 7 digits which will be used as the ID
-			newUserRegNoString = "REG" + randonString.getAlphaNumericString();
-			NewUserModel newUserModelObject = new NewUserModel(newUsernameString,newUsweEailString,newUserPasswordString,newUserRegNoString);
-			NewUserDAO newUserDAOObject = new NewUserDAO();
+			newUserRegNoString = "REG" + randonString.getAlphaNumericString();	//concatinates the random number with the prefix
+			NewUserModel newUserModelObject = new NewUserModel(newUsernameString,newUsweEailString,newUserPasswordString,newUserRegNoString);	//passing parameters to the uder model object
+			NewUserDAO newUserDAOObject = new NewUserDAO();	//creation of the DAO object of the new user
 			
 			status = newUserDAOObject.insertdata(newUserModelObject);
 			
-			if(status == 1) {
+			if(status == 1) {	//setting the session variables
 				HttpSession session = request.getSession();
 				session.setAttribute("regno", newUserModelObject.getUserregNoString());
 				response.sendRedirect("HomePageRedirectServlet");		
 			}
 			
-		} 
+		} 	//exception handling
 		catch (IOException ex) {
 			// TODO: handle exception
 			LOGGER.log(Level.SEVERE, ex.getMessage());

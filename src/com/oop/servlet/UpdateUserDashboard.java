@@ -88,10 +88,11 @@ public class UpdateUserDashboard extends HttpServlet {
 				ArrayList<String> idArrayList = userMethods.disId();
 				request.setAttribute("dis", idArrayList);
 				
+				//fetching the purchase details
 				ArrayList<PurchaseFuelModel> returnPurchase = userMethods.returnPurchase(regNoString);
 				request.setAttribute("usage", returnPurchase);
 				
-				
+				//redirecting to the userprofile page
 				RequestDispatcher requestDispatcher = request.getRequestDispatcher("userProfile.jsp");
 				requestDispatcher.forward(request, response);
 				

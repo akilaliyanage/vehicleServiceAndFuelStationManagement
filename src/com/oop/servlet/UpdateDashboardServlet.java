@@ -65,7 +65,7 @@ public class UpdateDashboardServlet extends HttpServlet {
 			int totApps = dashbordMethods.totApps();
 			request.setAttribute("apps", totApps);
 			
-			
+			//getting the total paid amount
 			int totPay = dashbordMethods.totPay();
 			request.setAttribute("totpay", totPay);
 			
@@ -93,11 +93,11 @@ public class UpdateDashboardServlet extends HttpServlet {
 			ArrayList<PurchaseFuelModel> usageArrayList = dashbordMethods.adminusageArrayList();
 			request.setAttribute("usage", usageArrayList);
 			
-			
+			//redirection to the dashboard.jsp
 			RequestDispatcher requestDispatcher = request.getRequestDispatcher("dashboard.jsp");
 			requestDispatcher.forward(request, response);
 			
-		} 
+		} //exception handling
 		catch (IOException ex) {
 			// TODO: handle exception
 			LOGGER.log(Level.SEVERE, ex.getMessage());

@@ -31,17 +31,17 @@ public class LoginDao {
 		
 		try {
 			
-
+			//sql connection establishment
 			connection = DatabaseConnection.getConnection();
 			pStatement = connection.prepareStatement("SELECT username,userPassword,regNo FROM vehicleserviceandfuelstationmanagement.user where userName = ? and userPassword = ? and regNo like 'REG%'");
 			pStatement.setString(1, unameString);
 			pStatement.setString(2, passString);
 			Statement st = connection.createStatement();
 			
-			ResultSet resultSet =  pStatement.executeQuery();
+			ResultSet resultSet =  pStatement.executeQuery();	//fetching the data from the db
 			
 			while (resultSet.next()) {
-				
+				//setting the values fetched from the db to the loginmodel object
 				loginModel.setUsernameString(resultSet.getString("userName"));
 				loginModel.setPassworString(resultSet.getString("userPassword"));
 				loginModel.setRegNoString(resultSet.getString("regNo"));
@@ -49,7 +49,7 @@ public class LoginDao {
 			}
 			
 			
-		} 
+		} //exception handling
 		catch (SQLException e) {
 			// TODO: handle exception
 			LOGGER.log(Level.SEVERE, e.getMessage());

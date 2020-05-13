@@ -21,14 +21,14 @@ public class DeleteUserDAO {
 		int rslt = 0;
 		
 		try {
-			
+				//initialization of the database connection
 			connection = DatabaseConnection.getConnection();
 			preparedStatement = connection.prepareStatement("DELETE FROM `vehicleserviceandfuelstationmanagement`.`user` WHERE (`regNo` = ?)");
 			preparedStatement.setString(1, regnoString);
 			
 			rslt = preparedStatement.executeUpdate();
 			
-		} 
+		} //exception handling
 		catch (SQLException e) {
 			// TODO: handle exception
 			LOGGER.log(Level.SEVERE, e.getMessage());

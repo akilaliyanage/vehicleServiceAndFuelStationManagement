@@ -24,6 +24,7 @@ public class PurchaseFuelDAO {
 		int result = 0;
 		
 		try {
+			//sql connection
 			connection = DatabaseConnection.getConnection();
 			preparedStatement = connection.prepareStatement("INSERT INTO `vehicleserviceandfuelstationmanagement`.`user_dispenser` (`dispenserId`, `userId`, `amount`, `PurchaseID`) VALUES (?, ?, ?, ?)");
 			preparedStatement.setString(1, fuelModel.getDisidString());
@@ -36,7 +37,7 @@ public class PurchaseFuelDAO {
 			
 			
 			
-		} 
+		} //exception handling and loggers
 		catch (SQLException e) {
 			// TODO: handle exception
 			LOGGER.log(Level.SEVERE,e.getMessage());

@@ -28,9 +28,9 @@ public class UserDelServlet extends HttpServlet {
 		
 		try {
 			
-			DeleteUserDAO userDAO = new DeleteUserDAO();
+			DeleteUserDAO userDAO = new DeleteUserDAO();	//object creation of the DEL DAO class
 			
-			int result = userDAO.removeUser(userString);
+			int result = userDAO.removeUser(userString);	//passing the parameter to the remove user method and getting the results
 			
 			if(result == 1) {
 				PrintWriter writer = response.getWriter();
@@ -44,7 +44,7 @@ public class UserDelServlet extends HttpServlet {
 				response.sendRedirect("UpdateDashboardServlet");
 			}
 			
-		} 
+		} //exception handling
 		catch (IOException e) {
 			// TODO: handle exception
 			LOGGER.log(Level.SEVERE,e.getMessage());

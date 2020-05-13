@@ -118,6 +118,7 @@ public class UpdateDashboardImplDAO implements IUpdateDashboardDAO {
 
 
 
+		//get the total income
 		@Override
 		public int paidAmm() {
 			int paid = 0;
@@ -148,6 +149,8 @@ public class UpdateDashboardImplDAO implements IUpdateDashboardDAO {
 		}
 
 
+		
+		//get the total income
 
 		@Override
 		public int pendingAmm() {
@@ -182,7 +185,7 @@ public class UpdateDashboardImplDAO implements IUpdateDashboardDAO {
 
 
 
-
+		//get the total appointments and return
 		@Override
 		public int totApps() {
 			
@@ -216,7 +219,7 @@ public class UpdateDashboardImplDAO implements IUpdateDashboardDAO {
 		}
 
 
-
+		//fetch and return the total paid amount
 		@Override
 		public int totPay() {
 	
@@ -249,7 +252,7 @@ public class UpdateDashboardImplDAO implements IUpdateDashboardDAO {
 		}
 
 
-
+		//fetch and return the total number of packages
 		@Override
 		public int totPack() {
 			
@@ -283,7 +286,7 @@ public class UpdateDashboardImplDAO implements IUpdateDashboardDAO {
 		}
 
 
-
+		//fetch and return the request details of the requests as a array list
 		@Override
 		public ArrayList<RequestModel> req() {
 			
@@ -318,6 +321,7 @@ public class UpdateDashboardImplDAO implements IUpdateDashboardDAO {
 		}
 
 
+		//fetch and return the paymnt details as a array list
 
 		@Override
 		public ArrayList<DashboardPaymentsDAO> pay() {
@@ -360,7 +364,7 @@ public class UpdateDashboardImplDAO implements IUpdateDashboardDAO {
 		}
 
 
-
+		//fetch and return mechanicle details as a array list
 		@Override
 		public ArrayList<NewMechModel> mech() {
 		
@@ -403,7 +407,7 @@ public class UpdateDashboardImplDAO implements IUpdateDashboardDAO {
 		}
 
 
-
+		//fetch and return user details as a array list
 		@Override
 		public ArrayList<UpdateUserModel> user() {
 
@@ -443,7 +447,7 @@ public class UpdateDashboardImplDAO implements IUpdateDashboardDAO {
 		}
 
 
-
+		//fetch and return fuel details as a array list
 		@Override
 		public ArrayList<PurchaseFuelModel> adminusageArrayList() {
 			// TODO Auto-generated method stub

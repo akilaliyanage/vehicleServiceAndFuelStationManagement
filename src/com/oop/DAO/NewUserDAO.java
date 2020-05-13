@@ -33,6 +33,7 @@ public class NewUserDAO {
 		
 		try {
 			
+			//sql connection
 			connection = DatabaseConnection.getConnection();
 			pStatement = connection.prepareStatement("insert into vehicleserviceandfuelstationmanagement.User(regNo,userName,userPassword,userEmail) values(?,?,?,?)");
 			pStatement2 = connection.prepareStatement("insert into registeredCustomer(customerRegId) values(?)");
@@ -42,6 +43,8 @@ public class NewUserDAO {
 			pStatement.setString(3, newUser.getPasswordString());
 			pStatement.setString(4, newUser.getEmailString());
 			
+			
+			//executing the sql updates
 			status = pStatement.executeUpdate();
 			status2 = pStatement2.executeUpdate();
 			
@@ -50,7 +53,7 @@ public class NewUserDAO {
 			connection.close();
 			
 			
-		} 
+		} //exception handlings
 		catch (SQLException e) {
 			// TODO: handle exception
 			LOGGER.log(Level.SEVERE,e.getMessage());

@@ -32,7 +32,7 @@ public class UpdateUserDAO {
 		int status = 0;
 
 		try {
-			
+			//sql connection
 
 			connection = DatabaseConnection.getConnection();
 			pStatement = connection.prepareStatement(
@@ -54,7 +54,7 @@ public class UpdateUserDAO {
 
 			//connection.close();
 
-		} 
+		} //exception handling and loggers
 		catch (SQLException e) {
 			// TODO: handle exception
 			LOGGER.log(Level.SEVERE,e.getMessage());
